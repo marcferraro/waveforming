@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import overlapInterface from '../overlapInterface.css'
+import '../overlapInterface.css'
 import Paper from '@material-ui/core/Paper';
 // import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
