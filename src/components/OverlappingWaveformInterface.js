@@ -2,7 +2,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import overlapInterface from '../overlapInterface.css'
 import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
+// import Checkbox from '@material-ui/core/Checkbox';
+import Switch from '@material-ui/core/Switch';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
@@ -34,10 +35,22 @@ export default function OverlappingWaveformInterface(){
                 <Grid item xs={12}>
                     <Paper>
                         <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1}>
-                            <FormGroup>
+                            <FormGroup >
                                 <FormControlLabel
-                                    control={<Checkbox />}
-                                    label="Share Sample?"
+                                    control={<Switch 
+                                        // checked={state.checkedB}
+                                        onChange={() => console.log("switch!")}
+                                        name="periodic switch"
+                                        color="primary"/>}
+                                    label="Periodic Input"
+                                />
+                                <FormControlLabel
+                                    control={<Switch 
+                                    // checked={state.checkedB}
+                                    onChange={() => console.log("switch!")}
+                                    name="periodic switch"
+                                    color="primary"/>}
+                                    label="Periodic Output"
                                 />
                             </FormGroup>
                         </Grid>
