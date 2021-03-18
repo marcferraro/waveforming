@@ -78,6 +78,7 @@ export default function OverlappingWaveformInterface(){
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="ground-input">Ground</InputLabel>
                                     <Grid item xs>
+                                        <Slider defaultValue={30} onChange={() => console.log("slider!")} aria-labelledby="continuous-slider" />
                                     </Grid>
                                     <FormHelperText>?</FormHelperText>
                                 </FormControl>
@@ -91,7 +92,7 @@ export default function OverlappingWaveformInterface(){
                                 />
                                 <FormControlLabel
                                     control={<Switch 
-                                        // checked={state.checkedB}
+                                    // checked={state.checkedB}
                                     onChange={() => console.log("switch!")}
                                     name="periodic switch"
                                     color="primary"/>}
@@ -102,7 +103,6 @@ export default function OverlappingWaveformInterface(){
                     </Paper>
                 </Grid>
             </Grid>
-                                    <Slider defaultValue={30} onChange={() => console.log("slider!")} aria-labelledby="continuous-slider" />
         </div>
     )
 }
