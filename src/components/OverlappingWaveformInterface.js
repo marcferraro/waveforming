@@ -2,6 +2,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import overlapInterface from '../overlapInterface.css'
 import Paper from '@material-ui/core/Paper';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,7 +34,12 @@ export default function OverlappingWaveformInterface(){
                 <Grid item xs={12}>
                     <Paper>
                         <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1}>
-                            buttons and attributes n stuff
+                            <FormGroup>
+                                <FormControlLabel
+                                    control={<Checkbox />}
+                                    label="Share Sample?"
+                                />
+                            </FormGroup>
                         </Grid>
                     </Paper>
                 </Grid>
@@ -39,3 +47,5 @@ export default function OverlappingWaveformInterface(){
         </div>
     )
 }
+
+// checked={shared} onChange={() => setShared(!shared)} name="share-sample" 
