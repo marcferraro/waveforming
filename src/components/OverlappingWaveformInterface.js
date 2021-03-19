@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormGroup, FormControlLabel, FormHelperText, InputLabel, Slider } from '@material-ui/core';
+import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, FormHelperText, InputLabel, TextField } from '@material-ui/core';
 // import Paper from '@material-ui/core/Paper';
 // import Checkbox from '@material-ui/core/Checkbox';
 // import Switch from '@material-ui/core/Switch';
@@ -10,7 +10,8 @@ import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormGroup, FormCont
 // import InputLabel from '@material-ui/core/InputLabel';
 // import MenuItem from '@material-ui/core/MenuItem';
 // import FormControl from '@material-ui/core/FormControl';
-
+// import Add from '@material-ui/icons/Add';
+// import Remove from '@material-ui/icons/Remove';
 import '../overlapInterface.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function OverlappingWaveformInterface(){
+function OverlappingWaveformInterface(){
     const classes = useStyles();
     
     return(
@@ -75,12 +76,23 @@ export default function OverlappingWaveformInterface(){
                                     </Select>
                                     <FormHelperText>?</FormHelperText>
                                 </FormControl>
-                                <FormControl className={classes.formControl}>
+                                <FormControl>
+                                    <TextField onChange={() => console.log("text!")} id="outlined-basic" label="Ground" variant="outlined" />
+                                {/* <FormControl className={classes.formControl}>
                                     <InputLabel id="ground-input">Ground</InputLabel>
-                                    <Grid item xs>
-                                        <Slider defaultValue={30} onChange={() => console.log("slider!")} aria-labelledby="continuous-slider" />
+                                    <Grid container spacing={6}>
+                                        <Grid item>
+                                            <Remove />
+                                        </Grid>
+                                        <Grid item xs>
+                                            <Slider defaultValue={1} onChange={() => console.log("slider!")} aria-labelledby="continuous-slider" />
+                                        </Grid>
+                                        <Grid item>
+                                            <Add />
+                                        </Grid>
                                     </Grid>
-                                    <FormHelperText>?</FormHelperText>
+                                </FormControl> */}
+                                <FormHelperText>?</FormHelperText>
                                 </FormControl>
                                 <FormControlLabel
                                     control={<Switch 
@@ -106,5 +118,7 @@ export default function OverlappingWaveformInterface(){
         </div>
     )
 }
+
+export default OverlappingWaveformInterface
 
 // checked={shared} onChange={() => setShared(!shared)} name="share-sample" 
