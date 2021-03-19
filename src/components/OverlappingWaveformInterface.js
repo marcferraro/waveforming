@@ -28,7 +28,7 @@ function OverlappingWaveformInterface(){
     
     return(
         <div>
-            <Grid container className={classes.root} spacing={2}>
+            <Grid container className={classes.root} spacing={6}>
                 <Grid item xs={12}>
                     <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1} >
                         <Grid item>

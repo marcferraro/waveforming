@@ -8,8 +8,12 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Avatar from '@material-ui/core/Avatar';
+import { Grid } from '@material-ui/core';
+import komet from '../images/komet.jpeg'
 
-const drawerWidth = 200;
+
+const drawerWidth = 180;
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,7 +39,7 @@ export default function Navbar(){
 
     return(
         <div className={classes.root}>
-            <CssBaseline />
+            {/* <CssBaseline /> */}
             <Drawer
                 className={classes.drawer}
                 classes={{
@@ -44,10 +48,13 @@ export default function Navbar(){
                 variant="permanent"
                 anchor="left"
             >
+            <Grid container justify="center">
+                <Avatar alt="Remy Sharp" src={komet} />
+            </Grid>
             <Divider />
             <div className={classes.toolbar} />
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                {['Dashboard', 'New Generation', 'Collection', 'How To'].map((text, index) => (
                 <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                 <ListItemText primary={text} />
