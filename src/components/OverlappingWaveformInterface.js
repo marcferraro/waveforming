@@ -14,7 +14,7 @@ import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, F
 // import Remove from '@material-ui/icons/Remove';
 import '../overlapInterface.css'
 import { OverlappingModel } from 'wavefunctioncollapse'
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import testImg from './flower.png'
 
 // console.log(OverlappingModel)
@@ -80,12 +80,28 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function OverlappingWaveformInterface(){
+
+    const [image, setImage] = useState(null)
+
     const classes = useStyles();
 
     useEffect(() => {
         // console.log('useEffect')
         img_url_to_data(testImg, start)
     }, [])
+
+    const handleFile = event => {
+        const img = document.createElement('img')
+        img.src = URL.createObjectURL(event.target.files[0])
+        // const test = document.getElementById('test')
+        // test.src = URL.createObjectURL(event.target.files[0])
+        console.log(img)
+        setImage(img)
+        img.onload = e => {
+            const inputCanvas = document.getElementById("input")
+            inputCanvas.getContext('2d').drawImage(img, 0, 0)
+        }
+    }
     
     return(
         <div>
@@ -171,7 +187,9 @@ function OverlappingWaveformInterface(){
                                     color="primary"/>}
                                     label="Periodic Output"
                                 />
+                                <input onChange={handleFile} type="file" name="audio" accept="image/*" id="upload" />
                             {/* </FormGroup> */}
+                            <img id="test" src="" ></img>
                         </Grid>
                     </Paper>
                 </Grid>

@@ -7,7 +7,7 @@ const authReducer = (state = null, action) => {
               username: action.user.username
             }
         default: 
-        return state
+            return state
     }
 }
     
