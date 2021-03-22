@@ -21,12 +21,14 @@ import testImg from './flower.png'
 
 var img_url_to_data = function(path, callback){
     var img = document.createElement('img')
-    // const canvas = document.getElementById("input")
     img.src = path
+    
     // console.log(img)
     img.onload = function(e){
         // console.log('onload')
         // console.log(this.width, this.height)
+        const inputCanvas = document.getElementById("input")
+        inputCanvas.getContext('2d').drawImage(img, 0, 0)
         var c = document.createElement("canvas")
         c.width = this.width
         c.height = this.height
