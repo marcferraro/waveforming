@@ -15,6 +15,7 @@ import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, F
 import '../overlapInterface.css'
 import { OverlappingModel } from 'wavefunctioncollapse'
 import { useEffect } from 'react';
+import testImg from './flower.png'
 
 // console.log(OverlappingModel)
 
@@ -80,7 +81,7 @@ function OverlappingWaveformInterface(){
 
     useEffect(() => {
         console.log('useEffect')
-        img_url_to_data("pixil-layer-Background.png", start)
+        img_url_to_data(testImg, start)
     }, [])
     
     return(
