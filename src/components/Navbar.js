@@ -47,6 +47,7 @@ export default function Navbar(){
                   }}
                 variant="permanent"
                 anchor="left"
+                open={true}
             >
             <Grid container justify="center">
                 <Avatar alt="Remy Sharp" src={komet} />
@@ -62,15 +63,16 @@ export default function Navbar(){
             ))}
             </List>
             <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+              <List>
+                {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                  <ListItem button key={text}>
+                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItem>
+                ))}
+              </List>
             </Drawer>
+            
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, FormHelperText, InputLabel, TextField } from '@material-ui/core';
+import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, FormHelperText, InputLabel, TextField, Button } from '@material-ui/core';
 // import Paper from '@material-ui/core/Paper';
 // import Checkbox from '@material-ui/core/Checkbox';
 // import Switch from '@material-ui/core/Switch';
@@ -73,6 +73,8 @@ var start = function(id){
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      marginLeft: 160,
+      marginRight: 'auto'
     },
     control: {
       padding: theme.spacing(2),
@@ -104,12 +106,15 @@ function OverlappingWaveformInterface(){
     }
     
     return(
-        <div>
-            <Grid container className={classes.root} spacing={6}>
+        <div className={classes.root} >
+            <Grid container spacing={6}>
                 <Grid item xs={12}>
                     <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1} >
                         <Grid item>
                             <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px"}}></canvas>
+                        </Grid>
+                        <Grid item>
+                            <Button variant="contained" color="secondary" >Generate</Button>
                         </Grid>
                         <Grid item>
                             <canvas id="output" width="48" height="48" style={{width:"240px", height:"240px"}}></canvas>
@@ -187,9 +192,8 @@ function OverlappingWaveformInterface(){
                                     color="primary"/>}
                                     label="Periodic Output"
                                 />
-                                <input onChange={handleFile} type="file" name="audio" accept="image/*" id="upload" />
+                                {/* <input onChange={handleFile} type="file" name="audio" accept="image/*" id="upload" /> */}
                             {/* </FormGroup> */}
-                            <img id="test" src="" ></img>
                         </Grid>
                     </Paper>
                 </Grid>
