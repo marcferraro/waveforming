@@ -13,6 +13,58 @@ import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, F
 // import Add from '@material-ui/icons/Add';
 // import Remove from '@material-ui/icons/Remove';
 import '../overlapInterface.css'
+import { OverlappingModel } from 'wavefunctioncollapse'
+import { useEffect } from 'react';
+
+// console.log(OverlappingModel)
+
+var img_url_to_data = function(path, callback){
+    var img = document.createElement("img")
+    img.src = path
+    console.log(img.src)
+    img.onload = function(e){
+        console.log('onload')
+        console.log(this.width, this.height)
+        var c = document.createElement("canvas")
+        c.width = this.width
+        c.height = this.height
+        var ctx = c.getContext("2d")
+        ctx.drawImage(this,0,0)
+        callback(ctx.getImageData(0,0,this.width,this.height))
+    }
+}
+
+var start = function(id){
+    const output = document.getElementById("output")
+    let ctx = output.getContext("2d")
+    let imgData = ctx.createImageData(48, 48)
+    // input, width, height, N, outputWidth, outputHeight, periodicInput, periodicOutput, symmetry, ground
+    const model = new OverlappingModel(id.data, id.width, id.height, 3, 48, 48, true, false, 1, 0)
+    console.log(model)
+    //seed, limit
+    var success = model.generate(Math.random, 0)
+    model.graphics(imgData.data)
+    ctx.putImageData(imgData, 0, 0)
+    console.log(success)
+    if (success === false){
+        start(id)
+    } 
+    // else {
+    //     var world = []
+    //     for (var y = 0; y < 48; y++) {
+    //       var row = []
+    //       for (var x = 0; x < 48; x++) {
+    //         var color = get_pixel(imgData, x, y).join(":")
+    //         console.log(color)
+    //         row.push(colormap[color])
+    //       }
+    //       world.push(row)
+    //     }
+    //     console.log(world)
+    //   }
+}
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,6 +77,11 @@ const useStyles = makeStyles((theme) => ({
 
 function OverlappingWaveformInterface(){
     const classes = useStyles();
+
+    useEffect(() => {
+        console.log('useEffect')
+        img_url_to_data("pixil-layer-Background.png", start)
+    }, [])
     
     return(
         <div>
