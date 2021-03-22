@@ -19,9 +19,9 @@ import { useEffect } from 'react';
 // console.log(OverlappingModel)
 
 var img_url_to_data = function(path, callback){
-    var img = document.createElement("img")
+    var img = document.querySelector("#test")
     img.src = path
-    console.log(img.src)
+    console.log(img)
     img.onload = function(e){
         console.log('onload')
         console.log(this.width, this.height)
@@ -168,6 +168,7 @@ function OverlappingWaveformInterface(){
                                     label="Periodic Output"
                                 />
                             {/* </FormGroup> */}
+            <img src="" alt="test img" id="test"></img>
                         </Grid>
                     </Paper>
                 </Grid>
