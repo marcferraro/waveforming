@@ -11,9 +11,9 @@ const store = configureStore()
 
 ReactDOM.render(
   <BrowserRouter>
-    {/* <Provider> */}
+    <Provider store={store}>
       <App />
-    {/* </Provider> */}
+    </Provider>
   </BrowserRouter>,
   document.getElementById('root')
 );

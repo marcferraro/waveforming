@@ -23,10 +23,10 @@ var img_url_to_data = function(path, callback){
     var img = document.createElement('img')
     // const canvas = document.getElementById("input")
     img.src = path
-    console.log(img)
+    // console.log(img)
     img.onload = function(e){
-        console.log('onload')
-        console.log(this.width, this.height)
+        // console.log('onload')
+        // console.log(this.width, this.height)
         var c = document.createElement("canvas")
         c.width = this.width
         c.height = this.height
@@ -42,12 +42,12 @@ var start = function(id){
     let imgData = ctx.createImageData(48, 48)
     // input, width, height, N, outputWidth, outputHeight, periodicInput, periodicOutput, symmetry, ground
     const model = new OverlappingModel(id.data, id.width, id.height, 3, 48, 48, true, false, 1, 0)
-    console.log(model)
+    // console.log(model)
     //seed, limit
     var success = model.generate(Math.random, 0)
     model.graphics(imgData.data)
     ctx.putImageData(imgData, 0, 0)
-    console.log(success)
+    // console.log(success)
     if (success === false){
         start(id)
     } 
@@ -81,7 +81,7 @@ function OverlappingWaveformInterface(){
     const classes = useStyles();
 
     useEffect(() => {
-        console.log('useEffect')
+        // console.log('useEffect')
         img_url_to_data(testImg, start)
     }, [])
     
