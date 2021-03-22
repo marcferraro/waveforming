@@ -73,7 +73,7 @@ var start = function(id){
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      marginLeft: 160,
+      marginLeft: 180,
       marginRight: 'auto'
     },
     control: {
