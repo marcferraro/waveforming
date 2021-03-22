@@ -93,7 +93,7 @@ function OverlappingWaveformInterface(){
                 <Grid item xs={12}>
                     <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1} >
                         <Grid item>
-                            <canvas id="input" width="48" height="48" style={{width:"240px", height:"240px"}}></canvas>
+                            <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px"}}></canvas>
                         </Grid>
                         <Grid item>
                             <canvas id="output" width="48" height="48" style={{width:"240px", height:"240px"}}></canvas>
