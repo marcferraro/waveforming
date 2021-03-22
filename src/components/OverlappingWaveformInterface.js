@@ -20,7 +20,8 @@ import testImg from './flower.png'
 // console.log(OverlappingModel)
 
 var img_url_to_data = function(path, callback){
-    var img = document.querySelector("#test")
+    var img = document.createElement('img')
+    // const canvas = document.getElementById("input")
     img.src = path
     console.log(img)
     img.onload = function(e){
@@ -169,7 +170,6 @@ function OverlappingWaveformInterface(){
                                     label="Periodic Output"
                                 />
                             {/* </FormGroup> */}
-            <img src="" alt="test img" id="test"></img>
                         </Grid>
                     </Paper>
                 </Grid>
