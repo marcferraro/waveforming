@@ -1,6 +1,6 @@
 function Dashboard(){
     return(
-        <div>hello from the dashboard</div>
+        <div>hello from the dashboardddddddddddddddddddddddddddddddddddd</div>
     )
 }
 

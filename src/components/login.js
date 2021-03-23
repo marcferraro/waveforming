@@ -20,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
 function Login(props){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
+    
     const dispatch = useDispatch()
 
     const classes = useStyles()
@@ -53,10 +55,10 @@ function Login(props){
         .then(data => {
             if (data.error){
                 // turn this into a popup
-                alert(data.error)
+                setError(data.error)
             } else {
-                console.log(data)
                 dispatch(loginSuccess(data))
+                props.history.push('/dashboard')
             }
         })
     }
@@ -64,6 +66,9 @@ function Login(props){
     return(
         <div>
             <Grid container justify="space-evenly" >
+                {error ? <p>{error}</p> : null
+                // make this it's own item later
+                }
                 <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
                         <TextField onChange={handleUsername} value={username} id="username-field" label="Username" variant="outlined" />
                         <TextField onChange={handlePassword} value={password} type="password" id="password-field" label="password" variant="outlined" />

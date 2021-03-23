@@ -11,6 +11,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import Avatar from '@material-ui/core/Avatar';
 import { Grid } from '@material-ui/core';
 import komet from '../images/komet.jpeg'
+import { useSelector } from 'react-redux'
 
 
 const drawerWidth = 180;
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Navbar(){
+    const auth = useSelector(state => state.auth)
     const classes = useStyles();
 
     return(
@@ -51,6 +53,7 @@ export default function Navbar(){
             >
             <Grid container justify="center">
                 <Avatar alt="Remy Sharp" src={komet} />
+                <p>{auth ? auth.username : null}</p>
             </Grid>
             <Divider />
             <div className={classes.toolbar} />
