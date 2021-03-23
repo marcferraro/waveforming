@@ -47,7 +47,13 @@ function Login(props){
 
         fetch('http://localhost:3000/api/v1/auth', reqObj)
         .then(resp => resp.json())
-        .then(user => console.log(user))
+        .then(data => {
+            if (data.error){
+                alert(data.error)
+            } else {
+                console.log(data)
+            }
+        })
     }
 
     return(
