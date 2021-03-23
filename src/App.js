@@ -3,9 +3,22 @@ import OverlappingWaveformInterface from './components/OverlappingWaveformInterf
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard';
+import { useEffect } from 'react';
+import { withRouter } from 'react-router-dom'
 
 
-function App() {
+function App(props) {
+
+  useEffect(() => {
+    if (!localStorage.token){
+      props.history.push('/login')
+    } else {
+      fetch('http://localhost:3000/api/v1/current_user')
+      .then(resp => resp.json())
+      .then(data => console.log(data))
+    }
+  }, [])
+
   return (
     <div className="App">
       <Navbar />
@@ -18,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
