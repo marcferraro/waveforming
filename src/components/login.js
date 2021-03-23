@@ -58,6 +58,7 @@ function Login(props){
                 setError(data.error)
             } else {
                 dispatch(loginSuccess(data.user))
+                localStorage.setItem('token', data.token)
                 props.history.push('/dashboard')
             }
         })
