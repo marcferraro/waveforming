@@ -5,6 +5,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { Grid } from '@material-ui/core'
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
+import { loginSuccess } from '../actions'
 
 const useStyles = makeStyles((theme) => ({
 
@@ -19,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
 function Login(props){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const dispatch = useDispatch()
 
     const classes = useStyles()
 
@@ -54,6 +56,7 @@ function Login(props){
                 alert(data.error)
             } else {
                 console.log(data)
+                dispatch(loginSuccess(data))
             }
         })
     }
