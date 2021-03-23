@@ -29,8 +29,25 @@ function Login(props){
         setPassword(event.target.value)
     }
 
-    const handleSubmit = () => {
-        console.log('submit')
+    const handleSubmit = event => {
+        event.preventDefault()
+
+        const user = {
+            username: username,
+            password: password
+        }
+
+        const reqObj = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        }
+
+        fetch('http://localhost:3000/api/v1/auth', reqObj)
+        .then(resp => resp.json())
+        .then(user => console.log(user))
     }
 
     return(
