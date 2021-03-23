@@ -58,21 +58,30 @@ export default function Navbar(){
             <Divider />
             <div className={classes.toolbar} />
             <List>
-                {['Dashboard', 'New Generation', 'Collection', 'How To'].map((text, index) => (
+                {/* {['Dashboard', 'New Generation', 'Collection', 'How To'].map((text, index) => (
                 <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                 <ListItemText primary={text} />
                 </ListItem>
-            ))}
+            ))} */}
+              <ListItem button>
+                <ListItemText primary="Dashboard" />
+              </ListItem>
+              <ListItem button>
+                <ListItemText primary="New Creation" />
+              </ListItem>
+              <ListItem button>
+                <ListItemText primary="Collection" />
+              </ListItem>
+              <ListItem button>
+                <ListItemText primary="How To" />
+              </ListItem>
             </List>
             <Divider />
               <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                  <ListItem button key={text}>
-                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItem>
-                ))}
+              <ListItem button>
+                <ListItemText primary="Logout" />
+              </ListItem>
               </List>
             </Drawer>
             
