@@ -107,7 +107,11 @@ function OverlappingWaveformInterface(){
     }
 
     const generate = () => {
-        img_url_to_data(image, start)
+        if (image){
+            img_url_to_data(image, start)
+        } else {
+            alert("No image uploaded.")
+        }
     }
 
     const handleN = event => {
