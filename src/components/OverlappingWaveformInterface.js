@@ -17,58 +17,6 @@ import { OverlappingModel } from 'wavefunctioncollapse'
 import { useState, useEffect } from 'react';
 import testImg from './flower.png'
 
-// console.log(OverlappingModel)
-
-var img_url_to_data = function(imageFile, callback){
-    var img = document.createElement('img')
-    img.src = URL.createObjectURL(imageFile)
-    
-    // console.log(img)
-    img.onload = function(e){
-        // console.log('onload')
-        // console.log(this.width, this.height)
-        const inputCanvas = document.getElementById("input")
-        inputCanvas.getContext('2d').drawImage(img, 0, 0)
-        var c = document.createElement("canvas")
-        c.width = this.width
-        c.height = this.height
-        var ctx = c.getContext("2d")
-        ctx.drawImage(this,0,0)
-        callback(ctx.getImageData(0,0,this.width,this.height))
-    }
-}
-
-var start = function(id){
-    const output = document.getElementById("output")
-    let ctx = output.getContext("2d")
-    let imgData = ctx.createImageData(48, 48)
-    // input, width, height, N, outputWidth, outputHeight, periodicInput, periodicOutput, symmetry, ground
-    const model = new OverlappingModel(id.data, id.width, id.height, 3, 48, 48, true, false, 1, 0)
-    // console.log(model)
-    //seed, limit
-    var success = model.generate(Math.random, 0)
-    model.graphics(imgData.data)
-    ctx.putImageData(imgData, 0, 0)
-    // console.log(success)
-    if (success === false){
-        start(id)
-    } 
-    // else {
-    //     var world = []
-    //     for (var y = 0; y < 48; y++) {
-    //       var row = []
-    //       for (var x = 0; x < 48; x++) {
-    //         var color = get_pixel(imgData, x, y).join(":")
-    //         console.log(color)
-    //         row.push(colormap[color])
-    //       }
-    //       world.push(row)
-    //     }
-    //     console.log(world)
-    //   }
-}
-
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -84,14 +32,62 @@ const useStyles = makeStyles((theme) => ({
 function OverlappingWaveformInterface(){
 
     const [image, setImage] = useState(null)
-    const [n, setN] = useState(2)
+    const [N, setN] = useState(2)
     const [symmetry, setSymmetry] = useState(1)
     const [ground, setGround] = useState(0)
     const [periodicInput, setPeriodicInput] = useState(0)
     const [periodicOutput, setPeriodicOutput] = useState(0)
 
-
     const classes = useStyles();
+
+    var img_url_to_data = function(imageFile, callback){
+        var img = document.createElement('img')
+        img.src = URL.createObjectURL(imageFile)
+        
+        // console.log(img)
+        img.onload = function(e){
+            // console.log('onload')
+            // console.log(this.width, this.height)
+            const inputCanvas = document.getElementById("input")
+            inputCanvas.getContext('2d').drawImage(img, 0, 0)
+            var c = document.createElement("canvas")
+            c.width = this.width
+            c.height = this.height
+            var ctx = c.getContext("2d")
+            ctx.drawImage(this,0,0)
+            callback(ctx.getImageData(0,0,this.width,this.height))
+        }
+    }
+    
+    var start = function(id){
+        const output = document.getElementById("output")
+        let ctx = output.getContext("2d")
+        let imgData = ctx.createImageData(48, 48)
+        // input, width, height, N, outputWidth, outputHeight, periodicInput, periodicOutput, symmetry, ground
+        const model = new OverlappingModel(id.data, id.width, id.height, N, 48, 48, true, false, symmetry, ground)
+        // console.log(model)
+        //seed, limit
+        var success = model.generate(Math.random, 0)
+        model.graphics(imgData.data)
+        ctx.putImageData(imgData, 0, 0)
+        console.log(success)
+        if (success === false){
+            start(id)
+        } 
+        // else {
+        //     var world = []
+        //     for (var y = 0; y < 48; y++) {
+        //       var row = []
+        //       for (var x = 0; x < 48; x++) {
+        //         var color = get_pixel(imgData, x, y).join(":")
+        //         console.log(color)
+        //         row.push(colormap[color])
+        //       }
+        //       world.push(row)
+        //     }
+        //     console.log(world)
+        //   }
+    }
 
     useEffect(() => {
         // console.log('useEffect')
