@@ -5,12 +5,13 @@ import Login from './components/Login'
 import Dashboard from './components/Dashboard';
 import { useEffect } from 'react';
 import { withRouter } from 'react-router-dom'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from './actions'
 
 
 function App(props) {
   const dispatch = useDispatch()
+  const auth = useSelector(state => state.auth)
 
   useEffect(() => {
     const token = localStorage.token
@@ -41,7 +42,7 @@ function App(props) {
 
   return (
     <div className="App">
-      <Navbar />
+      {auth ? <Navbar /> : null}
       <Switch>
         <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
         <Route path='/login' component={Login}/>
