@@ -15,7 +15,7 @@ import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, F
 import '../overlapInterface.css'
 import { OverlappingModel } from 'wavefunctioncollapse'
 import { useState, useEffect } from 'react';
-import testImg from './flower.png'
+// import testImg from './flower.png'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -63,6 +63,7 @@ function OverlappingWaveformInterface(){
         const output = document.getElementById("output")
         let ctx = output.getContext("2d")
         let imgData = ctx.createImageData(48, 48)
+        console.log(ground)
         // input, width, height, N, outputWidth, outputHeight, periodicInput, periodicOutput, symmetry, ground
         const model = new OverlappingModel(id.data, id.width, id.height, N, 48, 48, periodicInput, periodicOutput, symmetry, ground)
         // console.log(model)
@@ -113,7 +114,23 @@ function OverlappingWaveformInterface(){
     const handleN = event => {
         setN(event.target.value)
     }
+
+    const handleSymmetry = event => {
+        setSymmetry(event.target.value)
+    }
     
+    const handleGround = event => {
+        setGround(parseInt(event.target.value, 10))
+    }
+
+    const handlePeriodicInput = event => {
+        event.target.checked ? setPeriodicInput(true) : setPeriodicInput(false)
+    }
+    
+    const handlePeriodicOutput = event => {
+        event.target.checked ? setPeriodicOutput(true) : setPeriodicOutput(false)
+    }
+
     return(
         <div className={classes.root} >
             <Grid container spacing={6}>
@@ -151,10 +168,10 @@ function OverlappingWaveformInterface(){
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="symmetry-input">Symmetry</InputLabel>
                                     <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={1}
-                                        onChange={() => console.log("select!")}
+                                        labelId="symmetry-select"
+                                        id="symmetry-select"
+                                        value={symmetry}
+                                        onChange={handleSymmetry}
                                     >
                                         <MenuItem value={1}>1</MenuItem>
                                         <MenuItem value={2}>2</MenuItem>
@@ -168,7 +185,13 @@ function OverlappingWaveformInterface(){
                                     <FormHelperText>?</FormHelperText>
                                 </FormControl>
                                 <FormControl>
-                                    <TextField onChange={() => console.log("text!")} id="outlined-basic" label="Ground" variant="outlined" />
+                                    <TextField
+                                        onChange={handleGround}
+                                        type="number"
+                                        value={ground}
+                                        id="outlined-basic"
+                                        label="ground"
+                                        variant="outlined" />
                                 {/* <FormControl className={classes.formControl}>
                                     <InputLabel id="ground-input">Ground</InputLabel>
                                     <Grid container spacing={6}>
@@ -187,18 +210,18 @@ function OverlappingWaveformInterface(){
                                 </FormControl>
                                 <FormControlLabel
                                     control={<Switch 
-                                        // checked={state.checkedB}
-                                        onChange={() => console.log("switch!")}
+                                        checked={periodicInput}
+                                        onChange={handlePeriodicInput}
                                         name="periodic switch"
                                         color="primary"/>}
                                     label="Periodic Input"
                                 />
                                 <FormControlLabel
                                     control={<Switch 
-                                    // checked={state.checkedB}
-                                    onChange={() => console.log("switch!")}
-                                    name="periodic switch"
-                                    color="primary"/>}
+                                        checked={periodicOutput}
+                                        onChange={handlePeriodicOutput}
+                                        name="periodic switch"
+                                        color="primary"/>}
                                     label="Periodic Output"
                                 />
                                 <input onChange={handleFile} type="file" name="audio" accept="image/*" id="upload" />
