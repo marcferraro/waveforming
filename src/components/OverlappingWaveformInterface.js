@@ -71,9 +71,9 @@ function OverlappingWaveformInterface(){
         model.graphics(imgData.data)
         ctx.putImageData(imgData, 0, 0)
         console.log(success)
-        if (success === false){
-            start(id)
-        } 
+        // if (success === false){
+        //     start(id)
+        // } 
         // else {
         //     var world = []
         //     for (var y = 0; y < 48; y++) {
@@ -109,6 +109,10 @@ function OverlappingWaveformInterface(){
     const generate = () => {
         img_url_to_data(image, start)
     }
+
+    const handleN = event => {
+        setN(event.target.value)
+    }
     
     return(
         <div className={classes.root} >
@@ -133,10 +137,10 @@ function OverlappingWaveformInterface(){
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="n-input">N</InputLabel>
                                     <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={2}
-                                        onChange={() => console.log("select!")}
+                                        labelId="n-select"
+                                        id="n-select"
+                                        value={N}
+                                        onChange={handleN}
                                     >
                                         <MenuItem value={2}>2</MenuItem>
                                         <MenuItem value={3}>3</MenuItem>
