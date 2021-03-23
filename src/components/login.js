@@ -57,7 +57,7 @@ function Login(props){
                 // turn this into a popup
                 setError(data.error)
             } else {
-                dispatch(loginSuccess(data))
+                dispatch(loginSuccess(data.user))
                 props.history.push('/dashboard')
             }
         })
