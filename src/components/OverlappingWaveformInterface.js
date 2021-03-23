@@ -19,9 +19,9 @@ import testImg from './flower.png'
 
 // console.log(OverlappingModel)
 
-var img_url_to_data = function(path, callback){
+var img_url_to_data = function(imageFile, callback){
     var img = document.createElement('img')
-    img.src = path
+    img.src = URL.createObjectURL(imageFile)
     
     // console.log(img)
     img.onload = function(e){
@@ -84,25 +84,34 @@ const useStyles = makeStyles((theme) => ({
 function OverlappingWaveformInterface(){
 
     const [image, setImage] = useState(null)
+    const [n, setN] = useState(2)
+    const [symmetry, setSymmetry] = useState(1)
+    const [ground, setGround] = useState(0)
+    const [periodicInput, setPeriodicInput] = useState(0)
+    const [periodicOutput, setPeriodicOutput] = useState(0)
+
 
     const classes = useStyles();
 
     useEffect(() => {
         // console.log('useEffect')
-        img_url_to_data(testImg, start)
+        // img_url_to_data(testImg, start)
     }, [])
 
     const handleFile = event => {
+
+        setImage(event.target.files[0])
+
         const img = document.createElement('img')
         img.src = URL.createObjectURL(event.target.files[0])
-        // const test = document.getElementById('test')
-        // test.src = URL.createObjectURL(event.target.files[0])
-        console.log(img)
-        setImage(img)
         img.onload = e => {
             const inputCanvas = document.getElementById("input")
             inputCanvas.getContext('2d').drawImage(img, 0, 0)
         }
+    }
+
+    const generate = () => {
+        img_url_to_data(image, start)
     }
     
     return(
@@ -114,7 +123,7 @@ function OverlappingWaveformInterface(){
                             <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px"}}></canvas>
                         </Grid>
                         <Grid item>
-                            <Button variant="contained" color="secondary" >Generate</Button>
+                            <Button onClick={generate} variant="contained" color="secondary" >Generate</Button>
                         </Grid>
                         <Grid item>
                             <canvas id="output" width="48" height="48" style={{width:"240px", height:"240px"}}></canvas>
@@ -192,7 +201,7 @@ function OverlappingWaveformInterface(){
                                     color="primary"/>}
                                     label="Periodic Output"
                                 />
-                                {/* <input onChange={handleFile} type="file" name="audio" accept="image/*" id="upload" /> */}
+                                <input onChange={handleFile} type="file" name="audio" accept="image/*" id="upload" />
                             {/* </FormGroup> */}
                         </Grid>
                     </Paper>
