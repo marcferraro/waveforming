@@ -10,10 +10,20 @@ import { withRouter } from 'react-router-dom'
 function App(props) {
 
   useEffect(() => {
-    if (!localStorage.token){
+    const token = localStorage.token
+
+    if (!token){
       props.history.push('/login')
     } else {
-      fetch('http://localhost:3000/api/v1/current_user')
+
+      const reqObj = {
+        method: "GET",
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+
+      fetch('http://localhost:3000/api/v1/current_user', reqObj)
       .then(resp => resp.json())
       .then(data => console.log(data))
     }
