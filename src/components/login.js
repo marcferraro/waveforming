@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { Grid } from '@material-ui/core'
 import { useState } from 'react';
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -49,6 +50,7 @@ function Login(props){
         .then(resp => resp.json())
         .then(data => {
             if (data.error){
+                // turn this into a popup
                 alert(data.error)
             } else {
                 console.log(data)
