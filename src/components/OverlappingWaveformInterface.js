@@ -35,8 +35,8 @@ function OverlappingWaveformInterface(){
     const [N, setN] = useState(2)
     const [symmetry, setSymmetry] = useState(1)
     const [ground, setGround] = useState(0)
-    const [periodicInput, setPeriodicInput] = useState(0)
-    const [periodicOutput, setPeriodicOutput] = useState(0)
+    const [periodicInput, setPeriodicInput] = useState(true)
+    const [periodicOutput, setPeriodicOutput] = useState(false)
 
     const classes = useStyles();
 
@@ -64,7 +64,7 @@ function OverlappingWaveformInterface(){
         let ctx = output.getContext("2d")
         let imgData = ctx.createImageData(48, 48)
         // input, width, height, N, outputWidth, outputHeight, periodicInput, periodicOutput, symmetry, ground
-        const model = new OverlappingModel(id.data, id.width, id.height, N, 48, 48, true, false, symmetry, ground)
+        const model = new OverlappingModel(id.data, id.width, id.height, N, 48, 48, periodicInput, periodicOutput, symmetry, ground)
         // console.log(model)
         //seed, limit
         var success = model.generate(Math.random, 0)
