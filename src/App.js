@@ -5,9 +5,12 @@ import Login from './components/Login'
 import Dashboard from './components/Dashboard';
 import { useEffect } from 'react';
 import { withRouter } from 'react-router-dom'
+import { useDispatch } from "react-redux";
+import { loginSuccess } from './actions'
 
 
 function App(props) {
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const token = localStorage.token
@@ -25,7 +28,14 @@ function App(props) {
 
       fetch('http://localhost:3000/api/v1/current_user', reqObj)
       .then(resp => resp.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        if (data.error){
+          alert(data.error)
+        } else {
+          dispatch(loginSuccess(data))
+        }
+      })
     }
   }, [])
 
