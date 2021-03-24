@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function OverlappingWaveformInterface(){
+const OverlappingWaveformInterface = props => {
 
     const [image, setImage] = useState(null)
     const [N, setN] = useState(2)
@@ -37,6 +37,7 @@ function OverlappingWaveformInterface(){
     const [ground, setGround] = useState(0)
     const [periodicInput, setPeriodicInput] = useState(true)
     const [periodicOutput, setPeriodicOutput] = useState(false)
+
     // const colorPicker = new iro.ColorPicker('#picker');
 
     const classes = useStyles();
@@ -91,8 +92,8 @@ function OverlappingWaveformInterface(){
     }
 
     useEffect(() => {
-        // console.log('useEffect')
-        // img_url_to_data(testImg, start)
+        const div = document.getElementById('picker')
+        const colorPicker = new iro.ColorPicker(div)
     }, [])
 
     const handleFile = event => {
