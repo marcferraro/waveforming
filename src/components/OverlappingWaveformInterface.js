@@ -37,7 +37,7 @@ function OverlappingWaveformInterface(){
     const [ground, setGround] = useState(0)
     const [periodicInput, setPeriodicInput] = useState(true)
     const [periodicOutput, setPeriodicOutput] = useState(false)
-    const colorPicker = new iro.ColorPicker('#picker');
+    // const colorPicker = new iro.ColorPicker('#picker');
 
     const classes = useStyles();
 

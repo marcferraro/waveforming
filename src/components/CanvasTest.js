@@ -17,8 +17,9 @@ function Canvas(){
         const canvas = canvasRef.current
         const ctx = canvas.getContext('2d')
         const pos = { x: 0, y: 0 };
+        
         function draw(e) {
-            console.log(e)
+            // console.log(e)
             // mouse left button must be pressed
             if (e.buttons !== 1) return;
           
@@ -57,9 +58,10 @@ function Canvas(){
     
     return(
         <div >
-            <canvas ref={canvasRef}></canvas>
+            <canvas width="16" height="16" style={{width:"240px", height:"240px"}} ref={canvasRef}></canvas>
         </div>
     )
 }
 export default Canvas
+
 // style={{marginLeft: 180, marginRight: 'auto'}} 

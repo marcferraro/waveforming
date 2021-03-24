@@ -1,6 +1,8 @@
 function Dashboard(){
     return(
-        <div>hello from the dashboardddddddddddddddddddddddddddddddddddd</div>
+        <div style={{marginLeft: 180, marginRight: 'auto'}} >
+            Hello from the dashboard
+        </div>
     )
 }
 

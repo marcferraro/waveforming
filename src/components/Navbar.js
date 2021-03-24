@@ -37,13 +37,14 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Navbar(){
+const Navbar = props => {
     const auth = useSelector(state => state.auth)
     const dispatch = useDispatch()
     const classes = useStyles();
     
     const handleLogout = () => {
       dispatch(logout())
+      
     }
 
     return(
@@ -105,3 +106,5 @@ export default function Navbar(){
         </div>
     )
 }
+
+export default Navbar
