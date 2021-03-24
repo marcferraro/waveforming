@@ -71,22 +71,30 @@ export default function Navbar(){
                 <ListItemText primary={text} />
                 </ListItem>
             ))} */}
-              <ListItem button>
-                <ListItemText primary="Dashboard" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="New Creation" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Collection" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="How To" />
-              </ListItem>
+              <Link to='/dashboard' style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <ListItem button>
+                    <ListItemText primary="Dashboard" />
+                  </ListItem>
+              </Link>
+              <Link to='/new-overlapping-waveform' style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <ListItem button>
+                    <ListItemText primary="New Creation" />
+                  </ListItem>
+              </Link>
+              <Link to='/collection' style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <ListItem button>
+                    <ListItemText primary="Collection" />
+                  </ListItem>
+              </Link>
+              <Link to='/how-to' style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <ListItem button>
+                    <ListItemText primary="How To" />
+                  </ListItem>
+              </Link>
             </List>
             <Divider />
               <List>
-                <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem onClick={handleLogout} button>
                     <ListItemText primary="Logout" />
                   </ListItem>
