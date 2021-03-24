@@ -15,8 +15,8 @@ import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, F
 import '../overlapInterface.css'
 import { OverlappingModel } from 'wavefunctioncollapse'
 import { useState, useEffect } from 'react';
+import iro from "@jaames/iro"
 // import testImg from './flower.png'
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,6 +37,7 @@ function OverlappingWaveformInterface(){
     const [ground, setGround] = useState(0)
     const [periodicInput, setPeriodicInput] = useState(true)
     const [periodicOutput, setPeriodicOutput] = useState(false)
+    const colorPicker = new iro.ColorPicker('#picker');
 
     const classes = useStyles();
 
@@ -228,6 +229,9 @@ function OverlappingWaveformInterface(){
                                     label="Periodic Output"
                                 />
                                 <input onChange={handleFile} type="file" name="audio" accept="image/*" id="upload" />
+                                <FormControl>
+                                    <div id="picker"></div>
+                                </FormControl>
                             {/* </FormGroup> */}
                         </Grid>
                     </Paper>
