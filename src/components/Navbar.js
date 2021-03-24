@@ -14,6 +14,7 @@ import komet from '../images/komet.jpeg'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../actions'
 import { Link }  from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 
 const drawerWidth = 180;
@@ -43,8 +44,8 @@ const Navbar = props => {
     const classes = useStyles();
     
     const handleLogout = () => {
+      props.history.push('/dashboard')
       dispatch(logout())
-      
     }
 
     return(
@@ -107,4 +108,4 @@ const Navbar = props => {
     )
 }
 
-export default Navbar
+export default withRouter(Navbar)
