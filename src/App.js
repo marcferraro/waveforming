@@ -3,6 +3,7 @@ import OverlappingWaveformInterface from './components/OverlappingWaveformInterf
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard';
+import CanvasTest from './components/CanvasTest';
 import { useEffect } from 'react';
 import { withRouter } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
@@ -47,6 +48,7 @@ function App(props) {
         <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
         <Route path='/login' component={Login}/>
         <Route path='/dashboard' component={Dashboard}/>
+        <Route path='/canvas-test' component={CanvasTest}/>
       </Switch>
     </div>
   );
