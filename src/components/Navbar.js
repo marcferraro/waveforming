@@ -11,7 +11,9 @@ import MailIcon from '@material-ui/icons/Mail';
 import Avatar from '@material-ui/core/Avatar';
 import { Grid } from '@material-ui/core';
 import komet from '../images/komet.jpeg'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout } from '../actions'
+import { Link }  from 'react-router-dom'
 
 
 const drawerWidth = 180;
@@ -37,7 +39,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar(){
     const auth = useSelector(state => state.auth)
+    const dispatch = useDispatch()
     const classes = useStyles();
+    
+    const handleLogout = () => {
+      dispatch(logout())
+    }
 
     return(
         <div className={classes.root}>
@@ -79,9 +86,11 @@ export default function Navbar(){
             </List>
             <Divider />
               <List>
-              <ListItem button>
-                <ListItemText primary="Logout" />
-              </ListItem>
+                <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <ListItem onClick={handleLogout} button>
+                    <ListItemText primary="Logout" />
+                  </ListItem>
+                </Link>
               </List>
             </Drawer>
             

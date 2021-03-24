@@ -6,6 +6,9 @@ const authReducer = (state = null, action) => {
               id: action.user.id,
               username: action.user.username
             }
+        case 'LOGOUT':
+            delete localStorage.token
+            return null
         default: 
             return state
     }
