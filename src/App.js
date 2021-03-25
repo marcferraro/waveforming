@@ -2,8 +2,8 @@ import { Route, Switch } from 'react-router-dom';
 import OverlappingWaveformInterface from './components/OverlappingWaveformInterface'
 import Welcome from './components/Welcome'
 import Navbar from './components/Navbar'
-import Login from './components/Login'
-import SignUp from './components/SignUp'
+// import Login from './components/Login'
+// import SignUp from './components/SignUp'
 import Dashboard from './components/Dashboard';
 import Collection from './components/Collection';
 import HowTo from './components/HowTo';
@@ -50,13 +50,11 @@ function App(props) {
       {auth ? <Navbar /> : null}
       <Switch>
         <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
-        <Route path='/login' component={Login}/>
-        <Route path='/sign-up' component={SignUp}/>
         <Route path='/dashboard' component={Dashboard}/>
         <Route path='/canvas-test' component={CanvasTest}/>
         <Route path='/collection' component={Collection}/>
         <Route path='/how-to' component={HowTo}/>
-        <Route path='/' component={Welcome}/>
+        <Route exact path='/' component={Welcome}/>
       </Switch>
     </div>
   );

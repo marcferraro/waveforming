@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
 const SignUp = props => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [passwordConfirm, setPasswordConfirm] = useState("")
     const [error, setError] = useState("")
     
     const dispatch = useDispatch()
@@ -31,6 +32,10 @@ const SignUp = props => {
     }
 
     const handlePassword = event => {
+        setPassword(event.target.value)
+    }
+    
+    const handlePasswordConfirm = event => {
         setPassword(event.target.value)
     }
 
@@ -66,10 +71,14 @@ const SignUp = props => {
 
     return(
         <div>
-            <Grid container justify="space-evenly" >
-                {error ? <p>{error}</p> : null
-                // make this it's own item later
-                }
+            <Grid container direction="column" justify="center" alignItems="center" >
+                <Grid item>
+                    {error ? <p>{error}</p> : null}
+                    {
+                    // make this it's own item later
+                    }
+                </Grid>
+                {/* <Grid></Grid> */}
                 <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
                         <TextField onChange={handleUsername} value={username} id="username-field" label="Username" variant="outlined" />
                         <TextField onChange={handlePassword} value={password} type="password" id="password-field" label="password" variant="outlined" />
