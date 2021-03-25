@@ -100,11 +100,11 @@ const Navbar = props => {
             </List>
             <Divider />
               <List>
-                <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}>
+                {/* <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}> */}
                   <ListItem onClick={handleLogout} button>
                     <ListItemText primary="Logout" />
                   </ListItem>
-                </Link>
+                {/* </Link> */}
               </List>
             </Drawer>
             

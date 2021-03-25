@@ -49,14 +49,14 @@ function App(props) {
     <div className="App">
       {auth ? <Navbar /> : null}
       <Switch>
-        <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
         <Route path='/login' component={Login}/>
         <Route path='/sign-up' component={SignUp}/>
         <Route path='/dashboard' component={Dashboard}/>
-        <Route path='/canvas-test' component={CanvasTest}/>
+        <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
         <Route path='/collection' component={Collection}/>
         <Route path='/how-to' component={HowTo}/>
-        <Route path='/' component={Welcome}/>
+        <Route path='/canvas-test' component={CanvasTest}/>
+        <Route exact path='/' component={Welcome}/>
       </Switch>
     </div>
   );

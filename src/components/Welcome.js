@@ -1,4 +1,7 @@
 import { useEffect } from 'react';
+import { Link }  from 'react-router-dom'
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 const Welcome = props => {
 
@@ -12,7 +15,15 @@ const Welcome = props => {
 
     return(
         <div style={{marginLeft: 180, marginRight: 'auto'}} >
-            Hello from the welcome
+            <Typography >
+                waveforming
+            </Typography>
+            <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Button>Login</Button>
+            </Link>
+            <Link to='/sign-up' style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Button>Sign-Up</Button>
+            </Link>
         </div>
     )
 }
