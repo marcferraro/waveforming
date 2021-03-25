@@ -65,10 +65,9 @@ const SignUp = props => {
                 // turn this into a popup
                 setError(data.error)
             } else {
-                console.log(data)
-                // dispatch(loginSuccess(data.user))
-                // localStorage.setItem('token', data.token)
-                // props.history.push('/dashboard')
+                dispatch(loginSuccess(data.user))
+                localStorage.setItem('token', data.token)
+                props.history.push('/dashboard')
             }
         })
     }
