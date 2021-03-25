@@ -1,31 +1,23 @@
 import { Route, Switch } from 'react-router-dom';
-// import OverlappingWaveformInterface from './components/OverlappingWaveformInterface'
-// import Welcome from './components/Welcome'
-import Navbar from './components/Navbar'
-// import Login from './components/Login'
-// import SignUp from './components/SignUp'
-// import Dashboard from './components/Dashboard';
-// import Collection from './components/Collection';
-// import HowTo from './components/HowTo';
-// import CanvasTest from './components/CanvasTest';
-import LoggedOut from './components/LoggedOut';
-import LoggedIn from './components/LoggedIn';
+import Welcome from './Welcome'
+import Navbar from './Navbar'
+import Login from './Login'
+import SignUp from './SignUp'
+import HowTo from './HowTo';
 import { useEffect } from 'react';
 import { withRouter } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { loginSuccess } from './actions'
+import { loginSuccess } from '../actions'
 
 
-const App = props => {
+const LoggedOut = props => {
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
 
   useEffect(() => {
     const token = localStorage.token
 
-    if (!token){
-      props.history.push('/login')
-    } else {
+    if (token){
 
       const reqObj = {
         method: "GET",
@@ -51,11 +43,13 @@ const App = props => {
     <div className="App">
       {auth ? <Navbar /> : null}
       <Switch>
-        <LoggedOut />
-        <LoggedIn />
+        <Route path='/login' component={Login}/>
+        <Route path='/sign-up' component={SignUp}/>
+        <Route path='/how-to' component={HowTo}/>
+        <Route exact path='/' component={Welcome}/>
       </Switch>
     </div>
   );
 }
 
-export default withRouter(App);
+export default withRouter(LoggedOut);
