@@ -62,7 +62,7 @@ const Navbar = props => {
             >
             <Grid container direction="column" justify="center" alignItems="center" style={{marginTop: 12}}>
               <Grid item>
-                <Avatar alt="avatar" src={komet} />
+                <Avatar alt="avatar" src="" />
               </Grid>
               <Grid item>
                 <p>{auth ? auth.username : null}</p>
