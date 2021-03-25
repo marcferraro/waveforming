@@ -4,6 +4,7 @@ import Welcome from './components/Welcome'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
+import Profile from './components/Profile'
 import Dashboard from './components/Dashboard';
 import Collection from './components/Collection';
 import HowTo from './components/HowTo';
@@ -51,6 +52,7 @@ function App(props) {
       <Switch>
         <Route path='/login' component={Login}/>
         <Route path='/sign-up' component={SignUp}/>
+        <Route path='/profile' component={Profile}/>
         <Route path='/dashboard' component={Dashboard}/>
         <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
         <Route path='/collection' component={Collection}/>

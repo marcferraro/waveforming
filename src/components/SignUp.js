@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { Grid } from '@material-ui/core'
+import { Grid, Input } from '@material-ui/core'
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { loginSuccess } from '../actions'
@@ -37,6 +37,9 @@ const SignUp = props => {
 
     const handlePasswordConfirmation = event => {
         setPasswordConfirmation(event.target.value)
+    }
+    const handleAvatar = event => {
+        console.log(event.target.files[0])
     }
 
     const handleSubmit = event => {
@@ -85,6 +88,9 @@ const SignUp = props => {
                     </Grid>
                     <Grid item>
                         <TextField onChange={handlePasswordConfirmation} value={passwordConfirmation} type="password" id="password-confirmation-field" label="password confirmation" variant="outlined" />
+                    </Grid>
+                    <Grid item>
+                        <Input onChange={handleAvatar} type="file" id="avatar-upload" />
                     </Grid>
                     <Grid item>
                         <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>

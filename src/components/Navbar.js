@@ -62,7 +62,7 @@ const Navbar = props => {
             >
             <Grid container direction="column" justify="center" alignItems="center" style={{marginTop: 12}}>
               <Grid item>
-                <Avatar alt="Remy Sharp" src={komet} />
+                <Avatar alt="avatar" src={komet} />
               </Grid>
               <Grid item>
                 <p>{auth ? auth.username : null}</p>
@@ -77,6 +77,11 @@ const Navbar = props => {
                 <ListItemText primary={text} />
                 </ListItem>
             ))} */}
+              <Link to='/profile' style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <ListItem button>
+                    <ListItemText primary="Profile" />
+                  </ListItem>
+              </Link>
               <Link to='/dashboard' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
                     <ListItemText primary="Dashboard" />
