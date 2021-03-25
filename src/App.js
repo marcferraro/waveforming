@@ -5,6 +5,8 @@ import Navbar from './components/Navbar'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Dashboard from './components/Dashboard';
+import Collection from './components/Collection';
+import HowTo from './components/HowTo';
 import CanvasTest from './components/CanvasTest';
 import { useEffect } from 'react';
 import { withRouter } from 'react-router-dom'
@@ -52,6 +54,8 @@ function App(props) {
         <Route path='/sign-up' component={SignUp}/>
         <Route path='/dashboard' component={Dashboard}/>
         <Route path='/canvas-test' component={CanvasTest}/>
+        <Route path='/collection' component={Collection}/>
+        <Route path='/how-to' component={HowTo}/>
         <Route path='/' component={Welcome}/>
       </Switch>
     </div>
