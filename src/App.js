@@ -18,32 +18,32 @@ function App(props) {
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
 
-  useEffect(() => {
-    const token = localStorage.token
+  // useEffect(() => {
+  //   const token = localStorage.token
 
-    if (!token){
-      props.history.push('/login')
-    } else {
+  //   if (!token){
+  //     props.history.push('/login')
+  //   } else {
 
-      const reqObj = {
-        method: "GET",
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      }
+  //     const reqObj = {
+  //       method: "GET",
+  //       headers: {
+  //         'Authorization': `Bearer ${token}`
+  //       }
+  //     }
 
-      fetch('http://localhost:3000/api/v1/current_user', reqObj)
-      .then(resp => resp.json())
-      .then(data => {
-        console.log(data)
-        if (data.error){
-          alert(data.error)
-        } else {
-          dispatch(loginSuccess(data))
-        }
-      })
-    }
-  }, [])
+  //     fetch('http://localhost:3000/api/v1/current_user', reqObj)
+  //     .then(resp => resp.json())
+  //     .then(data => {
+  //       console.log(data)
+  //       if (data.error){
+  //         alert(data.error)
+  //       } else {
+  //         dispatch(loginSuccess(data))
+  //       }
+  //     })
+  //   }
+  // }, [])
 
   return (
     <div className="App">

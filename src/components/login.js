@@ -66,15 +66,25 @@ function Login(props){
 
     return(
         <div>
-            <Grid container justify="space-evenly" >
-                {error ? <p>{error}</p> : null
-                // make this it's own item later
-                }
+            <Grid container direction="column" justify="center" alignItems="center">
+                <Grid item>
                 <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
+                    <Grid item>
                         <TextField onChange={handleUsername} value={username} id="username-field" label="Username" variant="outlined" />
+                    </Grid>
+                    <Grid item>
                         <TextField onChange={handlePassword} value={password} type="password" id="password-field" label="password" variant="outlined" />
+                    </Grid>
+                    <Grid item>
                         <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
+                    </Grid>
                 </form>
+                </Grid>
+                <Grid item>
+                    {error ? <p>{error}</p> : null
+                    // make this it's own item later
+                    }
+                </Grid>
             </Grid>
         </div>
     )
