@@ -60,9 +60,13 @@ const Navbar = props => {
                 anchor="left"
                 open={true}
             >
-            <Grid container justify="center">
+            <Grid container direction="column" justify="center" alignItems="center" style={{marginTop: 12}}>
+              <Grid item>
                 <Avatar alt="Remy Sharp" src={komet} />
+              </Grid>
+              <Grid item>
                 <p>{auth ? auth.username : null}</p>
+              </Grid>
             </Grid>
             <Divider />
             <div className={classes.toolbar} />
