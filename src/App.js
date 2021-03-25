@@ -1,22 +1,20 @@
 import { Route, Switch } from 'react-router-dom';
-// import OverlappingWaveformInterface from './components/OverlappingWaveformInterface'
-// import Welcome from './components/Welcome'
+import OverlappingWaveformInterface from './components/OverlappingWaveformInterface'
+import Welcome from './components/Welcome'
 import Navbar from './components/Navbar'
-// import Login from './components/Login'
-// import SignUp from './components/SignUp'
-// import Dashboard from './components/Dashboard';
-// import Collection from './components/Collection';
-// import HowTo from './components/HowTo';
-// import CanvasTest from './components/CanvasTest';
-import LoggedOut from './components/LoggedOut';
-import LoggedIn from './components/LoggedIn';
+import Login from './components/Login'
+import SignUp from './components/SignUp'
+import Dashboard from './components/Dashboard';
+import Collection from './components/Collection';
+import HowTo from './components/HowTo';
+import CanvasTest from './components/CanvasTest';
 import { useEffect } from 'react';
 import { withRouter } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from './actions'
 
 
-const App = props => {
+function App(props) {
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
 
@@ -51,8 +49,14 @@ const App = props => {
     <div className="App">
       {auth ? <Navbar /> : null}
       <Switch>
-        <LoggedOut />
-        <LoggedIn />
+        <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
+        <Route path='/login' component={Login}/>
+        <Route path='/sign-up' component={SignUp}/>
+        <Route path='/dashboard' component={Dashboard}/>
+        <Route path='/canvas-test' component={CanvasTest}/>
+        <Route path='/collection' component={Collection}/>
+        <Route path='/how-to' component={HowTo}/>
+        <Route path='/' component={Welcome}/>
       </Switch>
     </div>
   );
