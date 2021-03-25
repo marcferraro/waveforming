@@ -44,7 +44,7 @@ const Navbar = props => {
     const classes = useStyles();
     
     const handleLogout = () => {
-      props.history.push('/dashboard')
+      props.history.push('/')
       dispatch(logout())
     }
 
