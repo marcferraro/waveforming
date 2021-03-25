@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 const SignUp = props => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [passwordConfirm, setPasswordConfirm] = useState("")
+    const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [error, setError] = useState("")
     
     const dispatch = useDispatch()
@@ -34,17 +34,20 @@ const SignUp = props => {
     const handlePassword = event => {
         setPassword(event.target.value)
     }
-    
-    const handlePasswordConfirm = event => {
-        setPassword(event.target.value)
+
+    const handlePasswordConfirmation = event => {
+        setPasswordConfirmation(event.target.value)
     }
 
     const handleSubmit = event => {
         event.preventDefault()
 
         const user = {
-            username: username,
-            password: password
+            user: {
+                username: username,
+                password: password,
+                password_confirmation: passwordConfirmation
+            }
         }
 
         const reqObj = {
@@ -55,35 +58,45 @@ const SignUp = props => {
             body: JSON.stringify(user)
         }
 
-        fetch('http://localhost:3000/api/v1/auth', reqObj)
+        fetch('http://localhost:3000/api/v1/users', reqObj)
         .then(resp => resp.json())
         .then(data => {
             if (data.error){
                 // turn this into a popup
                 setError(data.error)
             } else {
-                dispatch(loginSuccess(data.user))
-                localStorage.setItem('token', data.token)
-                props.history.push('/dashboard')
+                console.log(data)
+                // dispatch(loginSuccess(data.user))
+                // localStorage.setItem('token', data.token)
+                // props.history.push('/dashboard')
             }
         })
     }
 
     return(
         <div>
-            <Grid container direction="column" justify="center" alignItems="center" >
+            <Grid container direction="column" justify="center" alignItems="center">
                 <Grid item>
-                    {error ? <p>{error}</p> : null}
-                    {
+                <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
+                    <Grid item>
+                        <TextField onChange={handleUsername} value={username} id="username-field" label="Username" variant="outlined" />
+                    </Grid>
+                    <Grid item>
+                        <TextField onChange={handlePassword} value={password} type="password" id="password-field" label="password" variant="outlined" />
+                    </Grid>
+                    <Grid item>
+                        <TextField onChange={handlePasswordConfirmation} value={passwordConfirmation} type="password" id="password-confirmation-field" label="password confirmation" variant="outlined" />
+                    </Grid>
+                    <Grid item>
+                        <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
+                    </Grid>
+                </form>
+                </Grid>
+                <Grid item>
+                    {error ? <p>{error}</p> : null
                     // make this it's own item later
                     }
                 </Grid>
-                {/* <Grid></Grid> */}
-                <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
-                        <TextField onChange={handleUsername} value={username} id="username-field" label="Username" variant="outlined" />
-                        <TextField onChange={handlePassword} value={password} type="password" id="password-field" label="password" variant="outlined" />
-                        <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
-                </form>
             </Grid>
         </div>
     )
