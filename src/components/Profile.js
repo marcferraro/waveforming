@@ -9,7 +9,6 @@ const Profile = props => {
     const [avatar, setAvatar] = useState(null)
 
     const handleAvatar = event => {
-        debugger
         setAvatar(event.target.files[0])
     }
 
