@@ -14,7 +14,7 @@ const Profile = props => {
     }
     const handleAvatarUrl = url => {
         console.log(url)
-        setAvatarUrl('localhost:3000' + url)
+        setAvatarUrl('http://localhost:3000' + url)
     }
 
     const submitAvatar = () => {
