@@ -7,9 +7,14 @@ import { Input, Button } from '@material-ui/core'
 const Profile = props => {
     const auth = useSelector(state => state.auth)
     const [avatar, setAvatar] = useState(null)
+    const [avatarUrl, setAvatarUrl] = useState('')
 
     const handleAvatar = event => {
         setAvatar(event.target.files[0])
+    }
+    const handleAvatarUrl = url => {
+        console.log(url)
+        setAvatarUrl('localhost:3000' + url)
     }
 
     const submitAvatar = () => {
@@ -21,7 +26,10 @@ const Profile = props => {
             body: formData
           })
         .then(resp => resp.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data)
+            handleAvatarUrl(data.avatarUrl)
+        })
     }
 
     return(
@@ -29,7 +37,8 @@ const Profile = props => {
             <Typography>
                 {auth.username}
             </Typography>
-            <Avatar onClick={() => console.log(avatar)} alt="avatar" src=""></Avatar>
+            <Avatar onClick={() => console.log(avatarUrl)} alt="avatar" src={avatarUrl}></Avatar>
+            <img src={avatarUrl} ></img>
             <Input onChange={handleAvatar} type="file" id="avatar-upload" />
             <Button onClick={submitAvatar} type="submit">Submit</Button>
             <Typography paragraph>
