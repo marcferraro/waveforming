@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import { Input, Button } from '@material-ui/core'
-import { DirectUpload } from "activestorage"
 
 const Profile = props => {
     const auth = useSelector(state => state.auth)
