@@ -6,6 +6,7 @@ import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Profile from './components/Profile'
 import Dashboard from './components/Dashboard';
+import Gallery from './components/Gallery';
 import Collection from './components/Collection';
 import HowTo from './components/HowTo';
 import CanvasTest from './components/CanvasTest';
@@ -55,6 +56,7 @@ function App(props) {
         <Route path='/profile' component={Profile}/>
         <Route path='/dashboard' component={Dashboard}/>
         <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
+        <Route path='/gallery' component={Gallery}/>
         <Route path='/collection' component={Collection}/>
         <Route path='/how-to' component={HowTo}/>
         <Route path='/canvas-test' component={CanvasTest}/>

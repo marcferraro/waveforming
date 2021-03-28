@@ -1,9 +1,9 @@
-const Dashboard = props => {
+const Gallery = props => {
     return(
         <div style={{marginLeft: 180, marginRight: 'auto'}} >
-            Hello from the dashboard
+            Hello from the Gallery
         </div>
     )
 }
 
-export default Dashboard
+export default Gallery
