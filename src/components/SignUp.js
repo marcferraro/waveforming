@@ -50,21 +50,21 @@ const SignUp = props => {
 
         const formData = new FormData();
         formData.append("avatar", avatar)
+        formData.append("username", username)
+        formData.append("password", password)
+        formData.append("password_confirmation", passwordConfirmation)
         
         // const user = {
-        //     user: {
-        //         username: username,
-        //         password: password,
-        //         password_confirmation: passwordConfirmation
-        //     }
+        //         user: {
+        //                 username: username,
+        //                 password: password,
+        //                 password_confirmation: passwordConfirmation
+        //             }
         // }
 
         const reqObj = {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
+            body: formData
         }
 
         fetch('http://localhost:3000/api/v1/users', reqObj)
@@ -74,6 +74,7 @@ const SignUp = props => {
                 // turn this into a popup
                 setError(data.error)
             } else {
+                // console.log(data)
                 dispatch(loginSuccess(data.user))
                 localStorage.setItem('token', data.token)
                 props.history.push('/dashboard')
