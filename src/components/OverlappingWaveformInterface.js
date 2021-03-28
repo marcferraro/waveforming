@@ -39,6 +39,8 @@ const OverlappingWaveformInterface = props => {
     const [ground, setGround] = useState(0)
     const [periodicInput, setPeriodicInput] = useState(true)
     const [periodicOutput, setPeriodicOutput] = useState(false)
+    const [inputTitle, setInputTitle] = useState("")
+    const [outputTitle, setOutputTitle] = useState("")
 
     // const colorPicker = new iro.ColorPicker('#picker');
 
@@ -122,7 +124,14 @@ const OverlappingWaveformInterface = props => {
         console.log('save input')
     }
     const saveOutput = () => {
-        console.log('save output')
+        const outputCanvas = document.getElementById("output")
+        const imgUrl = outputCanvas.toDataURL("image/png");
+        // const img = document.createElement('img')
+        // img.src = imgUrl
+
+        const formData = new FormData();
+        formData.append('ooutput', imgUrl)
+        formData.append('title', imgUrl)
     }
 
     const handleN = event => {
@@ -145,6 +154,14 @@ const OverlappingWaveformInterface = props => {
         event.target.checked ? setPeriodicOutput(true) : setPeriodicOutput(false)
     }
 
+    const handleInputTitle = event => {
+        setInputTitle(event.target.value)
+    }
+
+    const handleOutputTitle = event => {
+        setOutputTitle(event.target.value)
+    }
+
     return(
         <div className={classes.root} >
             <Grid container spacing={6}>
@@ -164,9 +181,25 @@ const OverlappingWaveformInterface = props => {
                             <Button onClick={generate} variant="contained" color="secondary" >Generate</Button>
                         </Grid>
                         <Grid item>
-                            <canvas id="output" width="48" height="48" style={{width:"240px", height:"240px"}}></canvas>
-                            <Grid item>
-                                    <Button onClick={saveOutput} variant="contained" color="secondary" >Save Output</Button>
+                            <Grid direction="column" align-items="center" justify="center" container>
+                                <Grid item>
+                                    <canvas id="output" width="48" height="48" style={{width:"240px", height:"240px"}}></canvas>
+                                </Grid>
+                                <Grid container>
+                                    <Grid item xs>
+                                        <TextField
+                                            onChange={handleOutputTitle}
+                                            value={outputTitle}
+                                            id="outlined-basic"
+                                            label="Title"
+                                            variant="outlined"
+                                            size="small"
+                                            />
+                                    </Grid>
+                                    <Grid item xs={8}>
+                                        <Button onClick={saveOutput} variant="contained" color="secondary" >Save Output</Button>
+                                    </Grid>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
