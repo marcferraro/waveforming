@@ -12,6 +12,7 @@ const Profile = props => {
     const handleAvatar = event => {
         setAvatar(event.target.files[0])
     }
+    
     const handleAvatarUrl = url => {
         console.log(url)
         setAvatarUrl('http://localhost:3000' + url)

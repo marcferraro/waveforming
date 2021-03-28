@@ -21,6 +21,7 @@ const SignUp = props => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const [avatar, setAvatar] = useState(null)
     const [error, setError] = useState("")
     
     const dispatch = useDispatch()
@@ -38,20 +39,25 @@ const SignUp = props => {
     const handlePasswordConfirmation = event => {
         setPasswordConfirmation(event.target.value)
     }
+
     const handleAvatar = event => {
-        console.log(event.target.files[0])
+        setAvatar(event.target.files[0])
     }
 
     const handleSubmit = event => {
         event.preventDefault()
 
-        const user = {
-            user: {
-                username: username,
-                password: password,
-                password_confirmation: passwordConfirmation
-            }
-        }
+
+        const formData = new FormData();
+        formData.append("avatar", avatar)
+        
+        // const user = {
+        //     user: {
+        //         username: username,
+        //         password: password,
+        //         password_confirmation: passwordConfirmation
+        //     }
+        // }
 
         const reqObj = {
             method: "POST",
