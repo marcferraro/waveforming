@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 const HowTo = props => {
 
     return(
-        <div style={{marginLeft: 180, marginRight: 'auto'}} >
+        <div >
             <Typography paragraph>
                 What is the WaveFunctionCollapse link to project repo and how are we using it? Created by Maxim Gumin link to github
                 the function takes in an initial pattern bitmap and creates an output bitmap based on that pattern. This app will riff
@@ -24,3 +24,5 @@ const HowTo = props => {
 }
 
 export default HowTo
+
+// style={{marginLeft: 180, marginRight: 'auto'}}

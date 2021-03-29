@@ -10,11 +10,22 @@ import ListItemText from '@material-ui/core/ListItemText';
 // import MailIcon from '@material-ui/icons/Mail';
 import Avatar from '@material-ui/core/Avatar';
 import { Grid } from '@material-ui/core';
-import komet from '../images/komet.jpeg'
+// import komet from '../images/komet.jpeg'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../actions'
 import { Link }  from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Route, Switch } from 'react-router-dom'
+
+import OverlappingWaveformInterface from './OverlappingWaveformInterface'
+import Welcome from './Welcome'
+import Login from './Login'
+import SignUp from './SignUp'
+import Profile from './Profile'
+import Dashboard from './Dashboard';
+import Gallery from './Gallery';
+import Collection from './Collection';
+import HowTo from './HowTo';
+import CanvasTest from './CanvasTest';
 
 
 const drawerWidth = 180;
@@ -117,6 +128,18 @@ const Navbar = props => {
                 {/* </Link> */}
               </List>
             </Drawer>
+            <Switch>
+              {/* <Route path='/login' component={Login}/>
+              <Route path='/sign-up' component={SignUp}/> */}
+              <Route path='/profile' component={Profile}/>
+              <Route path='/dashboard' component={Dashboard}/>
+              <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
+              <Route path='/gallery' component={Gallery}/>
+              <Route path='/collection' component={Collection}/>
+              <Route path='/how-to' component={HowTo}/>
+              <Route path='/canvas-test' component={CanvasTest}/>
+              {/* <Route exact path='/' component={Welcome}/> */}
+      </Switch>
             
         </div>
     )
