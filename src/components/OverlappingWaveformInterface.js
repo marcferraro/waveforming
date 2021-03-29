@@ -23,7 +23,7 @@ import iro from "@jaames/iro"
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      marginLeft: 180,
+    //   marginLeft: 180,
       marginRight: 'auto'
     },
     control: {
