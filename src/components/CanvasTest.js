@@ -23,8 +23,8 @@ function Canvas(){
         const pos = { x: 0, y: 0 };
         
         function setPosition(e) {
-            pos.x = e.offsetX;
-            pos.y = e.offsetY;
+            pos.x = e.offsetX / 15 | 0;
+            pos.y = e.offsetY / 15 | 0;
             console.log(pos)
         }
 
