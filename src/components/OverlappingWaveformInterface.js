@@ -45,8 +45,6 @@ const OverlappingWaveformInterface = props => {
     const [inputTitle, setInputTitle] = useState("")
     const [outputTitle, setOutputTitle] = useState("")
 
-    // const colorPicker = new iro.ColorPicker('#picker');
-
     const classes = useStyles();
 
     var img_url_to_data = function(imageFile, callback){
@@ -100,7 +98,10 @@ const OverlappingWaveformInterface = props => {
 
     useEffect(() => {
         const div = document.getElementById('picker')
-        const colorPicker = new iro.ColorPicker(div)
+        const colorPicker = new iro.ColorPicker(div, {
+            width: 100
+        })
+
     }, [])
 
     const handleFile = event => {
@@ -223,8 +224,12 @@ const OverlappingWaveformInterface = props => {
                 </Grid>
                 <Grid item xs={12}>
                     <Paper>
+                        
                         <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1}>
                             {/* <FormGroup row> */}
+                                <FormControl>
+                                    <div id="picker"></div>
+                                </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="n-input">N</InputLabel>
                                     <Select
@@ -299,9 +304,6 @@ const OverlappingWaveformInterface = props => {
                                     label="Periodic Output"
                                 />
                                 <input onChange={handleFile} type="file" name="audio" accept="image/*" id="upload" />
-                                <FormControl>
-                                    <div id="picker"></div>
-                                </FormControl>
                             {/* </FormGroup> */}
                         </Grid>
                     </Paper>
