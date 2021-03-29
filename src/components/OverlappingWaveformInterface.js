@@ -15,6 +15,7 @@ import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, F
 import '../overlapInterface.css'
 import { OverlappingModel } from 'wavefunctioncollapse'
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux'
 import iro from "@jaames/iro"
 // import testImg from './flower.png'
 
@@ -32,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const OverlappingWaveformInterface = props => {
+
+    const auth = useSelector(state => state.auth)
 
     const [image, setImage] = useState(null)
     const [N, setN] = useState(2)
@@ -136,6 +139,7 @@ const OverlappingWaveformInterface = props => {
         const formData = new FormData();
         formData.append('ooutput', imgUrl)
         formData.append('title', outputTitle)
+        formData.append('user_id', auth.id)
 
         const reqObj = {
             method: "POST",
