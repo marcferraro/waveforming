@@ -16,9 +16,23 @@ function Canvas(){
 
         const canvas = canvasRef.current
         const ctx = canvas.getContext('2d')
+
         ctx.fillStyle = "#FF0000";
         ctx.fillRect( 0, 0, 1, 1 );
-    //     const pos = { x: 0, y: 0 };
+
+        const pos = { x: 0, y: 0 };
+        
+        function setPosition(e) {
+            pos.x = e.offsetX;
+            pos.y = e.offsetY;
+            console.log(pos)
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            // debugger
+            setPosition(e)
+            ctx.fillRect( pos.x, pos.y, 1, 1 );
+        });
         
     //     function draw(e) {
     //         // console.log(e)
@@ -39,19 +53,14 @@ function Canvas(){
     //     }
 
     //     // new position from mouse event
-    //   function setPosition(e) {
-    //       pos.x = e.clientX;
-    //       pos.y = e.clientY;
-    //   }
 
     //   function resize() {
     //     ctx.canvas.width = window.innerWidth;
     //     ctx.canvas.height = window.innerHeight;
     //   }
     //     window.addEventListener('resize', resize);
-    //     document.addEventListener('mousemove', draw);
-    //     document.addEventListener('mousedown', setPosition);
-    //     document.addEventListener('mouseenter', setPosition);
+        // document.addEventListener('mousemove', draw);
+        // document.addEventListener('mouseenter', setPosition);
 
 
 
