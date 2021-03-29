@@ -39,7 +39,7 @@ const Profile = props => {
                 {auth.username}
             </Typography>
             <Avatar onClick={() => console.log(avatarUrl)} alt="avatar" src={avatarUrl}></Avatar>
-            <img src={avatarUrl} ></img>
+            <img alt="avatar" src={avatarUrl} ></img>
             <Input onChange={handleAvatar} type="file" id="avatar-upload" />
             <Button onClick={submitAvatar} type="submit">Submit</Button>
             <Typography paragraph>
