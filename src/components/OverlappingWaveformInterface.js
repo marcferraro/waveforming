@@ -112,6 +112,7 @@ const OverlappingWaveformInterface = props => {
         }
     }
 
+    // run input image through generator
     const generate = () => {
         if (image){
             img_url_to_data(image, start)
@@ -120,9 +121,12 @@ const OverlappingWaveformInterface = props => {
         }
     }
 
+    // save input image to db
     const saveInput = () => {
         console.log('save input')
     }
+    
+    //save output image to db
     const saveOutput = () => {
         const outputCanvas = document.getElementById("output")
         const imgUrl = outputCanvas.toDataURL("image/png");
@@ -131,7 +135,16 @@ const OverlappingWaveformInterface = props => {
 
         const formData = new FormData();
         formData.append('ooutput', imgUrl)
-        formData.append('title', imgUrl)
+        formData.append('title', outputTitle)
+
+        const reqObj = {
+            method: "POST",
+            body: formData
+        }
+
+        fetch('http://localhost:3000/api/v1/ooutputs', reqObj)
+        .then(resp => resp.json())
+        .then(data => console.log(data))
     }
 
     const handleN = event => {
