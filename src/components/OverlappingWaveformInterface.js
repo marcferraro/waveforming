@@ -339,13 +339,19 @@ const OverlappingWaveformInterface = props => {
                     </Grid>
                 </Grid>
                 <Grid item xs={12}>
-                    <Paper>
+                    <Paper elevation={3}>
+                        <Grid container>
+                            <FormControl>
+                                <div id="picker"></div>
+                            </FormControl>
+                        </Grid>
+                    </Paper>
+                </Grid>
+                <Grid item xs={12}>
+                    <Paper elevation={3}>
                         
                         <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1}>
                             {/* <FormGroup row> */}
-                                <FormControl>
-                                    <div id="picker"></div>
-                                </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="n-input">N</InputLabel>
                                     <Select
