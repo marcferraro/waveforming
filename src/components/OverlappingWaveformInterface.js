@@ -272,8 +272,20 @@ const OverlappingWaveformInterface = props => {
                                 <Grid item>
                                     <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px"}} ref={inputCanvasRef}></canvas>
                                 </Grid>
-                                <Grid item>
-                                    <Button onClick={saveInput} variant="contained" color="secondary" >Save Input</Button>
+                                <Grid container>
+                                    <Grid item xs>
+                                        <TextField
+                                            onChange={handleInputTitle}
+                                            value={inputTitle}
+                                            id="outlined-basic"
+                                            label="Title"
+                                            variant="outlined"
+                                            size="small"
+                                            />
+                                    </Grid>
+                                    <Grid item xs={7}>
+                                        <Button onClick={saveInput} variant="contained" color="secondary" >Save Input</Button>
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
