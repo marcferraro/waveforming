@@ -207,7 +207,27 @@ const OverlappingWaveformInterface = props => {
                 .then(resp => resp.json())
                 .then(data => console.log(data))
                     })
+            } else {
+                console.log('it worked!')
+                const outputCanvas = document.getElementById("output")
+                const imgUrl = outputCanvas.toDataURL("image/png");
+        
+                const formData = new FormData();
+                formData.append('ooutput', imgUrl)
+                formData.append('title', outputTitle)
+                formData.append('user_id', auth.id)
+
+                formData.append('input_id', inputId)
+
+                const reqObj = {
+                    method: "POST",
+                    body: formData
                 }
+
+                fetch('http://localhost:3000/ooutputs', reqObj)
+                .then(resp => resp.json())
+                .then(data => console.log(data))
+            }
     }
 
     const fetchOutput = () => {
