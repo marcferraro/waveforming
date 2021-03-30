@@ -119,17 +119,19 @@ const OverlappingWaveformInterface = props => {
         
 
         canvas.addEventListener('mousedown', (e) => {
-            setPosition(e)
-            ctx.fillRect( posX, posY, 1, 1 );
+            // setPosition(e)
+            const x = e.offsetX / 15 | 0
+            const y = e.offsetY / 15 | 0
+            ctx.fillRect( x, y, 1, 1 );
         });
     }
 
-    const setPosition = e => {
-        console.log(e)
-        setPosX(e.offsetX / 15 | 0)
-        setPosY(e.offsetY / 15 | 0)
-        console.log(posX, posY)
-    }
+    // const setPosition = e => {
+    //     // console.log(e.offsetX / 15 | 0)
+    //     setPosX(e.offsetX / 15 | 0)
+    //     setPosY(e.offsetY / 15 | 0)
+    //     console.log(posX, posY)
+    // }
 
     const handleFile = event => {
 
