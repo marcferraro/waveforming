@@ -67,7 +67,7 @@ const SignUp = props => {
             body: formData
         }
 
-        fetch('http://localhost:3000/api/v1/users', reqObj)
+        fetch('http://localhost:3000/users', reqObj)
         .then(resp => resp.json())
         .then(data => {
             if (data.error){

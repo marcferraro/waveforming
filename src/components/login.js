@@ -50,7 +50,7 @@ const Login = props => {
             body: JSON.stringify(user)
         }
 
-        fetch('http://localhost:3000/api/v1/auth', reqObj)
+        fetch('http://localhost:3000/auth', reqObj)
         .then(resp => resp.json())
         .then(data => {
             if (data.error){

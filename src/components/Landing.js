@@ -26,7 +26,7 @@ const Landing = props => {
 //         }
 //       }
 
-//       fetch('http://localhost:3000/api/v1/current_user', reqObj)
+//       fetch('http://localhost:3000/current_user', reqObj)
 //       .then(resp => resp.json())
 //       .then(data => {
 //         console.log(data)

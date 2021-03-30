@@ -38,6 +38,7 @@ const OverlappingWaveformInterface = props => {
     const inputCanvasRef = useRef(null)
     // const [posX, setPosX] = useState(0)
     // const [posY, setPosY] = useState(0)
+    const [inputId, setInputId] = useState(null)
     const [image, setImage] = useState(null)
     const [N, setN] = useState(2)
     const [symmetry, setSymmetry] = useState(1)
@@ -120,7 +121,7 @@ const OverlappingWaveformInterface = props => {
         
 
         canvas.addEventListener('mousedown', (e) => {
-            // setPosition(e)
+            setInputId(null)
             const x = e.offsetX / 15 | 0
             const y = e.offsetY / 15 | 0
             ctx.fillRect( x, y, 1, 1 );
@@ -168,24 +169,49 @@ const OverlappingWaveformInterface = props => {
     
     //save output image to db
     const saveOutput = () => {
-        const outputCanvas = document.getElementById("output")
-        const imgUrl = outputCanvas.toDataURL("image/png");
-        // const img = document.createElement('img')
-        // img.src = imgUrl
+        if (!inputId){
+            const inputFormData = new FormData();
+            const inputCanvas = document.getElementById("input")
+            const inputImgUrl = inputCanvas.toDataURL("image/png");
+            inputFormData.append('input_title', inputTitle)
+            inputFormData.append('input', inputImgUrl)
+            inputFormData.append('user_id', auth.id)
+            // add colors here once we are tracking them
 
-        const formData = new FormData();
-        formData.append('ooutput', imgUrl)
-        formData.append('title', outputTitle)
-        formData.append('user_id', auth.id)
+            const inputReqObj = {
+                method: "POST",
+                body: inputFormData
+            }
 
-        const reqObj = {
-            method: "POST",
-            body: formData
-        }
+            fetch('http://localhost:3000/inputs', inputReqObj)
+            .then(resp => resp.json())
+            .then(data => {
+                setInputId(data.id)
 
-        fetch('http://localhost:3000/api/v1/ooutputs', reqObj)
-        .then(resp => resp.json())
-        .then(data => console.log(data))
+                const outputCanvas = document.getElementById("output")
+                const imgUrl = outputCanvas.toDataURL("image/png");
+        
+                const formData = new FormData();
+                formData.append('ooutput', imgUrl)
+                formData.append('title', outputTitle)
+                formData.append('user_id', auth.id)
+
+                formData.append('input_id', data.id)
+
+                const reqObj = {
+                    method: "POST",
+                    body: formData
+                }
+
+                fetch('http://localhost:3000/ooutputs', reqObj)
+                .then(resp => resp.json())
+                .then(data => console.log(data))
+                    })
+                }
+    }
+
+    const fetchOutput = () => {
+        
     }
 
     const handleN = event => {

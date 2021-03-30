@@ -22,7 +22,7 @@ const Profile = props => {
         const formData = new FormData();
         formData.append("avatar", avatar)
         
-        fetch(`http://localhost:3000/api/v1/avatar/${auth.id}`, {
+        fetch(`http://localhost:3000/avatar/${auth.id}`, {
             method: "PATCH",
             body: formData
           })
