@@ -24,7 +24,7 @@ const Welcome = props => {
             </video>
 
                 <div className={classes.Content}>
-                    <div className={classes.SubContent} style={{marginLeft: 180, marginRight: 'auto', marginTop: 80}}>
+                    <div className={classes.SubContent} >
 
                     <Typography >
                         waveforming
