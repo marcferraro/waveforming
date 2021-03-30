@@ -15,26 +15,26 @@ function Canvas(){
     // }
 
     useEffect(() => {
-
+        console.log('hello')
         const div = document.getElementById('picker')
         const colorPicker = new iro.ColorPicker(div, {
             width: 100
         })
+
+        const canvas = canvasRef.current
+
+        const ctx = canvas.getContext('2d')
 
         colorPicker.on('color:change', function(color) {
             // log the current color as a HEX string
             ctx.fillStyle = color.hexString
         });
 
-        const canvas = canvasRef.current
-        const ctx = canvas.getContext('2d')
-
         ctx.fillStyle = "#FF0000";
-        ctx.fillRect( 0, 0, 1, 1 );
 
         const pos = { x: 0, y: 0 };
         
-        function setPosition(e) {
+        const setPosition = e => {
             pos.x = e.offsetX / 15 | 0;
             pos.y = e.offsetY / 15 | 0;
             console.log(pos)
