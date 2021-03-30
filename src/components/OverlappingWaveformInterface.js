@@ -36,8 +36,8 @@ const OverlappingWaveformInterface = props => {
 
     const auth = useSelector(state => state.auth)
     const inputCanvasRef = useRef(null)
-    const [posX, setPosX] = useState(0)
-    const [posY, setPosY] = useState(0)
+    // const [posX, setPosX] = useState(0)
+    // const [posY, setPosY] = useState(0)
     const [image, setImage] = useState(null)
     const [N, setN] = useState(2)
     const [symmetry, setSymmetry] = useState(1)
@@ -99,11 +99,10 @@ const OverlappingWaveformInterface = props => {
     }
 
     useEffect(() => {
-        handleColor()
-
+        handlePainting()
     }, [])
 
-    const handleColor = () => {
+    const handlePainting = () => {
         const div = document.getElementById('picker')
         const colorPicker = new iro.ColorPicker(div, {
             width: 100
@@ -111,6 +110,8 @@ const OverlappingWaveformInterface = props => {
 
         const canvas = inputCanvasRef.current
         const ctx = canvas.getContext('2d')
+
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         colorPicker.on('color:change', function(color) {
             ctx.fillStyle = color.hexString
