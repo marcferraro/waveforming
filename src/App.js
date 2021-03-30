@@ -1,10 +1,10 @@
-import { Route, Switch } from 'react-router-dom';
+// import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar'
 // import OverlappingWaveformInterface from './components/OverlappingWaveformInterface'
 import Landing from './components/Landing'
-import Welcome from './components/Welcome'
-import Login from './components/Login'
-import SignUp from './components/SignUp'
+// import Welcome from './components/Welcome'
+// import Login from './components/Login'
+// import SignUp from './components/SignUp'
 // import Profile from './components/Profile'
 // import Dashboard from './components/Dashboard';
 // import Gallery from './components/Gallery';
