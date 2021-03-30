@@ -14,16 +14,18 @@ const Welcome = props => {
 
 
     return(
-        <div style={{marginLeft: 180, marginRight: 'auto'}} >
-            <Typography >
-                waveforming
-            </Typography>
-            <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}>
-                <Button>Login</Button>
-            </Link>
-            <Link to='/sign-up' style={{ textDecoration: 'none', color: 'inherit' }}>
-                <Button>Sign-Up</Button>
-            </Link>
+        <div style={{marginLeft: 180, marginRight: 'auto', marginTop: 80}} >
+            <video>
+                <Typography >
+                    waveforming
+                </Typography>
+                <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <Button>Login</Button>
+                </Link>
+                <Link to='/sign-up' style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <Button>Sign-Up</Button>
+                </Link>
+            </video>
         </div>
     )
 }
