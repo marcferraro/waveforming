@@ -17,9 +17,6 @@ import { Link }  from 'react-router-dom'
 import { withRouter, Route, Switch } from 'react-router-dom'
 
 import OverlappingWaveformInterface from './OverlappingWaveformInterface'
-import Welcome from './Welcome'
-import Login from './Login'
-import SignUp from './SignUp'
 import Profile from './Profile'
 import Dashboard from './Dashboard';
 import Gallery from './Gallery';
