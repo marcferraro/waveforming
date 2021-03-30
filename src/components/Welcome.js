@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link }  from 'react-router-dom'
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { Button, Grid } from '@material-ui/core';
 import ReactPlayer from 'react-player'
 import classes from './BackgroundVideo.module.css';
 
@@ -16,17 +16,12 @@ const Welcome = props => {
     const videoSource = "https://waveforming.s3.us-east-2.amazonaws.com/WaveFunctionCollapse.mp4"
 
     return(
-        <div className={classes.container} >
-
-                {/* <video autoPlay="autoplay" loop="loop" muted className={classes.Video} >
-                    <source src={videoSource} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video> */}
-
-            <video autoPlay="autoplay" loop="loop" muted className={classes.Video} >
+        <Grid className={classes.container} >
+            <ReactPlayer url={videoSource} playing={true} loop={true} width="100%" height="100%"/>
+            {/* <video autoPlay="autoplay" loop="loop" muted className={classes.Video} >
                 <source src={videoSource} type="video/mp4" />
                 Your browser does not support the video tag.
-            </video>
+            </video> */}
 
                 <div className={classes.Content}>
                     <div className={classes.SubContent} >
@@ -42,7 +37,7 @@ const Welcome = props => {
                     </Link>
                     </div>
                 </div>
-        </div>
+        </Grid>
     )
 }
 // style={{marginLeft: 180, marginRight: 'auto', marginTop: 80}}
