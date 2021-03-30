@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from './actions'
 
 
-function App(props) {
+const App = props => {
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
 
