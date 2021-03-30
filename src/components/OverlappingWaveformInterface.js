@@ -324,7 +324,6 @@ const OverlappingWaveformInterface = props => {
                                         <TextField
                                             onChange={handleOutputTitle}
                                             value={outputTitle}
-                                            id="outlined-basic"
                                             label="Title"
                                             variant="outlined"
                                             size="small"
@@ -390,7 +389,6 @@ const OverlappingWaveformInterface = props => {
                                         onChange={handleGround}
                                         type="number"
                                         value={ground}
-                                        id="outlined-basic"
                                         label="ground"
                                         variant="outlined" />
                                 {/* <FormControl className={classes.formControl}>
