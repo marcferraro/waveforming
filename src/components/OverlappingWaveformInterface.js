@@ -14,7 +14,7 @@ import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, F
 // import Remove from '@material-ui/icons/Remove';
 import '../overlapInterface.css'
 import { OverlappingModel } from 'wavefunctioncollapse'
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import iro from "@jaames/iro"
 // import testImg from './flower.png'
@@ -35,7 +35,9 @@ const useStyles = makeStyles((theme) => ({
 const OverlappingWaveformInterface = props => {
 
     const auth = useSelector(state => state.auth)
-
+    const inputCanvasRef = useRef(null)
+    const [posX, setPosX] = useState(0)
+    const [posY, setPosY] = useState(0)
     const [image, setImage] = useState(null)
     const [N, setN] = useState(2)
     const [symmetry, setSymmetry] = useState(1)
@@ -97,12 +99,37 @@ const OverlappingWaveformInterface = props => {
     }
 
     useEffect(() => {
+        handleColor()
+
+    }, [])
+
+    const handleColor = () => {
         const div = document.getElementById('picker')
         const colorPicker = new iro.ColorPicker(div, {
             width: 100
         })
 
-    }, [])
+        const canvas = inputCanvasRef.current
+        const ctx = canvas.getContext('2d')
+
+        colorPicker.on('color:change', function(color) {
+            ctx.fillStyle = color.hexString
+        });
+
+        
+
+        canvas.addEventListener('mousedown', (e) => {
+            setPosition(e)
+            ctx.fillRect( posX, posY, 1, 1 );
+        });
+    }
+
+    const setPosition = e => {
+        console.log(e)
+        setPosX(e.offsetX / 15 | 0)
+        setPosY(e.offsetY / 15 | 0)
+        console.log(posX, posY)
+    }
 
     const handleFile = event => {
 
@@ -188,7 +215,7 @@ const OverlappingWaveformInterface = props => {
                         <Grid item>
                             <Grid direction="column" align-items="center" justify="center" container>
                                 <Grid item>
-                                    <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px"}}></canvas>
+                                    <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px"}} ref={inputCanvasRef}></canvas>
                                 </Grid>
                                 <Grid item>
                                     <Button onClick={saveInput} variant="contained" color="secondary" >Save Input</Button>
