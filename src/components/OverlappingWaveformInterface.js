@@ -164,7 +164,29 @@ const OverlappingWaveformInterface = props => {
 
     // save input image to db
     const saveInput = () => {
-        console.log('save input')
+
+        const inputCanvas = document.getElementById("input")
+        const inputImgUrl = inputCanvas.toDataURL("image/png");
+        
+        const inputFormData = new FormData();
+        inputFormData.append('input_title', inputTitle)
+        inputFormData.append('input', inputImgUrl)
+        inputFormData.append('user_id', auth.id)
+        // add colors here once we are tracking them
+
+        const inputReqObj = {
+            method: "POST",
+            body: inputFormData
+        }
+
+        fetch('http://localhost:3000/inputs', inputReqObj)
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+            setInputId(data.id)
+            alert('input saved')
+        })
+
     }
     
     //save output image to db
