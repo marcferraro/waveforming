@@ -1,8 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import iro from "@jaames/iro"
 
 function Canvas(){
     
     const canvasRef = useRef(null)
+    const [color, setColor] = useState("")
 
 
     // const draw = ctx => {
@@ -13,6 +15,16 @@ function Canvas(){
     // }
 
     useEffect(() => {
+
+        const div = document.getElementById('picker')
+        const colorPicker = new iro.ColorPicker(div, {
+            width: 100
+        })
+
+        colorPicker.on('color:change', function(color) {
+            // log the current color as a HEX string
+            ctx.fillStyle = color.hexString
+        });
 
         const canvas = canvasRef.current
         const ctx = canvas.getContext('2d')
@@ -70,6 +82,7 @@ function Canvas(){
     return(
         <div >
             <canvas width="16" height="16" style={{width:"240px", height:"240px"}} ref={canvasRef}></canvas>
+            <div id="picker"></div>
         </div>
     )
 }

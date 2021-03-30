@@ -1,6 +1,7 @@
 import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar'
 // import OverlappingWaveformInterface from './components/OverlappingWaveformInterface'
+import Landing from './components/Landing'
 import Welcome from './components/Welcome'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
@@ -24,7 +25,7 @@ function App(props) {
     const token = localStorage.token
     // debugger
     if (!token){
-      props.history.push('/login')
+      // props.history.push('/login')
     } else if (token && !auth) {
 
       const reqObj = {
@@ -49,12 +50,12 @@ function App(props) {
 
   return (
     <div className="App">
-      <Switch>
+      {/* <Switch>
         <Route path='/login' component={Login}/>
         <Route path='/sign-up' component={SignUp}/>
         <Route exact path='/' component={Welcome}/>
-      </Switch>
-      {auth ? <Navbar /> : null}
+      </Switch> */}
+      {auth ? <Navbar /> : <Landing />}
     </div>
   );
 }

@@ -5,12 +5,12 @@ import Button from '@material-ui/core/Button';
 
 const Welcome = props => {
 
-    useEffect(() => {
-        const token = localStorage.token
+    // useEffect(() => {
+    //     const token = localStorage.token
     
-        if (token){
-          props.history.push('/dashboard')
-        }}, [])
+    //     if (token){
+    //       props.history.push('/dashboard')
+    //     }}, [])
 
 
     return(
