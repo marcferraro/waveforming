@@ -17,23 +17,23 @@ const Welcome = props => {
 
     return(
         <Grid className={classes.container} >
-            <ReactPlayer url={videoSource} playing={true} loop={true} width="100%" height="100%"/>
-            {/* <video autoPlay="autoplay" loop="loop" muted className={classes.Video} >
+            {/* <ReactPlayer url={videoSource} playing={true} loop={true} width="100%" height="100%"/> */}
+            <video autoPlay="autoplay" loop="loop" muted className={classes.Video} >
                 <source src={videoSource} type="video/mp4" />
                 Your browser does not support the video tag.
-            </video> */}
+            </video>
 
                 <div className={classes.Content}>
-                    <div className={classes.SubContent} >
+                    <div className={classes.SubContent} style={{marginLeft: 180, marginRight: 'auto', marginTop: 80}}>
 
                     <Typography >
                         waveforming
                     </Typography>
                     <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <Button>Login</Button>
+                        <Button color="secondary">Login</Button>
                     </Link>
                     <Link to='/sign-up' style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <Button>Sign-Up</Button>
+                        <Button color="secondary">Sign-Up</Button>
                     </Link>
                     </div>
                 </div>
