@@ -15,6 +15,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../actions'
 import { Link }  from 'react-router-dom'
 import { withRouter, Route, Switch } from 'react-router-dom'
+import { useEffect } from 'react';
 
 import OverlappingWaveformInterface from './OverlappingWaveformInterface'
 import Profile from './Profile'
@@ -50,6 +51,12 @@ const Navbar = props => {
     const auth = useSelector(state => state.auth)
     const dispatch = useDispatch()
     const classes = useStyles();
+    
+    useEffect(() => {
+      fetch('http://localhost:3000/ooutputs')
+      .then(resp => resp.json())
+      .then(data => console.log(data))
+    }, [])
     
     const handleLogout = () => {
       props.history.push('/')
