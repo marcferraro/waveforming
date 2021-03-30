@@ -49,9 +49,9 @@ const OverlappingWaveformInterface = props => {
 
     const classes = useStyles();
 
-    var img_url_to_data = function(imageFile, callback){
-        var img = document.createElement('img')
-        img.src = URL.createObjectURL(imageFile)
+    var img_url_to_data = function(img, callback){
+        // var img = document.createElement('img')
+        // img.src = URL.createObjectURL(imageFile)
         
         // console.log(img)
         img.onload = function(e){
@@ -148,11 +148,17 @@ const OverlappingWaveformInterface = props => {
 
     // run input image through generator
     const generate = () => {
-        if (image){
+        const canvas = inputCanvasRef.current
+        // const imageData = canvas.getContext('2d').getImageData(0,0,16,16)
+        const image = document.createElement("img")
+        image.src = canvas.toDataURL('image/png')
+        // debugger
+        // const imageData - canvas 
+        // if (image){
             img_url_to_data(image, start)
-        } else {
-            alert("No image uploaded.")
-        }
+        // } else {
+        //     alert("No image uploaded.")
+        // }
     }
 
     // save input image to db
