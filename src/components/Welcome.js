@@ -15,7 +15,6 @@ const Welcome = props => {
 
     return(
         <div style={{marginLeft: 180, marginRight: 'auto', marginTop: 80}} >
-            <video>
                 <Typography >
                     waveforming
                 </Typography>
@@ -25,7 +24,6 @@ const Welcome = props => {
                 <Link to='/sign-up' style={{ textDecoration: 'none', color: 'inherit' }}>
                     <Button>Sign-Up</Button>
                 </Link>
-            </video>
         </div>
     )
 }
