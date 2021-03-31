@@ -47,6 +47,7 @@ const OverlappingWaveformInterface = props => {
     const [periodicOutput, setPeriodicOutput] = useState(false)
     const [inputTitle, setInputTitle] = useState("")
     const [outputTitle, setOutputTitle] = useState("")
+    const [colorArray, setColorArray] = useState([])
 
     const classes = useStyles();
 
