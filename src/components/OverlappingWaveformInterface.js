@@ -142,8 +142,8 @@ const OverlappingWaveformInterface = props => {
         canvas.addEventListener('mousedown', (e) => {
             console.log(hexRef.current)
             setInputId(null)
-
-            if (!colorArray.includes(hexRef.current)){
+            // debugger
+            if (!colorArrayRef.current.includes(hexRef.current)){
                 const newColorArray = [...colorArrayRef.current, hexRef.current]
                 setColorArray(newColorArray)
             }
