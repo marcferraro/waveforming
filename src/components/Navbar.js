@@ -13,6 +13,7 @@ import { Grid } from '@material-ui/core';
 // import komet from '../images/komet.jpeg'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../actions'
+import { fetchOoutputsSuccess } from '../actions'
 import { Link }  from 'react-router-dom'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import { useEffect } from 'react';
@@ -55,7 +56,10 @@ const Navbar = props => {
     useEffect(() => {
       fetch('http://localhost:3000/ooutputs')
       .then(resp => resp.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        dispatch(fetchOoutputsSuccess(data))
+      })
     }, [])
     
     const handleLogout = () => {
