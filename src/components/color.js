@@ -8,26 +8,28 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 
-const useStyles = makeStyles({
-    root: {
-      maxWidth: 345,
-      maxHeight: 100
-    },
-    media: {
-      height: "5vw",
-      width: "12vh",
-      backgroundColor: "blue"
-    },
-    content: {
-        padding: 1,
-        '&:last-child': {
-        paddingBottom: 0,
-        },
-        textAlign: 'center'
-    }
-  });
 
 const Color = props => {
+
+    const useStyles = makeStyles({
+        root: {
+          maxWidth: 345,
+          maxHeight: 100
+        },
+        media: {
+          height: "5vw",
+          width: "12vh",
+          backgroundColor: props.hex
+        },
+        content: {
+            padding: 1,
+            '&:last-child': {
+            paddingBottom: 0,
+            },
+            textAlign: 'center'
+        }
+      });
+
     const classes = useStyles();
     
     return(
