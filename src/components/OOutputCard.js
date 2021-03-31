@@ -12,35 +12,35 @@ const useStyles = makeStyles({
       maxWidth: 345,
     },
     media: {
-      height: 140,
+      height: 80,
+      width: 80
     },
 });
 
 const OOutputCard = props => {
     const classes = useStyles()
-
+    // debugger
     return(
         <Grid item>
             <Card className={classes.root}>
                 <CardActionArea>
                     <CardMedia
-                    className={classes.media}
-                    image={`http://localhost:3000${props.oOutput.ooutput.url}`}
-                    title="Overlapping Wave Function Output"
+                        className={classes.media}
+                        image={`http://localhost:3000${props.oOutput.ooutput.url}`}
+                        title="Overlapping Wave Function Output"
                     />
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Lizard
+                        {props.oOutput.title ? props.oOutput.title : "Untitled"}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
+                        Artist: {props.oOutput.user ? props.oOutput.user.username : "unknown"}
                     </Typography>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
                     <Button size="small" color="primary">
-                    Share
+                    View Input
                     </Button>
                     <Button size="small" color="primary">
                     Learn More
