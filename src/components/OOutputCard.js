@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import { Button, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef } from 'react';
+import IconButton from '@material-ui/core/IconButton';
+import StarsIcon from '@material-ui/icons/Stars';
 
 const useStyles = makeStyles({
     root: {
@@ -40,12 +42,6 @@ const OOutputCard = props => {
         <Grid item>
             <Card className={classes.root}>
                 <CardActionArea>
-                    {/* <CardMedia
-                        className={classes.media}
-                        image={`http://localhost:3000${props.oOutput.ooutput.url}`}
-                        title="Overlapping Wave Function Output"
-                    /> */}
-                    {/* <img src={`http://localhost:3000${props.oOutput.ooutput.url}`} width="48" height="48" style={{width:"240px", height:"240px"}}/> */}
                     <canvas width="48" height="48" style={{width:"220px", height:"220px", border: '0px none black'}} ref={canvasRef}/>
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -57,12 +53,18 @@ const OOutputCard = props => {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button size="small" color="primary">
-                    View Input
-                    </Button>
-                    <Button size="small" color="primary">
-                    Learn More
-                    </Button>
+                    <Grid container justify="flex-start">
+                        <Grid item xs={10}>
+                            <Button size="small" color="primary">
+                            View Input
+                            </Button>
+                        </Grid>
+                        <Grid item >
+                            <IconButton size="small" color="primary">
+                                <StarsIcon />
+                            </IconButton>
+                        </Grid>
+                    </Grid>
                 </CardActions>
             </Card>
         </Grid>
