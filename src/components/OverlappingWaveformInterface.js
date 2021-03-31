@@ -48,8 +48,22 @@ const OverlappingWaveformInterface = props => {
     const [periodicOutput, setPeriodicOutput] = useState(false)
     const [inputTitle, setInputTitle] = useState("")
     const [outputTitle, setOutputTitle] = useState("")
-    const [colorArray, setColorArray] = useState([])
-    const [hex, setHex] = useState('')
+
+    const [colorArray, _setColorArray] = useState([])
+    const colorArrayRef = useRef(colorArray)
+
+    const setColorArray = data => {
+        colorArrayRef.current = data
+        _setColorArray(data)
+    }
+
+    const [hex, _setHex] = useState("color hex")
+    const hexRef = useRef(hex)
+
+    const setHex = data => {
+        hexRef.current = data
+        _setHex(data)
+    }
 
     const classes = useStyles();
 
@@ -117,7 +131,8 @@ const OverlappingWaveformInterface = props => {
 
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        colorPicker.on('color:change', function(color) {
+        colorPicker.on('color:change', (color) => {
+
             setHex(color.hexString)
             ctx.fillStyle = color.hexString
         });
@@ -125,11 +140,11 @@ const OverlappingWaveformInterface = props => {
         
 
         canvas.addEventListener('mousedown', (e) => {
-            console.log(hex)
+            console.log(hexRef.current)
             setInputId(null)
-            // debugger
-            if (!colorArray.includes(hex)){
-                const newColorArray = [...colorArray, hex]
+
+            if (!colorArray.includes(hexRef.current)){
+                const newColorArray = [...colorArrayRef.current, hexRef.current]
                 setColorArray(newColorArray)
             }
 
