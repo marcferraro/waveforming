@@ -26,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
     //   marginLeft: 180,
-      marginRight: 'auto'
+      marginRight: 'auto',
+      padding: 20
     },
     control: {
       padding: theme.spacing(2),
