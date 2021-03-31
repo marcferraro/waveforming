@@ -19,14 +19,13 @@ const useStyles = makeStyles({
 const OOutputCard = props => {
     const classes = useStyles()
 
-
     return(
         <Grid item>
             <Card className={classes.root}>
                 <CardActionArea>
                     <CardMedia
                     className={classes.media}
-                    image="/static/images/cards/contemplative-reptile.jpg"
+                    image={`http://localhost:3000${props.oOutput.ooutput.url}`}
                     title="Overlapping Wave Function Output"
                     />
                     <CardContent>
