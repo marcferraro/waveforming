@@ -4,7 +4,7 @@ const oOutputReducer = (state = [], action) => {
         case 'FETCH_OOUTPUTS_SUCCESS':
             // console.log('wired')
             // debugger
-          return [...state, action.oOutputs]
+          return action.oOutputs
         case 'LOGOUT':
             return []
         default: 

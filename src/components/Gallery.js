@@ -19,7 +19,7 @@ const Gallery = props => {
                 Gallery
             </Typography>
             <Grid container>
-                
+                {oOutputs.map(o => <p key={o.id}>o.title</p>)}
             </Grid>
         </div>
     )
