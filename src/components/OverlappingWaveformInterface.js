@@ -49,6 +49,7 @@ const OverlappingWaveformInterface = props => {
     const [inputTitle, setInputTitle] = useState("")
     const [outputTitle, setOutputTitle] = useState("")
     const [colorArray, setColorArray] = useState([])
+    const [hex, setHex] = useState('')
 
     const classes = useStyles();
 
@@ -117,13 +118,21 @@ const OverlappingWaveformInterface = props => {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         colorPicker.on('color:change', function(color) {
+            setHex(color.hexString)
             ctx.fillStyle = color.hexString
         });
 
         
 
         canvas.addEventListener('mousedown', (e) => {
+            console.log(hex)
             setInputId(null)
+            // debugger
+            if (!colorArray.includes(hex)){
+                const newColorArray = [...colorArray, hex]
+                setColorArray(newColorArray)
+            }
+
             const x = e.offsetX / 15 | 0
             const y = e.offsetY / 15 | 0
             ctx.fillRect( x, y, 1, 1 );
@@ -356,7 +365,7 @@ const OverlappingWaveformInterface = props => {
                             </Grid>
                             <Grid item xs={11} sm={11}>
                                 <Grid container spacing={2}>
-                                    {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((i, index) => <Grid item><Color key={index}/></Grid>)}
+                                    {colorArray.map((n, index) => <Grid key={index} item><Color /></Grid>)}
                                 </Grid>
                             </Grid>
                         </Grid>
