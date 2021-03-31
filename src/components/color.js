@@ -33,13 +33,15 @@ const Color = props => {
     return(
             <Card className={classes.root}>
                 <CardActionArea >
-                    <CardMedia
-                        className={classes.media}
-                        />
-                    </CardActionArea>
+                    <CardMedia 
+                    image="1"
+                    className={classes.media}
+                    />
+                </CardActionArea>
                 <CardContent className={clsx(classes.content)}>
-                    <Typography gutterBottom variant="body2" component="h1" classname={classes.content}>
-                        Lizard
+                    <Typography gutterBottom variant="body2" component="h1" >
+                        {/* {props.hex} */}
+                        test
                     </Typography>
                 </CardContent>
             </Card>
