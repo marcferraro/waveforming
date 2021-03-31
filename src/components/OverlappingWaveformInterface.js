@@ -380,7 +380,7 @@ const OverlappingWaveformInterface = props => {
                             </Grid>
                             <Grid item xs={11} sm={11}>
                                 <Grid container spacing={2}>
-                                    {colorArray.map((n, index) => <Grid key={index} item><Color /></Grid>)}
+                                    {colorArray.map(h => <Grid key={h} item><Color hex={h}/></Grid>)}
                                 </Grid>
                             </Grid>
                         </Grid>

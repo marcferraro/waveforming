@@ -40,8 +40,8 @@ const Color = props => {
                 </CardActionArea>
                 <CardContent className={clsx(classes.content)}>
                     <Typography gutterBottom variant="body2" component="h1" >
-                        {/* {props.hex} */}
-                        test
+                        {props.hex}
+                        {/* test */}
                     </Typography>
                 </CardContent>
             </Card>
