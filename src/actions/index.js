@@ -10,3 +10,10 @@ export const logout = () => {
         type: "LOGOUT"
     }
 }
+
+export const fetchOoutputsSuccess = data => {
+    return {
+        type: "FETCH_OOUTPUTS_SUCCESS",
+        oOutputs: data
+    }
+}
