@@ -17,6 +17,7 @@ import { OverlappingModel } from 'wavefunctioncollapse'
 import { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import iro from "@jaames/iro"
+import Color from './Color'
 // import testImg from './flower.png'
 
 //https://www.w3schools.com/howto/howto_js_popup.asp
@@ -285,6 +286,13 @@ const OverlappingWaveformInterface = props => {
         setOutputTitle(event.target.value)
     }
 
+    // const colorTest = () => {
+    //     let i = 0
+    //     for (i = 0; i < 16; i++){
+    //         return <Color/>
+    //     }
+    // }
+
     return(
         <div className={classes.root} >
             <Grid container spacing={6}>
@@ -340,10 +348,17 @@ const OverlappingWaveformInterface = props => {
                 </Grid>
                 <Grid item xs={12}>
                     <Paper elevation={3}>
-                        <Grid container>
-                            <FormControl>
-                                <div id="picker"></div>
-                            </FormControl>
+                        <Grid container justify="flex-start" alignItems={'flex-start'} direction={'row'}>
+                            <Grid item xs={1} sm={1}>
+                                <FormControl>
+                                    <div id="picker"></div>
+                                </FormControl>
+                            </Grid>
+                            <Grid item xs={11} sm={11}>
+                                <Grid container spacing={2}>
+                                    {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((i, index) => <Grid item><Color key={index}/></Grid>)}
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Paper>
                 </Grid>
