@@ -46,7 +46,7 @@ const OOutputCard = props => {
                         title="Overlapping Wave Function Output"
                     /> */}
                     {/* <img src={`http://localhost:3000${props.oOutput.ooutput.url}`} width="48" height="48" style={{width:"240px", height:"240px"}}/> */}
-                    <canvas width="48" height="48" style={{width:"220px", height:"220px"}} ref={canvasRef}/>
+                    <canvas width="48" height="48" style={{width:"220px", height:"220px", border: '0px none black'}} ref={canvasRef}/>
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {props.oOutput.title ? props.oOutput.title : "Untitled"}
