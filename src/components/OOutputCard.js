@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import { Button, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef } from 'react';
-import './OOutputCard.css'
 
 const useStyles = makeStyles({
     root: {
