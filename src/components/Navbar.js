@@ -57,7 +57,6 @@ const Navbar = props => {
       fetch('http://localhost:3000/ooutputs')
       .then(resp => resp.json())
       .then(data => {
-        console.log(data)
         dispatch(fetchOoutputsSuccess(data))
       })
     }, [])
