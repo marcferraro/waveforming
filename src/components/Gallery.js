@@ -14,7 +14,7 @@ const Gallery = props => {
             <Typography variant="h2" >
                 Gallery
             </Typography>
-            <Grid container>
+            <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
                 {oOutputs.map(o => <OOutputCard key={o.id} oOutput={o}/>)}
             </Grid>
         </div>
