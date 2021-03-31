@@ -310,6 +310,13 @@ const OverlappingWaveformInterface = props => {
         setOutputTitle(event.target.value)
     }
 
+    const handleColorClick = h => {
+        const canvas = inputCanvasRef.current
+        const ctx = canvas.getContext('2d')
+        ctx.fillStyle = h
+        setHex(h)
+    }
+
     // const colorTest = () => {
     //     let i = 0
     //     for (i = 0; i < 16; i++){
@@ -380,7 +387,7 @@ const OverlappingWaveformInterface = props => {
                             </Grid>
                             <Grid item xs={11} sm={11}>
                                 <Grid container spacing={2}>
-                                    {colorArray.map(h => <Grid key={h} item><Color hex={h}/></Grid>)}
+                                    {colorArray.map(h => <Grid key={h} item><Color handleClick={handleColorClick} hex={h}/></Grid>)}
                                 </Grid>
                             </Grid>
                         </Grid>

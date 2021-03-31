@@ -38,6 +38,7 @@ const Color = props => {
                     <CardMedia 
                     image="1"
                     className={classes.media}
+                    onClick={() => props.handleClick(props.hex)}
                     />
                 </CardActionArea>
                 <CardContent className={clsx(classes.content)}>
