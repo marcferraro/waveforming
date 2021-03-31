@@ -135,18 +135,20 @@ const Navbar = props => {
                 {/* </Link> */}
               </List>
             </Drawer>
-            <Switch>
-              {/* <Route path='/login' component={Login}/>
-              <Route path='/sign-up' component={SignUp}/> */}
-              <Route path='/profile' component={Profile}/>
-              <Route path='/dashboard' component={Dashboard}/>
-              <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
-              <Route path='/gallery' component={Gallery}/>
-              <Route path='/collection' component={Collection}/>
-              <Route path='/how-to' component={HowTo}/>
-              <Route path='/canvas-test' component={CanvasTest}/>
-              {/* <Route exact path='/' component={Welcome}/> */}
-      </Switch>
+            <div style={{backgroundColor: ""}}>
+              <Switch>
+                  {/* <Route path='/login' component={Login}/>
+                  <Route path='/sign-up' component={SignUp}/> */}
+                  <Route path='/profile' component={Profile}/>
+                  <Route path='/dashboard' component={Dashboard}/>
+                  <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
+                  <Route path='/gallery' component={Gallery}/>
+                  <Route path='/collection' component={Collection}/>
+                  <Route path='/how-to' component={HowTo}/>
+                  <Route path='/canvas-test' component={CanvasTest}/>
+                  {/* <Route exact path='/' component={Welcome}/> */}
+            </Switch>
+          </div>
             
         </div>
     )
