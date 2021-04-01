@@ -3,7 +3,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { Button, Grid } from '@material-ui/core';
+import { Button, Grid, Popover } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
@@ -34,6 +34,9 @@ const OOutputShow = props => {
     const [starred, setStarred] = useState(false)
     const [starId, setStarId] = useState(null)
     const auth = useSelector(state => state.auth)
+    const [anchorEl, setAnchorEl] = useState(null);
+    
+    const open = Boolean(anchorEl);
 
     useEffect(() => {
         if (oOutputs[0]){
@@ -102,6 +105,10 @@ const OOutputShow = props => {
 
         return star
     }
+
+    const handlePopup = event => {
+        setAnchorEl(event.currentTarget)
+    }
     
     return(
         <Grid container justify="center" alignItems="center">
@@ -137,9 +144,23 @@ const OOutputShow = props => {
                 <CardActions>
                     <Grid container justify="flex-start">
                         <Grid item xs={10}>
-                            <Button size="small" color="primary">
+                            <Button onClick={handlePopup} size="small" color="primary">
                             View Input
                             </Button>
+                            <Popover 
+                                anchorEl={anchorEl}
+                                open={open}
+                                anchorOrigin={{
+                                    vertical: 'center',
+                                    horizontal: 'left',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'right',
+                                }}
+                                >
+                                The content of the Popover.
+                            </Popover>
                         </Grid>
                         <Grid item >
                             <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
