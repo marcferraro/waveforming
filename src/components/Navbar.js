@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../actions'
 import { fetchInputsSuccess } from '../actions'
@@ -86,7 +86,7 @@ const Navbar = props => {
                 <Avatar alt="avatar" src={`http://localhost:3000${auth.avatar}`} />
               </Grid>
               <Grid item>
-                <p>{auth ? auth.username : null}</p>
+                <Typography variant="h6">{auth ? auth.username : null}</Typography>
               </Grid>
             </Grid>
             <Divider />
