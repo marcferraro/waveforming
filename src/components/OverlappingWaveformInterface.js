@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     //   marginLeft: 180,
       marginRight: 'auto',
-      padding: 20
+      padding: 20,
+      marginTop: 30
     },
     palatte: {
         padding: 10
