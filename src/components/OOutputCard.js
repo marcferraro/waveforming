@@ -37,6 +37,10 @@ const OOutputCard = props => {
         }
     }, [])
     
+    const handleStar = () => {
+        console.log('wired')
+    }
+
     return(
         <Grid item>
             <Card className={classes.root}>
@@ -59,7 +63,7 @@ const OOutputCard = props => {
                             </Button>
                         </Grid>
                         <Grid item >
-                            <IconButton size="small" color="primary">
+                            <IconButton onClick={handleStar} size="small" color="primary">
                                 <StarsIcon />
                             </IconButton>
                         </Grid>
