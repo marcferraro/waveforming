@@ -20,6 +20,7 @@ import Dashboard from './Dashboard';
 import Gallery from './Gallery';
 import Collection from './Collection';
 import HowTo from './HowTo';
+import OOutputShow from './OOutputShow';
 
 const listItemProps = {
   primaryTypographyProps: { color: "textPrimary" }
@@ -137,6 +138,7 @@ const Navbar = props => {
                   <Route path='/gallery' component={Gallery}/>
                   <Route path='/collection' component={Collection}/>
                   <Route path='/how-to' component={HowTo}/>
+                  <Route path={'/oOutput/:id'} component={OOutputShow}/>
             </Switch>
           </Grid>
         </div>
