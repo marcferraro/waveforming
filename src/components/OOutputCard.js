@@ -61,6 +61,16 @@ const OOutputCard = props => {
         .then(data => console.log(data))
     }
 
+    const handleStarred = () => {
+        let star
+        star = props.oOutput.stars.find(star => {
+            if (star.user_id === auth.id){
+                return star
+            }
+        })
+        return star
+    }
+
     return(
         <Grid item>
             <Card className={classes.root}>
@@ -83,7 +93,7 @@ const OOutputCard = props => {
                             </Button>
                         </Grid>
                         <Grid item >
-                            <IconButton onClick={handleStar} size="small" color="primary">
+                            <IconButton onClick={handleStar} size="small" color={handleStarred() ? "secondary" : "primary"}>
                                 <StarsIcon />
                             </IconButton>
                         </Grid>
