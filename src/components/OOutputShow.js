@@ -33,13 +33,15 @@ const OOutputShow = props => {
     useEffect(() => {
         const findResult = oOutputs.find(o => o.id === parseInt(props.match.params.id, 10))
         setOOutput(findResult)
-        prepCanvas()
+        // debugger
+        prepCanvas(findResult)
     }, [])
 
-    const prepCanvas = () => {
+    const prepCanvas = (result) => {
+        // debugger
         const ctx = canvasRef.current.getContext('2d')
         const image = document.createElement('img')
-        image.src = `http://localhost:3000${oOutput.ooutput.url}`
+        image.src = `http://localhost:3000${result.ooutput.url}`
         image.onload = () => {
             ctx.drawImage(image,0,0)
         }
