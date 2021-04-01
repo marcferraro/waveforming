@@ -7,6 +7,7 @@ import { Grid } from '@material-ui/core';
 
 const Profile = props => {
     const auth = useSelector(state => state.auth)
+    const oOutputs = useSelector(state => state.oOutputs)
     const [avatar, setAvatar] = useState(null)
     const [avatarUrl, setAvatarUrl] = useState('')
 
@@ -34,7 +35,15 @@ const Profile = props => {
     }
 
     const handleInspiration = () => {
-        console.log('test')
+        // let array
+        // array = oOutputs.filter(o => {
+        //     debugger
+        //     if (o.user_id !== auth.id && o.input.id === auth.id){
+        //         return o
+        //     }
+        // })
+
+        // return array.length
     }
 
     return(
