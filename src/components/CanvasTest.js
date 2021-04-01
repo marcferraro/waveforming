@@ -1,91 +1,91 @@
-import { useEffect, useRef, useState } from 'react';
-import iro from "@jaames/iro"
+// import { useEffect, useRef, useState } from 'react';
+// import iro from "@jaames/iro"
 
-function Canvas(){
+// function Canvas(){
     
-    const canvasRef = useRef(null)
-    const [color, setColor] = useState("")
+//     const canvasRef = useRef(null)
+//     const [color, setColor] = useState("")
 
 
-    // const draw = ctx => {
-    //     ctx.fillStyle = '#000000'
-    //     ctx.beginPath()
-    //     ctx.arc(50, 100, 20, 0, 2*Math.PI)
-    //     ctx.fill()
-    // }
+//     // const draw = ctx => {
+//     //     ctx.fillStyle = '#000000'
+//     //     ctx.beginPath()
+//     //     ctx.arc(50, 100, 20, 0, 2*Math.PI)
+//     //     ctx.fill()
+//     // }
 
-    useEffect(() => {
-        console.log('hello')
-        const div = document.getElementById('picker')
-        const colorPicker = new iro.ColorPicker(div, {
-            width: 100
-        })
+//     useEffect(() => {
+//         console.log('hello')
+//         const div = document.getElementById('picker')
+//         const colorPicker = new iro.ColorPicker(div, {
+//             width: 100
+//         })
 
-        const canvas = canvasRef.current
+//         const canvas = canvasRef.current
 
-        const ctx = canvas.getContext('2d')
+//         const ctx = canvas.getContext('2d')
 
-        colorPicker.on('color:change', function(color) {
-            // log the current color as a HEX string
-            ctx.fillStyle = color.hexString
-        });
+//         colorPicker.on('color:change', function(color) {
+//             // log the current color as a HEX string
+//             ctx.fillStyle = color.hexString
+//         });
 
-        ctx.fillStyle = "#FF0000";
+//         ctx.fillStyle = "#FF0000";
 
-        const pos = { x: 0, y: 0 };
+//         const pos = { x: 0, y: 0 };
         
-        const setPosition = e => {
-            pos.x = e.offsetX / 15 | 0;
-            pos.y = e.offsetY / 15 | 0;
-            console.log(pos)
-        }
+//         const setPosition = e => {
+//             pos.x = e.offsetX / 15 | 0;
+//             pos.y = e.offsetY / 15 | 0;
+//             console.log(pos)
+//         }
 
-        canvas.addEventListener('mousedown', (e) => {
-            // debugger
-            setPosition(e)
-            ctx.fillRect( pos.x, pos.y, 1, 1 );
-        });
+//         canvas.addEventListener('mousedown', (e) => {
+//             // debugger
+//             setPosition(e)
+//             ctx.fillRect( pos.x, pos.y, 1, 1 );
+//         });
         
-    //     function draw(e) {
-    //         // console.log(e)
-    //         // mouse left button must be pressed
-    //         if (e.buttons !== 1) return;
+//     //     function draw(e) {
+//     //         // console.log(e)
+//     //         // mouse left button must be pressed
+//     //         if (e.buttons !== 1) return;
           
-    //         ctx.beginPath(); // begin
+//     //         ctx.beginPath(); // begin
           
-    //         ctx.lineWidth = 5;
-    //         ctx.lineCap = 'round';
-    //         ctx.strokeStyle = '#c0392b';
+//     //         ctx.lineWidth = 5;
+//     //         ctx.lineCap = 'round';
+//     //         ctx.strokeStyle = '#c0392b';
           
-    //         ctx.moveTo(pos.x, pos.y); // from
-    //         setPosition(e);
-    //         ctx.lineTo(pos.x, pos.y); // to
+//     //         ctx.moveTo(pos.x, pos.y); // from
+//     //         setPosition(e);
+//     //         ctx.lineTo(pos.x, pos.y); // to
           
-    //         ctx.stroke(); // draw it!
-    //     }
+//     //         ctx.stroke(); // draw it!
+//     //     }
 
-    //     // new position from mouse event
+//     //     // new position from mouse event
 
-    //   function resize() {
-    //     ctx.canvas.width = window.innerWidth;
-    //     ctx.canvas.height = window.innerHeight;
-    //   }
-    //     window.addEventListener('resize', resize);
-        // document.addEventListener('mousemove', draw);
-        // document.addEventListener('mouseenter', setPosition);
+//     //   function resize() {
+//     //     ctx.canvas.width = window.innerWidth;
+//     //     ctx.canvas.height = window.innerHeight;
+//     //   }
+//     //     window.addEventListener('resize', resize);
+//         // document.addEventListener('mousemove', draw);
+//         // document.addEventListener('mouseenter', setPosition);
 
 
 
-    }, [])
+//     }, [])
 
     
-    return(
-        <div >
-            <canvas width="16" height="16" style={{width:"240px", height:"240px"}} ref={canvasRef}></canvas>
-            <div id="picker"></div>
-        </div>
-    )
-}
-export default Canvas
+//     return(
+//         <div >
+//             <canvas width="16" height="16" style={{width:"240px", height:"240px"}} ref={canvasRef}></canvas>
+//             <div id="picker"></div>
+//         </div>
+//     )
+// }
+// export default Canvas
 
-// style={{marginLeft: 180, marginRight: 'auto'}} 
+// // style={{marginLeft: 180, marginRight: 'auto'}} 

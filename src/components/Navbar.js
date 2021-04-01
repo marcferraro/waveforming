@@ -24,7 +24,6 @@ import Dashboard from './Dashboard';
 import Gallery from './Gallery';
 import Collection from './Collection';
 import HowTo from './HowTo';
-import CanvasTest from './CanvasTest';
 
 
 const drawerWidth = 180;
@@ -135,20 +134,17 @@ const Navbar = props => {
                 {/* </Link> */}
               </List>
             </Drawer>
-            <div style={{backgroundColor: ""}}>
+            <Grid container justify="center" style={{backgroundColor: ""}}>
               <Switch>
-                  {/* <Route path='/login' component={Login}/>
-                  <Route path='/sign-up' component={SignUp}/> */}
                   <Route path='/profile' component={Profile}/>
                   <Route path='/dashboard' component={Dashboard}/>
                   <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
                   <Route path='/gallery' component={Gallery}/>
                   <Route path='/collection' component={Collection}/>
                   <Route path='/how-to' component={HowTo}/>
-                  <Route path='/canvas-test' component={CanvasTest}/>
-                  {/* <Route exact path='/' component={Welcome}/> */}
+                  {/* <Route path='/canvas-test' component={CanvasTest}/> */}
             </Switch>
-          </div>
+          </Grid>
             
         </div>
     )

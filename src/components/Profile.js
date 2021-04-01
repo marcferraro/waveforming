@@ -34,21 +34,15 @@ const Profile = props => {
     }
 
     return(
-        <div style={{marginLeft: 180, marginRight: 'auto'}} >
-            <Typography>
+        <div >
+            <Typography gutterBottom variant="h3">
                 {auth.username}
             </Typography>
-            <Avatar onClick={() => console.log(avatarUrl)} alt="avatar" src={avatarUrl}></Avatar>
-            <img alt="avatar" src={avatarUrl} ></img>
-            <Input onChange={handleAvatar} type="file" id="avatar-upload" />
-            <Button onClick={submitAvatar} type="submit">Submit</Button>
+            <Avatar onClick={() => console.log(avatarUrl)} alt="avatar" src={`http://localhost:3000${auth.avatar}`}></Avatar>
             <Typography paragraph>
-                What is the WaveFunctionCollapse link to project repo and how are we using it? Created by Maxim Gumin link to github
-                the function takes in an initial pattern bitmap and creates an output bitmap based on that pattern. This app will riff
-                on pixel art created by you.
-
-                You can select colors to draw on the canvas with. There are some additional settings too that will have an impact on the
-                output. An explanation for each:
+                Update Avatar: 
+                <Input onChange={handleAvatar} type="file" id="avatar-upload" />
+                <Button onClick={submitAvatar} type="submit">Submit</Button>
             </Typography>
         </div>
     )

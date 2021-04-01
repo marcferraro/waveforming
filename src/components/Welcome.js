@@ -1,8 +1,6 @@
-import { useEffect } from 'react';
 import { Link }  from 'react-router-dom'
 import Typography from '@material-ui/core/Typography';
 import { Button, Grid } from '@material-ui/core';
-import ReactPlayer from 'react-player'
 import classes from './BackgroundVideo.module.css';
 
 const Welcome = props => {
