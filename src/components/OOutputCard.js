@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import StarsIcon from '@material-ui/icons/Stars';
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles({
     root: {
@@ -26,6 +27,7 @@ const useStyles = makeStyles({
 const OOutputCard = props => {
     const classes = useStyles()
     const canvasRef = useRef(null)
+    const auth = useSelector(state => state.auth)
     // debugger
 
     useEffect(() => {
@@ -38,7 +40,25 @@ const OOutputCard = props => {
     }, [])
     
     const handleStar = () => {
-        console.log('wired')
+        // make sure to change color of star once we are serializing it along with the OOutput itself
+        
+        const star = {
+            user_id: auth.id,
+            ooutput_id: props.oOutput.id
+        }
+
+        const reqObj = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: "application/json"
+            },
+            body: JSON.stringify(star)
+        }
+
+        fetch(`http://localhost:3000/stars`, reqObj)
+        .then(resp => resp.json())
+        .then(data => console.log(data))
     }
 
     return(
