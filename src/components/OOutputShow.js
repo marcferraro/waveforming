@@ -29,6 +29,7 @@ const OOutputShow = props => {
     const dispatch = useDispatch()
     const classes = useStyles()
     const canvasRef = useRef(null)
+    const popCanvasRef = useRef(null)
     const oOutputs = useSelector(state => state.oOutputs)
     const [oOutput, setOOutput] = useState(null)
     const [starred, setStarred] = useState(false)
@@ -108,7 +109,21 @@ const OOutputShow = props => {
 
     const handlePopup = event => {
         setAnchorEl(event.currentTarget)
+
+        setTimeout(() => {
+            const popCtx = popCanvasRef.current.getContext('2d')
+            const popImage = document.createElement('img')
+    
+            popImage.src = `http://localhost:3000${oOutput.input.input.url}`
+            popImage.onload = () => {
+                popCtx.drawImage(popImage,0,0)
+            }
+        }, 100);
     }
+
+    const handleClose = () => {
+        setAnchorEl(null);
+      };
     
     return(
         <Grid container justify="center" alignItems="center">
@@ -150,6 +165,7 @@ const OOutputShow = props => {
                             <Popover 
                                 anchorEl={anchorEl}
                                 open={open}
+                                onClose={handleClose}
                                 anchorOrigin={{
                                     vertical: 'center',
                                     horizontal: 'left',
@@ -159,7 +175,9 @@ const OOutputShow = props => {
                                     horizontal: 'right',
                                 }}
                                 >
-                                The content of the Popover.
+                                <Grid container style={{padding: 20}}>
+                                    <canvas width="16" height="16" style={{width:"180px", height:"180px", border: '0px none black'}} ref={popCanvasRef}/>
+                                </Grid>
                             </Popover>
                         </Grid>
                         <Grid item >
