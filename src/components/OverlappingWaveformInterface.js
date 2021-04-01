@@ -55,10 +55,23 @@ const OverlappingWaveformInterface = props => {
     const openPI = Boolean(anchorPeriodicInput);
     const openPO = Boolean(anchorPeriodicOutput);
 
-    const handlePopup = event => {
+    const handlePopupN = event => {
         setAnchorN(event.currentTarget)
-
     }
+    const handlePopupSym = event => {
+        setAnchorSymmetry(event.currentTarget)
+    }
+    const handlePopupG = event => {
+        setAnchorGround(event.currentTarget)
+    }
+    const handlePopupPI = event => {
+        setAnchorPeriodicInput(event.currentTarget)
+    }
+    const handlePopupPO = event => {
+        setAnchorPeriodicOutput(event.currentTarget)
+    }
+
+    
 
     const handleClose = (setAnchor) => {
         setAnchor(null);
@@ -437,7 +450,7 @@ const OverlappingWaveformInterface = props => {
                                         <MenuItem value={3}>3</MenuItem>
                                         <MenuItem value={4}>4</MenuItem>
                                     </Select>
-                                    <FormHelperText onClick={handlePopup}>?</FormHelperText>
+                                    <FormHelperText onClick={handlePopupN}>?</FormHelperText>
                                     <Popover 
                                         anchorEl={anchorN}
                                         open={openN}
@@ -451,8 +464,8 @@ const OverlappingWaveformInterface = props => {
                                             horizontal: 'right',
                                         }}
                                     >
-                                        <Typography>
-                                            N affects how large the detected pattern is
+                                        <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                            Higher N increases the size of the detected pattern, or how far each pixel can "see" from itself.
                                         </Typography>
                                     </Popover>
                                 </FormControl>
@@ -473,7 +486,24 @@ const OverlappingWaveformInterface = props => {
                                         <MenuItem value={7}>7</MenuItem>
                                         <MenuItem value={8}>8</MenuItem>
                                     </Select>
-                                    <FormHelperText>?</FormHelperText>
+                                    <FormHelperText onClick={handlePopupSym} >?</FormHelperText>
+                                    <Popover 
+                                        anchorEl={anchorSymmetry}
+                                        open={openSym}
+                                        onClose={() => handleClose(setAnchorSymmetry)}
+                                        anchorOrigin={{
+                                            vertical: 'center',
+                                            horizontal: 'left',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                    >
+                                        <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                            Higher symmetry will increase the ways in which the generator will play with the pattern (flipping, mirroring, etc.). 1 will mean strict adherance to the input.
+                                        </Typography>
+                                    </Popover>
                                 </FormControl>
                                 <FormControl>
                                     <TextField
@@ -496,7 +526,25 @@ const OverlappingWaveformInterface = props => {
                                         </Grid>
                                     </Grid>
                                 </FormControl> */}
-                                <FormHelperText>?</FormHelperText>
+                                <FormHelperText onClick={handlePopupG}>?</FormHelperText>
+                                <Popover 
+                                        anchorEl={anchorGround}
+                                        open={openG}
+                                        onClose={() => handleClose(setAnchorGround)}
+                                        anchorOrigin={{
+                                            vertical: 'center',
+                                            horizontal: 'left',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                    >
+                                        <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                            Any ground value other than zero will attempt to add a pattern from the bottom of the input. It may take some experimenting with to get it to work, but 
+                                            common values are between -1 through -5, and 100 through 102.
+                                        </Typography>
+                                    </Popover>
                                 </FormControl>
                                 <FormControlLabel
                                     control={<Switch 
