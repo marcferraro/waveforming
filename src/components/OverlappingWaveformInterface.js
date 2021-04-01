@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, FormHelperText, InputLabel, TextField, Button } from '@material-ui/core';
+import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, FormHelperText, InputLabel, TextField, Button, Popover, Typography } from '@material-ui/core';
 import '../overlapInterface.css'
 import { OverlappingModel } from 'wavefunctioncollapse'
 import { useState, useRef, useEffect } from 'react';
@@ -42,6 +42,27 @@ const OverlappingWaveformInterface = props => {
     const [periodicOutput, setPeriodicOutput] = useState(false)
     const [inputTitle, setInputTitle] = useState("")
     const [outputTitle, setOutputTitle] = useState("")
+
+    const [anchorN, setAnchorN] = useState(null);
+    const [anchorSymmetry, setAnchorSymmetry] = useState(null);
+    const [anchorGround, setAnchorGround] = useState(null);
+    const [anchorPeriodicInput, setAnchorPeriodicInput] = useState(null);
+    const [anchorPeriodicOutput, setAnchorPeriodicOutput] = useState(null);
+
+    const openN = Boolean(anchorN);
+    const openSym = Boolean(anchorSymmetry);
+    const openG = Boolean(anchorGround);
+    const openPI = Boolean(anchorPeriodicInput);
+    const openPO = Boolean(anchorPeriodicOutput);
+
+    const handlePopup = event => {
+        setAnchorN(event.currentTarget)
+
+    }
+
+    const handleClose = (setAnchor) => {
+        setAnchor(null);
+      };
 
     const [colorArray, _setColorArray] = useState([])
     const colorArrayRef = useRef(colorArray)
@@ -416,7 +437,24 @@ const OverlappingWaveformInterface = props => {
                                         <MenuItem value={3}>3</MenuItem>
                                         <MenuItem value={4}>4</MenuItem>
                                     </Select>
-                                    <FormHelperText>?</FormHelperText>
+                                    <FormHelperText onClick={handlePopup}>?</FormHelperText>
+                                    <Popover 
+                                        anchorEl={anchorN}
+                                        open={openN}
+                                        onClose={() => handleClose(setAnchorN)}
+                                        anchorOrigin={{
+                                            vertical: 'center',
+                                            horizontal: 'left',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                    >
+                                        <Typography>
+                                            N affects how large the detected pattern is
+                                        </Typography>
+                                    </Popover>
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="symmetry-input">Symmetry</InputLabel>
