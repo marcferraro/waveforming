@@ -58,7 +58,7 @@ const OverlappingWaveformInterface = props => {
         _setColorArray(data)
     }
 
-    const [hex, _setHex] = useState("color hex")
+    const [hex, _setHex] = useState("#FFFFFF")
     const hexRef = useRef(hex)
 
     const setHex = data => {
@@ -129,8 +129,10 @@ const OverlappingWaveformInterface = props => {
 
         const canvas = inputCanvasRef.current
         const ctx = canvas.getContext('2d')
-
+        
         ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = hexRef.current
 
         colorPicker.on('color:change', (color) => {
 
