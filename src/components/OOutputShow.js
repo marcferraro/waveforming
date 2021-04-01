@@ -9,10 +9,11 @@ import { useEffect, useRef, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import StarsIcon from '@material-ui/icons/Stars';
 import { useSelector, useDispatch } from 'react-redux'
+import { updateOOutput } from '../actions'
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
+      maxWidth: 500,
     },
     media: {
       height: 48,
@@ -25,10 +26,14 @@ const useStyles = makeStyles({
 });
 
 const OOutputShow = props => {
+    const dispatch = useDispatch()
     const classes = useStyles()
     const canvasRef = useRef(null)
     const oOutputs = useSelector(state => state.oOutputs)
     const [oOutput, setOOutput] = useState(null)
+    const [starred, setStarred] = useState(false)
+    const [starId, setStarId] = useState(null)
+    const auth = useSelector(state => state.auth)
 
     useEffect(() => {
         if (oOutputs[0]){
@@ -46,12 +51,61 @@ const OOutputShow = props => {
             ctx.drawImage(image,0,0)
         }
     }
+
+    const handleStar = () => {
+        // unstar
+        if (starred){
+            setStarred(false)
+            setStarId(null)
+            fetch(`http://localhost:3000/stars/${starId}`, {method: "DELETE"})
+            .then(resp => resp.json())
+            .then(data => {
+                dispatch(updateOOutput(data))
+            })
+        // star
+        } else {
+            setStarred(true)
+            const star = {
+                user_id: auth.id,
+                ooutput_id: oOutput.id
+            }
+    
+            const reqObj = {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: "application/json"
+                },
+                body: JSON.stringify(star)
+            }
+    
+            fetch(`http://localhost:3000/stars`, reqObj)
+            .then(resp => resp.json())
+            .then(data => {
+                setStarId(data.star.id)
+                dispatch(updateOOutput(data.oOutput))
+            })
+        }
+    }
+
+    const handleStarred = () => {
+        let star
+        star = props.oOutput.stars.find(star => {
+            if (star.user_id === auth.id){
+                setStarred(true)
+                setStarId(star.id)
+                return star
+            }
+        })
+
+        return star
+    }
     
     return(
-        <Grid item>
+        <Grid container justify="center" alignItems="center">
             <Card className={classes.root}>
                 <CardActionArea>
-                    <canvas width="48" height="48" style={{width:"220px", height:"220px", border: '0px none black'}} ref={canvasRef}/>
+                    <canvas width="48" height="48" style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {oOutput ? oOutput.title : "Untitled"}
@@ -69,8 +123,8 @@ const OOutputShow = props => {
                             </Button>
                         </Grid>
                         <Grid item >
-                            <IconButton size="small" color="primary">
-                                <StarsIcon />
+                            <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
+                                {oOutput ? oOutput.stars.length : null}<StarsIcon />
                             </IconButton>
                         </Grid>
                     </Grid>
