@@ -1,8 +1,40 @@
+import Typography from '@material-ui/core/Typography';
+import { Grid } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
+import { useSelector } from 'react-redux'
+import OOutputCard from './OOutputCard'
+
 const Collection = props => {
 
+    const oOutputs = useSelector(state => state.oOutputs)
+    const auth = useSelector(state => state.auth)
+
+    const reverseOOutputs = () => {
+        return oOutputs.slice(0).reverse()
+    }
+
+    const filteredOOutputs = () => {
+        return reverseOOutputs().filter(o => {
+            if (o.stars){
+                return o.stars.find(s => {
+                    if (s.user_id === auth.id){
+                        return o
+                    }
+                })
+            }
+        })
+    }
+
+
     return(
-        <div style={{marginLeft: 180, marginRight: 'auto'}} >
-            Hello from the Collection
+        <div >
+            <Typography variant="h2" >
+                Collection
+            </Typography>
+            <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
+                {filteredOOutputs().map(o => <OOutputCard key={o.id} oOutput={o}/>)}
+            </Grid>
         </div>
     )
 }
