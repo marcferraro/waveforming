@@ -244,6 +244,11 @@ const OverlappingWaveformInterface = props => {
                 formData.append('ooutput', imgUrl)
                 formData.append('title', outputTitle)
                 formData.append('user_id', auth.id)
+                formData.append('n', N)
+                formData.append('symmetry', symmetry)
+                formData.append('ground', ground)
+                formData.append('periodic_input', periodicInput)
+                formData.append('periodic_output', periodicOutput)
 
                 formData.append('input_id', data.id)
 
@@ -267,6 +272,11 @@ const OverlappingWaveformInterface = props => {
                 formData.append('ooutput', imgUrl)
                 formData.append('title', outputTitle)
                 formData.append('user_id', auth.id)
+                formData.append('n', N)
+                formData.append('symmetry', symmetry)
+                formData.append('ground', ground)
+                formData.append('periodic_input', periodicInput)
+                formData.append('periodic_output', periodicOutput)
 
                 formData.append('input_id', inputId)
 
@@ -282,10 +292,6 @@ const OverlappingWaveformInterface = props => {
                     alert('Output saved.')
                 })
             }
-    }
-
-    const fetchOutput = () => {
-        
     }
 
     const handleN = event => {
