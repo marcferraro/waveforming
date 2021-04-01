@@ -155,10 +155,25 @@ const OverlappingWaveformInterface = props => {
             ctx.fillRect( x, y, 1, 1 );
         });
 
-        canvas.addEventListener('mouseup', (e) => {
+        canvas.addEventListener('mouseup', e => {
             drawing = false
             console.log(drawing)
         })
+
+        canvas.addEventListener('mouseleave', e => {
+            drawing = false
+            console.log(drawing)
+        })
+
+        canvas.addEventListener('mousemove', e => {
+            if (drawing){
+                const x = e.offsetX / 15 | 0
+                const y = e.offsetY / 15 | 0
+                ctx.fillRect( x, y, 1, 1 );
+            }
+        })
+
+
 
         
     }
