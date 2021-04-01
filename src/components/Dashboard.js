@@ -30,6 +30,12 @@ const Dashboard = props => {
         return oOutputs.slice(0).reverse().slice(0, 10)
     }
 
+    const mostPopularOOutputs = () => {
+        let array
+        array = oOutputs.slice(0).sort((a,b) => b.stars.length - a.stars.length)
+        return array.slice(0, 10)
+    }
+
     useEffect(() => {
         if (oOutputs[0]){
             const htmlCollection = document.getElementsByClassName('canvas')
@@ -87,7 +93,7 @@ const Dashboard = props => {
                         </Grid>
                         <Grid item style={{border: '1px solid black'}}>
                             <GridList cellHeight={200} className={classes.gridList} cols={2} >
-                                {oOutputs.map((o) => (
+                                {mostPopularOOutputs().map((o) => (
                                     <GridListTile key={o.id} cols={o.cols || 1}>
                                         <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
                                     </GridListTile>
