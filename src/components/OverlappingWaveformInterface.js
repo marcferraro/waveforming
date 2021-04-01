@@ -437,7 +437,7 @@ const OverlappingWaveformInterface = props => {
                 <Grid item xs={12}>
                     <Paper elevation={3}>
                         
-                        <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1}>
+                        <Grid className={classes.root}container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1}>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="n-input">N</InputLabel>
                                     <Select
@@ -501,7 +501,8 @@ const OverlappingWaveformInterface = props => {
                                         }}
                                     >
                                         <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
-                                            Higher symmetry will increase the ways in which the generator will play with the pattern (flipping, mirroring, etc.). 1 will mean strict adherance to the input.
+                                            Higher symmetry will increase the ways in which the generator will play with 
+                                            the pattern (flipping, mirroring, etc.). 1 will mean strict adherance to the input.
                                         </Typography>
                                     </Popover>
                                 </FormControl>
@@ -546,14 +547,19 @@ const OverlappingWaveformInterface = props => {
                                         </Typography>
                                     </Popover>
                                 </FormControl>
-                                <FormControlLabel
-                                    control={<Switch 
-                                        checked={periodicInput}
-                                        onChange={handlePeriodicInput}
-                                        name="periodic switch"
-                                        color="primary"/>}
-                                    label="Periodic Input"
-                                />
+                                <Grid item>
+                                    <Grid container direction="column">
+                                    <FormControlLabel
+                                        control={<Switch 
+                                            checked={periodicInput}
+                                            onChange={handlePeriodicInput}
+                                            name="periodic switch"
+                                            color="primary"/>}
+                                        label="Periodic Input"
+                                    />
+                                    <FormHelperText onClick={handlePopupG}>?</FormHelperText>
+                                    </Grid>
+                                </Grid>
                                 <FormControlLabel
                                     control={<Switch 
                                         checked={periodicOutput}
