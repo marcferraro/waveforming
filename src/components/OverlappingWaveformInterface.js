@@ -21,9 +21,15 @@ const useStyles = makeStyles((theme) => ({
       marginRight: 'auto',
       padding: 20
     },
+    palatte: {
+        padding: 10
+    },
     control: {
       padding: theme.spacing(2),
     },
+    colors: {
+        marginLeft: 10
+    }
 }));
 
 const OverlappingWaveformInterface = props => {
@@ -420,24 +426,24 @@ const OverlappingWaveformInterface = props => {
                 </Grid>
                 <Grid item xs={12}>
                     <Paper elevation={3}>
-                        <Grid container justify="flex-start" alignItems={'flex-start'} direction={'row'}>
+                        <Grid className={classes.palatte} spacing={2} container justify="flex-start" alignItems={'flex-start'} direction={'row'}>
                             <Grid item xs={1} sm={1}>
                                 <FormControl>
                                     <div id="picker"></div>
                                 </FormControl>
                             </Grid>
                             <Grid item xs={11} >
-                                <Grid container spacing={2}>
+                                <Grid className={classes.colors}container spacing={2}>
                                     {colorArray.map(h => <Grid key={h} item><Color handleClick={handleColorClick} hex={h}/></Grid>)}
                                 </Grid>
                             </Grid>
                         </Grid>
                     </Paper>
                 </Grid>
+
                 <Grid item xs={12}>
                     <Paper elevation={3}>
-                        
-                        <Grid className={classes.root}container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1}>
+                        <Grid className={classes.root} container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1}>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="n-input">N</InputLabel>
                                     <Select
