@@ -23,6 +23,9 @@ const useStyles = makeStyles({
           height: 220
       }
     },
+    grid: {
+        paddingTop: 11
+      }
 });
 
 const OOutputShow = props => {
@@ -126,7 +129,7 @@ const OOutputShow = props => {
       };
     
     return(
-        <Grid container justify="center" alignItems="center">
+        <Grid className={classes.grid} container justify="center" alignItems="center">
             <Card className={classes.root}>
                 <CardActionArea>
                     <canvas width="48" height="48" style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
