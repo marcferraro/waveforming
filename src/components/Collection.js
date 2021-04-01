@@ -28,7 +28,7 @@ const Collection = props => {
 
 
     return(
-        <div >
+        <div style={{padding: 30}}>
             <Typography variant="h2" >
                 Collection
             </Typography>

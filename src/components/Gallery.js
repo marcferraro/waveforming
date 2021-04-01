@@ -15,7 +15,7 @@ const Gallery = props => {
 
 
     return(
-        <div >
+        <div style={{padding: 30}}>
             <Typography variant="h2" >
                 Gallery
             </Typography>
