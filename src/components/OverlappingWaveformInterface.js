@@ -138,12 +138,13 @@ const OverlappingWaveformInterface = props => {
             ctx.fillStyle = color.hexString
         });
 
-        
+        let drawing = false
 
         canvas.addEventListener('mousedown', (e) => {
-            console.log(hexRef.current)
+
             setInputId(null)
-            // debugger
+            drawing = true
+            console.log(drawing)
             if (!colorArrayRef.current.includes(hexRef.current)){
                 const newColorArray = [...colorArrayRef.current, hexRef.current]
                 setColorArray(newColorArray)
@@ -153,6 +154,13 @@ const OverlappingWaveformInterface = props => {
             const y = e.offsetY / 15 | 0
             ctx.fillRect( x, y, 1, 1 );
         });
+
+        canvas.addEventListener('mouseup', (e) => {
+            drawing = false
+            console.log(drawing)
+        })
+
+        
     }
 
     // const setPosition = e => {
