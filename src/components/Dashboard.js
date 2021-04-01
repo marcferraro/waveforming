@@ -45,7 +45,7 @@ const Dashboard = props => {
 
     return(
         // <div className={classes.root}>
-            <Grid container direction="row" justify="space-around" alignItems='center' space={5}>
+            <Grid className={classes.root} container direction="row" justify="space-around" alignItems='center' space={5}>
                 <Grid item>
                     <Grid container direction="column" alignItems="center">
                         <Grid item>
