@@ -234,6 +234,7 @@ const OverlappingWaveformInterface = props => {
             fetch('http://localhost:3000/inputs', inputReqObj)
             .then(resp => resp.json())
             .then(data => {
+                dispatch(inputCreationSuccess(data))
                 setInputId(data.id)
 
                 const outputCanvas = document.getElementById("output")
@@ -254,8 +255,8 @@ const OverlappingWaveformInterface = props => {
                 fetch('http://localhost:3000/ooutputs', reqObj)
                 .then(resp => resp.json())
                 .then(data => {
+                    dispatch(oOutputCreationSuccess(data))
                     alert('Output and Input Saved.')
-                    console.log(data)
                 })
             })
             } else {
