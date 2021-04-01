@@ -17,3 +17,10 @@ export const fetchOoutputsSuccess = data => {
         oOutputs: data
     }
 }
+
+export const updateOOutput = data => {
+    return {
+        type: "UPDATE_OOUTPUT",
+        oOutputs: data
+    }
+}
