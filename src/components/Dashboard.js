@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import {Grid, Typography} from '@material-ui/core';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react';
 
@@ -15,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
     },
     gridList: {
       width: 400,
-      height: 400,
+      height: 410,
+      padding: 10
     },
   }));
 
@@ -43,13 +45,20 @@ const Dashboard = props => {
 
     return(
         <div className={classes.root}>
-            <GridList cellHeight={200} className={classes.gridList} cols={2}>
-                {oOutputs.map((o) => (
-                    <GridListTile key={o.id} cols={o.cols || 1}>
-                        <canvas className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
-                    </GridListTile>
-                ))}
-        </GridList>
+            <Grid container direction="column" alignItems="center">
+                <Grid item>
+                    <Typography variant="h4">Recent Creations</Typography>
+                </Grid>
+                <Grid item style={{border: '1px solid black'}}>
+                    <GridList cellHeight={200} className={classes.gridList} cols={2} >
+                        {oOutputs.map((o) => (
+                            <GridListTile key={o.id} cols={o.cols || 1}>
+                                <canvas className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                            </GridListTile>
+                        ))}
+                    </GridList>
+                </Grid>
+            </Grid>
         </div>
     )
 }
