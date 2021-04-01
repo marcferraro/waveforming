@@ -67,7 +67,6 @@ const Dashboard = props => {
     }
 
     return(
-        // <div className={classes.root}>
             <Grid className={classes.root} container direction="row" justify="space-around" alignItems='center' space={5}>
                 <Grid item>
                     <Grid container direction="column" alignItems="center">
@@ -89,7 +88,7 @@ const Dashboard = props => {
                 <Grid item>
                     <Grid container direction="column" alignItems="center">
                         <Grid item>
-                            <Typography variant="h4">Recent Creations</Typography>
+                            <Typography variant="h4">Most Popular</Typography>
                         </Grid>
                         <Grid item style={{border: '1px solid black'}}>
                             <GridList cellHeight={200} className={classes.gridList} cols={2} >
@@ -103,7 +102,6 @@ const Dashboard = props => {
                     </Grid>
                 </Grid>
             </Grid>
-        // </div>
     )
 }
 
