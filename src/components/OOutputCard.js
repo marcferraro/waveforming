@@ -114,7 +114,7 @@ const OOutputCard = props => {
             popImage.onload = () => {
                 popCtx.drawImage(popImage,0,0)
             }
-        }, 100);
+        }, 70);
     }
 
     const handleClose = () => {
