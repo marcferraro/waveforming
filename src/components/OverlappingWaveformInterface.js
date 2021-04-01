@@ -6,9 +6,11 @@ import { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import iro from "@jaames/iro"
 import Color from './Color'
-import { oOutputCreationSuccess, inputCreationSuccess } from './actions'
+import { oOutputCreationSuccess, inputCreationSuccess } from '../actions'
 
-//https://www.w3schools.com/howto/howto_js_popup.asp
+// https://www.w3schools.com/howto/howto_js_popup.asp
+
+// bundle generator settings with outputs, and inputs need colors
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -163,18 +165,7 @@ const OverlappingWaveformInterface = props => {
                 ctx.fillRect( x, y, 1, 1 );
             }
         })
-
-
-
-        
     }
-
-    // const setPosition = e => {
-    //     // console.log(e.offsetX / 15 | 0)
-    //     setPosX(e.offsetX / 15 | 0)
-    //     setPosY(e.offsetY / 15 | 0)
-    //     console.log(posX, posY)
-    // }
 
     const handleFile = event => {
 
@@ -191,16 +182,10 @@ const OverlappingWaveformInterface = props => {
     // run input image through generator
     const generate = () => {
         const canvas = inputCanvasRef.current
-        // const imageData = canvas.getContext('2d').getImageData(0,0,16,16)
         const image = document.createElement("img")
         image.src = canvas.toDataURL('image/png')
-        // debugger
-        // const imageData - canvas 
-        // if (image){
-            img_url_to_data(image, start)
-        // } else {
-        //     alert("No image uploaded.")
-        // }
+
+        img_url_to_data(image, start)
     }
 
     // save input image to db
@@ -223,7 +208,7 @@ const OverlappingWaveformInterface = props => {
         fetch('http://localhost:3000/inputs', inputReqObj)
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
+            dispatch(inputCreationSuccess(data))
             setInputId(data.id)
             alert('input saved')
         })
