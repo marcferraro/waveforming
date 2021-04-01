@@ -9,13 +9,18 @@ const Gallery = props => {
 
     const oOutputs = useSelector(state => state.oOutputs)
 
+    const reverseOOutputs = () => {
+        return oOutputs.slice(0).reverse()
+    }
+
+
     return(
         <div >
             <Typography variant="h2" >
                 Gallery
             </Typography>
             <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
-                {oOutputs.map(o => <OOutputCard key={o.id} oOutput={o}/>)}
+                {reverseOOutputs().map(o => <OOutputCard key={o.id} oOutput={o}/>)}
             </Grid>
         </div>
     )
