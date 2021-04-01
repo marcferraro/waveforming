@@ -1,24 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, FormHelperText, InputLabel, TextField, Button } from '@material-ui/core';
-// import Paper from '@material-ui/core/Paper';
-// import Checkbox from '@material-ui/core/Checkbox';
-// import Switch from '@material-ui/core/Switch';
-// import FormGroup from '@material-ui/core/FormGroup';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Select from '@material-ui/core/Select';
-// import FormHelperText from '@material-ui/core/FormHelperText';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import MenuItem from '@material-ui/core/MenuItem';
-// import FormControl from '@material-ui/core/FormControl';
-// import Add from '@material-ui/icons/Add';
-// import Remove from '@material-ui/icons/Remove';
 import '../overlapInterface.css'
 import { OverlappingModel } from 'wavefunctioncollapse'
 import { useState, useRef, useEffect } from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import iro from "@jaames/iro"
 import Color from './Color'
-// import testImg from './flower.png'
+import { oOutputCreationSuccess, inputCreationSuccess } from './actions'
 
 //https://www.w3schools.com/howto/howto_js_popup.asp
 
@@ -36,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 const OverlappingWaveformInterface = props => {
 
+    const dispatch = useDispatch()
     const auth = useSelector(state => state.auth)
     const inputCanvasRef = useRef(null)
     // const [posX, setPosX] = useState(0)
