@@ -3,7 +3,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { Button, Grid } from '@material-ui/core';
+import { Button, Grid, Popover } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
@@ -33,7 +33,10 @@ const OOutputCard = props => {
     const [starred, setStarred] = useState(false)
     const [starId, setStarId] = useState(null)
     const auth = useSelector(state => state.auth)
-    // debugger
+    const popCanvasRef = useRef(null)
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const open = Boolean(anchorEl);
 
     useEffect(() => {
         const ctx = canvasRef.current.getContext('2d')
@@ -100,6 +103,24 @@ const OOutputCard = props => {
         
     }
 
+    const handlePopup = event => {
+        setAnchorEl(event.currentTarget)
+
+        setTimeout(() => {
+            const popCtx = popCanvasRef.current.getContext('2d')
+            const popImage = document.createElement('img')
+    
+            popImage.src = `http://localhost:3000${props.oOutput.input.input.url}`
+            popImage.onload = () => {
+                popCtx.drawImage(popImage,0,0)
+            }
+        }, 100);
+    }
+
+    const handleClose = () => {
+        setAnchorEl(null);
+      };
+
     return(
         <Grid item>
             <Card className={classes.root}>
@@ -117,9 +138,26 @@ const OOutputCard = props => {
                 <CardActions>
                     <Grid container justify="flex-start">
                         <Grid item xs={9}>
-                            <Button size="small" color="primary">
+                            <Button onClick={handlePopup} size="small" color="primary">
                             View Input
                             </Button>
+                            <Popover 
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClose={handleClose}
+                                anchorOrigin={{
+                                    vertical: 'center',
+                                    horizontal: 'left',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'right',
+                                }}
+                            >
+                            <Grid container style={{padding: 20}}>
+                                <canvas width="16" height="16" style={{width:"100px", height:"100px", border: '0px none black'}} ref={popCanvasRef}/>
+                            </Grid>
+                            </Popover>
                         </Grid>
                         <Grid item >
                             <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
