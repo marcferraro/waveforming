@@ -24,17 +24,29 @@ const Dashboard = props => {
     const oOutputs = useSelector(state => state.oOutputs)
 
     useEffect(() => {
-        console.log('use effect')
-    }, [])
+        if (oOutputs[0]){
+            const htmlCollection = document.getElementsByClassName('canvas')
+            const array = Array.from(htmlCollection);
+
+            array.forEach(canvas => prepCanvas(canvas))
+        }
+    }, [oOutputs])
+
+    const prepCanvas = (canvas) => {
+        const ctx = canvas.getContext('2d')
+        const image = document.createElement('img')
+        image.src = canvas.dataset.url
+        image.onload = () => {
+            ctx.drawImage(image,0,0)
+        }
+    }
 
     return(
         <div className={classes.root}>
             <GridList cellHeight={200} className={classes.gridList} cols={2}>
                 {oOutputs.map((o) => (
                     <GridListTile key={o.id} cols={o.cols || 1}>
-                        {/* <img src={`http://localhost:3000${o.ooutput.url}`} alt={o.title} /> */}
-                        {/* {const canvaref = 5} */}
-                        <canvas width="16" height="16" style={{width:"200px", height:"200px", border: '0px none black'}} />
+                        <canvas className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
                     </GridListTile>
                 ))}
         </GridList>
