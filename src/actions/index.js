@@ -21,6 +21,6 @@ export const fetchOoutputsSuccess = data => {
 export const updateOOutput = data => {
     return {
         type: "UPDATE_OOUTPUT",
-        oOutputs: data
+        oOutput: data
     }
 }

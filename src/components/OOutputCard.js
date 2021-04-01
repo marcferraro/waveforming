@@ -8,7 +8,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import StarsIcon from '@material-ui/icons/Stars';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { updateOOutput } from '../actions'
 
 const useStyles = makeStyles({
     root: {
@@ -25,6 +26,7 @@ const useStyles = makeStyles({
 });
 
 const OOutputCard = props => {
+    const dispatch = useDispatch()
     const classes = useStyles()
     const canvasRef = useRef(null)
     const [starred, setStarred] = useState(false)
@@ -44,8 +46,17 @@ const OOutputCard = props => {
     }, [])
     
     const handleStar = () => {
-        // make sure to change color of star once we are serializing it along with the OOutput itself
-        if (!starred){
+        // unstar
+        if (starred){
+            setStarred(false)
+            setStarId(null)
+            fetch(`http://localhost:3000/stars/${starId}`, {method: "DELETE"})
+            .then(resp => resp.json())
+            .then(data => {
+                dispatch(updateOOutput(data))
+            })
+        // star
+        } else {
             setStarred(true)
             const star = {
                 user_id: auth.id,
@@ -64,13 +75,8 @@ const OOutputCard = props => {
             fetch(`http://localhost:3000/stars`, reqObj)
             .then(resp => resp.json())
             .then(data => {
-                console.log(data)
-            })
-        } else {
-            fetch(`http://localhost:3000/stars/${starId}`, {method: "DELETE"})
-            .then(resp => resp.json())
-            .then(data => {
-                console.log(data)
+                setStarId(data.star.id)
+                dispatch(updateOOutput(data))
             })
         }
     }
