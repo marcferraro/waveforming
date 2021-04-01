@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     //   marginLeft: 180,
       marginRight: 'auto',
       padding: 20,
-      marginTop: 30
+      marginTop: 10
     },
     palatte: {
         padding: 10
@@ -374,7 +374,7 @@ const OverlappingWaveformInterface = props => {
 
     return(
         <div className={classes.root} >
-            <Grid container spacing={6}>
+            <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1} >
                         <Grid item>
