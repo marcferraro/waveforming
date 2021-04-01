@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { loginSuccess } from '../actions'
@@ -65,8 +65,13 @@ const Login = props => {
     }
 
     return(
-        <div>
-            <Grid container direction="column" justify="center" alignItems="center">
+        <div >
+            <Grid container direction="column" justify="center" alignItems="center" style={{marginTop: 100}}>
+                <Grid item>
+                    <Typography variant="h3">
+                        Login
+                    </Typography>
+                </Grid>
                 <Grid item>
                 <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
                     <Grid item>
@@ -91,3 +96,5 @@ const Login = props => {
 }
 
 export default Login
+
+// style={{backgroundColor: "indianred", height: '100vh', minHeight: '100vh'}}
