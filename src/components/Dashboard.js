@@ -43,6 +43,18 @@ const Dashboard = props => {
         }
     }
 
+    const handleCanvasClick = () => {
+        console.log('click!')
+    }
+
+    const handleMouseHover = (event) => {
+        event.target.style.opacity="80%"
+    }
+    
+    const handleMouseLeave = (event) => {
+        event.target.style.opacity="100%"
+    }
+
     return(
         // <div className={classes.root}>
             <Grid className={classes.root} container direction="row" justify="space-around" alignItems='center' space={5}>
@@ -55,7 +67,7 @@ const Dashboard = props => {
                             <GridList cellHeight={200} className={classes.gridList} cols={2} >
                                 {oOutputs.map((o) => (
                                     <GridListTile key={o.id} cols={o.cols || 1}>
-                                        <canvas className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
                                     </GridListTile>
                                 ))}
                             </GridList>
@@ -72,7 +84,7 @@ const Dashboard = props => {
                             <GridList cellHeight={200} className={classes.gridList} cols={2} >
                                 {oOutputs.map((o) => (
                                     <GridListTile key={o.id} cols={o.cols || 1}>
-                                        <canvas className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
                                     </GridListTile>
                                 ))}
                             </GridList>
