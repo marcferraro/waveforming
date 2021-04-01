@@ -323,13 +323,6 @@ const OverlappingWaveformInterface = props => {
         setHex(h)
     }
 
-    // const colorTest = () => {
-    //     let i = 0
-    //     for (i = 0; i < 16; i++){
-    //         return <Color/>
-    //     }
-    // }
-
     return(
         <div className={classes.root} >
             <Grid container spacing={6}>
@@ -403,7 +396,6 @@ const OverlappingWaveformInterface = props => {
                     <Paper elevation={3}>
                         
                         <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1}>
-                            {/* <FormGroup row> */}
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="n-input">N</InputLabel>
                                     <Select
@@ -477,7 +469,6 @@ const OverlappingWaveformInterface = props => {
                                     label="Periodic Output"
                                 />
                                 <input onChange={handleFile} type="file" name="audio" accept="image/*" id="upload" />
-                            {/* </FormGroup> */}
                         </Grid>
                     </Paper>
                 </Grid>
@@ -487,5 +478,3 @@ const OverlappingWaveformInterface = props => {
 }
 
 export default OverlappingWaveformInterface
-
-// checked={shared} onChange={() => setShared(!shared)} name="share-sample" 
