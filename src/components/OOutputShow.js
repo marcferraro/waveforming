@@ -177,6 +177,7 @@ const OOutputShow = props => {
                                 >
                                 <Grid container style={{padding: 20}} spacing={2} direction="column" justify="flex-start">
                                     <Typography>{oOutput ? oOutput.input.title : null}</Typography>
+                                    <Typography>by {oOutput ? oOutput.input_username : null}</Typography>
                                     <canvas width="16" height="16" style={{width:"180px", height:"180px", border: '0px none black'}} ref={popCanvasRef}/>
                                 </Grid>
                             </Popover>
