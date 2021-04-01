@@ -10,6 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import StarsIcon from '@material-ui/icons/Stars';
 import { useSelector, useDispatch } from 'react-redux'
 import { updateOOutput } from '../actions'
+import { withRouter } from 'react-router-dom'
 
 const useStyles = makeStyles({
     root: {
@@ -94,10 +95,14 @@ const OOutputCard = props => {
         return star
     }
 
+    const handleInspect = () => {
+        props.history.push(`/oOutput/${props.oOutput.id}`)
+    }
+
     return(
         <Grid item>
             <Card className={classes.root}>
-                <CardActionArea>
+                <CardActionArea onClick={handleInspect}>
                     <canvas width="48" height="48" style={{width:"220px", height:"220px", border: '0px none black'}} ref={canvasRef}/>
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -127,4 +132,4 @@ const OOutputCard = props => {
     )
 }
 
-export default OOutputCard
+export default withRouter(OOutputCard)
