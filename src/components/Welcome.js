@@ -13,6 +13,9 @@ const Welcome = props => {
     //     }}, [])
     const videoSource = "https://waveforming.s3.us-east-2.amazonaws.com/WaveFunctionCollapse.mp4"
 
+    // in order to cycle through a playlist of videos, try the react player again. google fu or maybe some set interval
+    // shenanigans?
+
     return(
         <Grid className={classes.container} >
             {/* <ReactPlayer url={videoSource} playing={true} loop={true} width="100%" height="100%"/> */}
