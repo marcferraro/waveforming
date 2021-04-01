@@ -31,14 +31,14 @@ const OOutputShow = props => {
     const [oOutput, setOOutput] = useState(null)
 
     useEffect(() => {
-        const findResult = oOutputs.find(o => o.id === parseInt(props.match.params.id, 10))
-        setOOutput(findResult)
-        // debugger
-        prepCanvas(findResult)
-    }, [])
+        if (oOutputs[0]){
+            const findResult = oOutputs.find(o => o.id === parseInt(props.match.params.id, 10))
+            setOOutput(findResult)
+            prepCanvas(findResult)
+        }
+    }, [oOutputs])
 
     const prepCanvas = (result) => {
-        // debugger
         const ctx = canvasRef.current.getContext('2d')
         const image = document.createElement('img')
         image.src = `http://localhost:3000${result.ooutput.url}`
