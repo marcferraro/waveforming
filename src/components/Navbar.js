@@ -10,6 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { Grid } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../actions'
+import { fetchInputsSuccess } from '../actions'
 import { fetchOoutputsSuccess } from '../actions'
 import { Link }  from 'react-router-dom'
 import { withRouter, Route, Switch } from 'react-router-dom'
@@ -42,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-
+// fetch the inputs too!
 
 const Navbar = props => {
     const auth = useSelector(state => state.auth)
@@ -52,9 +53,11 @@ const Navbar = props => {
     useEffect(() => {
       fetch('http://localhost:3000/ooutputs')
       .then(resp => resp.json())
-      .then(data => {
-        dispatch(fetchOoutputsSuccess(data))
-      })
+      .then(data => dispatch(fetchOoutputsSuccess(data)))
+
+      fetch('http://localhost:3000/inputs')
+      .then(resp => resp.json())
+      .then(data => dispatch(fetchInputsSuccess(data)))
     }, [])
     
     const handleLogout = () => {
@@ -85,12 +88,6 @@ const Navbar = props => {
             <Divider />
             <div className={classes.toolbar} />
             <List>
-                {/* {['Dashboard', 'New Generation', 'Collection', 'How To'].map((text, index) => (
-                <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-                </ListItem>
-            ))} */}
               <Link to='/profile' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
                     <ListItemText primary="Profile" />
