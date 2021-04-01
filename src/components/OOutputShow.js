@@ -112,9 +112,26 @@ const OOutputShow = props => {
                     <Typography gutterBottom variant="h5" component="h2">
                         {oOutput ? oOutput.title : "Untitled"}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
+                    <Typography variant="body1" color="textPrimary" component="p">
                         Artist: {oOutput ? oOutput.user.username : "unknown"}
                     </Typography>
+                    <Grid container direction="row" justify="space-between">
+                        <Typography variant="body1" color="textPrimary" component="p">
+                            N: {oOutput ? oOutput.n : "unknown"}
+                        </Typography>
+                        <Typography variant="body1" color="textPrimary" component="p">
+                            Symmetry: {oOutput ? oOutput.symmetry : "unknown"}
+                        </Typography>
+                        <Typography variant="body1" color="textPrimary" component="p">
+                            Ground: {oOutput ? oOutput.ground : "unknown"}
+                        </Typography>
+                        <Typography variant="body1" color="textPrimary" component="p">
+                            Periodic Input: {oOutput ? `${oOutput.periodic_input}` : "unknown"}
+                        </Typography>
+                        <Typography variant="body1" color="textPrimary" component="p">
+                            Periodic output: {oOutput ? `${oOutput.periodic_output}` : "unknown"}
+                        </Typography>
+                    </Grid>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
