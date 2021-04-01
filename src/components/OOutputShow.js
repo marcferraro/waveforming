@@ -40,6 +40,7 @@ const OOutputShow = props => {
             const findResult = oOutputs.find(o => o.id === parseInt(props.match.params.id, 10))
             setOOutput(findResult)
             prepCanvas(findResult)
+            handleStarred(findResult)
         }
     }, [oOutputs])
 
@@ -88,9 +89,10 @@ const OOutputShow = props => {
         }
     }
 
-    const handleStarred = () => {
+    const handleStarred = (result) => {
         let star
-        star = props.oOutput.stars.find(star => {
+
+        star = result.stars.find(star => {
             if (star.user_id === auth.id){
                 setStarred(true)
                 setStarId(star.id)
