@@ -450,7 +450,7 @@ const OverlappingWaveformInterface = props => {
                                         <MenuItem value={3}>3</MenuItem>
                                         <MenuItem value={4}>4</MenuItem>
                                     </Select>
-                                    <FormHelperText onClick={handlePopupN}>?</FormHelperText>
+                                    <Button onClick={handlePopupN}>?</Button>
                                     <Popover 
                                         anchorEl={anchorN}
                                         open={openN}
@@ -486,7 +486,7 @@ const OverlappingWaveformInterface = props => {
                                         <MenuItem value={7}>7</MenuItem>
                                         <MenuItem value={8}>8</MenuItem>
                                     </Select>
-                                    <FormHelperText onClick={handlePopupSym} >?</FormHelperText>
+                                    <Button onClick={handlePopupSym} >?</Button>
                                     <Popover 
                                         anchorEl={anchorSymmetry}
                                         open={openSym}
@@ -527,7 +527,7 @@ const OverlappingWaveformInterface = props => {
                                         </Grid>
                                     </Grid>
                                 </FormControl> */}
-                                <FormHelperText onClick={handlePopupG}>?</FormHelperText>
+                                <Button onClick={handlePopupG}>?</Button>
                                 <Popover 
                                         anchorEl={anchorGround}
                                         open={openG}
@@ -557,17 +557,59 @@ const OverlappingWaveformInterface = props => {
                                             color="primary"/>}
                                         label="Periodic Input"
                                     />
-                                    <FormHelperText onClick={handlePopupG}>?</FormHelperText>
+                                    <Button onClick={handlePopupPI}>?</Button>
+                                    <Popover 
+                                        anchorEl={anchorPeriodicInput}
+                                        open={openPI}
+                                        onClose={() => handleClose(setAnchorPeriodicInput)}
+                                        anchorOrigin={{
+                                            vertical: 'center',
+                                            horizontal: 'left',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                    >
+                                        <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                            While this is on the generator will see the input as tileable, allowing 
+                                            it to exit off of an edge and enter on another.
+                                        </Typography>
+                                    </Popover>
+                                    
                                     </Grid>
                                 </Grid>
-                                <FormControlLabel
-                                    control={<Switch 
-                                        checked={periodicOutput}
-                                        onChange={handlePeriodicOutput}
-                                        name="periodic switch"
-                                        color="primary"/>}
-                                    label="Periodic Output"
-                                />
+                                <Grid item>
+                                    <Grid container direction="column">
+                                        <FormControlLabel
+                                            control={<Switch 
+                                                checked={periodicOutput}
+                                                onChange={handlePeriodicOutput}
+                                                name="periodic switch"
+                                                color="primary"/>}
+                                            label="Periodic Output"
+                                        />
+                                        <Button onClick={handlePopupPO}>?</Button>
+                                            <Popover 
+                                                anchorEl={anchorPeriodicOutput}
+                                                open={openPO}
+                                                onClose={() => handleClose(setAnchorPeriodicOutput)}
+                                                anchorOrigin={{
+                                                    vertical: 'center',
+                                                    horizontal: 'left',
+                                                }}
+                                                transformOrigin={{
+                                                    vertical: 'bottom',
+                                                    horizontal: 'right',
+                                                }}
+                                            >
+                                            <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                                While this is on the generator will see the input as tileable with itself, which is
+                                                useful for creating patterns.
+                                            </Typography>
+                                        </Popover>
+                                    </Grid>
+                                </Grid>
                                 <input onChange={handleFile} type="file" name="audio" accept="image/*" id="upload" />
                         </Grid>
                     </Paper>
