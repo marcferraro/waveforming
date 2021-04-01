@@ -4,6 +4,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import {Grid, Typography} from '@material-ui/core';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react';
+import { withRouter } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -43,8 +44,8 @@ const Dashboard = props => {
         }
     }
 
-    const handleCanvasClick = () => {
-        console.log('click!')
+    const handleCanvasClick = (event) => {
+        setTimeout(() => props.history.push(`/oOutput/${event.target.dataset.id}`), 50)
     }
 
     const handleMouseHover = (event) => {
@@ -67,7 +68,7 @@ const Dashboard = props => {
                             <GridList cellHeight={200} className={classes.gridList} cols={2} >
                                 {oOutputs.map((o) => (
                                     <GridListTile key={o.id} cols={o.cols || 1}>
-                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
                                     </GridListTile>
                                 ))}
                             </GridList>
@@ -84,7 +85,7 @@ const Dashboard = props => {
                             <GridList cellHeight={200} className={classes.gridList} cols={2} >
                                 {oOutputs.map((o) => (
                                     <GridListTile key={o.id} cols={o.cols || 1}>
-                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
                                     </GridListTile>
                                 ))}
                             </GridList>
@@ -96,6 +97,6 @@ const Dashboard = props => {
     )
 }
 
-export default Dashboard
+export default withRouter(Dashboard)
 
 // style={{marginLeft: 180, marginRight: 'auto'}}
