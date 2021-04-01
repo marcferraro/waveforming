@@ -96,7 +96,8 @@ const OOutputCard = props => {
     }
 
     const handleInspect = () => {
-        props.history.push(`/oOutput/${props.oOutput.id}`)
+        setTimeout(() => props.history.push(`/oOutput/${props.oOutput.id}`), 400)
+        
     }
 
     return(
