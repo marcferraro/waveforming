@@ -76,7 +76,7 @@ const OOutputCard = props => {
             .then(resp => resp.json())
             .then(data => {
                 setStarId(data.star.id)
-                dispatch(updateOOutput(data))
+                dispatch(updateOOutput(data.oOutput))
             })
         }
     }
@@ -110,14 +110,14 @@ const OOutputCard = props => {
                 </CardActionArea>
                 <CardActions>
                     <Grid container justify="flex-start">
-                        <Grid item xs={10}>
+                        <Grid item xs={9}>
                             <Button size="small" color="primary">
                             View Input
                             </Button>
                         </Grid>
                         <Grid item >
                             <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
-                                <StarsIcon />
+                                {props.oOutput.stars.length}<StarsIcon />
                             </IconButton>
                         </Grid>
                     </Grid>
