@@ -23,7 +23,7 @@ const App = props => {
 
   useEffect(() => {
     const token = localStorage.token
-    // debugger
+    
     if (!token){
       // props.history.push('/login')
     } else if (token && !auth) {
