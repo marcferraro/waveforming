@@ -24,3 +24,17 @@ export const updateOOutput = data => {
         oOutput: data
     }
 }
+
+export const inputCreationSuccess = input => {
+    return {
+        type: "INPUT_CREATION_SUCCESS",
+        input: input
+    }
+}
+
+export const oOutputCreationSuccess = oOutput => {
+    return {
+        type: "OOUTPUT_CREATION_SUCCESS",
+        oOutput: oOutput
+    }
+}
