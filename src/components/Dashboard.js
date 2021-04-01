@@ -44,22 +44,43 @@ const Dashboard = props => {
     }
 
     return(
-        <div className={classes.root}>
-            <Grid container direction="column" alignItems="center">
+        // <div className={classes.root}>
+            <Grid container direction="row" justify="space-around" alignItems='center' space={5}>
                 <Grid item>
-                    <Typography variant="h4">Recent Creations</Typography>
+                    <Grid container direction="column" alignItems="center">
+                        <Grid item>
+                            <Typography variant="h4">Recent Creations</Typography>
+                        </Grid>
+                        <Grid item style={{border: '1px solid black'}}>
+                            <GridList cellHeight={200} className={classes.gridList} cols={2} >
+                                {oOutputs.map((o) => (
+                                    <GridListTile key={o.id} cols={o.cols || 1}>
+                                        <canvas className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                                    </GridListTile>
+                                ))}
+                            </GridList>
+                        </Grid>
+                    </Grid>
                 </Grid>
-                <Grid item style={{border: '1px solid black'}}>
-                    <GridList cellHeight={200} className={classes.gridList} cols={2} >
-                        {oOutputs.map((o) => (
-                            <GridListTile key={o.id} cols={o.cols || 1}>
-                                <canvas className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
-                            </GridListTile>
-                        ))}
-                    </GridList>
+
+                <Grid item>
+                    <Grid container direction="column" alignItems="center">
+                        <Grid item>
+                            <Typography variant="h4">Recent Creations</Typography>
+                        </Grid>
+                        <Grid item style={{border: '1px solid black'}}>
+                            <GridList cellHeight={200} className={classes.gridList} cols={2} >
+                                {oOutputs.map((o) => (
+                                    <GridListTile key={o.id} cols={o.cols || 1}>
+                                        <canvas className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                                    </GridListTile>
+                                ))}
+                            </GridList>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
-        </div>
+        // </div>
     )
 }
 
