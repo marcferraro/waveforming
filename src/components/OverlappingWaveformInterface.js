@@ -409,7 +409,7 @@ const OverlappingWaveformInterface = props => {
                                     <div id="picker"></div>
                                 </FormControl>
                             </Grid>
-                            <Grid item xs={11} sm={11}>
+                            <Grid item xs={11} >
                                 <Grid container spacing={2}>
                                     {colorArray.map(h => <Grid key={h} item><Color handleClick={handleColorClick} hex={h}/></Grid>)}
                                 </Grid>
