@@ -134,7 +134,7 @@ const Navbar = props => {
                 {/* </Link> */}
               </List>
             </Drawer>
-            <Grid container justify="center" style={{backgroundColor: ""}}>
+            <Grid container style={{backgroundColor: ""}}>
               <Switch>
                   <Route path='/profile' component={Profile}/>
                   <Route path='/dashboard' component={Dashboard}/>
