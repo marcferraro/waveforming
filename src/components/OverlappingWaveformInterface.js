@@ -279,10 +279,12 @@ const OverlappingWaveformInterface = props => {
 
                 fetch('http://localhost:3000/ooutputs', reqObj)
                 .then(resp => resp.json())
-                .then(data => console.log(data))
-                    })
+                .then(data => {
+                    alert('Output and Input Saved.')
+                    console.log(data)
+                })
+            })
             } else {
-                console.log('it worked!')
                 const outputCanvas = document.getElementById("output")
                 const imgUrl = outputCanvas.toDataURL("image/png");
         
@@ -300,7 +302,10 @@ const OverlappingWaveformInterface = props => {
 
                 fetch('http://localhost:3000/ooutputs', reqObj)
                 .then(resp => resp.json())
-                .then(data => console.log(data))
+                .then(data => {
+                    console.log(data)
+                    alert('Output saved.')
+                })
             }
     }
 
