@@ -288,7 +288,7 @@ const OverlappingWaveformInterface = props => {
                 fetch('http://localhost:3000/ooutputs', reqObj)
                 .then(resp => resp.json())
                 .then(data => {
-                    console.log(data)
+                    dispatch(oOutputCreationSuccess(data))
                     alert('Output saved.')
                 })
             }
