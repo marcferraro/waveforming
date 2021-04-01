@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import { Input, Button } from '@material-ui/core'
+import { Grid } from '@material-ui/core';
 
 const Profile = props => {
     const auth = useSelector(state => state.auth)
@@ -14,7 +15,6 @@ const Profile = props => {
     }
     
     const handleAvatarUrl = url => {
-        console.log(url)
         setAvatarUrl('http://localhost:3000' + url)
     }
 
@@ -33,17 +33,34 @@ const Profile = props => {
         })
     }
 
+    const handleInspiration = () => {
+        console.log('test')
+    }
+
     return(
         <div >
             <Typography gutterBottom variant="h3">
                 {auth.username}
             </Typography>
-            <Avatar onClick={() => console.log(avatarUrl)} alt="avatar" src={`http://localhost:3000${auth.avatar}`}></Avatar>
-            <Typography paragraph>
-                Update Avatar: 
-                <Input onChange={handleAvatar} type="file" id="avatar-upload" />
-                <Button onClick={submitAvatar} type="submit">Submit</Button>
-            </Typography>
+            <Avatar onClick={() => console.log(avatarUrl)} alt="avatar" src={`http://localhost:3000${auth.avatar}`}/>
+            <Grid container>
+                <Grid item>
+                    <Typography variant="body1">
+                        Inspirations: {handleInspiration()}
+                    </Typography>
+                </Grid>
+            </Grid>
+            <Grid container spacing={2} justify="flex-start" alignItems="center">
+                <Grid item>
+                    <Typography varaint="body1">
+                        Update Avatar: 
+                    </Typography>
+                </Grid>
+                <Grid item>
+                    <Input onChange={handleAvatar} type="file" id="avatar-upload" />
+                    <Button onClick={submitAvatar} type="submit">Submit</Button>
+                </Grid>
+            </Grid>
         </div>
     )
 }
