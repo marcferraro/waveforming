@@ -18,6 +18,13 @@ export const fetchOoutputsSuccess = data => {
     }
 }
 
+export const fetchInputsSuccess = data => {
+    return {
+        type: "FETCH_INPUTS_SUCCESS",
+        inputs: data
+    }
+}
+
 export const updateOOutput = data => {
     return {
         type: "UPDATE_OOUTPUT",
