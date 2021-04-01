@@ -107,28 +107,32 @@ const Profile = props => {
     return(
         <Grid className={classes.root} container direction="column" justify="center" alignItems="center">
             <Grid item>
-                <Typography gutterBottom variant="h3">
+                <Typography gutterBottom variant="h2">
                     {auth.username}
                 </Typography>
             </Grid>
             <Grid item>
                 <Avatar onClick={() => console.log(avatarUrl)} alt="avatar" src={`http://localhost:3000${auth.avatar}`}/>
             </Grid>
-                <Grid item>
-                    <Typography variant="body1">
-                        Total Stars: {starCount}
-                    </Typography>
-                </Grid>
-                <Grid item>
-                    <Typography variant="body1">
-                        Total Inputs: {inputCount}
-                    </Typography>
-                </Grid>
-                <Grid item>
-                    <Typography variant="body1">
-                        Total Outputs: {outputCount}
-                    </Typography>
-                </Grid>
+            <Grid item>
+                    <Grid container direction="column" alignitems="center" justify="center">
+                        <Grid item>
+                            <Typography variant="h5">
+                                Total Stars: {starCount}
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h5">
+                                Total Inputs: {inputCount}
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h5">
+                                Total Outputs: {outputCount}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+            </Grid>
                 {/* <Grid item>
                     <Typography variant="body1">
                         Inspirations: {handleInspiration()}
