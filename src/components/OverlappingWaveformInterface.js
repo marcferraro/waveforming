@@ -12,6 +12,8 @@ import { oOutputCreationSuccess, inputCreationSuccess } from '../actions'
 
 // bundle generator settings with outputs, and inputs need colors
 
+// if adding the ability to load from people's creations, make a check for props function in the useEffect and configure from there
+
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
