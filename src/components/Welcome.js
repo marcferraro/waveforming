@@ -26,7 +26,7 @@ const Welcome = props => {
                 <div className={classes.Content}>
                     <div className={classes.SubContent} >
 
-                    <Typography >
+                    <Typography variant="h5">
                         waveforming
                     </Typography>
                     <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}>
