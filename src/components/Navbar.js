@@ -21,6 +21,9 @@ import Gallery from './Gallery';
 import Collection from './Collection';
 import HowTo from './HowTo';
 
+const listItemProps = {
+  primaryTypographyProps: { color: "textPrimary" }
+};
 
 const drawerWidth = 180;
 
@@ -38,10 +41,13 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: {
       width: drawerWidth,
+      backgroundColor: ""
+    },
+    listItemText: {
+      color: "white",
+      variant: "h1"
     }
   }));
-
-// fetch the inputs too!
 
 const Navbar = props => {
     const auth = useSelector(state => state.auth)
@@ -65,7 +71,6 @@ const Navbar = props => {
 
     return(
         <div className={classes.root}>
-            {/* <CssBaseline /> */}
             <Drawer
                 className={classes.drawer}
                 classes={{
@@ -88,42 +93,40 @@ const Navbar = props => {
             <List>
               <Link to='/profile' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="Profile" />
+                    <ListItemText {...listItemProps} primary="Profile" />
                   </ListItem>
               </Link>
               <Link to='/dashboard' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="Dashboard" />
+                    <ListItemText {...listItemProps} primary="Dashboard" />
                   </ListItem>
               </Link>
               <Link to='/new-overlapping-waveform' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="New Creation" />
+                    <ListItemText {...listItemProps} primary="New Creation" />
                   </ListItem>
               </Link>
               <Link to='/gallery' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="Gallery" />
+                    <ListItemText {...listItemProps} primary="Gallery" />
                   </ListItem>
               </Link>
               <Link to='/collection' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="Collection" />
+                    <ListItemText {...listItemProps} primary="Collection" />
                   </ListItem>
               </Link>
               <Link to='/how-to' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="How To" />
+                    <ListItemText {...listItemProps} primary="How To" />
                   </ListItem>
               </Link>
             </List>
             <Divider />
               <List>
-                {/* <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}> */}
                   <ListItem onClick={handleLogout} button>
-                    <ListItemText primary="Logout" />
+                    <ListItemText {...listItemProps} primary="Logout" />
                   </ListItem>
-                {/* </Link> */}
               </List>
             </Drawer>
             <Grid container style={{backgroundColor: ""}}>
@@ -134,10 +137,8 @@ const Navbar = props => {
                   <Route path='/gallery' component={Gallery}/>
                   <Route path='/collection' component={Collection}/>
                   <Route path='/how-to' component={HowTo}/>
-                  {/* <Route path='/canvas-test' component={CanvasTest}/> */}
             </Switch>
           </Grid>
-            
         </div>
     )
 }
