@@ -5,7 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Button, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import StarsIcon from '@material-ui/icons/Stars';
 import { useSelector } from 'react-redux'
@@ -27,6 +27,8 @@ const useStyles = makeStyles({
 const OOutputCard = props => {
     const classes = useStyles()
     const canvasRef = useRef(null)
+    const [starred, setStarred] = useState(false)
+    const [starId, setStarId] = useState(null)
     const auth = useSelector(state => state.auth)
     // debugger
 
@@ -37,37 +39,52 @@ const OOutputCard = props => {
         image.onload = () => {
             ctx.drawImage(image,0,0)
         }
+
+        handleStarred()
     }, [])
     
     const handleStar = () => {
         // make sure to change color of star once we are serializing it along with the OOutput itself
-        
-        const star = {
-            user_id: auth.id,
-            ooutput_id: props.oOutput.id
+        if (!starred){
+            setStarred(true)
+            const star = {
+                user_id: auth.id,
+                ooutput_id: props.oOutput.id
+            }
+    
+            const reqObj = {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: "application/json"
+                },
+                body: JSON.stringify(star)
+            }
+    
+            fetch(`http://localhost:3000/stars`, reqObj)
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data)
+            })
+        } else {
+            fetch(`http://localhost:3000/stars/${starId}`, {method: "DELETE"})
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data)
+            })
         }
-
-        const reqObj = {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: "application/json"
-            },
-            body: JSON.stringify(star)
-        }
-
-        fetch(`http://localhost:3000/stars`, reqObj)
-        .then(resp => resp.json())
-        .then(data => console.log(data))
     }
 
     const handleStarred = () => {
         let star
         star = props.oOutput.stars.find(star => {
             if (star.user_id === auth.id){
+                setStarred(true)
+                setStarId(star.id)
                 return star
             }
         })
+
         return star
     }
 
@@ -93,7 +110,7 @@ const OOutputCard = props => {
                             </Button>
                         </Grid>
                         <Grid item >
-                            <IconButton onClick={handleStar} size="small" color={handleStarred() ? "secondary" : "primary"}>
+                            <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
                                 <StarsIcon />
                             </IconButton>
                         </Grid>
