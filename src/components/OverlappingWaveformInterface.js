@@ -55,12 +55,14 @@ const OverlappingWaveformInterface = props => {
     const [anchorGround, setAnchorGround] = useState(null);
     const [anchorPeriodicInput, setAnchorPeriodicInput] = useState(null);
     const [anchorPeriodicOutput, setAnchorPeriodicOutput] = useState(null);
+    const [anchorGallery, setAnchorGallery] = useState(null);
 
     const openN = Boolean(anchorN);
     const openSym = Boolean(anchorSymmetry);
     const openG = Boolean(anchorGround);
     const openPI = Boolean(anchorPeriodicInput);
     const openPO = Boolean(anchorPeriodicOutput);
+    const openGalAlert = Boolean(anchorGallery);
 
     const handlePopupN = event => {
         setAnchorN(event.currentTarget)
@@ -76,6 +78,10 @@ const OverlappingWaveformInterface = props => {
     }
     const handlePopupPO = event => {
         setAnchorPeriodicOutput(event.currentTarget)
+    }
+    const handlePopupGal = event => {
+        const galleryButton = document.getElementById('gallery')
+        setAnchorGallery(galleryButton)
     }
 
     
@@ -332,7 +338,8 @@ const OverlappingWaveformInterface = props => {
                 .then(resp => resp.json())
                 .then(data => {
                     dispatch(oOutputCreationSuccess(data))
-                    alert('Output saved.')
+                    handlePopupGal()
+                    // alert('Output saved.')
                 })
             }
     }
@@ -613,6 +620,23 @@ const OverlappingWaveformInterface = props => {
                                             <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
                                                 While this is on the generator will see the input as tileable with itself, which is
                                                 useful for creating patterns.
+                                            </Typography>
+                                        </Popover>
+                                        <Popover 
+                                                anchorEl={anchorGallery}
+                                                open={openGalAlert}
+                                                onClose={() => handleClose(setAnchorGallery)}
+                                                anchorOrigin={{
+                                                    vertical: 'center',
+                                                    horizontal: 'left',
+                                                }}
+                                                transformOrigin={{
+                                                    vertical: 'bottom',
+                                                    horizontal: 'right',
+                                                }}
+                                            >
+                                            <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                                Generation Added to gallery.
                                             </Typography>
                                         </Popover>
                                     </Grid>
