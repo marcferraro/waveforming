@@ -5,6 +5,10 @@ import { Grid } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import OOutputCard from './OOutputCard'
 
+// formatting starts to get a little wonky now that the number of elements has increased. Maybe the long titles of 
+// certain cards is affecting it?
+    // Confirmed, either add max title length or ... if the name goes too far
+
 const Gallery = props => {
 
     const oOutputs = useSelector(state => state.oOutputs)
