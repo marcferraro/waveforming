@@ -107,7 +107,7 @@ const Navbar = props => {
                     <ListItemText {...listItemProps} primary="New Creation" />
                   </ListItem>
               </Link>
-              <Link to='/gallery' style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Link to='/gallery' id="gallery" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
                     <ListItemText {...listItemProps} primary="Gallery" />
                   </ListItem>
