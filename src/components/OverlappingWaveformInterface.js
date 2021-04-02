@@ -79,7 +79,7 @@ const OverlappingWaveformInterface = props => {
     const handlePopupPO = event => {
         setAnchorPeriodicOutput(event.currentTarget)
     }
-    const handlePopupGal = event => {
+    const handlePopupGal = () => {
         const galleryButton = document.getElementById('gallery')
         setAnchorGallery(galleryButton)
     }
@@ -310,7 +310,8 @@ const OverlappingWaveformInterface = props => {
                 .then(resp => resp.json())
                 .then(data => {
                     dispatch(oOutputCreationSuccess(data))
-                    alert('Output and Input Saved.')
+                    handlePopupGal()
+                    // alert('Output and Input Saved.')
                 })
             })
             } else {
@@ -628,15 +629,15 @@ const OverlappingWaveformInterface = props => {
                                                 onClose={() => handleClose(setAnchorGallery)}
                                                 anchorOrigin={{
                                                     vertical: 'center',
-                                                    horizontal: 'left',
+                                                    horizontal: 'right',
                                                 }}
                                                 transformOrigin={{
-                                                    vertical: 'bottom',
-                                                    horizontal: 'right',
+                                                    vertical: 'center',
+                                                    horizontal: 'left',
                                                 }}
                                             >
                                             <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
-                                                Generation Added to gallery.
+                                                {'< You can find your new creation in the gallery'}
                                             </Typography>
                                         </Popover>
                                     </Grid>
