@@ -8,6 +8,7 @@ import OOutputCard from './OOutputCard'
 // formatting starts to get a little wonky now that the number of elements has increased. Maybe the long titles of 
 // certain cards is affecting it?
     // Confirmed, either add max title length or ... if the name goes too far
+    // for now reducing gallery padding from 30 -> 20
 
 const Gallery = props => {
 
@@ -19,7 +20,7 @@ const Gallery = props => {
 
 
     return(
-        <div style={{padding: 30}}>
+        <div style={{padding: 20}}>
             <Typography variant="h2" >
                 Gallery
             </Typography>
