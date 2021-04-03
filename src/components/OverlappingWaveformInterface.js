@@ -8,14 +8,13 @@ import iro from "@jaames/iro"
 import Color from './Color'
 import { oOutputCreationSuccess, inputCreationSuccess } from '../actions'
 
-// https://www.w3schools.com/howto/howto_js_popup.asp
-
-
 // if adding the ability to load from people's creations, make a check for props function in the useEffect and configure from there
 // better idea - when an input is selected, we put the id (or hell maybe even the whole object to eliminate and iteration)
 // and on every new generation we check for it and if true, we load it in. When the user leaves, we can use return in 
 // useEffect to set it back to null.
-    // inputs need colors for this to fully work too
+    // inputs need colors for this to fully work too ~
+    // currently we are just adding all the colors that have been used, regardless of if they were erased. In future
+    // make a scan of the input canvas and pull the ones that end up in the final version.
 
 const useStyles = makeStyles((theme) => ({
     root: {
