@@ -11,6 +11,7 @@ import StarsIcon from '@material-ui/icons/Stars';
 import { useSelector, useDispatch } from 'react-redux'
 import { updateOOutput } from '../actions'
 import { inputSelect } from '../actions'
+import { withRouter } from 'react-router-dom'
 
 const useStyles = makeStyles({
     root: {
@@ -133,6 +134,7 @@ const OOutputShow = props => {
     const handleInputSelect = () => {
         const input = inputs.find(input => input.id === oOutput.input.id)
         dispatch(inputSelect(input))
+        props.history.push('/new-overlapping-waveform')
     }
     
     return(
@@ -204,4 +206,4 @@ const OOutputShow = props => {
     )
 }
 
-export default OOutputShow
+export default withRouter(OOutputShow)
