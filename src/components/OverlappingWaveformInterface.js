@@ -124,10 +124,7 @@ const OverlappingWaveformInterface = props => {
         // var img = document.createElement('img')
         // img.src = URL.createObjectURL(imageFile)
         
-        // console.log(img)
         img.onload = function(e){
-            // console.log('onload')
-            // console.log(this.width, this.height)
             const inputCanvas = document.getElementById("input")
             inputCanvas.getContext('2d').drawImage(img, 0, 0)
             var c = document.createElement("canvas")
@@ -198,7 +195,6 @@ const OverlappingWaveformInterface = props => {
 
             setInputId(null)
             drawing = true
-            console.log(drawing)
             if (!colorArrayRef.current.includes(hexRef.current)){
                 const newColorArray = [...colorArrayRef.current, hexRef.current]
                 setColorArray(newColorArray)
@@ -258,6 +254,7 @@ const OverlappingWaveformInterface = props => {
         inputFormData.append('input_title', inputTitle)
         inputFormData.append('input', inputImgUrl)
         inputFormData.append('user_id', auth.id)
+        colorArrayRef.current.forEach(color => inputFormData.append(`color${color}`, color))
         // add colors here once we are tracking them
 
         const inputReqObj = {
@@ -284,6 +281,7 @@ const OverlappingWaveformInterface = props => {
             inputFormData.append('input_title', inputTitle)
             inputFormData.append('input', inputImgUrl)
             inputFormData.append('user_id', auth.id)
+            colorArrayRef.current.forEach(color => inputFormData.append(`color${color}`, color))
             // add colors here once we are tracking them
 
             const inputReqObj = {
