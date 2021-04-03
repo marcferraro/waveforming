@@ -33,7 +33,11 @@ const InputShow = props => {
     const classes = useStyles()
     const canvasRef = useRef(null)
     const popCanvasRef = useRef(null)
-    const oOutputs = useSelector(state => state.oOutputs)
+    const oOutputs = useSel
+    
+    
+    
+    ector(state => state.oOutputs)
     const [oOutput, setOOutput] = useState(null)
     const [starred, setStarred] = useState(false)
     const [starId, setStarId] = useState(null)
