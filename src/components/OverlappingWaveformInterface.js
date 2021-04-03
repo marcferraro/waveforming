@@ -12,7 +12,9 @@ import { oOutputCreationSuccess, inputCreationSuccess } from '../actions'
 
 
 // if adding the ability to load from people's creations, make a check for props function in the useEffect and configure from there
-// better idea - 
+// better idea - when an input is selected, we put the id (or hell maybe even the whole object to eliminate and iteration)
+// and on every new generation we check for it and if true, we load it in. When the user leaves, we can use return in 
+// useEffect to set it back to null.
     // inputs need colors for this to fully work too
 
 const useStyles = makeStyles((theme) => ({
