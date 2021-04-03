@@ -10,6 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import StarsIcon from '@material-ui/icons/Stars';
 import { useSelector, useDispatch } from 'react-redux'
 import { updateOOutput } from '../actions'
+import { inputSelect } from '../actions'
 
 const useStyles = makeStyles({
     root: {
@@ -34,6 +35,7 @@ const OOutputShow = props => {
     const canvasRef = useRef(null)
     const popCanvasRef = useRef(null)
     const oOutputs = useSelector(state => state.oOutputs)
+    const inputs = useSelector(state => state.inputs)
     const [oOutput, setOOutput] = useState(null)
     const [starred, setStarred] = useState(false)
     const [starId, setStarId] = useState(null)
@@ -129,7 +131,8 @@ const OOutputShow = props => {
     };
 
     const handleInputSelect = () => {
-        console.log('input select')
+        const input = inputs.find(input => input.id === oOutput.input.id)
+        dispatch(inputSelect(input))
     }
     
     return(
