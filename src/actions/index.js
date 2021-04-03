@@ -45,3 +45,10 @@ export const oOutputCreationSuccess = oOutput => {
         oOutput: oOutput
     }
 }
+
+export const inputSelect = input => {
+    return {
+        type: "INPUT_SELECT",
+        input: input
+    }
+}
