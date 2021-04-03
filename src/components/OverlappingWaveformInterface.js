@@ -39,6 +39,7 @@ const OverlappingWaveformInterface = props => {
 
     const dispatch = useDispatch()
     const auth = useSelector(state => state.auth)
+    const inputSelect = useSelector(state => state.inputSelect)
     const inputCanvasRef = useRef(null)
     const outputCanvasRef = useRef(null)
     const popCanvasRef = useRef(null)
@@ -167,6 +168,10 @@ const OverlappingWaveformInterface = props => {
 
     useEffect(() => {
         handlePainting()
+        if (inputSelect){
+            console.log('detected input')
+        }
+
     }, [])
 
     const handlePainting = () => {
