@@ -81,9 +81,19 @@ const OverlappingWaveformInterface = props => {
     const handlePopupPO = event => {
         setAnchorPeriodicOutput(event.currentTarget)
     }
-    const handlePopupGal = () => {
+    const handlePopupGal = (url) => {
         const galleryButton = document.getElementById('gallery')
         setAnchorGallery(galleryButton)
+        // debugger
+        setTimeout(() => {
+            const popCtx = popCanvasRef.current.getContext('2d')
+            const popImage = document.createElement('img')
+    
+            popImage.src = `http://localhost:3000${url}`
+            popImage.onload = () => {
+                popCtx.drawImage(popImage,0,0)
+            }
+        }, 70);
     }
 
     
@@ -312,7 +322,7 @@ const OverlappingWaveformInterface = props => {
                 .then(resp => resp.json())
                 .then(data => {
                     dispatch(oOutputCreationSuccess(data))
-                    handlePopupGal()
+                    handlePopupGal(data.ooutput.url)
                     // alert('Output and Input Saved.')
                 })
             })
@@ -341,7 +351,7 @@ const OverlappingWaveformInterface = props => {
                 .then(resp => resp.json())
                 .then(data => {
                     dispatch(oOutputCreationSuccess(data))
-                    handlePopupGal()
+                    handlePopupGal(data.ooutput.url)
                     // alert('Output saved.')
                 })
             }
@@ -642,7 +652,7 @@ const OverlappingWaveformInterface = props => {
                                                 {'< You can find your new creation in the gallery'}
                                             </Typography>
                                             <Grid container style={{padding: 20}}>
-                                                <canvas width="16" height="16" style={{width:"100px", height:"100px", border: '0px none black'}} ref={popCanvasRef}/>
+                                                <canvas width="48" height="48" style={{width:"100px", height:"100px", border: '0px none black'}} ref={popCanvasRef}/>
                                             </Grid>
                                         </Popover>
                                     </Grid>
