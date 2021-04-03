@@ -169,7 +169,7 @@ const OverlappingWaveformInterface = props => {
     useEffect(() => {
         handlePainting()
         if (inputSelect){
-            console.log('detected input')
+            handleInputSelect()
         }
 
     }, [])
@@ -225,6 +225,10 @@ const OverlappingWaveformInterface = props => {
                 ctx.fillRect( x, y, 1, 1 );
             }
         })
+    }
+
+    const handleInputSelect = () => {
+        inputSelect.colors.forEach(color => setColorArray([...colorArrayRef.current, color.hex]))
     }
 
     const handleFile = event => {
