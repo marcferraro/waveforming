@@ -10,9 +10,10 @@ import { oOutputCreationSuccess, inputCreationSuccess } from '../actions'
 
 // https://www.w3schools.com/howto/howto_js_popup.asp
 
-// bundle generator settings with outputs, and inputs need colors
 
 // if adding the ability to load from people's creations, make a check for props function in the useEffect and configure from there
+// better idea - 
+    // inputs need colors for this to fully work too
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -84,7 +85,6 @@ const OverlappingWaveformInterface = props => {
     const handlePopupGal = (url) => {
         const galleryButton = document.getElementById('gallery')
         setAnchorGallery(galleryButton)
-        // debugger
         setTimeout(() => {
             const popCtx = popCanvasRef.current.getContext('2d')
             const popImage = document.createElement('img')
