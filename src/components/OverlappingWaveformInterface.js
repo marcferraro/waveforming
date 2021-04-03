@@ -232,6 +232,7 @@ const OverlappingWaveformInterface = props => {
     }
 
     const handleInputSelect = () => {
+        setInputId(loadedInput.id)
         loadedInput.colors.forEach(color => setColorArray([...colorArrayRef.current, color.hex]))
         const ctx = inputCanvasRef.current.getContext('2d')
         const image = document.createElement("img")
