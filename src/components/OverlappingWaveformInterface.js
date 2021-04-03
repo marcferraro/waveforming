@@ -38,6 +38,8 @@ const OverlappingWaveformInterface = props => {
     const dispatch = useDispatch()
     const auth = useSelector(state => state.auth)
     const inputCanvasRef = useRef(null)
+    const outputCanvasRef = useRef(null)
+    const popCanvasRef = useRef(null)
     // const [posX, setPosX] = useState(0)
     // const [posY, setPosY] = useState(0)
     const [inputId, setInputId] = useState(null)
@@ -639,6 +641,9 @@ const OverlappingWaveformInterface = props => {
                                             <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
                                                 {'< You can find your new creation in the gallery'}
                                             </Typography>
+                                            <Grid container style={{padding: 20}}>
+                                                <canvas width="16" height="16" style={{width:"100px", height:"100px", border: '0px none black'}} ref={popCanvasRef}/>
+                                            </Grid>
                                         </Popover>
                                     </Grid>
                                 </Grid>
