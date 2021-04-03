@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import iro from "@jaames/iro"
 import Color from './Color'
-import { oOutputCreationSuccess, inputCreationSuccess } from '../actions'
+import { oOutputCreationSuccess, inputCreationSuccess, inputSelect } from '../actions'
 
 // if adding the ability to load from people's creations, make a check for props function in the useEffect and configure from there
 // better idea - when an input is selected, we put the id (or hell maybe even the whole object to eliminate and iteration)
@@ -39,7 +39,7 @@ const OverlappingWaveformInterface = props => {
 
     const dispatch = useDispatch()
     const auth = useSelector(state => state.auth)
-    const inputSelect = useSelector(state => state.inputSelect)
+    const loadedInput = useSelector(state => state.inputSelect)
     const inputCanvasRef = useRef(null)
     const outputCanvasRef = useRef(null)
     const popCanvasRef = useRef(null)
@@ -168,8 +168,12 @@ const OverlappingWaveformInterface = props => {
 
     useEffect(() => {
         handlePainting()
-        if (inputSelect){
+        if (loadedInput){
             handleInputSelect()
+        }
+
+        return () => {
+            dispatch(inputSelect(null))
         }
 
     }, [])
@@ -228,7 +232,8 @@ const OverlappingWaveformInterface = props => {
     }
 
     const handleInputSelect = () => {
-        inputSelect.colors.forEach(color => setColorArray([...colorArrayRef.current, color.hex]))
+        loadedInput.colors.forEach(color => setColorArray([...colorArrayRef.current, color.hex]))
+
     }
 
     const handleFile = event => {
