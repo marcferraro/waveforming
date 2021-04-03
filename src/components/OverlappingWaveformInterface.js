@@ -265,29 +265,32 @@ const OverlappingWaveformInterface = props => {
 
     // save input image to db
     const saveInput = () => {
+        if (!inputId){
+            const inputCanvas = document.getElementById("input")
+            const inputImgUrl = inputCanvas.toDataURL("image/png");
+            
+            const inputFormData = new FormData();
+            inputFormData.append('input_title', inputTitle)
+            inputFormData.append('input', inputImgUrl)
+            inputFormData.append('user_id', auth.id)
+            colorArrayRef.current.forEach(color => inputFormData.append(`color${color}`, color))
+            // add colors here once we are tracking them
 
-        const inputCanvas = document.getElementById("input")
-        const inputImgUrl = inputCanvas.toDataURL("image/png");
-        
-        const inputFormData = new FormData();
-        inputFormData.append('input_title', inputTitle)
-        inputFormData.append('input', inputImgUrl)
-        inputFormData.append('user_id', auth.id)
-        colorArrayRef.current.forEach(color => inputFormData.append(`color${color}`, color))
-        // add colors here once we are tracking them
+            const inputReqObj = {
+                method: "POST",
+                body: inputFormData
+            }
 
-        const inputReqObj = {
-            method: "POST",
-            body: inputFormData
+            fetch('http://localhost:3000/inputs', inputReqObj)
+            .then(resp => resp.json())
+            .then(data => {
+                dispatch(inputCreationSuccess(data))
+                setInputId(data.id)
+                alert('input saved')
+            })
+        } else {
+            alert('Input already saved. Make changes to save a new one.')
         }
-
-        fetch('http://localhost:3000/inputs', inputReqObj)
-        .then(resp => resp.json())
-        .then(data => {
-            dispatch(inputCreationSuccess(data))
-            setInputId(data.id)
-            alert('input saved')
-        })
 
     }
     
