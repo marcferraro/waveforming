@@ -98,8 +98,6 @@ const OverlappingWaveformInterface = props => {
         }, 70);
     }
 
-    
-
     const handleClose = (setAnchor) => {
         setAnchor(null);
       };
@@ -218,7 +216,6 @@ const OverlappingWaveformInterface = props => {
 
         canvas.addEventListener('mouseleave', e => {
             drawing = false
-            console.log(drawing)
         })
 
         canvas.addEventListener('mousemove', e => {
