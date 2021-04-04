@@ -16,6 +16,9 @@ import { oOutputCreationSuccess, inputCreationSuccess, inputSelect } from '../ac
     // currently we are just adding all the colors that have been used, regardless of if they were erased. In future
     // make a scan of the input canvas and pull the ones that end up in the final version.
 
+    // tainted canvases cannot be exported when loading from a previous input. This issue might be solved when I move
+    // fully to a remote database.
+
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
