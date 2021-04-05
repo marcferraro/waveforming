@@ -426,6 +426,10 @@ const OverlappingWaveformInterface = props => {
         setHex(h)
     }
 
+    const handleInputSize = e => {
+        console.log(e.target)
+    }
+
     return(
         <div className={classes.root} >
             <Grid container spacing={4}>
@@ -453,7 +457,7 @@ const OverlappingWaveformInterface = props => {
                                     </Grid>
                                 </Grid>
                                 <Grid item xs>
-                                        <Slider defaultValue={1} onChange={() => console.log("slider!")} aria-labelledby="continuous-slider" />
+                                        <Slider defaultValue={1} onChange={handleInputSize} aria-labelledby="continuous-slider" />
                                 </Grid>
                             </Grid>
                         </Grid>
