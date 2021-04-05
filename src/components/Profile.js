@@ -36,6 +36,7 @@ const Profile = props => {
     const [starCount, setStarCount] = useState(0)
     const [inputCount, setInputCount] = useState(0)
     const [outputCount, setOutputCount] = useState(0)
+    const [inspirationCount, setInspirationCount] = useState(0)
     const [avatarUrl, setAvatarUrl] = useState('')
 
     useEffect(() => {
@@ -43,6 +44,7 @@ const Profile = props => {
             handleStars()
             handleInputs()
             handleOutputs()
+            handleInspiration()
         }
     }, [oOutputs])
 
@@ -95,15 +97,15 @@ const Profile = props => {
     }
 
     const handleInspiration = () => {
-        // let array
-        // array = oOutputs.filter(o => {
-        //     debugger
-        //     if (o.user_id !== auth.id && o.input.id === auth.id){
-        //         return o
-        //     }
-        // })
+        let array
+        array = oOutputs.filter(o => {
+            // debugger
+            if (o.user_id !== auth.id && o.input.user_id === auth.id){
+                return o
+            }
+        })
 
-        // return array.length
+        setInspirationCount(array.length)
     }
 
 
@@ -135,12 +137,12 @@ const Profile = props => {
                             </Typography>
                         </Grid>
                     </Grid>
+                    <Grid item>
+                        <Typography variant="h5">
+                            Inspirations: {inspirationCount}
+                        </Typography>
+                    </Grid>
             </Grid>
-                {/* <Grid item>
-                    <Typography variant="body1">
-                        Inspirations: {handleInspiration()}
-                    </Typography>
-                </Grid> */}
             {/* <Grid container spacing={2} justify="flex-start" alignItems="center"> */}
                 <Grid item>
                     <Typography varaint="body1">
