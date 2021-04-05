@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
       height: 410,
       padding: 10
     },
+    avatar: {
+        width: 80,
+        height: 80
+    }
   }));
 
 
@@ -60,7 +64,6 @@ const Profile = props => {
           })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
             handleAvatarUrl(data.avatarUrl)
         })
     }
@@ -112,7 +115,7 @@ const Profile = props => {
                 </Typography>
             </Grid>
             <Grid item>
-                <Avatar onClick={() => console.log(avatarUrl)} alt="avatar" src={`http://localhost:3000${auth.avatar}`}/>
+                <Avatar className={classes.avatar} alt="avatar" src={`http://localhost:3000${auth.avatar}`}/>
             </Grid>
             <Grid item>
                     <Grid container direction="column" alignitems="center" justify="center">
