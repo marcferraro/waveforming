@@ -117,11 +117,11 @@ const Navbar = props => {
                     <ListItemText {...listItemProps} primary="Collection" />
                   </ListItem>
               </Link>
-              {/* <Link to='/how-to' style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Link to='/how-to' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
                     <ListItemText {...listItemProps} primary="How To" />
                   </ListItem>
-              </Link> */}
+              </Link>
             </List>
             <Divider />
               <List>
@@ -137,7 +137,7 @@ const Navbar = props => {
                   <Route path='/new-overlapping-waveform' component={OverlappingWaveformInterface}/>
                   <Route path='/gallery' component={Gallery}/>
                   <Route path='/collection' component={Collection}/>
-                  {/* <Route path='/how-to' component={HowTo}/> */}
+                  <Route path='/how-to' component={HowTo}/>
                   <Route path={'/oOutput/:id'} component={OOutputShow}/>
             </Switch>
           </Grid>

@@ -18,7 +18,9 @@ const HowTo = props => {
     const classes = useStyles()
 
     return(
-        <Grid className={classes.root} container>
+        <Grid className={classes.root} container direction="row" alignItems="flex-start" justify="center">
+            <Grid item>
+
             <Typography variant="h5">
                 
                 Waveforming uses the incredible
@@ -42,6 +44,10 @@ const HowTo = props => {
             <Typography paragraph>
                 Symmetry: The Symmetry value can be set between 1-8 and controls to what degree the program will flip and twist the input pattern.
             </Typography>
+            </Grid>
+            <Grid item>
+                test
+            </Grid>
         </Grid>
     )
 }
