@@ -34,6 +34,8 @@ const OOutputShow = props => {
     const dispatch = useDispatch()
     const classes = useStyles()
     const canvasRef = useRef(null)
+    const mainCanvasWidth = useState(48)
+    const mainCanvasHeight = useState(48)
     const popCanvasRef = useRef(null)
     const oOutputs = useSelector(state => state.oOutputs)
     const inputs = useSelector(state => state.inputs)
@@ -141,7 +143,7 @@ const OOutputShow = props => {
         <Grid className={classes.grid} container justify="center" alignItems="center">
             <Card className={classes.root}>
                 <CardActionArea>
-                    <canvas width="48" height="48" style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
+                    <canvas width={mainCanvasWidth} height={mainCanvasHeight} style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {oOutput ? oOutput.title : "Untitled"}
