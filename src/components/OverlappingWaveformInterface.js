@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, FormHelperText, InputLabel, TextField, Button, Popover, Typography } from '@material-ui/core';
+import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, FormHelperText, InputLabel, TextField, Button, Popover, Typography, Slider } from '@material-ui/core';
 import '../overlapInterface.css'
 import { OverlappingModel } from 'wavefunctioncollapse'
 import { useState, useRef, useEffect } from 'react';
@@ -35,6 +35,14 @@ const useStyles = makeStyles((theme) => ({
     },
     colors: {
         marginLeft: 10
+    },
+    title: {
+        width: 123
+        // change later to be roughly half of canvas, or find a way to get it to scale automatically
+        // although the size of the canvas they see won't really be changing...
+    },
+    outputTitle: {
+        width: 110
     }
 }));
 
@@ -424,13 +432,14 @@ const OverlappingWaveformInterface = props => {
                 <Grid item xs={12}>
                     <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1} >
                         <Grid item>
-                            <Grid direction="column" align-items="center" justify="center" container>
+                            <Grid direction="column" align-items="center" justify="center" container >
                                 <Grid item>
-                                    <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px"}} ref={inputCanvasRef}></canvas>
+                                    <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px"}} ref={inputCanvasRef}/>
                                 </Grid>
-                                <Grid container>
-                                    <Grid item xs>
+                                <Grid container >
+                                    <Grid item >
                                         <TextField
+                                            className={classes.title}
                                             onChange={handleInputTitle}
                                             value={inputTitle}
                                             id="outlined-basic"
@@ -439,9 +448,12 @@ const OverlappingWaveformInterface = props => {
                                             size="small"
                                             />
                                     </Grid>
-                                    <Grid item xs={7}>
+                                    <Grid item >
                                         <Button onClick={saveInput} variant="contained" color="secondary" >Save Input</Button>
                                     </Grid>
+                                </Grid>
+                                <Grid item xs>
+                                        <Slider defaultValue={1} onChange={() => console.log("slider!")} aria-labelledby="continuous-slider" />
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -454,8 +466,9 @@ const OverlappingWaveformInterface = props => {
                                     <canvas id="output" width="48" height="48" style={{width:"240px", height:"240px"}}></canvas>
                                 </Grid>
                                 <Grid container>
-                                    <Grid item xs>
+                                    <Grid item >
                                         <TextField
+                                            className={classes.outputTitle}
                                             onChange={handleOutputTitle}
                                             value={outputTitle}
                                             label="Title"
@@ -463,7 +476,7 @@ const OverlappingWaveformInterface = props => {
                                             size="small"
                                             />
                                     </Grid>
-                                    <Grid item xs={8}>
+                                    <Grid item >
                                         <Button onClick={saveOutput} variant="contained" color="secondary" >Save Output</Button>
                                     </Grid>
                                 </Grid>
