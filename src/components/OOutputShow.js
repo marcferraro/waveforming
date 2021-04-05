@@ -34,8 +34,8 @@ const OOutputShow = props => {
     const dispatch = useDispatch()
     const classes = useStyles()
     const canvasRef = useRef(null)
-    const mainCanvasWidth = useState(48)
-    const mainCanvasHeight = useState(48)
+    const [mainCanvasWidth, setMainCanvasWidth] = useState(48)
+    const [mainCanvasHeight, setMainCanvasHeight] = useState(48)
     const popCanvasRef = useRef(null)
     const oOutputs = useSelector(state => state.oOutputs)
     const inputs = useSelector(state => state.inputs)
@@ -61,6 +61,8 @@ const OOutputShow = props => {
         const image = document.createElement('img')
         image.src = `http://localhost:3000${result.ooutput.url}`
         image.onload = () => {
+            setMainCanvasWidth(image.width)
+            setMainCanvasHeight(image.height)
             ctx.drawImage(image,0,0)
         }
     }
