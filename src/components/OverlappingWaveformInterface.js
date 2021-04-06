@@ -154,9 +154,9 @@ const OverlappingWaveformInterface = props => {
     var start = function(id){
         const output = document.getElementById("output")
         let ctx = output.getContext("2d")
-        let imgData = ctx.createImageData(48, 48)
+        let imgData = ctx.createImageData(outputSize, outputSize)
         // input, width, height, N, outputWidth, outputHeight, periodicInput, periodicOutput, symmetry, ground
-        const model = new OverlappingModel(id.data, id.width, id.height, N, 48, 48, periodicInput, periodicOutput, symmetry, ground)
+        const model = new OverlappingModel(id.data, id.width, id.height, N, outputSize, outputSize, periodicInput, periodicOutput, symmetry, ground)
         // console.log(model)
         //seed, limit
         var success = model.generate(Math.random, 0)
