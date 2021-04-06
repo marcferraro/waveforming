@@ -35,6 +35,8 @@ const OOutputCard = props => {
     const auth = useSelector(state => state.auth)
     const popCanvasRef = useRef(null)
     const [anchorEl, setAnchorEl] = useState(null);
+    const [width, setWidth] = useState(48);
+    const [height, setHeight] = useState(48);
 
     const open = Boolean(anchorEl);
 
@@ -43,6 +45,8 @@ const OOutputCard = props => {
         const image = document.createElement('img')
         image.src = `http://localhost:3000${props.oOutput.ooutput.url}`
         image.onload = () => {
+            setWidth(image.width)
+            setHeight(image.height)
             ctx.drawImage(image,0,0)
         }
 
@@ -125,7 +129,7 @@ const OOutputCard = props => {
         <Grid item>
             <Card className={classes.root}>
                 <CardActionArea onClick={handleInspect}>
-                    <canvas width="48" height="48" style={{width:"220px", height:"220px", border: '0px none black'}} ref={canvasRef}/>
+                    <canvas width={width} height={height} style={{width:"220px", height:"220px", border: '0px none black'}} ref={canvasRef}/>
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {props.oOutput.title ? props.oOutput.title : "Untitled"}
