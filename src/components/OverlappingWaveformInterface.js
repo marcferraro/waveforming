@@ -43,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
     },
     outputTitle: {
         width: 110
+    },
+    lowerInterface: {
+        paddingLeft: 10,
+        paddingRight: 10,
     }
 }));
 
@@ -524,7 +528,8 @@ const OverlappingWaveformInterface = props => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid container direction="column" justify="space-evenly" alignItems="stretch" spacing={1}>
+
+                <Grid className={classes.lowerInterface} container direction="column" justify="space-evenly" alignItems="stretch" spacing={1}>
                     <Grid item >
                         <Paper elevation={3}>
                             <Grid className={classes.palatte} spacing={2} container justify="flex-start" alignItems={'flex-start'} direction={'row'}>
