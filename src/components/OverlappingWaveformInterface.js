@@ -46,6 +46,33 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+const marks = [
+    {
+      value: 16,
+      label: '16',
+    },
+    {
+      value: 32,
+      label: '32',
+    },
+    {
+      value: 48,
+      label: '48',
+    },
+    {
+      value: 64,
+      label: '64',
+    },
+    {
+      value: 80,
+      label: '80',
+    },
+    {
+      value: 96,
+      label: '96',
+    },
+  ];
+
 const OverlappingWaveformInterface = props => {
 
     const dispatch = useDispatch()
@@ -491,7 +518,7 @@ const OverlappingWaveformInterface = props => {
                                     </Grid>
                                 </Grid>
                                 <Grid item >
-                                        <Slider defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
+                                        <Slider marks={marks} step={null} defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
                                 </Grid>
                             </Grid>
                         </Grid>
