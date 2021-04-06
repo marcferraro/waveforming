@@ -430,6 +430,10 @@ const OverlappingWaveformInterface = props => {
         console.log(e.target)
     }
 
+    const handleOutputSize = e => {
+        console.log(e.target)
+    }
+
     return(
         <div className={classes.root} >
             <Grid container spacing={4}>
@@ -456,7 +460,7 @@ const OverlappingWaveformInterface = props => {
                                         <Button onClick={saveInput} variant="contained" color="secondary" >Save Input</Button>
                                     </Grid>
                                 </Grid>
-                                <Grid item xs>
+                                <Grid item >
                                         <Slider defaultValue={1} onChange={handleInputSize} aria-labelledby="continuous-slider" />
                                 </Grid>
                             </Grid>
@@ -483,6 +487,9 @@ const OverlappingWaveformInterface = props => {
                                     <Grid item >
                                         <Button onClick={saveOutput} variant="contained" color="secondary" >Save Output</Button>
                                     </Grid>
+                                </Grid>
+                                <Grid item >
+                                        <Slider defaultValue={1} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
                                 </Grid>
                             </Grid>
                         </Grid>
