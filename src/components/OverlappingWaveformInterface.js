@@ -230,7 +230,6 @@ const OverlappingWaveformInterface = props => {
 
         canvas.addEventListener('mouseup', e => {
             drawing = false
-            console.log(drawing)
         })
 
         canvas.addEventListener('mouseleave', e => {
@@ -432,8 +431,9 @@ const OverlappingWaveformInterface = props => {
         console.log(e.target)
     }
 
-    const handleOutputSize = e => {
-        console.log(e.target)
+    const handleOutputSize = (e, value) => {
+        console.log(value)
+        setOutputSize(value)
     }
 
     return(
@@ -473,7 +473,7 @@ const OverlappingWaveformInterface = props => {
                         <Grid item>
                             <Grid direction="column" align-items="center" justify="center" container>
                                 <Grid item>
-                                    <canvas id="output" width="48" height="48" style={{width:"240px", height:"240px"}}></canvas>
+                                    <canvas id="output" width={outputSize} height={outputSize} style={{width:"240px", height:"240px"}}></canvas>
                                 </Grid>
                                 <Grid container>
                                     <Grid item >
@@ -491,7 +491,7 @@ const OverlappingWaveformInterface = props => {
                                     </Grid>
                                 </Grid>
                                 <Grid item >
-                                        <Slider defaultValue={1} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
+                                        <Slider defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
                                 </Grid>
                             </Grid>
                         </Grid>
