@@ -229,14 +229,14 @@ const OOutputShow = props => {
                                         keepMounted
                                         open={Boolean(anchorOptions)}
                                         onClose={() => handleClose(setAnchorOptions)}
-                                        // anchorOrigin={{
-                                        //     vertical: 'top',
-                                        //     horizontal: 'right',
-                                        // }}
-                                        // transformOrigin={{
-                                        //     vertical: 'bottom',
-                                        //     horizontal: 'left',
-                                        // }}
+                                        anchorOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'left',
+                                        }}
                                         >
                                             <Grid container style={{paddingTop: 5, paddingBottom: 5}} spacing={2} direction="column" justify="flex-start">
                                                 <MenuList>
