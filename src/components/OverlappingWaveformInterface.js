@@ -501,10 +501,13 @@ const OverlappingWaveformInterface = props => {
                             </Grid>
                         </Grid>
                         <Grid item>
-                            <Grid container direction="column">
+                            <Grid container direction="column" alignItems="center" justify="center">
                                 <Grid item>
                                     <Button onClick={generate} variant="contained" color="secondary" disabled={generating}>Generate</Button>
                                 </Grid>
+                                {/* <Grid item>
+                                    <CircularProgress />
+                                </Grid> */}
                             </Grid>
                         </Grid>
                         <Grid item>
