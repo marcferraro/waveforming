@@ -44,6 +44,7 @@ const OOutputShow = props => {
     const [oOutput, setOOutput] = useState(null)
     const [starred, setStarred] = useState(false)
     const [starId, setStarId] = useState(null)
+    const [dimmer, setDimmer] = useState(true)
     const auth = useSelector(state => state.auth)
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -157,12 +158,12 @@ const OOutputShow = props => {
     }
 
     const handleDimmer = () => {
-        console.log('dimmer')
+        setDimmer(!dimmer)
     }
     
     return(
         <Grid className={classes.grid} container justify="center" alignItems="center">
-            <Backdrop invisible={true} open={true}>
+            <Backdrop invisible={dimmer} open={true}>
                 <Card className={classes.root}>
                     <CardActionArea>
                         <canvas width={mainCanvasWidth} height={mainCanvasHeight} style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
