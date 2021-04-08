@@ -52,3 +52,10 @@ export const inputSelect = input => {
         input: input
     }
 }
+
+export const oOutputDeleteSuccess = oOutputId => {
+    return {
+        type: "OOUTPUT_DELETE_SUCCESS",
+        id: oOutputId
+    }
+}
