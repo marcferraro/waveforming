@@ -46,6 +46,7 @@ const OOutputShow = props => {
     const auth = useSelector(state => state.auth)
     const [anchorEl, setAnchorEl] = useState(null);
     const optionsRef = useRef(null)
+    const [optionsOpen, setOptionsOpen] = useState(false)
     
     const openViewInput = Boolean(anchorEl);
 
@@ -212,14 +213,14 @@ const OOutputShow = props => {
                                         <MoreVertIcon />
                                         <Popover
                                         anchorEl={optionsRef.current}
-                                        open={true}
+                                        open={optionsOpen}
                                         anchorOrigin={{
-                                            vertical: 'center',
-                                            horizontal: 'left',
+                                            vertical: 'top',
+                                            horizontal: 'right',
                                         }}
                                         transformOrigin={{
                                             vertical: 'bottom',
-                                            horizontal: 'right',
+                                            horizontal: 'left',
                                         }}
                                         >
                                             test
