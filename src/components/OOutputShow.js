@@ -239,7 +239,7 @@ const OOutputShow = props => {
                                         // }}
                                         >
                                             <Grid container spacing={2} direction="column" justify="flex-start">
-                                                <MenuItem onClick={handleDelete} >Delete</MenuItem>
+                                                {oOutput && oOutput.user_id === auth.id ? <MenuItem onClick={handleDelete} >Delete</MenuItem> : null}
                                             </Grid>
                                         </Menu>
                                 </Grid>
