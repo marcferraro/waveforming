@@ -251,8 +251,8 @@ const OOutputShow = props => {
                                                 >
                                                     <Grid container style={{paddingTop: 5, paddingBottom: 5}} spacing={2} direction="column" justify="flex-start">
                                                         <MenuList>
-                                                            {oOutput && oOutput.user_id === auth.id ? <MenuItem onClick={handleDelete} >Delete</MenuItem> : null}
                                                             <MenuItem onClick={handleDimmerBtn} >Gallery Mode</MenuItem>
+                                                            {oOutput && oOutput.user_id === auth.id ? <MenuItem onClick={handleDelete} >Delete</MenuItem> : null}
                                                         </MenuList>
                                                     </Grid>
                                                 </Popover>
