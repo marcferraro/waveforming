@@ -3,7 +3,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { Button, Grid, Popover, MenuList, MenuItem } from '@material-ui/core';
+import { Button, Grid, Popover, MenuList, MenuItem, Backdrop } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
@@ -155,102 +155,108 @@ const OOutputShow = props => {
             dispatch(oOutputDeleteSuccess(data.id))
         })
     }
+
+    const handleDimmer = () => {
+        console.log('dimmer')
+    }
     
     return(
         <Grid className={classes.grid} container justify="center" alignItems="center">
-            <Card className={classes.root}>
-                <CardActionArea>
-                    <canvas width={mainCanvasWidth} height={mainCanvasHeight} style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {oOutput ? oOutput.title : "Untitled"}
-                    </Typography>
-                    <Typography variant="body1" color="textPrimary" component="p">
-                        Artist: {oOutput ? oOutput.user.username : "unknown"}
-                    </Typography>
-                    <Grid container direction="row" justify="space-between">
-                        <Typography variant="body1" color="textPrimary" component="p">
-                            N: {oOutput ? oOutput.n : "unknown"}
+            <Backdrop invisible={true} open={true}>
+                <Card className={classes.root}>
+                    <CardActionArea>
+                        <canvas width={mainCanvasWidth} height={mainCanvasHeight} style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
+                        <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {oOutput ? oOutput.title : "Untitled"}
                         </Typography>
                         <Typography variant="body1" color="textPrimary" component="p">
-                            Symmetry: {oOutput ? oOutput.symmetry : "unknown"}
+                            Artist: {oOutput ? oOutput.user.username : "unknown"}
                         </Typography>
-                        <Typography variant="body1" color="textPrimary" component="p">
-                            Ground: {oOutput ? oOutput.ground : "unknown"}
-                        </Typography>
-                        <Typography variant="body1" color="textPrimary" component="p">
-                            Periodic Input: {oOutput ? `${oOutput.periodic_input}` : "unknown"}
-                        </Typography>
-                        <Typography variant="body1" color="textPrimary" component="p">
-                            Periodic output: {oOutput ? `${oOutput.periodic_output}` : "unknown"}
-                        </Typography>
-                    </Grid>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <Grid container justify="space-between" direction="row">
-                        <Grid item >
-                            <Button onClick={handlePopup} size="small" color="primary">
-                            View Input
-                            </Button>
-                            <Popover 
-                                anchorEl={anchorEl}
-                                open={Boolean(anchorEl)}
-                                onClose={() => handleClose(setAnchorEl)}
-                                anchorOrigin={{
-                                    vertical: 'center',
-                                    horizontal: 'left',
-                                }}
-                                transformOrigin={{
-                                    vertical: 'bottom',
-                                    horizontal: 'right',
-                                }}
-                                >
-                                <Grid container style={{padding: 20}} spacing={2} direction="column" justify="flex-start">
-                                    <Typography>{oOutput ? oOutput.input.title : null}</Typography>
-                                    <Typography>by {oOutput ? oOutput.input_username : null}</Typography>
-                                    <canvas onClick={handleInputSelect} width="16" height="16" style={{width:"180px", height:"180px", border: '0px none black'}} ref={popCanvasRef}/>
-                                </Grid>
-                            </Popover>
+                        <Grid container direction="row" justify="space-between">
+                            <Typography variant="body1" color="textPrimary" component="p">
+                                N: {oOutput ? oOutput.n : "unknown"}
+                            </Typography>
+                            <Typography variant="body1" color="textPrimary" component="p">
+                                Symmetry: {oOutput ? oOutput.symmetry : "unknown"}
+                            </Typography>
+                            <Typography variant="body1" color="textPrimary" component="p">
+                                Ground: {oOutput ? oOutput.ground : "unknown"}
+                            </Typography>
+                            <Typography variant="body1" color="textPrimary" component="p">
+                                Periodic Input: {oOutput ? `${oOutput.periodic_input}` : "unknown"}
+                            </Typography>
+                            <Typography variant="body1" color="textPrimary" component="p">
+                                Periodic output: {oOutput ? `${oOutput.periodic_output}` : "unknown"}
+                            </Typography>
                         </Grid>
-                        <Grid item>
-                            <Grid container direction="row" justify="flex-end">
-                                <Grid item >
-                                    <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
-                                        {oOutput ? oOutput.stars.length : null}<StarsIcon />
-                                    </IconButton>
-                                </Grid>
-                                <Grid item>
-                                    <IconButton onClick={handleOptionsOpen} size="small" >
-                                        <MoreVertIcon />
-                                    </IconButton>
-                                        <Popover
-                                        anchorEl={anchorOptions}
-                                        keepMounted
-                                        open={Boolean(anchorOptions)}
-                                        onClose={() => handleClose(setAnchorOptions)}
-                                        anchorOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'right',
-                                        }}
-                                        transformOrigin={{
-                                            vertical: 'bottom',
-                                            horizontal: 'left',
-                                        }}
-                                        >
-                                            <Grid container style={{paddingTop: 5, paddingBottom: 5}} spacing={2} direction="column" justify="flex-start">
-                                                <MenuList>
-                                                    {oOutput && oOutput.user_id === auth.id ? <MenuItem onClick={handleDelete} >Delete</MenuItem> : null}
-                                                    <MenuItem>Gallery Mode</MenuItem>
-                                                </MenuList>
-                                            </Grid>
-                                        </Popover>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Grid container justify="space-between" direction="row">
+                            <Grid item >
+                                <Button onClick={handlePopup} size="small" color="primary">
+                                View Input
+                                </Button>
+                                <Popover 
+                                    anchorEl={anchorEl}
+                                    open={Boolean(anchorEl)}
+                                    onClose={() => handleClose(setAnchorEl)}
+                                    anchorOrigin={{
+                                        vertical: 'center',
+                                        horizontal: 'left',
+                                    }}
+                                    transformOrigin={{
+                                        vertical: 'bottom',
+                                        horizontal: 'right',
+                                    }}
+                                    >
+                                    <Grid container style={{padding: 20}} spacing={2} direction="column" justify="flex-start">
+                                        <Typography>{oOutput ? oOutput.input.title : null}</Typography>
+                                        <Typography>by {oOutput ? oOutput.input_username : null}</Typography>
+                                        <canvas onClick={handleInputSelect} width="16" height="16" style={{width:"180px", height:"180px", border: '0px none black'}} ref={popCanvasRef}/>
+                                    </Grid>
+                                </Popover>
+                            </Grid>
+                            <Grid item>
+                                <Grid container direction="row" justify="flex-end">
+                                    <Grid item >
+                                        <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
+                                            {oOutput ? oOutput.stars.length : null}<StarsIcon />
+                                        </IconButton>
+                                    </Grid>
+                                    <Grid item>
+                                        <IconButton onClick={handleOptionsOpen} size="small" >
+                                            <MoreVertIcon />
+                                        </IconButton>
+                                            <Popover
+                                            anchorEl={anchorOptions}
+                                            keepMounted
+                                            open={Boolean(anchorOptions)}
+                                            onClose={() => handleClose(setAnchorOptions)}
+                                            anchorOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            transformOrigin={{
+                                                vertical: 'bottom',
+                                                horizontal: 'left',
+                                            }}
+                                            >
+                                                <Grid container style={{paddingTop: 5, paddingBottom: 5}} spacing={2} direction="column" justify="flex-start">
+                                                    <MenuList>
+                                                        {oOutput && oOutput.user_id === auth.id ? <MenuItem onClick={handleDelete} >Delete</MenuItem> : null}
+                                                        <MenuItem onClick={handleDimmer} >Gallery Mode</MenuItem>
+                                                    </MenuList>
+                                                </Grid>
+                                            </Popover>
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
-                </CardActions>
-            </Card>
+                    </CardActions>
+                </Card>
+            </Backdrop>
         </Grid>
     )
 }
