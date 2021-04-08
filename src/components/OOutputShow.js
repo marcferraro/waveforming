@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import StarsIcon from '@material-ui/icons/Stars';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { useSelector, useDispatch } from 'react-redux'
 import { updateOOutput } from '../actions'
 import { inputSelect } from '../actions'
@@ -173,8 +174,8 @@ const OOutputShow = props => {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Grid container justify="flex-start">
-                        <Grid item xs={10}>
+                    <Grid container justify="space-between" direction="row">
+                        <Grid item >
                             <Button onClick={handlePopup} size="small" color="primary">
                             View Input
                             </Button>
@@ -198,10 +199,19 @@ const OOutputShow = props => {
                                 </Grid>
                             </Popover>
                         </Grid>
-                        <Grid item >
-                            <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
-                                {oOutput ? oOutput.stars.length : null}<StarsIcon />
-                            </IconButton>
+                        <Grid item>
+                            <Grid container direction="row" justify="flex-end">
+                                <Grid item >
+                                    <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
+                                        {oOutput ? oOutput.stars.length : null}<StarsIcon />
+                                    </IconButton>
+                                </Grid>
+                                <Grid item>
+                                    <IconButton>
+                                        <MoreVertIcon />
+                                    </IconButton>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </CardActions>
