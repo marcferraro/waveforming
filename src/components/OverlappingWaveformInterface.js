@@ -87,6 +87,7 @@ const OverlappingWaveformInterface = props => {
     const popCanvasRef = useRef(null)
     const [inputId, setInputId] = useState(null)
     const [image, setImage] = useState(null)
+    const [generating, setGenerating] = useState(false)
     const [N, setN] = useState(2)
     const [symmetry, setSymmetry] = useState(1)
     const [ground, setGround] = useState(0)
