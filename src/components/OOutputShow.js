@@ -207,7 +207,7 @@ const OOutputShow = props => {
                                     </IconButton>
                                 </Grid>
                                 <Grid item>
-                                    <IconButton>
+                                    <IconButton size="small">
                                         <MoreVertIcon />
                                     </IconButton>
                                 </Grid>
