@@ -148,6 +148,8 @@ const OOutputShow = props => {
 
     const handleDelete = () => {
         fetch(`http://localhost:3000/ooutputs/${oOutput.id}`, {method: "DELETE"})
+        .then(resp => resp.json())
+        .then(data => console.log(data))
     }
     
     return(
