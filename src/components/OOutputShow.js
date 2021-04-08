@@ -45,8 +45,9 @@ const OOutputShow = props => {
     const [starId, setStarId] = useState(null)
     const auth = useSelector(state => state.auth)
     const [anchorEl, setAnchorEl] = useState(null);
+    const optionsRef = useRef(null)
     
-    const open = Boolean(anchorEl);
+    const openViewInput = Boolean(anchorEl);
 
     useEffect(() => {
         if (oOutputs[0]){
@@ -181,7 +182,7 @@ const OOutputShow = props => {
                             </Button>
                             <Popover 
                                 anchorEl={anchorEl}
-                                open={open}
+                                open={openViewInput}
                                 onClose={handleClose}
                                 anchorOrigin={{
                                     vertical: 'center',
@@ -207,8 +208,22 @@ const OOutputShow = props => {
                                     </IconButton>
                                 </Grid>
                                 <Grid item>
-                                    <IconButton size="small">
+                                    <IconButton size="small" ref={optionsRef}>
                                         <MoreVertIcon />
+                                        <Popover
+                                        anchorEl={optionsRef.current}
+                                        open={true}
+                                        anchorOrigin={{
+                                            vertical: 'center',
+                                            horizontal: 'left',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                        >
+                                            test
+                                        </Popover>
                                     </IconButton>
                                 </Grid>
                             </Grid>
