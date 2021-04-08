@@ -3,7 +3,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { Button, Grid, Popover } from '@material-ui/core';
+import { Button, Grid, Popover, Menu, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
@@ -47,9 +47,6 @@ const OOutputShow = props => {
 
     const [anchorEl, setAnchorEl] = useState(null);
     const [anchorOptions, setAnchorOptions] = useState(null)
-    
-    const openViewInput = Boolean(anchorEl);
-    const openOptions = Boolean(anchorOptions);
 
     useEffect(() => {
         if (oOutputs[0]){
@@ -148,6 +145,10 @@ const OOutputShow = props => {
     const handleOptionsOpen = event => {
         setAnchorOptions(event.currentTarget)
     }
+
+    const handleDelete = () => {
+        console.log('delete')
+    }
     
     return(
         <Grid className={classes.grid} container justify="center" alignItems="center">
@@ -188,7 +189,7 @@ const OOutputShow = props => {
                             </Button>
                             <Popover 
                                 anchorEl={anchorEl}
-                                open={openViewInput}
+                                open={Boolean(anchorEl)}
                                 onClose={() => handleClose(setAnchorEl)}
                                 anchorOrigin={{
                                     vertical: 'center',
@@ -217,23 +218,24 @@ const OOutputShow = props => {
                                     <IconButton onClick={handleOptionsOpen} size="small" >
                                         <MoreVertIcon />
                                     </IconButton>
-                                        <Popover
+                                        <Menu
                                         anchorEl={anchorOptions}
-                                        open={openOptions}
+                                        keepMounted
+                                        open={Boolean(anchorOptions)}
                                         onClose={() => handleClose(setAnchorOptions)}
-                                        anchorOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'right',
-                                        }}
-                                        transformOrigin={{
-                                            vertical: 'bottom',
-                                            horizontal: 'left',
-                                        }}
+                                        // anchorOrigin={{
+                                        //     vertical: 'top',
+                                        //     horizontal: 'right',
+                                        // }}
+                                        // transformOrigin={{
+                                        //     vertical: 'bottom',
+                                        //     horizontal: 'left',
+                                        // }}
                                         >
-                                            <Grid container style={{padding: 20}} spacing={2} direction="column" justify="flex-start">
-                                                Delete ?
+                                            <Grid container spacing={2} direction="column" justify="flex-start">
+                                                <MenuItem onClick={handleDelete} >Delete</MenuItem>
                                             </Grid>
-                                        </Popover>
+                                        </Menu>
                                 </Grid>
                             </Grid>
                         </Grid>
