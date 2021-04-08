@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, FormHelperText, InputLabel, TextField, Button, Popover, Typography, Slider } from '@material-ui/core';
+import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, InputLabel, TextField, Button, Popover, Typography, Slider, CircularProgress } from '@material-ui/core';
 import '../overlapInterface.css'
 import { OverlappingModel } from 'wavefunctioncollapse'
 import { useState, useRef, useEffect } from 'react';
