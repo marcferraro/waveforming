@@ -214,9 +214,9 @@ const OOutputShow = props => {
                                     </IconButton>
                                 </Grid>
                                 <Grid item>
-                                    <Button onClick={handleOptionsOpen} size="small" >
+                                    <IconButton onClick={handleOptionsOpen} size="small" >
                                         <MoreVertIcon />
-                                    </Button>
+                                    </IconButton>
                                         <Popover
                                         anchorEl={anchorOptions}
                                         open={openOptions}
