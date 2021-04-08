@@ -192,7 +192,9 @@ const OverlappingWaveformInterface = props => {
         var success = model.generate(Math.random, 0)
         model.graphics(imgData.data)
         ctx.putImageData(imgData, 0, 0)
-        console.log(success)
+        setGenerating(false)
+        console.log('false')
+        // console.log(success)
         // if (success === false){
         //     start(id)
         // } 
@@ -302,6 +304,8 @@ const OverlappingWaveformInterface = props => {
 
     // run input image through generator
     const generate = () => {
+        setGenerating(true)
+        console.log('true')
         const canvas = inputCanvasRef.current
         const image = document.createElement("img")
         image.src = canvas.toDataURL('image/png')
@@ -498,7 +502,7 @@ const OverlappingWaveformInterface = props => {
                             </Grid>
                         </Grid>
                         <Grid item>
-                            <Button onClick={generate} variant="contained" color="secondary" >Generate</Button>
+                            <Button onClick={generate} variant="contained" color="secondary" >{generating ? <CircularProgress /> : 'Generate'}</Button>
                         </Grid>
                         <Grid item>
                             <Grid direction="column" align-items="center" justify="center" container>
