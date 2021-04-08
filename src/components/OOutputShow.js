@@ -12,6 +12,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { useSelector, useDispatch } from 'react-redux'
 import { updateOOutput } from '../actions'
 import { inputSelect } from '../actions'
+import { oOutputDeleteSuccess } from '../actions'
 import { withRouter } from 'react-router-dom'
 
 const useStyles = makeStyles({
@@ -149,7 +150,10 @@ const OOutputShow = props => {
     const handleDelete = () => {
         fetch(`http://localhost:3000/ooutputs/${oOutput.id}`, {method: "DELETE"})
         .then(resp => resp.json())
-        .then(data => console.log(data))
+        .then(data => {
+            props.history.push('/gallery')
+            dispatch(oOutputDeleteSuccess(data.id))
+        })
     }
     
     return(
