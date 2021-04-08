@@ -23,6 +23,10 @@ const Welcome = props => {
                 <source src={videoSource} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
+            <video autoPlay="autoplay" loop="loop" muted className={classes.Video} >
+                <source src={videoSource} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
 
                 <div className={classes.Content}>
                     <div className={classes.SubContent} >
