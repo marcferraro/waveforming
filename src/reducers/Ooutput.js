@@ -8,7 +8,7 @@ const oOutputReducer = (state = [], action) => {
         case 'OOUTPUT_CREATION_SUCCESS':
             return [...state, action.oOutput]
         case 'OOUTPUT_DELETE_SUCCESS':
-            return [...state, action.oOutput]
+            return state.filter(o => o.id !== action.id )
         case 'LOGOUT':
             return []
         default: 
