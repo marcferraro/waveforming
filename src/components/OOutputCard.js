@@ -158,7 +158,9 @@ const OOutputCard = props => {
                                     horizontal: 'right',
                                 }}
                             >
-                            <Grid container style={{padding: 20}}>
+                            <Grid container style={{padding: 15}} spacing={2} direction="column" justify="flex-start">
+                                <Typography>{props.oOutput ? props.oOutput.input.title : null}</Typography>
+                                <Typography>by {props.oOutput ? props.oOutput.input_username : null}</Typography>
                                 <canvas width="16" height="16" style={{width:"100px", height:"100px", border: '0px none black'}} ref={popCanvasRef}/>
                             </Grid>
                             </Popover>
