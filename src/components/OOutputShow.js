@@ -44,11 +44,12 @@ const OOutputShow = props => {
     const [starred, setStarred] = useState(false)
     const [starId, setStarId] = useState(null)
     const auth = useSelector(state => state.auth)
+
     const [anchorEl, setAnchorEl] = useState(null);
-    const optionsRef = useRef(null)
-    const [optionsOpen, setOptionsOpen] = useState(false)
+    const [anchorOptions, setAnchorOptions] = useState(null)
     
     const openViewInput = Boolean(anchorEl);
+    const openOptions = Boolean(anchorOptions);
 
     useEffect(() => {
         if (oOutputs[0]){
@@ -134,14 +135,18 @@ const OOutputShow = props => {
         }, 100);
     }
 
-    const handleClose = () => {
-        setAnchorEl(null);
+    const handleClose = (anchorFunc) => {
+        anchorFunc(null);
     };
 
     const handleInputSelect = () => {
         const input = inputs.find(input => input.id === oOutput.input.id)
         dispatch(inputSelect(input))
         props.history.push('/new-overlapping-waveform')
+    }
+
+    const handleOptionsOpen = event => {
+        setAnchorOptions(event.currentTarget)
     }
     
     return(
@@ -184,7 +189,7 @@ const OOutputShow = props => {
                             <Popover 
                                 anchorEl={anchorEl}
                                 open={openViewInput}
-                                onClose={handleClose}
+                                onClose={() => handleClose(setAnchorEl)}
                                 anchorOrigin={{
                                     vertical: 'center',
                                     horizontal: 'left',
@@ -209,11 +214,13 @@ const OOutputShow = props => {
                                     </IconButton>
                                 </Grid>
                                 <Grid item>
-                                    <IconButton size="small" ref={optionsRef}>
+                                    <Button onClick={handleOptionsOpen} size="small" >
                                         <MoreVertIcon />
+                                    </Button>
                                         <Popover
-                                        anchorEl={optionsRef.current}
-                                        open={optionsOpen}
+                                        anchorEl={anchorOptions}
+                                        open={openOptions}
+                                        onClose={() => handleClose(setAnchorOptions)}
                                         anchorOrigin={{
                                             vertical: 'top',
                                             horizontal: 'right',
@@ -223,9 +230,10 @@ const OOutputShow = props => {
                                             horizontal: 'left',
                                         }}
                                         >
-                                            test
+                                            <Grid container style={{padding: 20}} spacing={2} direction="column" justify="flex-start">
+                                                Delete ?
+                                            </Grid>
                                         </Popover>
-                                    </IconButton>
                                 </Grid>
                             </Grid>
                         </Grid>
