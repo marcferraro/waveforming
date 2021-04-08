@@ -3,7 +3,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { Button, Grid, Popover, Menu, MenuItem } from '@material-ui/core';
+import { Button, Grid, Popover, MenuList, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
@@ -224,7 +224,7 @@ const OOutputShow = props => {
                                     <IconButton onClick={handleOptionsOpen} size="small" >
                                         <MoreVertIcon />
                                     </IconButton>
-                                        <Menu
+                                        <Popover
                                         anchorEl={anchorOptions}
                                         keepMounted
                                         open={Boolean(anchorOptions)}
@@ -238,10 +238,13 @@ const OOutputShow = props => {
                                         //     horizontal: 'left',
                                         // }}
                                         >
-                                            <Grid container spacing={2} direction="column" justify="flex-start">
-                                                {oOutput && oOutput.user_id === auth.id ? <MenuItem onClick={handleDelete} >Delete</MenuItem> : null}
+                                            <Grid container style={{paddingTop: 5, paddingBottom: 5}} spacing={2} direction="column" justify="flex-start">
+                                                <MenuList>
+                                                    {oOutput && oOutput.user_id === auth.id ? <MenuItem onClick={handleDelete} >Delete</MenuItem> : null}
+                                                    <MenuItem>Gallery Mode</MenuItem>
+                                                </MenuList>
                                             </Grid>
-                                        </Menu>
+                                        </Popover>
                                 </Grid>
                             </Grid>
                         </Grid>
