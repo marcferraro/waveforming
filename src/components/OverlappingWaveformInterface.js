@@ -305,7 +305,6 @@ const OverlappingWaveformInterface = props => {
     // run input image through generator
     const generate = () => {
         setGenerating(true)
-        console.log('true')
         const canvas = inputCanvasRef.current
         const image = document.createElement("img")
         image.src = canvas.toDataURL('image/png')
