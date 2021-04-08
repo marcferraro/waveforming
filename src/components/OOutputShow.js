@@ -33,6 +33,8 @@ const useStyles = makeStyles({
     cardBottom: {
         maxWidth: 500,
         backgroundColor: "#b8b8b8"
+    },
+    backdrop: {
     }
 });
 
@@ -168,7 +170,7 @@ const OOutputShow = props => {
     return(
         <Grid className={classes.grid} container direction="column" justify="center" alignItems="center">
             <Grid item>
-                <Backdrop invisible={dimmer} open={true} >
+                <Backdrop className={classes.backdrop} invisible={dimmer} open={true} >
                     <Card className={!dimmer ? classes.cardBottom : classes.root} >
                         <CardActionArea >
                             <canvas width={mainCanvasWidth} height={mainCanvasHeight} style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
