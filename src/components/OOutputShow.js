@@ -157,13 +157,13 @@ const OOutputShow = props => {
         })
     }
 
-    const handleDimmer = () => {
+    const handleDimmerBtn = () => {
         setDimmer(!dimmer)
     }
     
     return(
         <Grid className={classes.grid} container justify="center" alignItems="center">
-            <Backdrop invisible={dimmer} open={true}>
+            <Backdrop invisible={dimmer} open={true} >
                 <Card className={classes.root}>
                     <CardActionArea>
                         <canvas width={mainCanvasWidth} height={mainCanvasHeight} style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
@@ -247,7 +247,7 @@ const OOutputShow = props => {
                                                 <Grid container style={{paddingTop: 5, paddingBottom: 5}} spacing={2} direction="column" justify="flex-start">
                                                     <MenuList>
                                                         {oOutput && oOutput.user_id === auth.id ? <MenuItem onClick={handleDelete} >Delete</MenuItem> : null}
-                                                        <MenuItem onClick={handleDimmer} >Gallery Mode</MenuItem>
+                                                        <MenuItem onClick={handleDimmerBtn} >Gallery Mode</MenuItem>
                                                     </MenuList>
                                                 </Grid>
                                             </Popover>
