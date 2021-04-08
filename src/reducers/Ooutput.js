@@ -7,6 +7,8 @@ const oOutputReducer = (state = [], action) => {
             return state.map(o => o.id === action.oOutput.id ? action.oOutput : o)
         case 'OOUTPUT_CREATION_SUCCESS':
             return [...state, action.oOutput]
+        case 'OOUTPUT_DELETE_SUCCESS':
+            return [...state, action.oOutput]
         case 'LOGOUT':
             return []
         default: 
