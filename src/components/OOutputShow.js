@@ -254,6 +254,7 @@ const OOutputShow = props => {
                                                     <Grid container style={{paddingTop: 5, paddingBottom: 5}} spacing={2} direction="column" justify="flex-start">
                                                         <MenuList>
                                                             <MenuItem onClick={handleDimmerBtn} >Gallery Mode</MenuItem>
+                                                            <a href={oOutput ? `http://localhost:3000${oOutput.ooutput.url}` + "?force=true" : null}  download>Download</a>
                                                             {oOutput && oOutput.user_id === auth.id ? <MenuItem onClick={handleDelete} >Delete</MenuItem> : null}
                                                         </MenuList>
                                                     </Grid>
