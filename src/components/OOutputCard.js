@@ -43,7 +43,8 @@ const OOutputCard = props => {
     useEffect(() => {
         const ctx = canvasRef.current.getContext('2d')
         const image = document.createElement('img')
-        image.src = `http://localhost:3000${props.oOutput.ooutput.url}`
+        // image.src = `http://localhost:3000${props.oOutput.ooutput.url}`
+        image.src = props.oOutput.ooutput.url
         image.onload = () => {
             setWidth(image.width)
             setHeight(image.height)
@@ -114,7 +115,8 @@ const OOutputCard = props => {
             const popCtx = popCanvasRef.current.getContext('2d')
             const popImage = document.createElement('img')
     
-            popImage.src = `http://localhost:3000${props.oOutput.input.input.url}`
+            // popImage.src = `http://localhost:3000${props.oOutput.input.input.url}`
+            popImage.src = props.oOutput.input.input.url
             popImage.onload = () => {
                 popCtx.drawImage(popImage,0,0)
             }
