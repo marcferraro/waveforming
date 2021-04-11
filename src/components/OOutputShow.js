@@ -17,7 +17,7 @@ import { withRouter } from 'react-router-dom'
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 500,
+      maxWidth: 470,
     },
     media: {
       height: 48,
@@ -28,14 +28,15 @@ const useStyles = makeStyles({
       }
     },
     grid: {
-        paddingTop: 11
+        padding: 11,
       },
-    cardBottom: {
-        maxWidth: 500,
-        backgroundColor: "#b8b8b8"
-    },
-    backdrop: {
-    }
+    // cardBottom: {
+    //     maxWidth: 500,
+    //     backgroundColor: "#b8b8b8"
+    // },
+    // backdrop: {
+    //     padding: 50
+    // }
 });
 
 const OOutputShow = props => {
@@ -172,10 +173,10 @@ const OOutputShow = props => {
     return(
         <Grid className={classes.grid} container direction="column" justify="center" alignItems="center">
             <Grid item>
-                <Backdrop className={classes.backdrop} invisible={dimmer} open={true} >
+                {/* <Backdrop className={classes.backdrop} invisible={dimmer} open={true} > */}
                     <Card className={!dimmer ? classes.cardBottom : classes.root} >
                         <CardActionArea >
-                            <canvas width={mainCanvasWidth} height={mainCanvasHeight} style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
+                            <canvas width={mainCanvasWidth} height={mainCanvasHeight} style={{width:"470px", height:"470px", border: '0px none black'}} ref={canvasRef}/>
                             <CardContent >
                                 <Typography gutterBottom variant="h5" component="h2">
                                     {oOutput ? oOutput.title : "Untitled"}
@@ -267,7 +268,7 @@ const OOutputShow = props => {
                             </Grid>
                         </CardActions>
                     </Card>
-                </Backdrop>
+                {/* </Backdrop> */}
             </Grid>
         </Grid>
     )
