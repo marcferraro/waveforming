@@ -117,7 +117,7 @@ const Profile = props => {
                 </Typography>
             </Grid>
             <Grid item>
-                <Avatar className={classes.avatar} alt="avatar" src={`http://localhost:3000${auth.avatar}`}/>
+                <Avatar className={classes.avatar} alt="avatar" src={auth.avatar}/>
             </Grid>
             <Grid item>
                     <Grid container direction="column" alignitems="center" justify="center">
