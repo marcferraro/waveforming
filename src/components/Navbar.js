@@ -85,7 +85,7 @@ const Navbar = props => {
             >
             <Grid container direction="column" justify="center" alignItems="center" style={{marginTop: 12}}>
               <Grid item>
-                <Avatar alt="avatar" src={`http://localhost:3000${auth.avatar}`} />
+                <Avatar alt="avatar" src={auth.avatar} />
               </Grid>
               <Grid item>
                 <Typography variant="h6">{auth ? auth.username : null}</Typography>
