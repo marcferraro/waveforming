@@ -77,7 +77,7 @@ const Dashboard = props => {
                             <GridList cellHeight={200} className={classes.gridList} cols={2} >
                                 {reverseOOutputs().map((o) => (
                                     <GridListTile key={o.id} cols={o.cols || 1}>
-                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={o.ooutput.url} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
                                     </GridListTile>
                                 ))}
                             </GridList>
@@ -94,7 +94,7 @@ const Dashboard = props => {
                             <GridList cellHeight={200} className={classes.gridList} cols={2} >
                                 {mostPopularOOutputs().map((o) => (
                                     <GridListTile key={o.id} cols={o.cols || 1}>
-                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={`http://localhost:3000${o.ooutput.url}`} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={o.ooutput.url} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
                                     </GridListTile>
                                 ))}
                             </GridList>
