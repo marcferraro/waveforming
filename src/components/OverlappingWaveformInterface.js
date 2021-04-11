@@ -283,8 +283,8 @@ const OverlappingWaveformInterface = props => {
         loadedInput.colors.forEach(color => setColorArray([...colorArrayRef.current, color.hex]))
         const ctx = inputCanvasRef.current.getContext('2d')
         const image = document.createElement("img")
-
         image.src = loadedInput.input.url
+        image.crossOrigin="anonymous"
         image.onload = () => {
             ctx.drawImage(image,0,0)
         }
