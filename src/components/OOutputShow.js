@@ -68,7 +68,8 @@ const OOutputShow = props => {
     const prepCanvas = (result) => {
         const ctx = canvasRef.current.getContext('2d')
         const image = document.createElement('img')
-        image.src = `http://localhost:3000${result.ooutput.url}`
+        // image.src = `http://localhost:3000${result.ooutput.url}`
+        image.src = result.ooutput.url
         image.onload = () => {
             setMainCanvasWidth(image.width)
             setMainCanvasHeight(image.height)
