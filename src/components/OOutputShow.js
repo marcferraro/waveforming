@@ -134,7 +134,8 @@ const OOutputShow = props => {
             const popCtx = popCanvasRef.current.getContext('2d')
             const popImage = document.createElement('img')
     
-            popImage.src = `http://localhost:3000${oOutput.input.input.url}`
+            // popImage.src = `http://localhost:3000${oOutput.input.input.url}`
+            popImage.src = oOutput.input.input.url
             popImage.onload = () => {
                 popCtx.drawImage(popImage,0,0)
             }
