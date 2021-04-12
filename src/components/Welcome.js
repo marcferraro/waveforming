@@ -11,7 +11,9 @@ const Welcome = props => {
     //     if (token){
     //       props.history.push('/dashboard')
     //     }}, [])
-    const videoSource = "https://waveforming.s3.us-east-2.amazonaws.com/WaveFunctionCollapse+2021-03-29+19-35-38_Trim.mp4"
+    // const videoSource = "https://waveforming.s3.us-east-2.amazonaws.com/WaveFunctionCollapse+2021-03-29+19-35-38_Trim.mp4"
+    
+    const videoSource = "https://waveforming.s3.us-east-2.amazonaws.com/Static+Assets/welcome_video_1.mp4"
 
     // in order to cycle through a playlist of videos, try the react player again. google fu or maybe some set interval
     // shenanigans?
