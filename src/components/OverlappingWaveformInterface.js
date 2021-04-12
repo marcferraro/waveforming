@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import iro from "@jaames/iro"
 import Color from './Color'
 import { oOutputCreationSuccess, inputCreationSuccess, inputSelect } from '../actions'
-import { fabric } from 'fabric'
+// import { fabric } from 'fabric'
 
 // if adding the ability to load from people's creations, make a check for props function in the useEffect and configure from there
 // better idea - when an input is selected, we put the id (or hell maybe even the whole object to eliminate and iteration)
@@ -285,6 +285,7 @@ const OverlappingWaveformInterface = props => {
         const ctx = inputCanvasRef.current.getContext('2d')
         const image = document.createElement("img")
         image.src = loadedInput.input.url
+        // image.src = `https://waveforming.s3.us-east-2.amazonaws.com/uploads/input/input/46/data_uri_upload20210410-87435-1elqvcm.png`
         // image.crossOrigin="anonymous"
         image.onload = () => {
             ctx.drawImage(image,0,0)
