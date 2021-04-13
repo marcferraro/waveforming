@@ -39,10 +39,15 @@ const HowTo = props => {
             </Typography>
             <Typography paragraph>
                 N: The N value can be set between 2-4(WAIT APPARANTLY IT CAN GO HIGHER??) and controls the size of the patterns the program will look for. Lower values can result
-                in an image being deconstructed into many small pieces, while higher values create more uniform outputs.
+                in an image being deconstructed into many small pieces, while higher values create more uniform outputs. A value of 3 is a good starting point for msot patterns.
             </Typography>
             <Typography paragraph>
                 Symmetry: The Symmetry value can be set between 1-8 and controls to what degree the program will flip and twist the input pattern.
+            </Typography>
+            <Typography paragraph>
+                Ground: This value will scan the bottom of the input for a consistent surface across it's width, and try to apply it in the output. It can be pretty tricky to find
+                the correct value as it is not as simple as counting the number of ground rows you might include. Values between -1 and -4, and 100 and 102 tend to work well. Make sure
+                to keep it at zero if you don't want it on.
             </Typography>
             </Grid>
             <Grid item>
