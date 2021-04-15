@@ -49,6 +49,11 @@ const HowTo = props => {
                 the correct value as it is not as simple as counting the number of ground rows you might include. Values between -1 and -4, and 100 and 102 tend to work well. Make sure
                 to keep it at zero if you don't want it on.
             </Typography>
+            <Typography paragraph>
+                Periodic Inout: Toggling this on will allow the function to tile your pattern over the edges of the canvas, allowing it to
+                exit through an edge and enter on another. It is reccomended that you only toggle this off if creating a pattern that fills
+                the entire input canvas, or with an n value or 2-3.
+            </Typography>
             </Grid>
             <Grid item>
                 test
