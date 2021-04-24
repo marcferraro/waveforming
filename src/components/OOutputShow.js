@@ -167,7 +167,8 @@ const OOutputShow = props => {
     }
 
     const handleDimmerBtn = () => {
-        setDimmer(!dimmer)
+        // setDimmer(!dimmer)
+        console.log('dimmer button')
     }
     
     return(
