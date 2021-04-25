@@ -5,6 +5,8 @@ import Avatar from '@material-ui/core/Avatar';
 import { Input, Button } from '@material-ui/core'
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 
 const useStyles = makeStyles((theme) => ({
     root: {
