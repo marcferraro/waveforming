@@ -114,49 +114,49 @@ const Profile = props => {
     return(
         <Grid className={classes.root} container direction="column" justify="center" alignItems="center">
             <Grid item>
-                <Grid item>
-                    <Typography gutterBottom variant="h2">
-                        {auth.username}
-                    </Typography>
-                </Grid>
-                <Grid item>
-                    <Avatar className={classes.avatar} alt="avatar" src={auth.avatar}/>
-                </Grid>
-                <Grid item>
-                        <Grid container direction="column" alignitems="center" justify="center">
-                            <Grid item>
-                                <Typography variant="h5">
-                                    Total Stars: {starCount}
-                                </Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography variant="h5">
-                                    Total Inputs: {inputCount}
-                                </Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography variant="h5">
-                                    Total Outputs: {outputCount}
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid item>
-                            <Typography variant="h5">
-                                Inspirations: {inspirationCount}
-                            </Typography>
-                        </Grid>
-                </Grid>
-                {/* <Grid container spacing={2} justify="flex-start" alignItems="center"> */}
+                <Grid container direction="column" justify="center" alignItems="center">
                     <Grid item>
-                        <Typography varaint="body1">
-                            Update Avatar: 
+                        <Typography gutterBottom variant="h2">
+                            {auth.username}
                         </Typography>
                     </Grid>
                     <Grid item>
-                        <Input onChange={handleAvatar} type="file" id="avatar-upload" />
-                        <Button onClick={submitAvatar} type="submit">Submit</Button>
+                        <Avatar className={classes.avatar} alt="avatar" src={auth.avatar}/>
                     </Grid>
-                {/* </Grid> */}
+                    <Grid item>
+                            <Grid container direction="column" alignitems="center" justify="center">
+                                <Grid item>
+                                    <Typography variant="h5">
+                                        Total Stars: {starCount}
+                                    </Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Typography variant="h5">
+                                        Total Inputs: {inputCount}
+                                    </Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Typography variant="h5">
+                                        Total Outputs: {outputCount}
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            <Grid item>
+                                <Typography variant="h5">
+                                    Inspirations: {inspirationCount}
+                                </Typography>
+                            </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item>
+                <Typography varaint="body1">
+                    Update Avatar: 
+                </Typography>
+            </Grid>
+            <Grid item>
+                <Input onChange={handleAvatar} type="file" id="avatar-upload" />
+                <Button onClick={submitAvatar} type="submit">Submit</Button>
             </Grid>
         </Grid>
     )
