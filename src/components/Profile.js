@@ -124,37 +124,37 @@ const Profile = props => {
                         <Avatar className={classes.avatar} alt="avatar" src={auth.avatar}/>
                     </Grid>
                     <Grid item>
-                            <Grid container direction="column" alignitems="center" justify="center">
-                                <Grid item>
-                                    <Typography variant="h5">
-                                        Total Stars: {starCount}
-                                    </Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Typography variant="h5">
-                                        Total Inputs: {inputCount}
-                                    </Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Typography variant="h5">
-                                        Total Outputs: {outputCount}
-                                    </Typography>
-                                </Grid>
+                        <Grid container direction="column" alignitems="center" justify="center">
+                            <Grid item>
+                                <Typography variant="h5">
+                                    Total Stars: {starCount}
+                                </Typography>
                             </Grid>
                             <Grid item>
                                 <Typography variant="h5">
-                                    Inspirations: {inspirationCount}
+                                    Total Inputs: {inputCount}
                                 </Typography>
                             </Grid>
+                            <Grid item>
+                                <Typography variant="h5">
+                                    Total Outputs: {outputCount}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h5">
+                                Inspirations: {inspirationCount}
+                            </Typography>
+                        </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
             <Grid item>
                 <Typography varaint="body1">
                     Update Avatar: 
                 </Typography>
                 <Input onChange={handleAvatar} type="file" id="avatar-upload" />
                 <Button onClick={submitAvatar} type="submit">Submit</Button>
+            </Grid>
             </Grid>
         </Grid>
     )
