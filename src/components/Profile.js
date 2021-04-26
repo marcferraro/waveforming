@@ -57,7 +57,17 @@ const Profile = props => {
     
     const reverseOOutputs = () => {
         const userOOutputs = oOutputs.filter(o => o.user_id === auth.id)
+        // debugger
         return userOOutputs.slice(0).reverse()
+    }
+
+    const prepCanvas = (canvas) => {
+        const ctx = canvas.getContext('2d')
+        const image = document.createElement('img')
+        image.src = canvas.dataset.url
+        image.onload = () => {
+            ctx.drawImage(image,0,0)
+        }
     }
 
     const handleAvatar = event => {
