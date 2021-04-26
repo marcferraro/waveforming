@@ -52,6 +52,10 @@ const Profile = props => {
             handleInputs()
             handleOutputs()
             handleInspiration()
+            const htmlCollection = document.getElementsByClassName('canvas')
+            const array = Array.from(htmlCollection);
+
+            array.forEach(canvas => prepCanvas(canvas))
         }
     }, [oOutputs])
     
