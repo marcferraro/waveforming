@@ -120,6 +120,18 @@ const Profile = props => {
         setInspirationCount(array.length)
     }
 
+    const handleCanvasClick = (event) => {
+        setTimeout(() => props.history.push(`/oOutput/${event.target.dataset.id}`), 50)
+    }
+
+    const handleMouseHover = (event) => {
+        event.target.style.opacity="80%"
+    }
+    
+    const handleMouseLeave = (event) => {
+        event.target.style.opacity="100%"
+    }
+
 
     return(
         <Grid className={classes.root} container direction="row" justify="center" alignItems="center">
