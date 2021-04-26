@@ -25,7 +25,12 @@ const useStyles = makeStyles((theme) => ({
     avatar: {
         width: 80,
         height: 80
-    }
+    },
+    gridList: {
+        width: 400,
+        height: 410,
+        padding: 10
+      },
   }));
 
 
@@ -49,6 +54,11 @@ const Profile = props => {
             handleInspiration()
         }
     }, [oOutputs])
+    
+    const reverseOOutputs = () => {
+        const userOOutputs = oOutputs.filter(o => o.user_id === auth.id)
+        return userOOutputs.slice(0).reverse()
+    }
 
     const handleAvatar = event => {
         setAvatar(event.target.files[0])
@@ -157,7 +167,15 @@ const Profile = props => {
                 </Grid>
             </Grid>
             <Grid item>
-                testing
+                <Grid item style={{border: '1px solid black'}}>
+                    <GridList cellHeight={200} className={classes.gridList} cols={2} >
+                        {reverseOOutputs().map((o) => (
+                            <GridListTile key={o.id} cols={o.cols || 1}>
+                                <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={o.ooutput.url} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                            </GridListTile>
+                        ))}
+                    </GridList>
+                </Grid>
             </Grid>
         </Grid>
     )
