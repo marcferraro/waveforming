@@ -111,7 +111,6 @@ const Profile = props => {
     const handleInspiration = () => {
         let array
         array = oOutputs.filter(o => {
-            // debugger
             if (o.user_id !== auth.id && o.input.user_id === auth.id){
                 return o
             }
