@@ -191,14 +191,17 @@ const Profile = props => {
                 </Grid>
             </Grid>
             <Grid item>
-                <Grid item style={{border: '1px solid black'}}>
-                    <GridList cellHeight={200} className={classes.gridList} cols={2} >
-                        {reverseOOutputs().map((o) => (
-                            <GridListTile key={o.id} cols={o.cols || 1}>
-                                <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={o.ooutput.url} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
-                            </GridListTile>
-                        ))}
-                    </GridList>
+                <Grid container direction="column" alignItems="center">
+                    <Typography variant="h4">Your Creations</Typography>
+                    <Grid item style={{border: '1px solid black'}}>
+                        <GridList cellHeight={200} className={classes.gridList} cols={2} >
+                            {reverseOOutputs().map((o) => (
+                                <GridListTile key={o.id} cols={o.cols || 1}>
+                                    <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={o.ooutput.url} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                                </GridListTile>
+                            ))}
+                        </GridList>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
