@@ -61,7 +61,6 @@ const Profile = props => {
     
     const reverseOOutputs = () => {
         const userOOutputs = oOutputs.filter(o => o.user_id === auth.id)
-        // debugger
         return userOOutputs.slice(0).reverse()
     }
 
