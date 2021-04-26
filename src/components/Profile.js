@@ -112,7 +112,7 @@ const Profile = props => {
 
 
     return(
-        <Grid className={classes.root} container direction="column" justify="center" alignItems="center">
+        <Grid className={classes.root} container direction="row" justify="center" alignItems="center">
             <Grid item>
                 <Grid container direction="column" justify="center" alignItems="center">
                     <Grid item>
@@ -148,13 +148,16 @@ const Profile = props => {
                         </Grid>
                     </Grid>
                 </Grid>
-            <Grid item>
-                <Typography varaint="body1">
-                    Update Avatar: 
-                </Typography>
-                <Input onChange={handleAvatar} type="file" id="avatar-upload" />
-                <Button onClick={submitAvatar} type="submit">Submit</Button>
+                <Grid item>
+                    <Typography varaint="body1">
+                        Update Avatar: 
+                    </Typography>
+                    <Input onChange={handleAvatar} type="file" id="avatar-upload" />
+                    <Button onClick={submitAvatar} type="submit">Submit</Button>
+                </Grid>
             </Grid>
+            <Grid item>
+                testing
             </Grid>
         </Grid>
     )
