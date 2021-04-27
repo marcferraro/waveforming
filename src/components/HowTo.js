@@ -18,9 +18,10 @@ const HowTo = props => {
     const classes = useStyles()
 
     return(
-        <Grid className={classes.root} container direction="row" alignItems="center" justify="center">
-            <Grid item>
+        <Grid className={classes.root} style={{border: '1px solid black'}} container direction="row" alignItems="center" justify="center">
+            <Grid item xs={6} style={{border: '1px solid black', padding: '10px'}}>
                 <Grid container direction="column" justify="center" alignItems="center">
+                    testing
                     <Typography variant="h5">
                         Waveforming uses the
                         <Link href="https://github.com/mxgmn/WaveFunctionCollapse">
@@ -55,7 +56,8 @@ const HowTo = props => {
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid item>
+            
+            <Grid item xs={6} style={{border: '1px solid black', padding: '10px'}}>
                 <Grid container direction="column" justify="center" alignItems="center">
                     <Grid item>
                         testasgfa'lsmgapsndgap'sngap'sginaosi'dgnas'oidgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
