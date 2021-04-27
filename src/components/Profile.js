@@ -147,7 +147,7 @@ const Profile = props => {
 
     return(
         <Grid className={classes.root} container direction="row" justify="center" alignItems="center">
-            <Grid item>
+            <Grid item >
                 <Grid container direction="column" justify="center" alignItems="center">
                     <Grid item>
                         <Typography gutterBottom variant="h2">
@@ -157,7 +157,7 @@ const Profile = props => {
                     <Grid item>
                         <Avatar className={classes.avatar} alt="avatar" src={auth.avatar}/>
                     </Grid>
-                    <Grid item>
+                    <Grid item style={{paddingBottom: '20px'}}>
                         <Grid container direction="column" alignitems="center" justify="center">
                             <Grid item>
                                 <Typography variant="h5">
@@ -182,7 +182,7 @@ const Profile = props => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item>
+                <Grid item style={{border: '1px solid black', padding: '10px'}}>
                     <Typography varaint="body1">
                         Update Avatar: 
                     </Typography>
