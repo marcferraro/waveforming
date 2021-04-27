@@ -183,7 +183,10 @@ const Profile = props => {
                     </Grid>
                 </Grid>
                 <Grid item style={{border: '1px solid black', padding: '10px'}}>
-                    <Typography varaint="body1">
+                    <Typography variant="h6">
+                        Profile Options
+                    </Typography>
+                    <Typography variant="body1">
                         Update Avatar: 
                     </Typography>
                     <Input onChange={handleAvatar} type="file" id="avatar-upload" />
