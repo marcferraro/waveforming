@@ -45,7 +45,8 @@ const HowTo = props => {
                         in an image being deconstructed into many small pieces, while higher values create more uniform outputs. A value of 3 is a good starting point for msot patterns.
                     </Typography>
                     <Typography paragraph>
-                        Symmetry: The Symmetry value can be set between 1-8 and controls to what degree the program will flip and twist the input pattern.
+                        Symmetry: The Symmetry value can be set between 1-8 and controls to what degree the program will flip and twist the input pattern.g
+                        gsehgawlgnalwgnalwgnawgnaw'gbawgbawpbgawgb'awbg'awibgaw'bgaw'bg'awbgwa'ibgaw'lbgwa'lbgaw'lbgawlbgalbgal'bg
                     </Typography>
                     <Typography paragraph>
                         Ground: This value will scan the bottom of the input for a consistent surface across it's width, and try to apply it in the output. It can be pretty tricky to find
