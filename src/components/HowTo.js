@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
       padding: 40,
       paddingLeft: 60,
       paddingRight: 60
+    },
+    column: {
+        flexWrap: 'wrap'
     }
   }));
 
@@ -58,13 +61,26 @@ const HowTo = props => {
             </Grid>
             
             <Grid item xs={6} style={{border: '1px solid black', padding: '10px'}}>
-                <Grid container direction="column" justify="center" alignItems="center">
+                <Grid className={classes.column} container direction="column" justify="center" alignItems="center">
                     <Grid item>
-                        testasgfa'lsmgapsndgap'sngap'sginaosi'dgnas'oidgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                        dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                        dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                        dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                        dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                        <Typography paragraph>
+                            testasgfa'lsmgapsndgap'sngap'sginaosi'dgnas'oidgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                            dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                            dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                            dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                            ln oeskrnb eklrb s
+                            dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                            dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                            ln oeskrnb eklrb s
+                            dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                            dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                            ln oeskrnb eklrb s
+                            dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                            dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                            ln oeskrnb eklrb s
+                            dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                            dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                        </Typography>
                     </Grid>
                 </Grid>
             </Grid>
