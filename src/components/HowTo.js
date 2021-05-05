@@ -22,7 +22,7 @@ const HowTo = props => {
 
     return(
         <Grid className={classes.root} style={{border: '1px solid black'}} container direction="row" alignItems="center" justify="center">
-            <Grid item xs={6} style={{border: '1px solid black', padding: '10px'}}>
+            <Grid item style={{border: '1px solid black', padding: '10px'}}>
                 <Grid container direction="column" justify="center" alignItems="center">
                     testing
                     <Typography variant="h5">
@@ -60,8 +60,8 @@ const HowTo = props => {
                 </Grid>
             </Grid>
             
-            <Grid item xs={6} style={{border: '1px solid black', padding: '10px'}}>
-                <Grid className={classes.column} container direction="column" justify="center" alignItems="center">
+            <Grid item style={{border: '1px solid black', padding: '10px'}}>
+                <Grid container direction="column" justify="center" alignItems="center">
                     <Grid item>
                         <Typography paragraph>
                             testasgfa'lsmgapsndgap'sngap'sginaosi'dgnas'oidgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
