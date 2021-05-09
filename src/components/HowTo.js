@@ -24,7 +24,7 @@ const HowTo = props => {
         // <Grid container >
             <Grid className={classes.root} style={{border: '1px solid black'}} container direction="row" alignItems="center" justify="center">
                 <Grid item className={classes.column} style={{border: '1px solid black', padding: '10px'}}>
-                    <Grid container direction="column" justify="center" alignItems="center">
+                    <Grid container >
                         <Grid item>
                             <Typography >
                                 Waveforming uses the
@@ -47,8 +47,7 @@ const HowTo = props => {
                             in an image being deconstructed into many small pieces, while higher values create more uniform outputs. A value of 3 is a good starting point for msot patterns.
                         </Typography>
                         <Typography paragraph>
-                            Symmetry: The Symmetry value can be set between 1-8 and controls to what degree the program will flip and twist the input pattern.g
-                            gsehgawlgnalwgnalwgnawgnaw'gbawgbawpbgawgb'awbg'awibgaw'bgaw'bg'awbgwa'ibgaw'lbgwa'lbgaw'lbgawlbgalbgal'bg
+                            Symmetry: The Symmetry value can be set between 1-8 and controls to what degree the program will flip and twist the input pattern.
                         </Typography>
                         <Typography paragraph>
                             Ground: This value will scan the bottom of the input for a consistent surface across it's width, and try to apply it in the output. It can be pretty tricky to find
