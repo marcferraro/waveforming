@@ -22,7 +22,7 @@ const HowTo = props => {
 
     return(
         // <Grid container >
-            <Grid className={classes.root} style={{border: '1px solid black'}} container direction="row" alignItems="center" justify="center">
+            <Grid className={classes.root} container direction="row" alignItems="center" justify="center">
                 <Grid item className={classes.column} style={{border: '1px solid black', padding: '10px'}}>
                     <Grid container >
                         <Grid item>
