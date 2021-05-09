@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 60
     },
     column: {
-        maxWidth: '50%'
+        width: '50%'
     }
   }));
 
@@ -63,25 +63,13 @@ const HowTo = props => {
                 </Grid>
                 
                 <Grid item className={classes.column} style={{border: '1px solid black', padding: '10px'}}>
-                    <Grid container direction="column" justify="center" alignItems="center">
+                    <Grid container >
                         <Grid item>
                             <Typography paragraph>
-                                testasgfa'lsmgapsndgap'sngap'sginaosi'dgnas'oidgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                                dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                                dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                                dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                                ln oeskrnb eklrb s
-                                dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                                dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                                ln oeskrnb eklrb s
-                                dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                                dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                                ln oeskrnb eklrb s
-                                dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                                dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                                ln oeskrnb eklrb s
-                                dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
-                                dgnsado'gnas'ognsao'gnasl'gnadsp'ngp'asngl'asngl'asngasnglaskngal;dfnheln oeskrnb eklrb s
+                                An example of a starting input.
+                            </Typography>
+                            <Typography paragraph>
+                                An example of some possible setting values.
                             </Typography>
                         </Grid>
                     </Grid>
