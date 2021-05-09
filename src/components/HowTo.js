@@ -21,7 +21,7 @@ const HowTo = props => {
     const classes = useStyles()
 
     return(
-        <Grid container spacing={6}>
+        // <Grid container >
             <Grid className={classes.root} style={{border: '1px solid black'}} container direction="row" alignItems="center" justify="center">
                 <Grid item style={{border: '1px solid black', padding: '10px'}}>
                     <Grid container direction="column" justify="center" alignItems="center">
@@ -87,7 +87,7 @@ const HowTo = props => {
                     </Grid>
                 </Grid>
             </Grid>
-        </Grid>
+        // </Grid>
     )
 }
 
