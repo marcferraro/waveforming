@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 60
     },
     column: {
-        flexWrap: 'wrap'
+        maxWidth: '50%'
     }
   }));
 
@@ -23,24 +23,25 @@ const HowTo = props => {
     return(
         // <Grid container >
             <Grid className={classes.root} style={{border: '1px solid black'}} container direction="row" alignItems="center" justify="center">
-                <Grid item style={{border: '1px solid black', padding: '10px'}}>
+                <Grid item className={classes.column} style={{border: '1px solid black', padding: '10px'}}>
                     <Grid container direction="column" justify="center" alignItems="center">
-                        testing
-                        <Typography variant="h5">
-                            Waveforming uses the
-                            <Link href="https://github.com/mxgmn/WaveFunctionCollapse">
-                                {' Wave Function Collapse '}
-                            </Link>
-                            algorithm written by
-                            <Link href="https://github.com/mxgmn/WaveFunctionCollapse">
-                                {' Maxim Gumin. '}
-                            </Link>
-                            The function takes in an initial pattern bitmap and creates an output bitmap based on that pattern. This app will riff
-                            on pixel art created by you.
+                        <Grid item>
+                            <Typography >
+                                Waveforming uses the
+                                <Link href="https://github.com/mxgmn/WaveFunctionCollapse">
+                                    {' Wave Function Collapse '}
+                                </Link>
+                                algorithm written by
+                                <Link href="https://github.com/mxgmn/WaveFunctionCollapse">
+                                    {' Maxim Gumin. '}
+                                </Link>
+                                The function takes in an initial pattern bitmap and creates an output bitmap based on that pattern. This app will riff
+                                on pixel art created by you.
 
-                            You can select colors to draw on the canvas with. There are some additional settings too that will have an impact on the
-                            output. An explanation for each:
-                        </Typography>
+                                You can select colors to draw on the canvas with. There are some additional settings too that will have an impact on the
+                                output. An explanation for each:
+                            </Typography>
+                        </Grid>
                         <Typography paragraph>
                             N: The N value can be set between 2-4(WAIT APPARANTLY IT CAN GO HIGHER??) and controls the size of the patterns the program will look for. Lower values can result
                             in an image being deconstructed into many small pieces, while higher values create more uniform outputs. A value of 3 is a good starting point for msot patterns.
@@ -62,7 +63,7 @@ const HowTo = props => {
                     </Grid>
                 </Grid>
                 
-                <Grid item style={{border: '1px solid black', padding: '10px'}}>
+                <Grid item className={classes.column} style={{border: '1px solid black', padding: '10px'}}>
                     <Grid container direction="column" justify="center" alignItems="center">
                         <Grid item>
                             <Typography paragraph>
