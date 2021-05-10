@@ -76,6 +76,8 @@ const HowTo = props => {
                             <Typography paragraph>
                                 An example of a starting input.
                             </Typography>
+                        </Grid>
+                        <Grid>
                             <Typography paragraph>
                                 An example of some possible setting values.
                             </Typography>
