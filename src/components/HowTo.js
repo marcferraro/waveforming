@@ -48,19 +48,25 @@ const HowTo = props => {
                                 in an image being deconstructed into many small pieces, while higher values create more uniform outputs. A value of 3 is a good starting point for msot patterns.
                             </Typography>
                         </Grid>
-                        <Typography paragraph>
-                            Symmetry: The Symmetry value can be set between 1-8 and controls to what degree the program will flip and twist the input pattern.
-                        </Typography>
-                        <Typography paragraph>
-                            Ground: This value will scan the bottom of the input for a consistent surface across it's width, and try to apply it in the output. It can be pretty tricky to find
-                            the correct value as it is not as simple as counting the number of ground rows you might include. Values between -1 and -4, and 100 and 102 tend to work well. Make sure
-                            to keep it at zero if you don't want it on.
-                        </Typography>
-                        <Typography paragraph>
-                            Periodic Inout: Toggling this on will allow the function to tile your pattern over the edges of the canvas, allowing it to
-                            exit through an edge and enter on another. It is reccomended that you only toggle this off if creating a pattern that fills
-                            the entire input canvas, or with an n value or 2-3.
-                        </Typography>
+                        <Grid item>
+                            <Typography paragraph>
+                                Symmetry: The Symmetry value can be set between 1-8 and controls to what degree the program will flip and twist the input pattern.
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography paragraph>
+                                Ground: This value will scan the bottom of the input for a consistent surface across it's width, and try to apply it in the output. It can be pretty tricky to find
+                                the correct value as it is not as simple as counting the number of ground rows you might include. Values between -1 and -4, and 100 and 102 tend to work well. Make sure
+                                to keep it at zero if you don't want it on.
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography paragraph>
+                                Periodic Inout: Toggling this on will allow the function to tile your pattern over the edges of the canvas, allowing it to
+                                exit through an edge and enter on another. It is reccomended that you only toggle this off if creating a pattern that fills
+                                the entire input canvas, or with an n value or 2-3.
+                            </Typography>
+                        </Grid>
                     </Grid>
                 </Grid>
                 
