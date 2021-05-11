@@ -196,9 +196,14 @@ const Profile = props => {
                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                             <Typography variant="body1">
                                 Update Username: 
-                            
                             </Typography>
                         </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                                sit amet blandit leo lobortis eget.
+                            </Typography>
+                        </AccordionDetails>
                     </Accordion>
                 </Grid>
             </Grid>
