@@ -184,14 +184,18 @@ const Profile = props => {
                     </Grid>
                 </Grid>
                 <Grid item style={{border: '1px solid black', padding: '10px'}}>
-                    <Typography variant="h6">
-                        Profile Options
-                    </Typography>
-                    <Typography variant="body1">
-                        Update Avatar: 
-                    </Typography>
-                    <Input onChange={handleAvatar} type="file" id="avatar-upload" />
-                    <Button onClick={submitAvatar} type="submit">Submit</Button>
+                    <Accordion>
+                        <AccordionDetails>
+                            <Typography variant="h6">
+                                Profile Options
+                            </Typography>
+                            <Typography variant="body1">
+                                Update Avatar: 
+                            </Typography>
+                            <Input onChange={handleAvatar} type="file" id="avatar-upload" />
+                            <Button onClick={submitAvatar} type="submit">Submit</Button>
+                        </AccordionDetails>
+                    </Accordion>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                             <Typography variant="body1">
