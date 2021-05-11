@@ -194,9 +194,6 @@ const Profile = props => {
                             </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography variant="body1">
-                                Update Avatar: 
-                            </Typography>
                             <Input onChange={handleAvatar} type="file" id="avatar-upload" />
                             <Button onClick={submitAvatar} type="submit">Submit</Button>
                         </AccordionDetails>
