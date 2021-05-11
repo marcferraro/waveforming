@@ -145,6 +145,7 @@ const Profile = props => {
         event.target.style.opacity="100%"
     }
 
+    // need to reformat grid such that it is a two column layout so accordions don't push down other side
 
     return(
         <Grid className={classes.root} container direction="row" justify="center" alignItems="center">
