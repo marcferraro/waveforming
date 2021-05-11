@@ -184,6 +184,9 @@ const Profile = props => {
                     </Grid>
                 </Grid>
                 <Grid item style={{border: '1px solid black', padding: '10px'}}>
+                    <Typography variant="h6">
+                        Profile Options
+                    </Typography>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                             <Typography variant="body1">
@@ -191,9 +194,6 @@ const Profile = props => {
                             </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography variant="h6">
-                                Profile Options
-                            </Typography>
                             <Typography variant="body1">
                                 Update Avatar: 
                             </Typography>
