@@ -192,9 +192,12 @@ const Profile = props => {
                     </Typography>
                     <Input onChange={handleAvatar} type="file" id="avatar-upload" />
                     <Button onClick={submitAvatar} type="submit">Submit</Button>
-                    <Typography variant="body1">
-                        Update Username: 
-                    </Typography>
+                    <Accordion>
+                        <Typography variant="body1">
+                            Update Username: 
+                        
+                        </Typography>
+                    </Accordion>
                 </Grid>
             </Grid>
             <Grid item>
