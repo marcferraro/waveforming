@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
         padding: 10
       },
     column: {
-        maxWidth: "50%"
+        maxWidth: 400
     },
     main: {
         width: '79%'
