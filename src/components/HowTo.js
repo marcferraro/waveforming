@@ -1,5 +1,6 @@
 import {Typography, Grid, Link, Accordion, AccordionSummary, AccordionDetails} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
     root: {
