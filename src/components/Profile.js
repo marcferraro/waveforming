@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
       },
     column: {
         maxWidth: "50%"
+    },
+    main: {
+        width: '79%'
     }
   }));
 
@@ -152,7 +155,7 @@ const Profile = props => {
 
     return(
         <Grid className={classes.root} spacing={6} container direction="column" justify="center" alignItems="center">
-            <Grid item>
+            <Grid item className={classes.main}>
                 <Grid container direction="row" justify="space-between" alignItems="flex-start">
                     <Grid item>
                         <Grid container direction="column" justify="center" alignItems="center">
