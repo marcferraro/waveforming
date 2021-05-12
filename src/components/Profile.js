@@ -11,10 +11,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-      overflow: 'hidden',
+    //   display: 'flex',
+    //   flexWrap: 'wrap',
+    //   justifyContent: 'space-around',
+    //   overflow: 'hidden',
       backgroundColor: theme.palette.background.paper,
       padding: 20
     },
@@ -151,7 +151,7 @@ const Profile = props => {
     // need to reformat grid such that it is a two column layout so accordions don't push down other side
 
     return(
-        <Grid className={classes.root} spacing={1} container direction="row" justify="center" alignItems="center">
+        <Grid className={classes.root} spacing={6} container direction="column" justify="center" alignItems="center">
             <Grid item>
                 <Grid container direction="row" justify="space-between" alignItems="flex-start">
                     <Grid item>
@@ -207,7 +207,6 @@ const Profile = props => {
                 </Grid>
             </Grid>
             <Grid item>
-
                 <Grid className={classes.column} item style={{border: '1px solid black', padding: '10px'}}>
                     <Typography variant="h6">
                         Profile Options
