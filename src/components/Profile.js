@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
         height: 410,
         padding: 10
       },
+    column: {
+        maxWidth: "50%"
+    }
   }));
 
 
@@ -149,7 +152,7 @@ const Profile = props => {
 
     return(
         <Grid className={classes.root} container direction="row" justify="center" alignItems="center">
-            <Grid item >
+            <Grid item className={classes.column}>
                 <Grid container direction="column" justify="center" alignItems="center">
                     <Grid item>
                         <Typography gutterBottom variant="h2">
