@@ -157,6 +157,10 @@ const Profile = props => {
         console.log('update')
     }
 
+    const submitUsername = event => {
+        
+    }
+
     // need to reformat grid such that it is a two column layout so accordions don't push down other side
 
     return(
@@ -243,6 +247,7 @@ const Profile = props => {
                                 <Typography>
                                     <TextField onChange={handleUpdateUsername} value={updatedUsername} id="update-username-field" label="New Username" variant="outlined" />
                                 </Typography>
+                                    <Button onClick={submitUsername} type="submit">Submit</Button>
                             </AccordionDetails>
                         </Accordion>
                     </Grid>
