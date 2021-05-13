@@ -154,7 +154,7 @@ const Profile = props => {
     }
 
     const handleUpdateUsername = event => {
-        console.log('update')
+        setUpdatedUsername(event.target.value)
     }
 
     const submitUsername = event => {
