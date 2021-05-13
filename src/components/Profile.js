@@ -256,9 +256,7 @@ const Profile = props => {
                                 </Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography>
                                     <TextField onChange={handleUpdateUsername} value={updatedUsername} id="update-username-field" label="New Username" variant="outlined" />
-                                </Typography>
                                     <Button onClick={submitUsername} type="submit">Submit</Button>
                             </AccordionDetails>
                         </Accordion>
