@@ -167,7 +167,9 @@ const Profile = props => {
             body: JSON.stringify(updatedUsername)
         }
 
-        
+        fetch(`http://localhost:3000/username/${auth.id}`)
+        .then(resp => resp.json())
+        .then(data => console.log(data))
 
     }
 
