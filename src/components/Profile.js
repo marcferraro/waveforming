@@ -2,7 +2,7 @@ import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux'
 import { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import { Input, Button, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core'
+import { Input, Button, Accordion, AccordionSummary, AccordionDetails, Textfield } from '@material-ui/core'
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
