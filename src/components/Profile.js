@@ -160,13 +160,15 @@ const Profile = props => {
     const submitUsername = () => {
 
         const reqObj = {
-            method: "POST",
+            method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(updatedUsername)
         }
+
         
+
     }
 
     // need to reformat grid such that it is a two column layout so accordions don't push down other side
