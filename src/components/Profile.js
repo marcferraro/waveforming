@@ -2,7 +2,7 @@ import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux'
 import { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import { Input, Button, Accordion, AccordionSummary, AccordionDetails, Textfield } from '@material-ui/core'
+import { Input, Button, Accordion, AccordionSummary, AccordionDetails, TextField } from '@material-ui/core'
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
@@ -52,6 +52,7 @@ const Profile = props => {
     const [inputCount, setInputCount] = useState(0)
     const [outputCount, setOutputCount] = useState(0)
     const [inspirationCount, setInspirationCount] = useState(0)
+    const [updatedUsername, setUpdatedUsername] = useState('')
     const [avatarUrl, setAvatarUrl] = useState('')
 
     useEffect(() => {
@@ -152,6 +153,10 @@ const Profile = props => {
         event.target.style.opacity="100%"
     }
 
+    const handleUpdateUsername = event => {
+        console.log('update')
+    }
+
     // need to reformat grid such that it is a two column layout so accordions don't push down other side
 
     return(
@@ -236,8 +241,7 @@ const Profile = props => {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                    sit amet blandit leo lobortis eget.
+                                    <TextField onChange={handleUpdateUsername} value={updatedUsername} id="update-username-field" label="New Username" variant="outlined" />
                                 </Typography>
                             </AccordionDetails>
                         </Accordion>
