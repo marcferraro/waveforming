@@ -159,6 +159,8 @@ const Profile = props => {
 
     const submitUsername = () => {
 
+        // console.log('submit')
+
         const reqObj = {
             method: "PATCH",
             headers: {
