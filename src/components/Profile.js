@@ -158,6 +158,14 @@ const Profile = props => {
     }
 
     const submitUsername = () => {
+
+        const reqObj = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedUsername)
+        }
         
     }
 
