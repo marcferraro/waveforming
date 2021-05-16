@@ -18,6 +18,10 @@ const Gallery = props => {
         return oOutputs.slice(0).reverse()
     }
 
+    const handleSearch = event => {
+        console.log('test')
+    }
+
 
     return(
         <Grid style={{padding: 20}} container spacing={2}>
@@ -25,7 +29,7 @@ const Gallery = props => {
                 <Typography variant="h2" >
                     Gallery
                 </Typography>
-                    <TextField label="Search" />
+                <TextField label="Search" onChange={handleSearch}/>
             </Grid>
             <Grid item>
                 <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
