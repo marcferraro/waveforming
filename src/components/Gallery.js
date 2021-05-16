@@ -20,14 +20,14 @@ const Gallery = props => {
 
 
     return(
-        <div style={{padding: 20}}>
+        <Grid style={{padding: 20}} container>
             <Typography variant="h2" >
                 Gallery
             </Typography>
             <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
                 {reverseOOutputs().map(o => <OOutputCard key={o.id} oOutput={o}/>)}
             </Grid>
-        </div>
+        </Grid>
     )
 }
 
