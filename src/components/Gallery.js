@@ -20,14 +20,14 @@ const Gallery = props => {
 
 
     return(
-        <Grid style={{padding: 20}} container>
+        <Grid style={{padding: 20}} container spacing={2}>
             <Grid item>
                 <Typography variant="h2" >
                     Gallery
                 </Typography>
-                <Paper elevation={3}>
-                    SEARCH BAR
-                </Paper>
+                {/* <Paper style={{padding: 20}} elevation={3}> */}
+                    <TextField label="Search" />
+                {/* </Paper> */}
             </Grid>
             <Grid item>
                 <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
