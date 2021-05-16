@@ -25,6 +25,9 @@ const Gallery = props => {
                 <Typography variant="h2" >
                     Gallery
                 </Typography>
+                <Paper elevation={3}>
+                    SEARCH BAR
+                </Paper>
             </Grid>
             <Grid item>
                 <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
