@@ -1,5 +1,5 @@
 import Typography from '@material-ui/core/Typography';
-import { Grid, Paper, TextField } from '@material-ui/core'
+import { Grid, TextField } from '@material-ui/core'
 // import { makeStyles } from '@material-ui/core/styles';
 // import clsx from 'clsx';
 import { useSelector } from 'react-redux'
@@ -25,9 +25,7 @@ const Gallery = props => {
                 <Typography variant="h2" >
                     Gallery
                 </Typography>
-                {/* <Paper style={{padding: 20}} elevation={3}> */}
                     <TextField label="Search" />
-                {/* </Paper> */}
             </Grid>
             <Grid item>
                 <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
