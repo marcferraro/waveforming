@@ -17,7 +17,7 @@ const Gallery = props => {
     const [query, setQuery] = useState('')
 
     useEffect(() => {
-        console.log('hello')
+        queryOOutputs()
     }, [query])
 
     const reverseOOutputs = () => {
@@ -26,6 +26,10 @@ const Gallery = props => {
 
     const handleSearch = event => {
         setQuery(event.target.value)
+    }
+
+    const queryOOutputs = () => {
+        
     }
 
 
