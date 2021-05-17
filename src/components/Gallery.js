@@ -14,6 +14,7 @@ import {useState, useEffect} from 'react'
 const Gallery = props => {
 
     const oOutputs = useSelector(state => state.oOutputs)
+    const [filteredOOutputs, setFilteredOOutputs] = useState([])
     const [query, setQuery] = useState('')
 
     useEffect(() => {
@@ -30,7 +31,7 @@ const Gallery = props => {
 
     const queryOOutputs = () => {
         if(query){
-            console.log('test')
+            
         }
     }
 
