@@ -22,7 +22,9 @@ const Gallery = props => {
     }, [query])
 
     const reverseOOutputs = () => {
-        return oOutputs.slice(0).reverse()
+        const filteredOOutputs = oOutputs
+
+        return filteredOOutputs.slice(0).reverse()
     }
 
     const handleSearch = event => {
