@@ -4,7 +4,7 @@ import { Grid, TextField } from '@material-ui/core'
 // import clsx from 'clsx';
 import { useSelector } from 'react-redux'
 import OOutputCard from './OOutputCard'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 // formatting starts to get a little wonky now that the number of elements has increased. Maybe the long titles of 
 // certain cards is affecting it?
@@ -14,12 +14,7 @@ import {useState, useEffect} from 'react'
 const Gallery = props => {
 
     const oOutputs = useSelector(state => state.oOutputs)
-    // const [filteredOOutputs, setFilteredOOutputs] = useState([])
     const [query, setQuery] = useState('')
-
-    useEffect(() => {
-        // queryOOutputs()
-    }, [query])
 
     const reverseOOutputs = () => {
         let filteredOOutputs = oOutputs
@@ -38,15 +33,6 @@ const Gallery = props => {
     const handleSearch = event => {
         setQuery(event.target.value)
     }
-
-    // const queryOOutputs = () => {
-    //     if(query){
-            
-    //     } else {
-    //         setFilteredOOutputs([...oOutputs])
-    //     }
-    // }
-
 
     return(
         <Grid style={{padding: 20}} container spacing={2}>
