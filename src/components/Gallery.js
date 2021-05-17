@@ -27,7 +27,7 @@ const Gallery = props => {
         if(query){
             filteredOOutputs = filteredOOutputs.filter(o => {
                 if(o.title.toLowerCase().includes(query.toLowerCase())){
-                    console.log('includes!')
+                    return o
                 }
             })
         }
