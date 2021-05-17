@@ -29,7 +29,9 @@ const Gallery = props => {
     }
 
     const queryOOutputs = () => {
-        
+        if(query){
+            console.log('test')
+        }
     }
 
 
