@@ -16,6 +16,10 @@ const Gallery = props => {
     const oOutputs = useSelector(state => state.oOutputs)
     const [query, setQuery] = useState('')
 
+    useEffect(() => {
+        console.log('hello')
+    }, [query])
+
     const reverseOOutputs = () => {
         return oOutputs.slice(0).reverse()
     }
