@@ -14,11 +14,11 @@ import {useState, useEffect} from 'react'
 const Gallery = props => {
 
     const oOutputs = useSelector(state => state.oOutputs)
-    const [filteredOOutputs, setFilteredOOutputs] = useState([])
+    // const [filteredOOutputs, setFilteredOOutputs] = useState([])
     const [query, setQuery] = useState('')
 
     useEffect(() => {
-        queryOOutputs()
+        // queryOOutputs()
     }, [query])
 
     const reverseOOutputs = () => {
@@ -29,11 +29,13 @@ const Gallery = props => {
         setQuery(event.target.value)
     }
 
-    const queryOOutputs = () => {
-        if(query){
+    // const queryOOutputs = () => {
+    //     if(query){
             
-        }
-    }
+    //     } else {
+    //         setFilteredOOutputs([...oOutputs])
+    //     }
+    // }
 
 
     return(
