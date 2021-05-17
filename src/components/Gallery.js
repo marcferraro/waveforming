@@ -22,7 +22,15 @@ const Gallery = props => {
     }, [query])
 
     const reverseOOutputs = () => {
-        const filteredOOutputs = oOutputs
+        let filteredOOutputs = oOutputs
+
+        if(query){
+            filteredOOutputs = filteredOOutputs.filter(o => {
+                if(o.title.toLowerCase().includes(query.toLowerCase())){
+                    console.log('includes!')
+                }
+            })
+        }
 
         return filteredOOutputs.slice(0).reverse()
     }
