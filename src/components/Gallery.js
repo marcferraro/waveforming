@@ -4,7 +4,7 @@ import { Grid, TextField } from '@material-ui/core'
 // import clsx from 'clsx';
 import { useSelector } from 'react-redux'
 import OOutputCard from './OOutputCard'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 // formatting starts to get a little wonky now that the number of elements has increased. Maybe the long titles of 
 // certain cards is affecting it?
