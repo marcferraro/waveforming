@@ -70,13 +70,13 @@ const Login = props => {
     }
 
     return(
-            <Grid className = {classes.background} container direction="column" justify="center" alignItems="center">
-                <Grid item>
-                    <Typography variant="h3">
-                        Login
-                    </Typography>
-                </Grid>
-                <Grid item>
+        <Grid className = {classes.background} container direction="column" justify="center" alignItems="center" >
+            <Grid item style={{marginTop: 100}}>
+                <Typography variant="h3">
+                    Login
+                </Typography>
+            </Grid>
+            <Grid item>
                 <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
                     <Grid item>
                         <TextField onChange={handleUsername} value={username} id="username-field" label="Username" variant="outlined" />
@@ -88,13 +88,13 @@ const Login = props => {
                         <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
                     </Grid>
                 </form>
-                </Grid>
-                <Grid item>
-                    {error ? <p>{error}</p> : null
-                    // make this it's own item later
-                    }
-                </Grid>
             </Grid>
+            <Grid item>
+                {error ? <p>{error}</p> : null
+                // make this it's own item later
+                }
+            </Grid>
+        </Grid>
     )
 }
 
