@@ -21,14 +21,16 @@ const Welcome = props => {
     return(
         <Grid className={classes.container} >
             {/* <ReactPlayer url={videoSource} playing={true} loop={true} width="100%" height="100%"/> */}
-            <video autoPlay="autoplay" loop="loop" muted className={classes.Video} >
-                <source src={videoSource} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            <video autoPlay="autoplay" loop="loop" muted className={classes.Video} >
-                <source src={videoSource} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+            <Grid item>
+                <video autoPlay="autoplay" loop="loop" muted className={classes.Video} >
+                    <source src={videoSource} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <video autoPlay="autoplay" loop="loop" muted className={classes.Video} >
+                    <source src={videoSource} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </Grid>
 
                 <div className={classes.Content}>
                     <div className={classes.SubContent} >

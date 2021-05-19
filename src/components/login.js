@@ -65,7 +65,6 @@ const Login = props => {
     }
 
     return(
-        // <div >
             <Grid container direction="column" justify="center" alignItems="center" style={{marginTop: 100}}>
                 <Grid item>
                     <Typography variant="h3">
@@ -91,7 +90,6 @@ const Login = props => {
                     }
                 </Grid>
             </Grid>
-        // </div>
     )
 }
 
