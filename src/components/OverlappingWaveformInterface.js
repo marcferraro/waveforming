@@ -166,7 +166,7 @@ const OverlappingWaveformInterface = props => {
 
     // https://www.procjam.com/tutorials/wfc/
 
-    var img_url_to_data = function(img, callback){
+    const img_url_to_data = function(img, callback){
         // var img = document.createElement('img')
         // img.src = URL.createObjectURL(imageFile)
         
@@ -182,7 +182,7 @@ const OverlappingWaveformInterface = props => {
         }
     }
     
-    var start = function(id){
+    const start = function(id){
         const output = document.getElementById("output")
         let ctx = output.getContext("2d")
         let imgData = ctx.createImageData(outputSize, outputSize)
