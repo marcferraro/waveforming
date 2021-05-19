@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
         width: '25ch',
       },
     },
+    background: {
+        backgroundColor: '#C16EB9'
+    }
 }));
 
 const Login = props => {
@@ -65,7 +68,7 @@ const Login = props => {
     }
 
     return(
-            <Grid container direction="column" justify="center" alignItems="center" style={{marginTop: 100}}>
+            <Grid className = {classes.background} container direction="column" justify="center" alignItems="center" style={{marginTop: 100}}>
                 <Grid item>
                     <Typography variant="h3">
                         Login
