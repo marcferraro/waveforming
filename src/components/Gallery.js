@@ -22,6 +22,7 @@ const Gallery = props => {
                 if(o.title.toLowerCase().includes(query.toLowerCase())){
                     return o
                 }
+                return null
             })
         }
 
