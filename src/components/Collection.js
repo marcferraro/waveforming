@@ -1,7 +1,5 @@
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core'
-// import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import { useSelector } from 'react-redux'
 import OOutputCard from './OOutputCard'
 
@@ -21,8 +19,11 @@ const Collection = props => {
                     if (s.user_id === auth.id){
                         return o
                     }
+                    return null
                 })
             }
+
+            return null
         })
     }
 
