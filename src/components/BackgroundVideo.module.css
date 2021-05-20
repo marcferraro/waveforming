@@ -1,6 +1,7 @@
-.Container {
-    /* position: relative; */
-    /* overflow: hidden; */
+.container {
+    background-color: #8A8A8D;
+    height: 100%;
+    width: 100%
 }
 
 /* Style the video: 100% width and height to cover the entire window */
