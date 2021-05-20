@@ -1,9 +1,6 @@
 .Container {
-    position: relative;
-    /* min-height: 300px;
-    max-height: 800px; */
-    overflow: hidden;
-    /* margin-bottom: 500px; */
+    /* position: relative; */
+    /* overflow: hidden; */
 }
 
 /* Style the video: 100% width and height to cover the entire window */
