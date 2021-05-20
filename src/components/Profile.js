@@ -27,11 +27,6 @@ const useStyles = makeStyles((theme) => ({
         width: 80,
         height: 80
     },
-    gridList: {
-        width: 400,
-        height: 410,
-        padding: 10
-      },
     column: {
         maxWidth: 400,
         marginLeft: 110
@@ -112,6 +107,7 @@ const Profile = props => {
 
                 return o.stars
             }
+            return null
         })
 
         stars = starred.map(o => o.stars.length)
@@ -136,6 +132,7 @@ const Profile = props => {
             if (o.user_id !== auth.id && o.input.user_id === auth.id){
                 return o
             }
+            return null
         })
 
         setInspirationCount(array.length)
@@ -158,8 +155,6 @@ const Profile = props => {
     }
 
     const submitUsername = () => {
-
-        // console.log('submit')
 
         const reqObj = {
             method: "PATCH",
