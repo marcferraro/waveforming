@@ -87,7 +87,6 @@ const OverlappingWaveformInterface = props => {
     const outputCanvasRef = useRef(null)
     const popCanvasRef = useRef(null)
     const [inputId, setInputId] = useState(null)
-    const [image, setImage] = useState(null)
     const [generating, setGenerating] = useState(false)
     const [N, setN] = useState(2)
     const [symmetry, setSymmetry] = useState(1)
@@ -293,9 +292,6 @@ const OverlappingWaveformInterface = props => {
     }
 
     const handleFile = event => {
-
-        setImage(event.target.files[0])
-
         const img = document.createElement('img')
         img.src = URL.createObjectURL(event.target.files[0])
         img.onload = e => {
