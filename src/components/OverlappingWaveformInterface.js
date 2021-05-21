@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, InputLabel, TextField, Button, Popover, Typography, Slider, CircularProgress } from '@material-ui/core';
+import { Grid, Paper, Switch, Select, MenuItem, FormControl, FormControlLabel, InputLabel, TextField, Button, Popover, Typography, Slider } from '@material-ui/core';
 import '../overlapInterface.css'
 import { OverlappingModel } from 'wavefunctioncollapse'
 import { useState, useRef, useEffect } from 'react';
@@ -84,7 +84,7 @@ const OverlappingWaveformInterface = props => {
     const auth = useSelector(state => state.auth)
     const loadedInput = useSelector(state => state.inputSelect)
     const inputCanvasRef = useRef(null)
-    const outputCanvasRef = useRef(null)
+    // const outputCanvasRef = useRef(null)
     const popCanvasRef = useRef(null)
     const [inputId, setInputId] = useState(null)
     const [generating, setGenerating] = useState(false)
@@ -189,7 +189,8 @@ const OverlappingWaveformInterface = props => {
         const model = new OverlappingModel(id.data, id.width, id.height, N, outputSize, outputSize, periodicInput, periodicOutput, symmetry, ground)
         // console.log(model)
         //seed, limit
-        var success = model.generate(Math.random, 0)
+        // var success = model.generate(Math.random, 0)
+        model.generate(Math.random, 0)
         model.graphics(imgData.data)
         ctx.putImageData(imgData, 0, 0)
         setGenerating(false)
