@@ -19,7 +19,7 @@ const Welcome = props => {
     // shenanigans?
 
     return(
-        <Grid className={classes.container} >
+        <div className={classes.container} >
             {/* <ReactPlayer url={videoSource} playing={true} loop={true} width="100%" height="100%"/> */}
             <Grid item>
                 <video autoPlay="autoplay" loop="loop" muted className={classes.Video} >
@@ -46,7 +46,7 @@ const Welcome = props => {
                     </Link>
                     </div>
                 </div>
-        </Grid>
+        </div>
     )
 }
 // style={{marginLeft: 180, marginRight: 'auto', marginTop: 80}}
