@@ -194,7 +194,7 @@ const OverlappingWaveformInterface = props => {
         model.graphics(imgData.data)
         ctx.putImageData(imgData, 0, 0)
         setGenerating(false)
-        console.log('false')
+        // console.log('false')
         // console.log(success)
         // if (success === false){
         //     start(id)
