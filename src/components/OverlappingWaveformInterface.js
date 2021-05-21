@@ -187,31 +187,12 @@ const OverlappingWaveformInterface = props => {
         let imgData = ctx.createImageData(outputSize, outputSize)
         // input, width, height, N, outputWidth, outputHeight, periodicInput, periodicOutput, symmetry, ground
         const model = new OverlappingModel(id.data, id.width, id.height, N, outputSize, outputSize, periodicInput, periodicOutput, symmetry, ground)
-        // console.log(model)
         //seed, limit
         // var success = model.generate(Math.random, 0)
         model.generate(Math.random, 0)
         model.graphics(imgData.data)
         ctx.putImageData(imgData, 0, 0)
         setGenerating(false)
-        // console.log('false')
-        // console.log(success)
-        // if (success === false){
-        //     start(id)
-        // } 
-        // else {
-        //     var world = []
-        //     for (var y = 0; y < 48; y++) {
-        //       var row = []
-        //       for (var x = 0; x < 48; x++) {
-        //         var color = get_pixel(imgData, x, y).join(":")
-        //         console.log(color)
-        //         row.push(colormap[color])
-        //       }
-        //       world.push(row)
-        //     }
-        //     console.log(world)
-        //   }
     }
 
     useEffect(() => {
