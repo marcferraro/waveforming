@@ -48,7 +48,7 @@ const App = props => {
   }, [auth])
 
   return (
-    <div className="App">
+    <div className="app">
       {/* <Switch>
         <Route path='/login' component={Login}/>
         <Route path='/sign-up' component={SignUp}/>
