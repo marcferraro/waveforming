@@ -63,7 +63,7 @@ const Navbar = props => {
       fetch('http://localhost:3000/inputs')
       .then(resp => resp.json())
       .then(data => dispatch(fetchInputsSuccess(data)))
-    }, [])
+    })
     
     const handleLogout = () => {
       props.history.push('/')
