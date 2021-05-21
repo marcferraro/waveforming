@@ -97,6 +97,7 @@ const OOutputCard = props => {
                 setStarId(star.id)
                 return star
             }
+            return null
         })
 
         return star
