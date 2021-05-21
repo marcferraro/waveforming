@@ -61,7 +61,7 @@ const Profile = props => {
 
             array.forEach(canvas => prepCanvas(canvas))
         }
-    }, [oOutputs])
+    })
     
     const reverseOOutputs = () => {
         const userOOutputs = oOutputs.filter(o => o.user_id === auth.id)
