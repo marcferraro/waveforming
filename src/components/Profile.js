@@ -104,7 +104,6 @@ const Profile = props => {
         let stars
         starred = oOutputs.filter(o => {
             if (o.user_id === auth.id && o.stars.length > 0){
-
                 return o.stars
             }
             return null
@@ -115,13 +114,11 @@ const Profile = props => {
     }
 
     const handleInputs = () => {
-
         const total = inputs.filter(i => i.user_id === auth.id).length
         setInputCount(total)
     }
 
     const handleOutputs = () => {
-
         const total = oOutputs.filter(o => o.user_id === auth.id).length
         setOutputCount(total)
     }
