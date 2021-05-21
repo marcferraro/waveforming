@@ -50,9 +50,8 @@ const OOutputCard = props => {
             setHeight(image.height)
             ctx.drawImage(image,0,0)
         }
-
         handleStarred()
-    }, [])
+    })
     
     const handleStar = () => {
         // unstar
