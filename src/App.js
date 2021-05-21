@@ -45,7 +45,7 @@ const App = props => {
         }
       })
     }
-  }, [auth])
+  })
 
   return (
     <div className="app">
