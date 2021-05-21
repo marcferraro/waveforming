@@ -3,7 +3,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { Button, Grid, Popover, MenuList, MenuItem, Backdrop } from '@material-ui/core';
+import { Button, Grid, Popover, MenuList, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
@@ -64,7 +64,7 @@ const OOutputShow = props => {
             prepCanvas(findResult)
             handleStarred(findResult)
         }
-    }, [oOutputs])
+    })
 
     const prepCanvas = (result) => {
         const ctx = canvasRef.current.getContext('2d')
@@ -123,6 +123,7 @@ const OOutputShow = props => {
                 setStarId(star.id)
                 return star
             }
+            return null
         })
 
         return star
@@ -167,14 +168,13 @@ const OOutputShow = props => {
     }
 
     const handleDimmerBtn = () => {
-        // setDimmer(!dimmer)
+        setDimmer(!dimmer)
         console.log('dimmer button')
     }
     
     return(
         <Grid className={classes.grid} container direction="column" justify="center" alignItems="center">
             <Grid item>
-                {/* <Backdrop className={classes.backdrop} invisible={dimmer} open={true} > */}
                     <Card className={!dimmer ? classes.cardBottom : classes.root} >
                         <CardActionArea >
                             <canvas width={mainCanvasWidth} height={mainCanvasHeight} style={{width:"470px", height:"470px", border: '0px none black'}} ref={canvasRef}/>
@@ -258,7 +258,7 @@ const OOutputShow = props => {
                                                     <Grid container style={{paddingTop: 5, paddingBottom: 5}} spacing={2} direction="column" justify="flex-start">
                                                         <MenuList>
                                                             <MenuItem onClick={handleDimmerBtn} >Gallery Mode</MenuItem>
-                                                            <a href={oOutput ? `http://localhost:3000${oOutput.ooutput.url}` + "?force=true" : null}  download>Download</a>
+                                                            <a href={oOutput ? `http://localhost:3000${oOutput.ooutput.url}?force=true`: null}  download>Download</a>
                                                             {oOutput && oOutput.user_id === auth.id ? <MenuItem onClick={handleDelete} >Delete</MenuItem> : null}
                                                         </MenuList>
                                                     </Grid>
@@ -269,7 +269,6 @@ const OOutputShow = props => {
                             </Grid>
                         </CardActions>
                     </Card>
-                {/* </Backdrop> */}
             </Grid>
         </Grid>
     )
