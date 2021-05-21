@@ -5,14 +5,14 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import { Grid, Typography, Backdrop } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../actions'
 import { fetchInputsSuccess } from '../actions'
 import { fetchOoutputsSuccess } from '../actions'
 import { Link }  from 'react-router-dom'
 import { withRouter, Route, Switch } from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import OverlappingWaveformInterface from './OverlappingWaveformInterface'
 import Profile from './Profile'
@@ -54,7 +54,6 @@ const Navbar = props => {
     const auth = useSelector(state => state.auth)
     const dispatch = useDispatch()
     const classes = useStyles();
-    const [dimmer, setDimmer] = useState(true)
     
     useEffect(() => {
       fetch('http://localhost:3000/ooutputs')
