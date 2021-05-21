@@ -48,7 +48,7 @@ const Profile = props => {
     const [outputCount, setOutputCount] = useState(0)
     const [inspirationCount, setInspirationCount] = useState(0)
     const [updatedUsername, setUpdatedUsername] = useState('')
-    const [avatarUrl, setAvatarUrl] = useState('')
+    // const [avatarUrl, setAvatarUrl] = useState('')
 
     useEffect(() => {
         if (oOutputs[0]){
@@ -81,9 +81,9 @@ const Profile = props => {
         setAvatar(event.target.files[0])
     }
     
-    const handleAvatarUrl = url => {
-        setAvatarUrl('http://localhost:3000' + url)
-    }
+    // const handleAvatarUrl = url => {
+    //     setAvatarUrl('http://localhost:3000' + url)
+    // }
 
     const submitAvatar = () => {
         const formData = new FormData();
@@ -95,7 +95,7 @@ const Profile = props => {
           })
         .then(resp => resp.json())
         .then(data => {
-            handleAvatarUrl(data.avatarUrl)
+            console.log(data)
         })
     }
     
