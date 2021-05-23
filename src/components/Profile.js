@@ -131,7 +131,6 @@ const Profile = props => {
             }
             return null
         })
-
         setInspirationCount(array.length)
     }
 

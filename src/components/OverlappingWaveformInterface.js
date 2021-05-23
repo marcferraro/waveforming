@@ -320,7 +320,6 @@ const OverlappingWaveformInterface = props => {
         } else {
             alert('Input already saved. Make changes to save a new one.')
         }
-
     }
     
     //save output image to db
