@@ -1,6 +1,5 @@
 // import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar'
-// import OverlappingWaveformInterface from './components/OverlappingWaveformInterface'
 import Landing from './components/Landing'
 // import Welcome from './components/Welcome'
 // import Login from './components/Login'
