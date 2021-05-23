@@ -25,7 +25,7 @@ const Gallery = props => {
                 return null
             })
         }
-
+        
         return filteredOOutputs.slice(0).reverse()
     }
 
