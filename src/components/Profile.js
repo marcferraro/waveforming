@@ -172,7 +172,7 @@ const Profile = props => {
         <Grid className={classes.root} spacing={3} container direction="row" justify="flex-start" alignItems="center">
             <Grid container direction="column" justify="center" alignItems="center">
                 <Grid item className={classes.main}>
-                    <Grid container direction="row" justify="space-between" alignItems="flex-start">
+                    <Grid container spacing={10} direction="row" justify="space-evenly" alignItems="flex-start">
                         <Grid item>
                             <Grid container direction="column" justify="center" alignItems="center">
                                 <Grid item>
