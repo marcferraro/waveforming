@@ -34,7 +34,7 @@ const Gallery = props => {
     }
 
     return(
-        <Grid style={{padding: 20}} container spacing={2}>
+        <Grid style={{padding: 20}} container spacing={2} direction="column">
             <Grid item>
                 <Typography variant="h2" >
                     Gallery
