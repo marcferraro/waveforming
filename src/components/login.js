@@ -88,6 +88,7 @@ const Login = props => {
                     <Grid item>
                         <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
                     </Grid>
+                    <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>Return</Link>
                 </form>
             </Grid>
             <Grid item>
