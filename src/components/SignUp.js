@@ -6,6 +6,7 @@ import { Grid, Input } from '@material-ui/core'
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { loginSuccess } from '../actions'
+import { Link }  from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
 
@@ -102,6 +103,7 @@ const SignUp = props => {
                     <Grid item>
                         <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
                     </Grid>
+                    <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>Return</Link>
                 </form>
                 </Grid>
                 <Grid item>
