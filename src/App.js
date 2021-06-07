@@ -14,6 +14,14 @@ import { useEffect } from 'react';
 import { withRouter } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from './actions'
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'Kreon'
+    ].join(','),
+  },});
 
 
 const App = props => {
@@ -53,7 +61,10 @@ const App = props => {
         <Route path='/sign-up' component={SignUp}/>
         <Route exact path='/' component={Welcome}/>
       </Switch> */}
+      <ThemeProvider theme={theme}>
+
       {auth ? <Navbar /> : <Landing />}
+      </ThemeProvider>
     </div>
   );
 }
