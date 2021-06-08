@@ -10,10 +10,6 @@ const Collection = props => {
     const auth = useSelector(state => state.auth)
     const [query, setQuery] = useState('')
 
-    // const reverseOOutputs = () => {
-    //     return oOutputs.slice(0).reverse()
-    // }
-
     const filteredOOutputs = () => {
         let filteredOOutputs = oOutputs
 
@@ -26,7 +22,6 @@ const Collection = props => {
                     return null
                 })
             }
-
             return null
         })
 
@@ -47,15 +42,19 @@ const Collection = props => {
     }
 
     return(
-        <div style={{padding: 20}}>
-            <Typography variant="h2" >
-                Collection
-            </Typography>
-            <TextField label="Search" onChange={handleSearch} value={query}/>
-            <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
-                {filteredOOutputs().map(o => <OOutputCard key={o.id} oOutput={o}/>)}
+        <Grid style={{padding: 20}} container spacing={2} direction="column">
+            <Grid item>
+                <Typography variant="h2" >
+                    Collection
+                </Typography>
+                <TextField label="Search" onChange={handleSearch} value={query}/>
             </Grid>
-        </div>
+            <Grid item>
+                <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
+                    {filteredOOutputs().map(o => <OOutputCard key={o.id} oOutput={o}/>)}
+                </Grid>
+            </Grid>
+        </Grid>
     )
 }
 
