@@ -17,11 +17,12 @@ import { loginSuccess } from './actions'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
-  // typography: {
-  //   fontFamily: [
-  //     'Kreon'
-  //   ].join(','),
-  // },
+  typography: {
+    fontFamily: [
+      'roboto',
+      'Kreon'
+    ].join(','),
+  },
 });
 
 
