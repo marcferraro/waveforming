@@ -106,26 +106,31 @@ const Navbar = props => {
                     <ListItemText className={window.location.pathname.includes('profile') ? classes.selectedNavText : classes.navText} primary="Profile" />
                   </ListItem>
               </Link>
+              <Divider className={classes.divider} variant="middle"/>
               <Link to='/dashboard' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
                     <ListItemText className={window.location.pathname.includes('dashboard') ? classes.selectedNavText : classes.navText} primary="Dashboard" />
                   </ListItem>
               </Link>
+              <Divider className={classes.divider} variant="middle"/>
               <Link to='/new-overlapping-waveform' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
                     <ListItemText className={window.location.pathname.includes('new-overlapping-waveform') ? classes.selectedNavText : classes.navText} primary="New Creation" />
                   </ListItem>
               </Link>
+              <Divider className={classes.divider} variant="middle"/>
               <Link to='/gallery' id="gallery" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
                     <ListItemText className={window.location.pathname.includes('gallery') ? classes.selectedNavText : classes.navText} primary="Gallery" />
                   </ListItem>
               </Link>
+              <Divider className={classes.divider} variant="middle"/>
               <Link to='/collection' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
                     <ListItemText className={window.location.pathname.includes('collection') ? classes.selectedNavText : classes.navText} primary="Collection" />
                   </ListItem>
               </Link>
+              <Divider className={classes.divider} variant="middle"/>
               <Link to='/how-to' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
                     <ListItemText className={window.location.pathname.includes('how-to') ? classes.selectedNavText : classes.navText} primary="How To" />
