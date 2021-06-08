@@ -40,6 +40,13 @@ const Gallery = props => {
                     Gallery
                 </Typography>
                 <TextField label="Search" onChange={handleSearch} value={query}/>
+                <Select
+                    value={'2'}
+                    // onChange={''}
+                >
+                    <MenuItem value={1}>Title</MenuItem>
+                    <MenuItem value={2}>Artist</MenuItem>
+                </Select>
             </Grid>
             <Grid item>
                 <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
