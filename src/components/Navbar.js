@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
     listItemText: {
       color: "white",
       variant: "h1"
+    },
+    main: {
+      backgroundColor: '	#f8f8ff'
     }
   }));
 
@@ -132,7 +135,7 @@ const Navbar = props => {
               </List>
             </Drawer>
           {/* </Backdrop> */}
-          <Grid container >
+          <Grid container className={classes.main}>
             <Switch>
                 <Route path='/profile' component={Profile}/>
                 <Route path='/dashboard' component={Dashboard}/>
