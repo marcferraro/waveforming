@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
       color: '#ffffff'
     },
     selectedNavText: {
-      color: '#F50157'
+      color: '#ff5f52'
     },
     divider: {
       backgroundColor: "#e0e0e0"
