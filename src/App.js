@@ -1,15 +1,5 @@
-// import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Landing from './components/Landing'
-// import Welcome from './components/Welcome'
-// import Login from './components/Login'
-// import SignUp from './components/SignUp'
-// import Profile from './components/Profile'
-// import Dashboard from './components/Dashboard';
-// import Gallery from './components/Gallery';
-// import Collection from './components/Collection';
-// import HowTo from './components/HowTo';
-// import CanvasTest from './components/CanvasTest';
 import { useEffect } from 'react';
 import { withRouter } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
