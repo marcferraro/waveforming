@@ -2,11 +2,13 @@ import Typography from '@material-ui/core/Typography';
 import { Grid, TextField } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import OOutputCard from './OOutputCard'
+import {useState} from 'react'
 
 const Collection = props => {
 
     const oOutputs = useSelector(state => state.oOutputs)
     const auth = useSelector(state => state.auth)
+    const [query, setQuery] = useState('')
 
     const reverseOOutputs = () => {
         return oOutputs.slice(0).reverse()
@@ -27,12 +29,16 @@ const Collection = props => {
         })
     }
 
+    const handleSearch = event => {
+        setQuery(event.target.value)
+    }
 
     return(
         <div style={{padding: 20}}>
             <Typography variant="h2" >
                 Collection
             </Typography>
+            <TextField label="Search" onChange={handleSearch} value={query}/>
             <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
                 {filteredOOutputs().map(o => <OOutputCard key={o.id} oOutput={o}/>)}
             </Grid>
