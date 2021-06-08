@@ -12,7 +12,7 @@ import { fetchInputsSuccess } from '../actions'
 import { fetchOoutputsSuccess } from '../actions'
 import { Link }  from 'react-router-dom'
 import { withRouter, Route, Switch } from 'react-router-dom'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import OverlappingWaveformInterface from './OverlappingWaveformInterface'
 import Profile from './Profile'
@@ -22,7 +22,7 @@ import Collection from './Collection';
 import HowTo from './HowTo';
 import OOutputShow from './OOutputShow';
 
-const drawerWidth = 180;
+const drawerWidth = 150;
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -38,22 +38,29 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: {
       width: drawerWidth,
-      backgroundColor: "#263238"
+      backgroundColor: "#4f5b62"
     },
     listItemText: {
       color: "white",
       variant: "h1"
     },
     main: {
-      backgroundColor: '	#f8f8ff'
+      backgroundColor: '#f8f8ff'
     },
     navText: {
       color: '#ffffff'
+    },
+    selectedNavText: {
+      color: '#F50157'
+    },
+    divider: {
+      color: "red"
     }
   }));
 
 const Navbar = props => {
     const auth = useSelector(state => state.auth)
+    // const [tab, setTab] = useState('dashboard')
     const dispatch = useDispatch()
     const classes = useStyles();
     
@@ -97,36 +104,36 @@ const Navbar = props => {
             <List>
               <Link to='/profile' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText className={classes.navText} primary="Profile" />
+                    <ListItemText className={window.location.pathname.includes('profile') ? classes.selectedNavText : classes.navText} primary="Profile" />
                   </ListItem>
               </Link>
               <Link to='/dashboard' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText className={classes.navText} primary="Dashboard" />
+                    <ListItemText className={window.location.pathname.includes('dashboard') ? classes.selectedNavText : classes.navText} primary="Dashboard" />
                   </ListItem>
               </Link>
               <Link to='/new-overlapping-waveform' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText className={classes.navText} primary="New Creation" />
+                    <ListItemText className={window.location.pathname.includes('new-overlapping-waveform') ? classes.selectedNavText : classes.navText} primary="New Creation" />
                   </ListItem>
               </Link>
               <Link to='/gallery' id="gallery" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText className={classes.navText} primary="Gallery" />
+                    <ListItemText className={window.location.pathname.includes('gallery') ? classes.selectedNavText : classes.navText} primary="Gallery" />
                   </ListItem>
               </Link>
               <Link to='/collection' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText className={classes.navText} primary="Collection" />
+                    <ListItemText className={window.location.pathname.includes('collection') ? classes.selectedNavText : classes.navText} primary="Collection" />
                   </ListItem>
               </Link>
               <Link to='/how-to' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText className={classes.navText} primary="How To" />
+                    <ListItemText className={window.location.pathname.includes('how-to') ? classes.selectedNavText : classes.navText} primary="How To" />
                   </ListItem>
               </Link>
             </List>
-            <Divider />
+            <Divider className={classes.divider}/>
               <List>
                   <ListItem onClick={handleLogout} button>
                     <ListItemText className={classes.navText} primary="Logout" />
