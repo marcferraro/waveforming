@@ -100,7 +100,6 @@ const Navbar = props => {
               </Grid>
             </Grid>
             <Divider />
-            <div className={classes.toolbar} />
             <List>
               <Link to='/profile' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
