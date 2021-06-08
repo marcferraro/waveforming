@@ -10,12 +10,14 @@ const Collection = props => {
     const auth = useSelector(state => state.auth)
     const [query, setQuery] = useState('')
 
-    const reverseOOutputs = () => {
-        return oOutputs.slice(0).reverse()
-    }
+    // const reverseOOutputs = () => {
+    //     return oOutputs.slice(0).reverse()
+    // }
 
     const filteredOOutputs = () => {
-        return reverseOOutputs().filter(o => {
+        let filteredOOutputs = oOutputs
+
+        filteredOOutputs = filteredOOutputs.filter(o => {
             if (o.stars){
                 return o.stars.find(s => {
                     if (s.user_id === auth.id){
@@ -27,6 +29,17 @@ const Collection = props => {
 
             return null
         })
+
+        if(query){
+            filteredOOutputs = filteredOOutputs.filter(o => {
+                if(o.title.toLowerCase().includes(query.toLowerCase())){
+                    return o
+                }
+                return null
+            })
+        }
+
+        return filteredOOutputs.slice(0).reverse()
     }
 
     const handleSearch = event => {
