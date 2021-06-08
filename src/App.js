@@ -57,14 +57,8 @@ const App = props => {
 
   return (
     <div className="app" style={{backgroundColor: "#f8f8ff"}}>
-      {/* <Switch>
-        <Route path='/login' component={Login}/>
-        <Route path='/sign-up' component={SignUp}/>
-        <Route exact path='/' component={Welcome}/>
-      </Switch> */}
       <ThemeProvider theme={theme}>
-
-      {auth ? <Navbar /> : <Landing />}
+        {auth ? <Navbar /> : <Landing />}
       </ThemeProvider>
     </div>
   );
