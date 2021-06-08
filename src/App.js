@@ -56,7 +56,7 @@ const App = props => {
   })
 
   return (
-    <div className="app">
+    <div className="app" style={{backgroundColor: "#f8f8ff"}}>
       {/* <Switch>
         <Route path='/login' component={Login}/>
         <Route path='/sign-up' component={SignUp}/>
