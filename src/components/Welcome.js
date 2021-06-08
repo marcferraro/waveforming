@@ -4,7 +4,14 @@ import { Button, Grid } from '@material-ui/core';
 import classes from './BackgroundVideo.module.css';
 import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles((theme) => ({
+    header: {
+        fontFamily: 'kreon'
+    }
+}));
+
 const Welcome = props => {
+    const styles = useStyles()
     
     const videoSource = "https://waveforming.s3.us-east-2.amazonaws.com/Static+Assets/welcome_video_1.mp4"
     
@@ -37,7 +44,7 @@ const Welcome = props => {
                 <div className={classes.Content}>
                     <div className={classes.SubContent} >
 
-                    <Typography variant="h5">
+                    <Typography variant="h5" className={styles.header}>
                         waveforming
                     </Typography>
                     <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}>
