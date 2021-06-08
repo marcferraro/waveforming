@@ -130,7 +130,7 @@ const OOutputCard = props => {
         <Grid item>
             <Card className={classes.root}>
                 <CardActionArea onClick={handleInspect}>
-                    <canvas width={width} height={height} style={{width:"220px", height:"220px", border: '0px none black'}} ref={canvasRef}/>
+                    <canvas width={width} height={height} style={{width:"285px", height:"285px", border: '0px none black'}} ref={canvasRef}/>
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {props.oOutput.title ? props.oOutput.title : "Untitled"}
