@@ -43,7 +43,6 @@ const OOutputCard = props => {
     useEffect(() => {
         const ctx = canvasRef.current.getContext('2d')
         const image = document.createElement('img')
-        // image.src = `http://localhost:3000${props.oOutput.ooutput.url}`
         image.src = props.oOutput.ooutput.url
         image.onload = () => {
             setWidth(image.width)
