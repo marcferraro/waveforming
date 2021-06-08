@@ -38,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: {
       width: drawerWidth,
-      backgroundColor: "#484848"
+      backgroundColor: "#484848",
+      boxShadow: '2px 2px 4px #aeaeae'
     },
     listItemText: {
       color: "white",
