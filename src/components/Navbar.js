@@ -97,39 +97,39 @@ const Navbar = props => {
             <List>
               <Link to='/profile' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="Profile" />
+                    <ListItemText className={classes.navText} primary="Profile" />
                   </ListItem>
               </Link>
               <Link to='/dashboard' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="Dashboard" />
+                    <ListItemText className={classes.navText} primary="Dashboard" />
                   </ListItem>
               </Link>
               <Link to='/new-overlapping-waveform' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="New Creation" />
+                    <ListItemText className={classes.navText} primary="New Creation" />
                   </ListItem>
               </Link>
               <Link to='/gallery' id="gallery" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="Gallery" />
+                    <ListItemText className={classes.navText} primary="Gallery" />
                   </ListItem>
               </Link>
               <Link to='/collection' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="Collection" />
+                    <ListItemText className={classes.navText} primary="Collection" />
                   </ListItem>
               </Link>
               <Link to='/how-to' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText primary="How To" />
+                    <ListItemText className={classes.navText} primary="How To" />
                   </ListItem>
               </Link>
             </List>
             <Divider />
               <List>
                   <ListItem onClick={handleLogout} button>
-                    <ListItemText primary="Logout" />
+                    <ListItemText className={classes.navText} primary="Logout" />
                   </ListItem>
               </List>
             </Drawer>
