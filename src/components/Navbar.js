@@ -22,10 +22,6 @@ import Collection from './Collection';
 import HowTo from './HowTo';
 import OOutputShow from './OOutputShow';
 
-const listItemProps = {
-  primaryTypographyProps: { color: "textPrimary" }
-};
-
 const drawerWidth = 180;
 
 const useStyles = makeStyles((theme) => ({
@@ -42,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: {
       width: drawerWidth,
-      backgroundColor: "blanchedalmond"
+      backgroundColor: "#263238"
     },
     listItemText: {
       color: "white",
@@ -50,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
     },
     main: {
       backgroundColor: '	#f8f8ff'
+    },
+    navText: {
+      color: '#ffffff'
     }
   }));
 
@@ -90,7 +89,7 @@ const Navbar = props => {
                 <Avatar alt="avatar" src={auth.avatar} />
               </Grid>
               <Grid item>
-                <Typography variant="h6">{auth ? auth.username : null}</Typography>
+                <Typography className={classes.navText} variant="h6">{auth ? auth.username : null}</Typography>
               </Grid>
             </Grid>
             <Divider />
@@ -98,39 +97,39 @@ const Navbar = props => {
             <List>
               <Link to='/profile' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText {...listItemProps} primary="Profile" />
+                    <ListItemText primary="Profile" />
                   </ListItem>
               </Link>
               <Link to='/dashboard' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText {...listItemProps} primary="Dashboard" />
+                    <ListItemText primary="Dashboard" />
                   </ListItem>
               </Link>
               <Link to='/new-overlapping-waveform' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText {...listItemProps} primary="New Creation" />
+                    <ListItemText primary="New Creation" />
                   </ListItem>
               </Link>
               <Link to='/gallery' id="gallery" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText {...listItemProps} primary="Gallery" />
+                    <ListItemText primary="Gallery" />
                   </ListItem>
               </Link>
               <Link to='/collection' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText {...listItemProps} primary="Collection" />
+                    <ListItemText primary="Collection" />
                   </ListItem>
               </Link>
               <Link to='/how-to' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText {...listItemProps} primary="How To" />
+                    <ListItemText primary="How To" />
                   </ListItem>
               </Link>
             </List>
             <Divider />
               <List>
                   <ListItem onClick={handleLogout} button>
-                    <ListItemText {...listItemProps} primary="Logout" />
+                    <ListItemText primary="Logout" />
                   </ListItem>
               </List>
             </Drawer>
