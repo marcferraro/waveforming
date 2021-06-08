@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: {
       width: drawerWidth,
-      backgroundColor: "#4f5b62"
+      backgroundColor: "#484848"
     },
     listItemText: {
       color: "white",
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
       color: '#F50157'
     },
     divider: {
-      color: "red"
+      backgroundColor: "#e0e0e0"
     }
   }));
 
@@ -99,7 +99,7 @@ const Navbar = props => {
                 <Typography className={classes.navText} variant="h6">{auth ? auth.username : null}</Typography>
               </Grid>
             </Grid>
-            <Divider />
+            <Divider className={classes.divider} />
             <List>
               <Link to='/profile' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
