@@ -15,7 +15,6 @@ const theme = createMuiTheme({
   },
 });
 
-
 const App = props => {
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
