@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { Grid, Input, Typography, Button } from '@material-ui/core'
+import { Grid, Input, Typography, Button, Avatar } from '@material-ui/core'
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { loginSuccess } from '../actions'
