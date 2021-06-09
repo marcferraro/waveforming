@@ -54,14 +54,6 @@ const SignUp = props => {
         formData.append("username", username)
         formData.append("password", password)
         formData.append("password_confirmation", passwordConfirmation)
-        
-        // const user = {
-        //         user: {
-        //                 username: username,
-        //                 password: password,
-        //                 password_confirmation: passwordConfirmation
-        //             }
-        // }
 
         const reqObj = {
             method: "POST",
@@ -84,7 +76,6 @@ const SignUp = props => {
     }
 
     return(
-        <div>
             <Grid container direction="column" justify="center" alignItems="center">
                 <Grid item>
                 <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
@@ -112,7 +103,6 @@ const SignUp = props => {
                     }
                 </Grid>
             </Grid>
-        </div>
     )
 }
 
