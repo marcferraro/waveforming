@@ -9,7 +9,6 @@ import { loginSuccess } from '../actions'
 import { Link }  from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
-
     root: {
       '& > *': {
         margin: theme.spacing(1),
@@ -20,7 +19,12 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#546e7a',
         width: '100%',
         height: '100%'
-    }
+    },
+    field: {
+        "& .MuiFilledInput-root": {
+          background: "rgb(232, 241, 250)"
+        }
+      }
 }));
 
 const SignUp = props => {
@@ -84,13 +88,13 @@ const SignUp = props => {
             <Grid item>
             <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
                 <Grid item>
-                    <TextField onChange={handleUsername} value={username} id="username-field" label="Username" variant="outlined" />
+                    <TextField onChange={handleUsername} value={username} className={classes.field} id="username-field" label="Username" variant="outlined" />
                 </Grid>
                 <Grid item>
-                    <TextField onChange={handlePassword} value={password} type="password" id="password-field" label="password" variant="outlined" />
+                    <TextField onChange={handlePassword} value={password} className={classes.field} type="password" id="password-field" label="password" variant="outlined" />
                 </Grid>
                 <Grid item>
-                    <TextField onChange={handlePasswordConfirmation} value={passwordConfirmation} type="password" id="password-confirmation-field" label="password confirmation" variant="outlined" />
+                    <TextField onChange={handlePasswordConfirmation} value={passwordConfirmation} className={classes.field} type="password" id="password-confirmation-field" label="password confirmation" variant="outlined" />
                 </Grid>
                 <Grid item>
                     <Input onChange={handleAvatar} type="file" id="avatar-upload" />
