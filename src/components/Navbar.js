@@ -58,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = props => {
     const auth = useSelector(state => state.auth)
-    // const [tab, setTab] = useState('dashboard')
     const dispatch = useDispatch()
     const classes = useStyles();
     
