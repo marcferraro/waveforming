@@ -111,12 +111,13 @@ const SignUp = props => {
                         </Grid>
                         <Grid item>
                             <Input onChange={handleAvatar} id="avatar-upload" style={{display: 'none'}} type="file" id="avatar-upload" />
+                            <label htmlFor="avatar-upload">
+                                <Button color="primary" variant="contained" component="span">
+                                    Avatar Upload
+                                </Button>
+                            </label>
+                            <Avatar alt="avatar" />
                         </Grid>
-                        <label htmlFor="avatar-upload">
-                            <Button color="primary" variant="contained" component="span">
-                                Avatar Upload
-                            </Button>
-                        </label>
                         <Grid item>
                             <Grid container direction="row" justify="space-around">
                             <Link to='/' className={classes.return} style={{ textDecoration: 'none', color: 'red' }}>Return</Link>
