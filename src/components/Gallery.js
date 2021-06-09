@@ -35,7 +35,7 @@ const Gallery = props => {
     }
 
     const handleCategory = event => {
-        console.log(event.target.value)
+        setCategory(event.target.value)
     }
 
     return(
