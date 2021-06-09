@@ -16,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
         width: '25ch',
       },
     },
+    background: {
+        backgroundColor: '#546e7a',
+        width: '100%',
+        height: '100%'
+    }
 }));
 
 const SignUp = props => {
@@ -67,7 +72,6 @@ const SignUp = props => {
                 // turn this into a popup
                 setError(data.error)
             } else {
-                // console.log(data)
                 dispatch(loginSuccess(data.user))
                 localStorage.setItem('token', data.token)
                 props.history.push('/dashboard')
@@ -76,33 +80,33 @@ const SignUp = props => {
     }
 
     return(
-            <Grid container direction="column" justify="center" alignItems="center">
+        <Grid container className={classes.background} direction="column" justify="center" alignItems="center">
+            <Grid item>
+            <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
                 <Grid item>
-                <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
-                    <Grid item>
-                        <TextField onChange={handleUsername} value={username} id="username-field" label="Username" variant="outlined" />
-                    </Grid>
-                    <Grid item>
-                        <TextField onChange={handlePassword} value={password} type="password" id="password-field" label="password" variant="outlined" />
-                    </Grid>
-                    <Grid item>
-                        <TextField onChange={handlePasswordConfirmation} value={passwordConfirmation} type="password" id="password-confirmation-field" label="password confirmation" variant="outlined" />
-                    </Grid>
-                    <Grid item>
-                        <Input onChange={handleAvatar} type="file" id="avatar-upload" />
-                    </Grid>
-                    <Grid item>
-                        <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
-                    </Grid>
-                    <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>Return</Link>
-                </form>
+                    <TextField onChange={handleUsername} value={username} id="username-field" label="Username" variant="outlined" />
                 </Grid>
                 <Grid item>
-                    {error ? <p>{error}</p> : null
-                    // make this it's own item later
-                    }
+                    <TextField onChange={handlePassword} value={password} type="password" id="password-field" label="password" variant="outlined" />
                 </Grid>
+                <Grid item>
+                    <TextField onChange={handlePasswordConfirmation} value={passwordConfirmation} type="password" id="password-confirmation-field" label="password confirmation" variant="outlined" />
+                </Grid>
+                <Grid item>
+                    <Input onChange={handleAvatar} type="file" id="avatar-upload" />
+                </Grid>
+                <Grid item>
+                    <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
+                </Grid>
+                <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>Return</Link>
+            </form>
             </Grid>
+            <Grid item>
+                {error ? <p>{error}</p> : null
+                // make this it's own item later
+                }
+            </Grid>
+        </Grid>
     )
 }
 
