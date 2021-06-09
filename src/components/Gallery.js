@@ -13,6 +13,7 @@ const Gallery = props => {
 
     const oOutputs = useSelector(state => state.oOutputs)
     const [query, setQuery] = useState('')
+    const [category, setCategory] = useState('title')
 
     const reverseOOutputs = () => {
         let filteredOOutputs = oOutputs
@@ -33,6 +34,10 @@ const Gallery = props => {
         setQuery(event.target.value)
     }
 
+    const handleCategory = event => {
+        console.log(event.target.value)
+    }
+
     return(
         <Grid style={{padding: 20}} container spacing={2} direction="column">
             <Grid item>
@@ -42,12 +47,12 @@ const Gallery = props => {
                 <Grid container direction="row" justify="flex-start" >
                     <TextField label="Search" onChange={handleSearch} value={query}/>
                     <Select
-                        value={'2'}
-                        // onChange={''}
+                        value={category}
+                        onChange={handleCategory}
                         style={{marginLeft: 10}}
                     >
-                        <MenuItem value={1}>Title</MenuItem>
-                        <MenuItem value={2}>Artist</MenuItem>
+                        <MenuItem value={"title"}>Title</MenuItem>
+                        <MenuItem value={"artist"}>Artist</MenuItem>
                     </Select>
                 </Grid>
             </Grid>
