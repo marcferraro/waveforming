@@ -12,7 +12,7 @@ import { fetchInputsSuccess } from '../actions'
 import { fetchOoutputsSuccess } from '../actions'
 import { Link }  from 'react-router-dom'
 import { withRouter, Route, Switch } from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import OverlappingWaveformInterface from './OverlappingWaveformInterface'
 import Profile from './Profile'
