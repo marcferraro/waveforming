@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#C16EB9',
         width: '100%',
         height: '100%'
+    },
+    header: {
+        fontFamily: 'kreon',
+        color: '#ffffff'
     }
 }));
 
@@ -73,7 +77,7 @@ const Login = props => {
     return(
         <Grid className = {classes.background} container direction="column" justify="flex-start" alignItems="center" >
             <Grid item style={{marginTop: 100}}>
-                <Typography variant="h3">
+                <Typography variant="h3" className={classes.header}>
                     Login
                 </Typography>
             </Grid>
