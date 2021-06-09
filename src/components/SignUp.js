@@ -1,8 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { Grid, Input, Typography } from '@material-ui/core'
+import { Grid, Input, Typography, Button } from '@material-ui/core'
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { loginSuccess } from '../actions'
@@ -28,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     header: {
         fontFamily: 'kreon',
         color: '#ffffff'
+    },
+    return: {
+        // color: ""
     }
 }));
 
@@ -111,9 +113,11 @@ const SignUp = props => {
                             <Input onChange={handleAvatar} type="file" id="avatar-upload" />
                         </Grid>
                         <Grid item>
-                            <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
+                            <Grid container direction="row" justify="space-around">
+                            <Link to='/' className={classes.return} style={{ textDecoration: 'none', color: 'red' }}>Return</Link>
+                            <Button type="submit" variant="contained" disableElevation color="secondary">Submit</Button>
+                            </Grid>
                         </Grid>
-                        <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>Return</Link>
                     </form>
                     </Grid>
                     <Grid item>
