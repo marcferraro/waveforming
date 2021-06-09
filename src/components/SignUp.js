@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { Grid, Input } from '@material-ui/core'
+import { Grid, Input, Typography } from '@material-ui/core'
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { loginSuccess } from '../actions'
@@ -24,7 +24,11 @@ const useStyles = makeStyles((theme) => ({
         "& .MuiFilledInput-root": {
           background: "rgb(232, 241, 250)"
         }
-      }
+    },
+    header: {
+        fontFamily: 'kreon',
+        color: '#ffffff'
+    }
 }));
 
 const SignUp = props => {
@@ -84,31 +88,40 @@ const SignUp = props => {
     }
 
     return(
-        <Grid container className={classes.background} direction="column" justify="center" alignItems="center">
-            <Grid item>
-            <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
-                <Grid item>
-                    <TextField onChange={handleUsername} value={username} className={classes.field} id="username-field" label="Username" variant="outlined" />
+        <Grid container className={classes.background} direction="column" justify="flex-start" alignItems="center">
+            <Grid item style={{marginTop: '5%'}}>
+                <Grid container direction="column" justify="flex-start" alignItems="center">
+                    <Grid item >
+                        <Typography variant="h3" className={classes.header}>
+                                Sign Up
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                    <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
+                        <Grid item>
+                            <TextField onChange={handleUsername} value={username} className={classes.field} id="username-field" label="Username" variant="outlined" />
+                        </Grid>
+                        <Grid item>
+                            <TextField onChange={handlePassword} value={password} className={classes.field} type="password" id="password-field" label="password" variant="outlined" />
+                        </Grid>
+                        <Grid item>
+                            <TextField onChange={handlePasswordConfirmation} value={passwordConfirmation} className={classes.field} type="password" id="password-confirmation-field" label="password confirmation" variant="outlined" />
+                        </Grid>
+                        <Grid item>
+                            <Input onChange={handleAvatar} type="file" id="avatar-upload" />
+                        </Grid>
+                        <Grid item>
+                            <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
+                        </Grid>
+                        <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>Return</Link>
+                    </form>
+                    </Grid>
+                    <Grid item>
+                        {error ? <p>{error}</p> : null
+                        // make this it's own item later
+                        }
+                    </Grid>
                 </Grid>
-                <Grid item>
-                    <TextField onChange={handlePassword} value={password} className={classes.field} type="password" id="password-field" label="password" variant="outlined" />
-                </Grid>
-                <Grid item>
-                    <TextField onChange={handlePasswordConfirmation} value={passwordConfirmation} className={classes.field} type="password" id="password-confirmation-field" label="password confirmation" variant="outlined" />
-                </Grid>
-                <Grid item>
-                    <Input onChange={handleAvatar} type="file" id="avatar-upload" />
-                </Grid>
-                <Grid item>
-                    <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
-                </Grid>
-                <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>Return</Link>
-            </form>
-            </Grid>
-            <Grid item>
-                {error ? <p>{error}</p> : null
-                // make this it's own item later
-                }
             </Grid>
         </Grid>
     )
