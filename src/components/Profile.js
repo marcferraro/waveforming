@@ -178,7 +178,7 @@ const Profile = props => {
                                 <Grid item>
                                     <Avatar className={classes.avatar} alt="avatar" src={auth.avatar}/>
                                 </Grid>
-                                <Grid item style={{paddingBottom: '20px'}}>
+                                <Grid item style={{paddingBottom: '20px', marginTop: 12}}>
                                     <Grid container direction="column" alignitems="center" justify="center">
                                         <Grid item>
                                             <Typography variant="h5">
