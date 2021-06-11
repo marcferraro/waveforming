@@ -90,7 +90,7 @@ const Login = props => {
                         <TextField onChange={handlePassword} value={password} type="password" id="password-field" label="password" variant="outlined" />
                     </Grid>
                     <Grid item>
-                        <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
+                        <Button type="submit" style={{margin: 'auto', display: 'block', textAlign: 'center'}} variant="contained" color="secondary" component="span">Submit</Button>
                     </Grid>
                     <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>Return</Link>
                 </form>
