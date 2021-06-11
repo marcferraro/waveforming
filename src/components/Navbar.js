@@ -112,7 +112,7 @@ const Navbar = props => {
               <Divider className={classes.divider} variant="middle"/>
               <Link to='/new-overlapping-waveform' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItem button>
-                    <ListItemText className={window.location.pathname.includes('new-overlapping-waveform') ? classes.selectedNavText : classes.navText} primary="New Creation" />
+                    <ListItemText className={window.location.pathname.includes('new-overlapping-waveform') ? classes.selectedNavText : classes.navText} primary="Create" />
                   </ListItem>
               </Link>
               <Divider className={classes.divider} variant="middle"/>
