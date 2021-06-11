@@ -23,7 +23,6 @@ import { oOutputCreationSuccess, inputCreationSuccess, inputSelect } from '../ac
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      marginRight: 'auto',
       padding: 20,
       marginTop: 10
     },
