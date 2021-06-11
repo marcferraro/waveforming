@@ -10,16 +10,19 @@ const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
       flexWrap: 'wrap',
-      justifyContent: 'space-around',
+    //   justifyContent: 'space-around',
       overflow: 'hidden',
     //   backgroundColor: theme.palette.background.paper,
-      padding: 20
+    //   padding: 20
     },
     gridList: {
       width: 400,
-      height: 410,
+      height: 500,
       padding: 10
     },
+    header: {
+        fontFamily: 'kreon'
+    }
   }));
 
 const Dashboard = props => {
@@ -67,41 +70,50 @@ const Dashboard = props => {
     }
 
     return(
-            <Grid className={classes.root} container direction="row" justify="space-around" alignItems='center' space={5}>
-                <Grid item>
-                    <Grid container direction="column" alignItems="center">
-                        <Grid item>
-                            <Typography variant="h4">Recent Creations</Typography>
-                        </Grid>
-                        <Grid item style={{border: '1px solid black'}}>
-                            <GridList cellHeight={200} className={classes.gridList} cols={2} >
-                                {reverseOOutputs().map((o) => (
-                                    <GridListTile key={o.id} cols={o.cols || 1}>
-                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={o.ooutput.url} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
-                                    </GridListTile>
-                                ))}
-                            </GridList>
+        <Grid container direction='column' justify='center'>
+            <Grid item style={{margin: 'auto', marginTop: 20}}>
+                <Typography className={classes.header} variant="h2" gutterBottom>
+                        waveforming
+                </Typography>
+            </Grid>
+            <Grid item>
+                <Grid className={classes.root} container direction="row" justify="space-evenly" alignItems='center'>
+                    <Grid item>
+                        <Grid container direction="column" alignItems="center">
+                            <Grid item>
+                                <Typography variant="h4">Recent Creations</Typography>
+                            </Grid>
+                            <Grid item style={{border: '1px solid black'}}>
+                                <GridList cellHeight={200} className={classes.gridList} cols={2} >
+                                    {reverseOOutputs().map((o) => (
+                                        <GridListTile key={o.id} cols={o.cols || 1}>
+                                            <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={o.ooutput.url} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                                        </GridListTile>
+                                    ))}
+                                </GridList>
+                            </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
 
-                <Grid item>
-                    <Grid container direction="column" alignItems="center">
-                        <Grid item>
-                            <Typography variant="h4">Most Popular</Typography>
-                        </Grid>
-                        <Grid item style={{border: '1px solid black'}}>
-                            <GridList cellHeight={200} className={classes.gridList} cols={2} >
-                                {mostPopularOOutputs().map((o) => (
-                                    <GridListTile key={o.id} cols={o.cols || 1}>
-                                        <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={o.ooutput.url} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
-                                    </GridListTile>
-                                ))}
-                            </GridList>
+                    <Grid item>
+                        <Grid container direction="column" alignItems="center">
+                            <Grid item>
+                                <Typography variant="h4">Most Popular</Typography>
+                            </Grid>
+                            <Grid item style={{border: '1px solid black'}}>
+                                <GridList cellHeight={200} className={classes.gridList} cols={2} >
+                                    {mostPopularOOutputs().map((o) => (
+                                        <GridListTile key={o.id} cols={o.cols || 1}>
+                                            <canvas onClick={handleCanvasClick} onMouseOver={handleMouseHover} onMouseLeave={handleMouseLeave} className="canvas" data-url={o.ooutput.url} data-id={o.id} width="48" height="48" style={{width:"200px", height:"200px", border: '0px none black'}} alt={o.title}/>
+                                        </GridListTile>
+                                    ))}
+                                </GridList>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
             </Grid>
+        </Grid>
     )
 }
 
