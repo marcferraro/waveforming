@@ -120,7 +120,7 @@ const SignUp = props => {
                         </Grid>
                         <Grid item>
                             <Grid container direction="row" justify="space-around">
-                            <Link to='/' className={classes.return} style={{ textDecoration: 'none', color: 'red' }}><Button variant="outlined" color="secondary">Return</Button></Link>
+                            <Link to='/' className={classes.return} style={{ textDecoration: 'none' }}><Button variant="outlined" style={{color: '#ff5f52'}}>Return</Button></Link>
                             <Button type="submit" variant="contained" disableElevation style={{color: 'white', backgroundColor: '#EDC272'}}>Submit</Button>
                             </Grid>
                         </Grid>
