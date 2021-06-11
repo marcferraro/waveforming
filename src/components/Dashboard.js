@@ -27,7 +27,7 @@ const Dashboard = props => {
     const oOutputs = useSelector(state => state.oOutputs)
 
     const reverseOOutputs = () => {
-        return oOutputs.slice(0).reverse().slice(0, 10)
+        return oOutputs.slice(0).reverse().slice(0, 20)
     }
 
     const mostPopularOOutputs = () => {
