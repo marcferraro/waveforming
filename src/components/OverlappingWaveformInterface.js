@@ -445,7 +445,6 @@ const OverlappingWaveformInterface = props => {
     }
 
     const handleOutputSize = (e, value) => {
-        console.log(value)
         setOutputSize(value)
     }
 
