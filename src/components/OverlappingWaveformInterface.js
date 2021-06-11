@@ -446,295 +446,293 @@ const OverlappingWaveformInterface = props => {
     }
 
     return(
-        <div className={classes.root} >
-            <Grid container spacing={4}>
-                <Grid item xs={12}>
-                    <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1} >
-                        <Grid item>
-                            <Grid direction="column" align-items="center" justify="center" container >
-                                <Grid item>
-                                    <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px", marginBottom: 3}} ref={inputCanvasRef}/>
-                                </Grid>
-                                <Grid container direction='row' justify='space-between'>
-                                    <Grid item >
-                                        <TextField
-                                            className={classes.title}
-                                            onChange={handleInputTitle}
-                                            value={inputTitle}
-                                            id="outlined-basic"
-                                            label="Title"
-                                            variant="outlined"
-                                            size="small"
-                                            />
-                                    </Grid>
-                                    <Grid item >
-                                        <Button onClick={saveInput} variant="contained" color="secondary" >Save Input</Button>
-                                    </Grid>
-                                </Grid>
+        <Grid container className={classes.root} spacing={4}>
+            <Grid item xs={12}>
+                <Grid container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1} >
+                    <Grid item>
+                        <Grid direction="column" align-items="center" justify="center" container >
+                            <Grid item>
+                                <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px", marginBottom: 3}} ref={inputCanvasRef}/>
+                            </Grid>
+                            <Grid container direction='row' justify='space-between'>
                                 <Grid item >
-                                        <Slider defaultValue={16} step={null} marks={marks} onChange={handleInputSize} aria-labelledby="continuous-slider" />
-                                 </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item>
-                            <Grid container direction="column" alignItems="center" justify="center">
-                                <Grid item>
-                                    <Button onClick={generate} variant="contained" color="secondary" disabled={generating}>Generate</Button>
-                                </Grid>
-                                {/* <Grid item>
-                                    <CircularProgress />
-                                </Grid> */}
-                            </Grid>
-                        </Grid>
-                        <Grid item>
-                            <Grid direction="column" align-items="center" justify="center" container>
-                                <Grid item>
-                                    <canvas id="output" width={outputSize} height={outputSize} style={{width:"240px", height:"240px", marginBottom: 3}}></canvas>
-                                </Grid>
-                                <Grid container direction='row' justify='space-between'>
-                                    <Grid item >
-                                        <TextField
-                                            className={classes.outputTitle}
-                                            onChange={handleOutputTitle}
-                                            value={outputTitle}
-                                            label="Title"
-                                            variant="outlined"
-                                            size="small"
-                                            />
-                                    </Grid>
-                                    <Grid item >
-                                        <Button onClick={saveOutput} variant="contained" color="secondary" >Save Output</Button>
-                                    </Grid>
-                                </Grid>
-                                <Grid item >
-                                        <Slider marks={marks} step={null} defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
-
-                <Grid className={classes.lowerInterface} container direction="column" justify="space-evenly" alignItems="stretch" spacing={1}>
-                    <Grid item >
-                        <Paper elevation={3}>
-                            <Grid className={classes.palatte} spacing={2} container justify="flex-start" alignItems={'flex-start'} direction={'row'}>
-                                <Grid item xs={1} sm={1} style={{marginRight: 10}}>
-                                    <FormControl>
-                                        <div id="picker"></div>
-                                    </FormControl>
-                                </Grid>
-                                {colorArray.map(h => <Grid key={h} item><Color handleClick={handleColorClick} hex={h}/></Grid>)}
-                            </Grid>
-                        </Paper>
-                    </Grid>
-
-                    <Grid item >
-                        <Paper elevation={3}>
-                            <Grid className={classes.root} container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1}>
-                                    <FormControl className={classes.formControl}>
-                                        <InputLabel id="n-input">N</InputLabel>
-                                        <Select
-                                            labelId="n-select"
-                                            id="n-select"
-                                            value={N}
-                                            onChange={handleN}
-                                        >
-                                            <MenuItem value={2}>2</MenuItem>
-                                            <MenuItem value={3}>3</MenuItem>
-                                            <MenuItem value={4}>4</MenuItem>
-                                        </Select>
-                                        <Button onClick={handlePopupN}>?</Button>
-                                        <Popover 
-                                            anchorEl={anchorN}
-                                            open={openN}
-                                            onClose={() => handleClose(setAnchorN)}
-                                            anchorOrigin={{
-                                                vertical: 'center',
-                                                horizontal: 'left',
-                                            }}
-                                            transformOrigin={{
-                                                vertical: 'bottom',
-                                                horizontal: 'right',
-                                            }}
-                                        >
-                                            <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
-                                                Higher N increases the size of the detected pattern, or how far each pixel can "see" from itself.
-                                            </Typography>
-                                        </Popover>
-                                    </FormControl>
-                                    <FormControl className={classes.formControl}>
-                                        <InputLabel id="symmetry-input">Symmetry</InputLabel>
-                                        <Select
-                                            labelId="symmetry-select"
-                                            id="symmetry-select"
-                                            value={symmetry}
-                                            onChange={handleSymmetry}
-                                        >
-                                            <MenuItem value={1}>1</MenuItem>
-                                            <MenuItem value={2}>2</MenuItem>
-                                            <MenuItem value={3}>3</MenuItem>
-                                            <MenuItem value={4}>4</MenuItem>
-                                            <MenuItem value={5}>5</MenuItem>
-                                            <MenuItem value={6}>6</MenuItem>
-                                            <MenuItem value={7}>7</MenuItem>
-                                            <MenuItem value={8}>8</MenuItem>
-                                        </Select>
-                                        <Button onClick={handlePopupSym} >?</Button>
-                                        <Popover 
-                                            anchorEl={anchorSymmetry}
-                                            open={openSym}
-                                            onClose={() => handleClose(setAnchorSymmetry)}
-                                            anchorOrigin={{
-                                                vertical: 'center',
-                                                horizontal: 'left',
-                                            }}
-                                            transformOrigin={{
-                                                vertical: 'bottom',
-                                                horizontal: 'right',
-                                            }}
-                                        >
-                                            <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
-                                                Higher symmetry will increase the ways in which the generator will play with 
-                                                the pattern (flipping, mirroring, etc.). 1 will mean strict adherance to the input.
-                                            </Typography>
-                                        </Popover>
-                                    </FormControl>
-                                    <FormControl>
-                                        <TextField
-                                            onChange={handleGround}
-                                            type="number"
-                                            value={ground}
-                                            label="ground"
-                                            variant="outlined" />
-                                    {/* <FormControl className={classes.formControl}>
-                                        <InputLabel id="ground-input">Ground</InputLabel>
-                                        <Grid container spacing={6}>
-                                            <Grid item>
-                                                <Remove />
-                                            </Grid>
-                                            <Grid item xs>
-                                                <Slider defaultValue={1} onChange={() => console.log("slider!")} aria-labelledby="continuous-slider" />
-                                            </Grid>
-                                            <Grid item>
-                                                <Add />
-                                            </Grid>
-                                        </Grid>
-                                    </FormControl> */}
-                                    <Button onClick={handlePopupG}>?</Button>
-                                    <Popover 
-                                            anchorEl={anchorGround}
-                                            open={openG}
-                                            onClose={() => handleClose(setAnchorGround)}
-                                            anchorOrigin={{
-                                                vertical: 'center',
-                                                horizontal: 'left',
-                                            }}
-                                            transformOrigin={{
-                                                vertical: 'bottom',
-                                                horizontal: 'right',
-                                            }}
-                                        >
-                                            <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
-                                                Any ground value other than zero will attempt to add a pattern from the bottom of the input. It may take some experimenting with to get it to work, but 
-                                                common values are between -1 through -5, and 100 through 102.
-                                            </Typography>
-                                        </Popover>
-                                    </FormControl>
-                                    <Grid item>
-                                        <Grid container direction="column">
-                                        <FormControlLabel
-                                            control={<Switch 
-                                                checked={periodicInput}
-                                                onChange={handlePeriodicInput}
-                                                name="periodic switch"
-                                                color="primary"/>}
-                                            label="Periodic Input"
+                                    <TextField
+                                        className={classes.title}
+                                        onChange={handleInputTitle}
+                                        value={inputTitle}
+                                        id="outlined-basic"
+                                        label="Title"
+                                        variant="outlined"
+                                        size="small"
                                         />
-                                        <Button onClick={handlePopupPI}>?</Button>
-                                        <Popover 
-                                            anchorEl={anchorPeriodicInput}
-                                            open={openPI}
-                                            onClose={() => handleClose(setAnchorPeriodicInput)}
-                                            anchorOrigin={{
-                                                vertical: 'center',
-                                                horizontal: 'left',
-                                            }}
-                                            transformOrigin={{
-                                                vertical: 'bottom',
-                                                horizontal: 'right',
-                                            }}
-                                        >
-                                            <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
-                                                While this is on the generator will see the input as tileable, allowing 
-                                                it to exit off of an edge and enter on another.
-                                            </Typography>
-                                        </Popover>
-                                        
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item>
-                                        <Grid container direction="column">
-                                            <FormControlLabel
-                                                control={<Switch 
-                                                    checked={periodicOutput}
-                                                    onChange={handlePeriodicOutput}
-                                                    name="periodic switch"
-                                                    color="primary"/>}
-                                                label="Periodic Output"
-                                            />
-                                            <Button onClick={handlePopupPO}>?</Button>
-                                                <Popover 
-                                                    anchorEl={anchorPeriodicOutput}
-                                                    open={openPO}
-                                                    onClose={() => handleClose(setAnchorPeriodicOutput)}
-                                                    anchorOrigin={{
-                                                        vertical: 'center',
-                                                        horizontal: 'left',
-                                                    }}
-                                                    transformOrigin={{
-                                                        vertical: 'bottom',
-                                                        horizontal: 'right',
-                                                    }}
-                                                >
-                                                <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
-                                                    While this is on the generator will see the input as tileable with itself, which is
-                                                    useful for creating patterns.
-                                                </Typography>
-                                            </Popover>
-                                            <Popover 
-                                                    anchorEl={anchorGallery}
-                                                    open={openGalAlert}
-                                                    onClose={() => handleClose(setAnchorGallery)}
-                                                    anchorOrigin={{
-                                                        vertical: 'center',
-                                                        horizontal: 'right',
-                                                    }}
-                                                    transformOrigin={{
-                                                        vertical: 'center',
-                                                        horizontal: 'left',
-                                                    }}
-                                                >
-                                                <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
-                                                    {'< You can find your new creation in the gallery'}
-                                                </Typography>
-                                                <Grid container style={{padding: 20}}>
-                                                    <canvas width="48" height="48" style={{width:"100px", height:"100px", border: '0px none black'}} ref={popCanvasRef}/>
-                                                </Grid>
-                                            </Popover>
-                                        </Grid>
-                                    </Grid>
-                                    <input onChange={handleFile} style={{display: 'none'}} type="file" name="audio" accept="image/*" id="upload" />
-                                    <label htmlFor="upload" >
-                                        <Button color="primary" style={{margin: 'auto', display: 'block', textAlign: 'center'}} variant="contained" component="span">
-                                            Upload Input
-                                        </Button>
-                                    </label>
+                                </Grid>
+                                <Grid item >
+                                    <Button onClick={saveInput} variant="contained" color="secondary" >Save Input</Button>
+                                </Grid>
                             </Grid>
-                        </Paper>
+                            <Grid item >
+                                    <Slider defaultValue={16} step={null} marks={marks} onChange={handleInputSize} aria-labelledby="continuous-slider" />
+                                </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item>
+                        <Grid container direction="column" alignItems="center" justify="center">
+                            <Grid item>
+                                <Button onClick={generate} variant="contained" color="secondary" disabled={generating}>Generate</Button>
+                            </Grid>
+                            {/* <Grid item>
+                                <CircularProgress />
+                            </Grid> */}
+                        </Grid>
+                    </Grid>
+                    <Grid item>
+                        <Grid direction="column" align-items="center" justify="center" container>
+                            <Grid item>
+                                <canvas id="output" width={outputSize} height={outputSize} style={{width:"240px", height:"240px", marginBottom: 3}}></canvas>
+                            </Grid>
+                            <Grid container direction='row' justify='space-between'>
+                                <Grid item >
+                                    <TextField
+                                        className={classes.outputTitle}
+                                        onChange={handleOutputTitle}
+                                        value={outputTitle}
+                                        label="Title"
+                                        variant="outlined"
+                                        size="small"
+                                        />
+                                </Grid>
+                                <Grid item >
+                                    <Button onClick={saveOutput} variant="contained" color="secondary" >Save Output</Button>
+                                </Grid>
+                            </Grid>
+                            <Grid item >
+                                    <Slider marks={marks} step={null} defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-        </div>
+
+            <Grid className={classes.lowerInterface} container direction="column" justify="space-evenly" alignItems="stretch" spacing={1}>
+                <Grid item >
+                    <Paper elevation={3}>
+                        <Grid className={classes.palatte} spacing={2} container justify="flex-start" alignItems={'flex-start'} direction={'row'}>
+                            <Grid item xs={1} sm={1} style={{marginRight: 10}}>
+                                <FormControl>
+                                    <div id="picker"></div>
+                                </FormControl>
+                            </Grid>
+                            {colorArray.map(h => <Grid key={h} item><Color handleClick={handleColorClick} hex={h}/></Grid>)}
+                        </Grid>
+                    </Paper>
+                </Grid>
+
+                <Grid item >
+                    <Paper elevation={3}>
+                        <Grid className={classes.root} container direction="row" justify="space-evenly" alignItems="flex-start" spacing={1}>
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel id="n-input">N</InputLabel>
+                                    <Select
+                                        labelId="n-select"
+                                        id="n-select"
+                                        value={N}
+                                        onChange={handleN}
+                                    >
+                                        <MenuItem value={2}>2</MenuItem>
+                                        <MenuItem value={3}>3</MenuItem>
+                                        <MenuItem value={4}>4</MenuItem>
+                                    </Select>
+                                    <Button onClick={handlePopupN}>?</Button>
+                                    <Popover 
+                                        anchorEl={anchorN}
+                                        open={openN}
+                                        onClose={() => handleClose(setAnchorN)}
+                                        anchorOrigin={{
+                                            vertical: 'center',
+                                            horizontal: 'left',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                    >
+                                        <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                            Higher N increases the size of the detected pattern, or how far each pixel can "see" from itself.
+                                        </Typography>
+                                    </Popover>
+                                </FormControl>
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel id="symmetry-input">Symmetry</InputLabel>
+                                    <Select
+                                        labelId="symmetry-select"
+                                        id="symmetry-select"
+                                        value={symmetry}
+                                        onChange={handleSymmetry}
+                                    >
+                                        <MenuItem value={1}>1</MenuItem>
+                                        <MenuItem value={2}>2</MenuItem>
+                                        <MenuItem value={3}>3</MenuItem>
+                                        <MenuItem value={4}>4</MenuItem>
+                                        <MenuItem value={5}>5</MenuItem>
+                                        <MenuItem value={6}>6</MenuItem>
+                                        <MenuItem value={7}>7</MenuItem>
+                                        <MenuItem value={8}>8</MenuItem>
+                                    </Select>
+                                    <Button onClick={handlePopupSym} >?</Button>
+                                    <Popover 
+                                        anchorEl={anchorSymmetry}
+                                        open={openSym}
+                                        onClose={() => handleClose(setAnchorSymmetry)}
+                                        anchorOrigin={{
+                                            vertical: 'center',
+                                            horizontal: 'left',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                    >
+                                        <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                            Higher symmetry will increase the ways in which the generator will play with 
+                                            the pattern (flipping, mirroring, etc.). 1 will mean strict adherance to the input.
+                                        </Typography>
+                                    </Popover>
+                                </FormControl>
+                                <FormControl>
+                                    <TextField
+                                        onChange={handleGround}
+                                        type="number"
+                                        value={ground}
+                                        label="ground"
+                                        variant="outlined" />
+                                {/* <FormControl className={classes.formControl}>
+                                    <InputLabel id="ground-input">Ground</InputLabel>
+                                    <Grid container spacing={6}>
+                                        <Grid item>
+                                            <Remove />
+                                        </Grid>
+                                        <Grid item xs>
+                                            <Slider defaultValue={1} onChange={() => console.log("slider!")} aria-labelledby="continuous-slider" />
+                                        </Grid>
+                                        <Grid item>
+                                            <Add />
+                                        </Grid>
+                                    </Grid>
+                                </FormControl> */}
+                                <Button onClick={handlePopupG}>?</Button>
+                                <Popover 
+                                        anchorEl={anchorGround}
+                                        open={openG}
+                                        onClose={() => handleClose(setAnchorGround)}
+                                        anchorOrigin={{
+                                            vertical: 'center',
+                                            horizontal: 'left',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                    >
+                                        <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                            Any ground value other than zero will attempt to add a pattern from the bottom of the input. It may take some experimenting with to get it to work, but 
+                                            common values are between -1 through -5, and 100 through 102.
+                                        </Typography>
+                                    </Popover>
+                                </FormControl>
+                                <Grid item>
+                                    <Grid container direction="column">
+                                    <FormControlLabel
+                                        control={<Switch 
+                                            checked={periodicInput}
+                                            onChange={handlePeriodicInput}
+                                            name="periodic switch"
+                                            color="primary"/>}
+                                        label="Periodic Input"
+                                    />
+                                    <Button onClick={handlePopupPI}>?</Button>
+                                    <Popover 
+                                        anchorEl={anchorPeriodicInput}
+                                        open={openPI}
+                                        onClose={() => handleClose(setAnchorPeriodicInput)}
+                                        anchorOrigin={{
+                                            vertical: 'center',
+                                            horizontal: 'left',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                    >
+                                        <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                            While this is on the generator will see the input as tileable, allowing 
+                                            it to exit off of an edge and enter on another.
+                                        </Typography>
+                                    </Popover>
+                                    
+                                    </Grid>
+                                </Grid>
+                                <Grid item>
+                                    <Grid container direction="column">
+                                        <FormControlLabel
+                                            control={<Switch 
+                                                checked={periodicOutput}
+                                                onChange={handlePeriodicOutput}
+                                                name="periodic switch"
+                                                color="primary"/>}
+                                            label="Periodic Output"
+                                        />
+                                        <Button onClick={handlePopupPO}>?</Button>
+                                            <Popover 
+                                                anchorEl={anchorPeriodicOutput}
+                                                open={openPO}
+                                                onClose={() => handleClose(setAnchorPeriodicOutput)}
+                                                anchorOrigin={{
+                                                    vertical: 'center',
+                                                    horizontal: 'left',
+                                                }}
+                                                transformOrigin={{
+                                                    vertical: 'bottom',
+                                                    horizontal: 'right',
+                                                }}
+                                            >
+                                            <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                                While this is on the generator will see the input as tileable with itself, which is
+                                                useful for creating patterns.
+                                            </Typography>
+                                        </Popover>
+                                        <Popover 
+                                                anchorEl={anchorGallery}
+                                                open={openGalAlert}
+                                                onClose={() => handleClose(setAnchorGallery)}
+                                                anchorOrigin={{
+                                                    vertical: 'center',
+                                                    horizontal: 'right',
+                                                }}
+                                                transformOrigin={{
+                                                    vertical: 'center',
+                                                    horizontal: 'left',
+                                                }}
+                                            >
+                                            <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
+                                                {'< You can find your new creation in the gallery'}
+                                            </Typography>
+                                            <Grid container style={{padding: 20}}>
+                                                <canvas width="48" height="48" style={{width:"100px", height:"100px", border: '0px none black'}} ref={popCanvasRef}/>
+                                            </Grid>
+                                        </Popover>
+                                    </Grid>
+                                </Grid>
+                                <input onChange={handleFile} style={{display: 'none'}} type="file" name="audio" accept="image/*" id="upload" />
+                                <label htmlFor="upload" >
+                                    <Button color="primary" style={{margin: 'auto', display: 'block', textAlign: 'center'}} variant="contained" component="span">
+                                        Upload Input
+                                    </Button>
+                                </label>
+                        </Grid>
+                    </Paper>
+                </Grid>
+            </Grid>
+        </Grid>
     )
 }
 
