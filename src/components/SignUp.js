@@ -120,8 +120,8 @@ const SignUp = props => {
                         </Grid>
                         <Grid item>
                             <Grid container direction="row" justify="space-around">
-                            <Link to='/' className={classes.return} style={{ textDecoration: 'none' }}><Button variant="outlined" style={{color: '#ff5f52', borderColor: '#ff5f52'}}>Return</Button></Link>
-                            <Button type="submit" variant="contained" disableElevation style={{color: 'white', backgroundColor: '#EDC272'}}>Submit</Button>
+                                <Link to='/' className={classes.return} style={{ textDecoration: 'none' }}><Button variant="outlined" style={{color: '#ffffff', borderColor: '#000000'}}>Return</Button></Link>
+                                <Button type="submit" variant="contained" style={{color: 'white', backgroundColor: 'indianred'}}>Submit</Button>
                             </Grid>
                         </Grid>
                     </form>
@@ -138,3 +138,6 @@ const SignUp = props => {
 }
 
 export default SignUp
+
+// ff5f52
+// EDC272
