@@ -103,5 +103,3 @@ const Login = props => {
 }
 
 export default Login
-
-// style={{backgroundColor: "indianred", height: '100vh', minHeight: '100vh'}}
