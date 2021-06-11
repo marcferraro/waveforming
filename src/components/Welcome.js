@@ -43,16 +43,15 @@ const Welcome = props => {
 
                 <div className={classes.Content}>
                     <div className={classes.SubContent} >
-
-                    <Typography variant="h5" className={styles.header}>
-                        waveforming
-                    </Typography>
-                    <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <Button color="secondary">Login</Button>
-                    </Link>
-                    <Link to='/sign-up' style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <Button color="secondary">Sign-Up</Button>
-                    </Link>
+                        <Typography variant="h5" className={styles.header}>
+                            waveforming
+                        </Typography>
+                        <Link to='/login' style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Button color="secondary">Login</Button>
+                        </Link>
+                        <Link to='/sign-up' style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Button color="secondary">Sign-Up</Button>
+                        </Link>
                     </div>
                 </div>
         </div>
