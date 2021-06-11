@@ -19,12 +19,21 @@ const Gallery = props => {
         let filteredOOutputs = oOutputs
 
         if(query){
-            filteredOOutputs = filteredOOutputs.filter(o => {
-                if(o.title.toLowerCase().includes(query.toLowerCase())){
-                    return o
-                }
-                return null
-            })
+            if(category === 'title'){
+                filteredOOutputs = filteredOOutputs.filter(o => {
+                    if(o.title.toLowerCase().includes(query.toLowerCase())){
+                        return o
+                    }
+                    return null
+                })
+            } else if (category === 'artist'){
+                filteredOOutputs = filteredOOutputs.filter(o => {
+                    if(o.user.username.toLowerCase().includes(query.toLowerCase())){
+                        return o
+                    }
+                    return null
+                })
+            }
         }
         
         return filteredOOutputs.slice(0).reverse()
