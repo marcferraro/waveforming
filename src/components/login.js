@@ -81,19 +81,17 @@ const Login = props => {
                     Login
                 </Typography>
             </Grid>
-            <Grid item>
-                <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
-                    <Grid item>
-                        <TextField onChange={handleUsername} value={username} id="username-field" label="Username" variant="outlined" />
-                    </Grid>
-                    <Grid item>
-                        <TextField onChange={handlePassword} value={password} type="password" id="password-field" label="password" variant="outlined" />
-                    </Grid>
-                    <Grid item>
-                        <Button type="submit" style={{margin: 'auto', display: 'block', textAlign: 'center'}} variant="contained" color="secondary" component="span">Submit</Button>
-                    </Grid>
-                    <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>Return</Link>
-                </form>
+            <Grid item className={classes.root}>
+                <Grid item>
+                    <TextField onChange={handleUsername} value={username} id="username-field" label="Username" variant="outlined" />
+                </Grid>
+                <Grid item>
+                    <TextField onChange={handlePassword} value={password} type="password" id="password-field" label="password" variant="outlined" />
+                </Grid>
+                <Grid item>
+                    <Button onClick={handleSubmit} style={{margin: 'auto', display: 'block', textAlign: 'center', backgroundColor: 'indianred'}} variant="contained" color="secondary" component='span'>Submit</Button>
+                </Grid>
+                <Link to='/' className={classes.return} style={{ textDecoration: 'none' }}><Button variant="outlined" style={{color: '#ffffff', borderColor: '#000000'}}>Return</Button></Link>
             </Grid>
             <Grid item>
                 {error ? <p>{error}</p> : null
