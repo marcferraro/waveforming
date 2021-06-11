@@ -459,7 +459,7 @@ const OverlappingWaveformInterface = props => {
                                 <Grid item>
                                     <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px"}} ref={inputCanvasRef}/>
                                 </Grid>
-                                <Grid container >
+                                <Grid container direction='row' justify='space-between'>
                                     <Grid item >
                                         <TextField
                                             className={classes.title}
