@@ -142,7 +142,7 @@ const OOutputCard = props => {
                 </CardActionArea>
                 <CardActions>
                     <Grid container justify="flex-start">
-                        <Grid item xs={9}>
+                        <Grid item xs={10}>
                             <Button onClick={handlePopup} size="small" color="primary">
                             View Input
                             </Button>
