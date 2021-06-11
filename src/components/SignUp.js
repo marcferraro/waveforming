@@ -116,12 +116,13 @@ const SignUp = props => {
                                     Avatar (optional):
                                 </Button>
                             </label>
-                            <Avatar alt="avatar" style={{margin: 'auto', marginTop: 10}} />
+                            <Avatar alt="avatar" id="avatar" src={avatar ? URL.createObjectURL(avatar) : ''} style={{margin: 'auto', marginTop: 13, marginBottom: 10}} />
+                            <img id='test'/>
                         </Grid>
                         <Grid item>
                             <Grid container direction="row" justify="space-around">
-                            <Link to='/' className={classes.return} style={{ textDecoration: 'none', color: 'red' }}><Button color="secondary">Return</Button></Link>
-                            <Button type="submit" variant="contained" disableElevation color="secondary">Submit</Button>
+                            <Link to='/' className={classes.return} style={{ textDecoration: 'none', color: 'red' }}><Button variant="outlined" color="secondary">Return</Button></Link>
+                            <Button type="submit" variant="contained" disableElevation style={{color: 'white', backgroundColor: '#EDC272'}}>Submit</Button>
                             </Grid>
                         </Grid>
                     </form>
