@@ -730,7 +730,12 @@ const OverlappingWaveformInterface = props => {
                                             </Popover>
                                         </Grid>
                                     </Grid>
-                                    <input onChange={handleFile} type="file" name="audio" accept="image/*" id="upload" />
+                                    <input onChange={handleFile} style={{display: 'none'}} type="file" name="audio" accept="image/*" id="upload" />
+                                    <label htmlFor="upload" >
+                                        <Button color="primary" style={{margin: 'auto', display: 'block', textAlign: 'center'}} variant="contained" component="span">
+                                            Upload Input
+                                        </Button>
+                                    </label>
                             </Grid>
                         </Paper>
                     </Grid>
