@@ -476,8 +476,8 @@ const OverlappingWaveformInterface = props => {
                                     </Grid>
                                 </Grid>
                                 <Grid item >
-                                        <Slider defaultValue={1} onChange={handleInputSize} aria-labelledby="continuous-slider" />
-                                </Grid>
+                                        <Slider defaultValue={16} step={null} marks={marks} onChange={handleInputSize} aria-labelledby="continuous-slider" />
+                                 </Grid>
                             </Grid>
                         </Grid>
                         <Grid item>
