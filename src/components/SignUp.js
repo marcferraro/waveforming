@@ -116,7 +116,7 @@ const SignUp = props => {
                                     Avatar (optional):
                                 </Button>
                             </label>
-                            <Avatar alt="avatar" id="avatar" src={avatar ? URL.createObjectURL(avatar) : ''} style={{margin: 'auto', marginTop: 13, marginBottom: 50}} />
+                            <Avatar alt="avatar" id="avatar" src={avatar ? URL.createObjectURL(avatar) : ''} style={{margin: 'auto', marginTop: 13, marginBottom: 50, width: 50, height: 50}} />
                         </Grid>
                         <Grid item>
                             <Grid container direction="row" justify="space-around">
