@@ -34,11 +34,8 @@ const useStyles = makeStyles((theme) => ({
     control: {
       padding: theme.spacing(2),
     },
-    colors: {
-        marginLeft: 10
-    },
     title: {
-        width: 123
+        width: 125
         // change later to be roughly half of canvas, or find a way to get it to scale automatically
         // although the size of the canvas they see won't really be changing...
     },
@@ -521,16 +518,12 @@ const OverlappingWaveformInterface = props => {
                     <Grid item >
                         <Paper elevation={3}>
                             <Grid className={classes.palatte} spacing={2} container justify="flex-start" alignItems={'flex-start'} direction={'row'}>
-                                <Grid item xs={1} sm={1}>
+                                <Grid item xs={1} sm={1} style={{marginRight: 10}}>
                                     <FormControl>
                                         <div id="picker"></div>
                                     </FormControl>
                                 </Grid>
-                                <Grid item  >
-                                    <Grid className={classes.colors}container spacing={2}>
-                                        {colorArray.map(h => <Grid key={h} item><Color handleClick={handleColorClick} hex={h}/></Grid>)}
-                                    </Grid>
-                                </Grid>
+                                {colorArray.map(h => <Grid key={h} item><Color handleClick={handleColorClick} hex={h}/></Grid>)}
                             </Grid>
                         </Paper>
                     </Grid>
