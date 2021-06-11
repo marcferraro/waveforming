@@ -23,7 +23,6 @@ import { oOutputCreationSuccess, inputCreationSuccess, inputSelect } from '../ac
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-    //   marginLeft: 180,
       marginRight: 'auto',
       padding: 20,
       marginTop: 10
@@ -218,7 +217,6 @@ const OverlappingWaveformInterface = props => {
         ctx.fillStyle = hexRef.current
 
         colorPicker.on('color:change', (color) => {
-
             setHex(color.hexString)
             ctx.fillStyle = color.hexString
         });
