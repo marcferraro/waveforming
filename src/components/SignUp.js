@@ -109,18 +109,18 @@ const SignUp = props => {
                         <Grid item>
                             <TextField onChange={handlePasswordConfirmation} value={passwordConfirmation} className={classes.field} type="password" id="password-confirmation-field" label="password confirmation" variant="outlined" />
                         </Grid>
-                        <Grid item>
+                        <Grid item >
                             <Input onChange={handleAvatar} id="avatar-upload" style={{display: 'none'}} type="file" id="avatar-upload" />
-                            <label htmlFor="avatar-upload">
-                                <Button color="primary" variant="contained" component="span">
-                                    Avatar Upload
+                            <label htmlFor="avatar-upload" >
+                                <Button color="primary" style={{margin: 'auto', display: 'block', textAlign: 'center'}} variant="contained" component="span">
+                                    Avatar (optional):
                                 </Button>
                             </label>
-                            <Avatar alt="avatar" />
+                            <Avatar alt="avatar" style={{margin: 'auto', marginTop: 10}} />
                         </Grid>
                         <Grid item>
                             <Grid container direction="row" justify="space-around">
-                            <Link to='/' className={classes.return} style={{ textDecoration: 'none', color: 'red' }}>Return</Link>
+                            <Link to='/' className={classes.return} style={{ textDecoration: 'none', color: 'red' }}><Button color="secondary">Return</Button></Link>
                             <Button type="submit" variant="contained" disableElevation color="secondary">Submit</Button>
                             </Grid>
                         </Grid>
