@@ -1,5 +1,4 @@
-import Typography from '@material-ui/core/Typography';
-import { Grid, TextField, Select, MenuItem } from '@material-ui/core'
+import { Grid, TextField, Select, MenuItem, Typography } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import OOutputCard from './OOutputCard'
 import {useState} from 'react'
