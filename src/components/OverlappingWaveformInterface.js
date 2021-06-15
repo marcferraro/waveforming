@@ -702,16 +702,16 @@ const OverlappingWaveformInterface = props => {
                                                 open={openGalAlert}
                                                 onClose={() => handleClose(setAnchorGallery)}
                                                 anchorOrigin={{
-                                                    vertical: 'center',
+                                                    vertical: 'top',
                                                     horizontal: 'right',
                                                 }}
                                                 transformOrigin={{
-                                                    vertical: 'center',
+                                                    vertical: 'top',
                                                     horizontal: 'left',
                                                 }}
                                             >
                                             <Typography variant="subtitle1" style={{padding: 10, maxWidth: 250}}>
-                                                {'< You can find your new creation in the gallery'}
+                                                {'< You can find your artwork in the gallery'}
                                             </Typography>
                                             <Grid container style={{padding: 20}}>
                                                 <canvas width="48" height="48" style={{width:"100px", height:"100px", border: '0px none black'}} ref={popCanvasRef}/>
