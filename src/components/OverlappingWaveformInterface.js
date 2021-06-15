@@ -79,7 +79,7 @@ const OverlappingWaveformInterface = props => {
     const auth = useSelector(state => state.auth)
     const loadedInput = useSelector(state => state.inputSelect)
     const inputCanvasRef = useRef(null)
-    // const outputCanvasRef = useRef(null)
+    const outputCanvasRef = useRef(null)
     const popCanvasRef = useRef(null)
     const [inputId, setInputId] = useState(null)
     const [generating, setGenerating] = useState(false)
@@ -424,6 +424,7 @@ const OverlappingWaveformInterface = props => {
     }
 
     const handleOutputTitle = event => {
+
         setOutputTitle(event.target.value)
     }
 
@@ -485,7 +486,7 @@ const OverlappingWaveformInterface = props => {
                     <Grid item>
                         <Grid direction="column" align-items="center" justify="center" container>
                             <Grid item>
-                                <canvas id="output" width={outputSize} height={outputSize} style={{width:"240px", height:"240px", marginBottom: 3}}></canvas>
+                                <canvas id="output" width={outputSize} height={outputSize} style={{width:"240px", height:"240px", marginBottom: 3}} ref={outputCanvasRef}></canvas>
                             </Grid>
                             <Grid container direction='row' justify='space-between'>
                                 <Grid item >
