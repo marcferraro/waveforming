@@ -129,7 +129,7 @@ const OverlappingWaveformInterface = props => {
             const popCtx = popCanvasRef.current.getContext('2d')
             const popImage = document.createElement('img')
     
-            popImage.src = `http://localhost:3000${url}`
+            popImage.src = url
             popImage.onload = () => {
                 popCtx.drawImage(popImage,0,0)
             }
