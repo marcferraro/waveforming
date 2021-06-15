@@ -710,10 +710,10 @@ const OverlappingWaveformInterface = props => {
                                                     horizontal: 'left',
                                                 }}
                                             >
-                                            <Typography variant="subtitle1" style={{padding: 10, width: 150, margin: 'auto'}}>
+                                            <Typography variant="subtitle1" style={{padding: 8, width: 150, margin: 'auto'}}>
                                                 {'< You can find your artwork in the gallery.'}
                                             </Typography>
-                                            <Grid container style={{padding: 20}}>
+                                            <Grid container style={{padding: 10}}>
                                                 <canvas width="48" height="48" style={{width:"150px", height:"150px", border: '0px none black'}} ref={popCanvasRef}/>
                                             </Grid>
                                         </Popover>
