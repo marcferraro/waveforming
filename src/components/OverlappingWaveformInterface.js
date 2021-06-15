@@ -492,8 +492,13 @@ const OverlappingWaveformInterface = props => {
                     </Grid>
                     <Grid item>
                         <Grid direction="column" align-items="center" justify="center" container>
-                            <Grid item>
-                                <canvas id="output" width={outputSize} height={outputSize} style={{width:"240px", height:"240px", marginBottom: 3}} ref={outputCanvasRef}></canvas>
+                            <Grid container direction='row'>
+                                <Grid item>
+                                    <canvas id="output" width={outputSize} height={outputSize} style={{width:"240px", height:"240px", marginBottom: 3}} ref={outputCanvasRef}></canvas>
+                                </Grid>
+                                <Grid item>
+                                    <Slider marks={marks} orientation='vertical' step={null} defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
+                                </Grid>
                             </Grid>
                             <Grid container direction='row' justify='space-between'>
                                 <Grid item >
