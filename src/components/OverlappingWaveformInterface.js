@@ -440,11 +440,10 @@ const OverlappingWaveformInterface = props => {
     }
 
     const handleOutputSize = (e, value) => {
-        setOutputSize(value)
-
-        const canvas = outputCanvasRef.current
         const image = document.createElement("img")
+        const canvas = outputCanvasRef.current
         image.src = canvas.toDataURL('image/png')
+        setOutputSize(value)
         let ctx = canvas.getContext("2d")
         image.onload = () => {
             ctx.drawImage(image,0,0)
