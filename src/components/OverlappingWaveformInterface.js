@@ -177,7 +177,7 @@ const OverlappingWaveformInterface = props => {
     }
     
     const start = function(id){
-        const output = document.getElementById("output")
+        const output = outputCanvasRef.current
         let ctx = output.getContext("2d")
         let imgData = ctx.createImageData(outputSize, outputSize)
         // input, width, height, N, outputWidth, outputHeight, periodicInput, periodicOutput, symmetry, ground
@@ -441,6 +441,14 @@ const OverlappingWaveformInterface = props => {
 
     const handleOutputSize = (e, value) => {
         setOutputSize(value)
+
+        const canvas = outputCanvasRef.current
+        const image = document.createElement("img")
+        image.src = canvas.toDataURL('image/png')
+        let ctx = canvas.getContext("2d")
+        image.onload = () => {
+            ctx.drawImage(image,0,0)
+        }
     }
 
     return(
