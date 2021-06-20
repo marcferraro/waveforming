@@ -451,6 +451,10 @@ const OverlappingWaveformInterface = props => {
         }
     }
 
+    const handleOutputSizeY = (e, value) =>{
+        console.log(value)
+    }
+
     return(
         <Grid container className={classes.root} spacing={4}>
             <Grid item xs={12}>
@@ -505,7 +509,7 @@ const OverlappingWaveformInterface = props => {
                                     </Grid>
                                 </Grid>
                                 <Grid item>
-                                    <Slider marks={marks} style={{minHeight: 240, height: 240}} orientation='vertical' step={null} defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
+                                    <Slider marks={marks} style={{minHeight: 240, height: 240}} orientation='vertical' step={null} defaultValue={48} onChange={handleOutputSizeY} aria-labelledby="continuous-slider" />
                                 </Grid>
                             </Grid>
                             <Grid container direction='row' justify='flex-start' style={{marginTop: 10}}>
