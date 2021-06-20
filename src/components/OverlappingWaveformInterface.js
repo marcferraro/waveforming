@@ -494,13 +494,20 @@ const OverlappingWaveformInterface = props => {
                         <Grid direction="column" justify="center" container>
                             <Grid container direction='row'>
                                 <Grid item>
-                                    <canvas id="output" width={outputSize} height={outputSize} style={{width:"240px", height:"240px"}} ref={outputCanvasRef}/>
-                                    <Slider marks={marks} orientation='vertical' step={null} defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
+                                    <Grid container direction='column'>
+                                        <Grid item>
+                                            <canvas id="output" width={outputSize} height={outputSize} style={{width:"240px", height:"240px"}} ref={outputCanvasRef}/>
+                                        </Grid>
+                                        <Grid item>
+                                            <Slider marks={marks} step={null} defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
+                                        </Grid>
+                                    </Grid>
                                 </Grid>
                                 <Grid item>
+                                    <Slider marks={marks} style={{minHeight: 240, height: 240}} orientation='vertical' step={null} defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
                                 </Grid>
                             </Grid>
-                            <Grid container direction='row' justify='space-between' style={{marginTop: 10}}>
+                            <Grid container direction='row' justify='flex-start' style={{marginTop: 10}}>
                                 <Grid item >
                                     <TextField
                                         className={classes.outputTitle}
@@ -512,11 +519,11 @@ const OverlappingWaveformInterface = props => {
                                         />
                                 </Grid>
                                 <Grid item >
-                                    <Button onClick={saveOutput} variant="contained" color="secondary" >Save Output</Button>
+                                    <Button onClick={saveOutput} style={{marginLeft: 10}} variant="contained" color="secondary" >Save Output</Button>
                                 </Grid>
                             </Grid>
                             <Grid item >
-                                    <Slider marks={marks} step={null} defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" />
+                                    {/* <Slider marks={marks} step={null} defaultValue={48} onChange={handleOutputSize} aria-labelledby="continuous-slider" /> */}
                             </Grid>
                         </Grid>
                     </Grid>
