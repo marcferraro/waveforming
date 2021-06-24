@@ -24,8 +24,6 @@ const Gallery = props => {
             content = inputs
         }
 
-        console.log(content)
-
         if(query){
             if(filterCategory === 'title'){
                 content = content.filter(o => {
@@ -87,7 +85,14 @@ const Gallery = props => {
             </Grid>
             <Grid item>
                 <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
-                    {contentHandler().map(o => <OOutputCard key={o.id} oOutput={o}/>)}
+                    {contentHandler().map(o => {
+                        if(type === 'oOutputs'){
+                            return <OOutputCard key={o.id} oOutput={o}/>
+                        } else if (type === 'inputs'){
+                            return []
+                        }
+                    
+                    })}
                 </Grid>
             </Grid>
         </Grid>
