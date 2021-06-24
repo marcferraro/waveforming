@@ -50,6 +50,7 @@ const Gallery = props => {
 
     const handleType = event => {
         setType(event.target.value)
+        console.log(event.target.value)
     }
 
     return(
@@ -70,11 +71,11 @@ const Gallery = props => {
                     </Select>
                     <Select
                         value={type}
-                        onChange={handleFilterCategory}
+                        onChange={handleType}
                         style={{marginLeft: 10}}
                     >
-                        <MenuItem value={"title"}>Title</MenuItem>
-                        <MenuItem value={"artist"}>Artist</MenuItem>
+                        <MenuItem value={"oOutputs"}>Outputs</MenuItem>
+                        <MenuItem value={"inputs"}>Inputs</MenuItem>
                     </Select>
                 </Grid>
             </Grid>
