@@ -17,7 +17,14 @@ const Gallery = props => {
     const [filterCategory, setFilterCategory] = useState('title')
 
     const reverseOOutputs = () => {
-        let content = oOutputs
+        let content
+        if (type === 'oOutputs'){
+            content = oOutputs
+        } else if (type === 'inputs'){
+            content = inputs
+        }
+
+        console.log(content)
 
         if(query){
             if(filterCategory === 'title'){
