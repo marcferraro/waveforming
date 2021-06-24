@@ -17,18 +17,18 @@ const Gallery = props => {
     const [filterCategory, setFilterCategory] = useState('title')
 
     const reverseOOutputs = () => {
-        let filteredOOutputs = oOutputs
+        let content = oOutputs
 
         if(query){
             if(filterCategory === 'title'){
-                filteredOOutputs = filteredOOutputs.filter(o => {
+                content = content.filter(o => {
                     if(o.title.toLowerCase().includes(query.toLowerCase())){
                         return o
                     }
                     return null
                 })
             } else if (filterCategory === 'artist'){
-                filteredOOutputs = filteredOOutputs.filter(o => {
+                content = content.filter(o => {
                     if(o.user.username.toLowerCase().includes(query.toLowerCase())){
                         return o
                     }
@@ -37,7 +37,7 @@ const Gallery = props => {
             }
         }
         
-        return filteredOOutputs.slice(0).reverse()
+        return content.slice(0).reverse()
     }
 
     const handleSearch = event => {
