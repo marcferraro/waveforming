@@ -12,7 +12,7 @@ const Gallery = props => {
 
     const oOutputs = useSelector(state => state.oOutputs)
     const inputs = useSelector(state => state.inputs)
-    // const [query, setQuery] = useState('')
+    const [type, setType] = useState('oOutputs')
     const [query, setQuery] = useState('')
     const [filterCategory, setFilterCategory] = useState('title')
 
@@ -48,6 +48,10 @@ const Gallery = props => {
         setFilterCategory(event.target.value)
     }
 
+    const handleType = event => {
+        setType(event.target.value)
+    }
+
     return(
         <Grid style={{padding: 20}} container spacing={2} direction="column">
             <Grid item>
@@ -58,6 +62,14 @@ const Gallery = props => {
                     <TextField label="Search" onChange={handleSearch} value={query}/>
                     <Select
                         value={filterCategory}
+                        onChange={handleFilterCategory}
+                        style={{marginLeft: 10}}
+                    >
+                        <MenuItem value={"title"}>Title</MenuItem>
+                        <MenuItem value={"artist"}>Artist</MenuItem>
+                    </Select>
+                    <Select
+                        value={type}
                         onChange={handleFilterCategory}
                         style={{marginLeft: 10}}
                     >
