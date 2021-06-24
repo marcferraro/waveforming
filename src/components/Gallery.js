@@ -11,6 +11,7 @@ import {useState} from 'react'
 const Gallery = props => {
 
     const oOutputs = useSelector(state => state.oOutputs)
+    const inputs = useSelector(state => state.inputs)
     const [query, setQuery] = useState('')
     const [category, setCategory] = useState('title')
 
