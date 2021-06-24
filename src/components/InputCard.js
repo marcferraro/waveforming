@@ -52,75 +52,75 @@ const InputCard = props => {
         // handleStarred()
     })
     
-    // const handleStar = () => {
-    //     // unstar
-    //     if (starred){
-    //         setStarred(false)
-    //         setStarId(null)
-    //         fetch(`http://localhost:3000/stars/${starId}`, {method: "DELETE"})
-    //         .then(resp => resp.json())
-    //         .then(data => {
-    //             dispatch(updateOOutput(data))
-    //         })
-    //     // star
-    //     } else {
-    //         setStarred(true)
-    //         const star = {
-    //             user_id: auth.id,
-    //             ooutput_id: props.oOutput.id
-    //         }
+    const handleStar = () => {
+        // unstar
+        if (starred){
+            setStarred(false)
+            setStarId(null)
+            fetch(`http://localhost:3000/stars/${starId}`, {method: "DELETE"})
+            .then(resp => resp.json())
+            .then(data => {
+                dispatch(updateOOutput(data))
+            })
+        // star
+        } else {
+            setStarred(true)
+            const star = {
+                user_id: auth.id,
+                ooutput_id: props.oOutput.id
+            }
     
-    //         const reqObj = {
-    //             method: "POST",
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 Accept: "application/json"
-    //             },
-    //             body: JSON.stringify(star)
-    //         }
+            const reqObj = {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: "application/json"
+                },
+                body: JSON.stringify(star)
+            }
     
-    //         fetch(`http://localhost:3000/stars`, reqObj)
-    //         .then(resp => resp.json())
-    //         .then(data => {
-    //             setStarId(data.star.id)
-    //             dispatch(updateOOutput(data.oOutput))
-    //         })
-    //     }
-    // }
+            fetch(`http://localhost:3000/stars`, reqObj)
+            .then(resp => resp.json())
+            .then(data => {
+                setStarId(data.star.id)
+                dispatch(updateOOutput(data.oOutput))
+            })
+        }
+    }
 
-    // const handleStarred = () => {
-    //     let star
-    //     star = props.oOutput.stars.find(star => {
-    //         if (star.user_id === auth.id){
-    //             setStarred(true)
-    //             setStarId(star.id)
-    //             return star
-    //         }
-    //         return null
-    //     })
+    const handleStarred = () => {
+        let star
+        star = props.oOutput.stars.find(star => {
+            if (star.user_id === auth.id){
+                setStarred(true)
+                setStarId(star.id)
+                return star
+            }
+            return null
+        })
 
-    //     return star
-    // }
+        return star
+    }
 
-    // const handleInspect = () => {
-    //     setTimeout(() => props.history.push(`/oOutput/${props.oOutput.id}`), 0)
+    const handleInspect = () => {
+        setTimeout(() => props.history.push(`/oOutput/${props.oOutput.id}`), 0)
         
-    // }
+    }
 
-    // const handlePopup = event => {
-    //     setAnchorEl(event.currentTarget)
+    const handlePopup = event => {
+        setAnchorEl(event.currentTarget)
 
-    //     setTimeout(() => {
-    //         const popCtx = popCanvasRef.current.getContext('2d')
-    //         const popImage = document.createElement('img')
+        setTimeout(() => {
+            const popCtx = popCanvasRef.current.getContext('2d')
+            const popImage = document.createElement('img')
     
-    //         // popImage.src = `http://localhost:3000${props.oOutput.input.input.url}`
-    //         popImage.src = props.oOutput.input.input.url
-    //         popImage.onload = () => {
-    //             popCtx.drawImage(popImage,0,0)
-    //         }
-    //     }, 70);
-    // }
+            // popImage.src = `http://localhost:3000${props.oOutput.input.input.url}`
+            popImage.src = props.oOutput.input.input.url
+            popImage.onload = () => {
+                popCtx.drawImage(popImage,0,0)
+            }
+        }, 70);
+    }
 
     const handleClose = () => {
         setAnchorEl(null);
@@ -168,7 +168,7 @@ const InputCard = props => {
                         </Grid>
                         <Grid item >
                             <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
-                                {props.input.stars.length}<StarsIcon />
+                                {/* {props.input.stars.length}<StarsIcon /> */}
                             </IconButton>
                         </Grid>
                     </Grid>

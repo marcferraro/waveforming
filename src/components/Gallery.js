@@ -86,11 +86,11 @@ const Gallery = props => {
             </Grid>
             <Grid item>
                 <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
-                    {contentHandler().map(o => {
+                    {contentHandler().map(creation => {
                         if(type === 'oOutputs'){
-                            return <OOutputCard key={o.id} oOutput={o}/>
+                            return <OOutputCard key={creation.id} oOutput={creation}/>
                         } else if (type === 'inputs'){
-                            return <InputCard key={o.id} oOutput={o}/>
+                            return <InputCard key={creation.id} input={creation}/>
                         }
                     
                     })}
