@@ -15,8 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
     gridList: {
       width: 400,
-      height: 410,
-      padding: 10
+      height: 410
     },
     avatar: {
         width: 80,
@@ -30,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
         width: '79%'
     }
   }));
-
 
 const Profile = props => {
     const classes = useStyles();
@@ -207,7 +205,7 @@ const Profile = props => {
                         <Grid item>
                             <Grid container direction="column" alignItems="center">
                                 <Typography variant="h4">Your Creations</Typography>
-                                <Grid item style={{border: '1px solid black'}}>
+                                <Grid item style={{border: '1px solid black', padding: 10}}>
                                     <GridList cellHeight={200} className={classes.gridList} cols={2} >
                                         {reverseOOutputs().map((o) => (
                                             <GridListTile key={o.id} cols={o.cols || 1}>
