@@ -1,6 +1,7 @@
 import { Grid, TextField, Select, MenuItem, Typography } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import OOutputCard from './OOutputCard'
+import InputCard from './InputCard'
 import {useState} from 'react'
 
 // formatting starts to get a little wonky now that the number of elements has increased. Maybe the long titles of 
@@ -89,7 +90,7 @@ const Gallery = props => {
                         if(type === 'oOutputs'){
                             return <OOutputCard key={o.id} oOutput={o}/>
                         } else if (type === 'inputs'){
-                            return []
+                            return <InputCard key={o.id} oOutput={o}/>
                         }
                     
                     })}
