@@ -12,21 +12,22 @@ const Gallery = props => {
 
     const oOutputs = useSelector(state => state.oOutputs)
     const inputs = useSelector(state => state.inputs)
+    // const [query, setQuery] = useState('')
     const [query, setQuery] = useState('')
-    const [category, setCategory] = useState('title')
+    const [filterCategory, setFilterCategory] = useState('title')
 
     const reverseOOutputs = () => {
         let filteredOOutputs = oOutputs
 
         if(query){
-            if(category === 'title'){
+            if(filterCategory === 'title'){
                 filteredOOutputs = filteredOOutputs.filter(o => {
                     if(o.title.toLowerCase().includes(query.toLowerCase())){
                         return o
                     }
                     return null
                 })
-            } else if (category === 'artist'){
+            } else if (filterCategory === 'artist'){
                 filteredOOutputs = filteredOOutputs.filter(o => {
                     if(o.user.username.toLowerCase().includes(query.toLowerCase())){
                         return o
@@ -43,8 +44,8 @@ const Gallery = props => {
         setQuery(event.target.value)
     }
 
-    const handleCategory = event => {
-        setCategory(event.target.value)
+    const handleFilterCategory = event => {
+        setFilterCategory(event.target.value)
     }
 
     return(
@@ -56,8 +57,8 @@ const Gallery = props => {
                 <Grid container direction="row" justify="flex-start" >
                     <TextField label="Search" onChange={handleSearch} value={query}/>
                     <Select
-                        value={category}
-                        onChange={handleCategory}
+                        value={filterCategory}
+                        onChange={handleFilterCategory}
                         style={{marginLeft: 10}}
                     >
                         <MenuItem value={"title"}>Title</MenuItem>
