@@ -16,7 +16,7 @@ const Gallery = props => {
     const [query, setQuery] = useState('')
     const [filterCategory, setFilterCategory] = useState('title')
 
-    const reverseOOutputs = () => {
+    const contentHandler = () => {
         let content
         if (type === 'oOutputs'){
             content = oOutputs
@@ -87,7 +87,7 @@ const Gallery = props => {
             </Grid>
             <Grid item>
                 <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
-                    {reverseOOutputs().map(o => <OOutputCard key={o.id} oOutput={o}/>)}
+                    {contentHandler().map(o => <OOutputCard key={o.id} oOutput={o}/>)}
                 </Grid>
             </Grid>
         </Grid>
