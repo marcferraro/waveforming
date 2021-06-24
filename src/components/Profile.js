@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
     gridList: {
       width: 400,
-      height: 410
+      height: 430
     },
     avatar: {
         width: 80,
