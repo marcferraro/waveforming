@@ -50,7 +50,6 @@ const Gallery = props => {
 
     const handleType = event => {
         setType(event.target.value)
-        console.log(event.target.value)
     }
 
     return(
