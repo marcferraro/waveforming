@@ -469,6 +469,7 @@ const OverlappingWaveformInterface = props => {
                     <Grid item>
                         <Grid direction="column" align-items="center" justify="center" container >
                             <Grid item>
+                                <Slider defaultValue={16} step={null} marks={marks} orientation='vertical' onChange={handleInputSize} aria-labelledby="continuous-slider" />
                                 <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px", marginBottom: 3}} ref={inputCanvasRef}/>
                             </Grid>
                             <Grid container direction='row' justify='space-between'>
