@@ -45,7 +45,8 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: 10,
     },
     markLabel: {
-        color: 'red'
+        marginRight: 500000
+        // color: 'red'
     }
 }));
 
@@ -481,7 +482,7 @@ const OverlappingWaveformInterface = props => {
                                         <Slider defaultValue={16} step={null} marks={marks} onChange={handleInputSize} aria-labelledby="continuous-slider" />
                                     </Grid>
                                 </Grid>
-                                    <Grid container direction='row' justify='space-between'>
+                                    <Grid container direction='row' justify='flex-end'>
                                         <Grid item >
                                             <TextField
                                                 className={classes.title}
@@ -491,6 +492,7 @@ const OverlappingWaveformInterface = props => {
                                                 label="Title"
                                                 variant="outlined"
                                                 size="small"
+                                                style={{marginRight: 10}}
                                                 />
                                         </Grid>
                                         <Grid item >
