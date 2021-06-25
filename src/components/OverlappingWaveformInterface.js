@@ -43,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
     lowerInterface: {
         paddingLeft: 10,
         paddingRight: 10,
+    },
+    markLabel: {
+        color: 'red'
     }
 }));
 
@@ -471,12 +474,13 @@ const OverlappingWaveformInterface = props => {
                             <Grid item>
                                 <Grid container direction='row'>
                                     <Grid item>
-                                        <Slider defaultValue={16} step={null} marks={marks} orientation='vertical' style={{minHeight: 240, height: 240}} onChange={handleInputSize} aria-labelledby="continuous-slider" />
+                                        <Slider defaultValue={16} step={null} classes={{markLabel: classes.markLabel}} marks={marks} orientation='vertical' style={{minHeight: 240, height: 240}} onChange={handleInputSize} aria-labelledby="continuous-slider" />
                                     </Grid>
                                     <Grid item>
                                         <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px", marginBottom: 3}} ref={inputCanvasRef}/>
                                         <Slider defaultValue={16} step={null} marks={marks} onChange={handleInputSize} aria-labelledby="continuous-slider" />
                                     </Grid>
+                                </Grid>
                                     <Grid container direction='row' justify='space-between'>
                                         <Grid item >
                                             <TextField
@@ -493,7 +497,6 @@ const OverlappingWaveformInterface = props => {
                                             <Button onClick={saveInput} variant="contained" color="secondary" >Save Input</Button>
                                         </Grid>
                                     </Grid>
-                                </Grid>
                                 {/* <Grid item >
                                     <Slider defaultValue={16} step={null} marks={marks} onChange={handleInputSize} aria-labelledby="continuous-slider" />
                                 </Grid> */}
