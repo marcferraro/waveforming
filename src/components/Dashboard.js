@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     gridList: {
       width: 400,
       height: 500,
-      padding: 10
+    //   padding: 10
     },
     header: {
         fontFamily: 'kreon'
@@ -71,7 +71,7 @@ const Dashboard = props => {
 
     return(
         <Grid container direction='column' justify='center'>
-            <Grid item style={{margin: 'auto', marginTop: 20}}>
+            <Grid item style={{margin: 'auto', marginTop: 10}}>
                 <Typography className={classes.header} variant="h2" gutterBottom>
                         waveforming
                 </Typography>
@@ -83,7 +83,7 @@ const Dashboard = props => {
                             <Grid item>
                                 <Typography variant="h4">Recent Creations</Typography>
                             </Grid>
-                            <Grid item style={{border: '1px solid black'}}>
+                            <Grid item style={{border: '1px solid black', padding: 10}}>
                                 <GridList cellHeight={200} className={classes.gridList} cols={2} >
                                     {reverseOOutputs().map((o) => (
                                         <GridListTile key={o.id} cols={o.cols || 1}>
@@ -100,7 +100,7 @@ const Dashboard = props => {
                             <Grid item>
                                 <Typography variant="h4">Most Popular</Typography>
                             </Grid>
-                            <Grid item style={{border: '1px solid black'}}>
+                            <Grid item style={{border: '1px solid black', padding: 10}}>
                                 <GridList cellHeight={200} className={classes.gridList} cols={2} >
                                     {mostPopularOOutputs().map((o) => (
                                         <GridListTile key={o.id} cols={o.cols || 1}>
