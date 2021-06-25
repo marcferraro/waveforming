@@ -469,28 +469,35 @@ const OverlappingWaveformInterface = props => {
                     <Grid item>
                         <Grid direction="column" align-items="center" justify="center" container >
                             <Grid item>
-                                <Slider defaultValue={16} step={null} marks={marks} orientation='vertical' onChange={handleInputSize} aria-labelledby="continuous-slider" />
-                                <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px", marginBottom: 3}} ref={inputCanvasRef}/>
-                            </Grid>
-                            <Grid container direction='row' justify='space-between'>
-                                <Grid item >
-                                    <TextField
-                                        className={classes.title}
-                                        onChange={handleInputTitle}
-                                        value={inputTitle}
-                                        id="outlined-basic"
-                                        label="Title"
-                                        variant="outlined"
-                                        size="small"
-                                        />
+                                <Grid container direction='row'>
+                                    <Grid item>
+                                        <Slider defaultValue={16} step={null} marks={marks} orientation='vertical' style={{minHeight: 240, height: 240}} onChange={handleInputSize} aria-labelledby="continuous-slider" />
+                                    </Grid>
+                                    <Grid item>
+                                        <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px", marginBottom: 3}} ref={inputCanvasRef}/>
+                                        <Slider defaultValue={16} step={null} marks={marks} onChange={handleInputSize} aria-labelledby="continuous-slider" />
+                                    </Grid>
+                                    <Grid container direction='row' justify='space-between'>
+                                        <Grid item >
+                                            <TextField
+                                                className={classes.title}
+                                                onChange={handleInputTitle}
+                                                value={inputTitle}
+                                                id="outlined-basic"
+                                                label="Title"
+                                                variant="outlined"
+                                                size="small"
+                                                />
+                                        </Grid>
+                                        <Grid item >
+                                            <Button onClick={saveInput} variant="contained" color="secondary" >Save Input</Button>
+                                        </Grid>
+                                    </Grid>
                                 </Grid>
-                                <Grid item >
-                                    <Button onClick={saveInput} variant="contained" color="secondary" >Save Input</Button>
-                                </Grid>
-                            </Grid>
-                            <Grid item >
+                                {/* <Grid item >
                                     <Slider defaultValue={16} step={null} marks={marks} onChange={handleInputSize} aria-labelledby="continuous-slider" />
-                                </Grid>
+                                </Grid> */}
+                            </Grid>
                         </Grid>
                     </Grid>
                     <Grid item>
