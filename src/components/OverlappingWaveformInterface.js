@@ -45,9 +45,24 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: 10,
     },
     markLabel: {
-        marginRight: 500000
-        // color: 'red'
-    }
+        // ...theme.typography.body2,
+        // color: theme.palette.text.secondary,
+        // position: 'absolute',
+        // top: 26,
+        // transform: 'translateX(-50%)',
+        // whiteSpace: 'nowrap',
+        // '$vertical &': {
+        //   top: 'auto',
+        //   left: -50,
+        //   transform: 'translateY(50%)',
+        // },
+        // '@media (pointer: coarse)': {
+        //   top: 40,
+        //   '$vertical &': {
+        //     left: -50,
+        //   },
+        // },
+      },
 }));
 
 const marks = [
