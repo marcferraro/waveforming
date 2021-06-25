@@ -482,7 +482,7 @@ const OverlappingWaveformInterface = props => {
                                         <Slider defaultValue={16} step={null} marks={marks} onChange={handleInputSize} aria-labelledby="continuous-slider" />
                                     </Grid>
                                 </Grid>
-                                    <Grid container direction='row' justify='flex-end'>
+                                    <Grid container direction='row' justify='flex-end' >
                                         <Grid item >
                                             <TextField
                                                 className={classes.title}
@@ -532,7 +532,7 @@ const OverlappingWaveformInterface = props => {
                                     <Slider marks={marks} style={{minHeight: 240, height: 240}} orientation='vertical' step={null} defaultValue={48} onChange={handleOutputSizeY} aria-labelledby="continuous-slider" />
                                 </Grid>
                             </Grid>
-                            <Grid container direction='row' justify='flex-start' style={{marginTop: 10}}>
+                            <Grid container direction='row' justify='flex-start' >
                                 <Grid item >
                                     <TextField
                                         className={classes.outputTitle}
