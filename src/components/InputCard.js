@@ -103,7 +103,7 @@ const InputCard = props => {
     }
 
     const handleInspect = () => {
-        setTimeout(() => props.history.push(`/oOutput/${props.oOutput.id}`), 0)
+        setTimeout(() => props.history.push(`/input/${props.input.id}`), 0)
         
     }
 
