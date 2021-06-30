@@ -42,8 +42,9 @@ const HowTo = props => {
                             </Typography>
                         </Grid>
                         <Grid item>
+                            {/* wait apparantly n can go higher than just 4? */}
                             <Typography paragraph>
-                                N: The N value can be set between 2-4(WAIT APPARANTLY IT CAN GO HIGHER??) and controls the size of the patterns the program will look for. Lower values can result
+                                N: The N value can be set between 2-4 and controls the size of the patterns the program will look for. Lower values can result
                                 in an image being deconstructed into many small pieces, while higher values create more uniform outputs. A value of 3 is a good starting point for msot patterns.
                             </Typography>
                         </Grid>
