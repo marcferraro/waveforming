@@ -107,19 +107,21 @@ const InputCard = props => {
         
     }
 
-    const handlePopup = event => {
-        setAnchorEl(event.currentTarget)
 
-        setTimeout(() => {
-            const popCtx = popCanvasRef.current.getContext('2d')
-            const popImage = document.createElement('img')
+    // Needs to be updated to show the full list of outputs. probably space for a new component / route
+    const handlePopup = event => {
+        // setAnchorEl(event.currentTarget)
+
+        // setTimeout(() => {
+        //     const popCtx = popCanvasRef.current.getContext('2d')
+        //     const popImage = document.createElement('img')
     
-            // popImage.src = `http://localhost:3000${props.oOutput.input.input.url}`
-            popImage.src = props.oOutput.input.input.url
-            popImage.onload = () => {
-                popCtx.drawImage(popImage,0,0)
-            }
-        }, 70);
+        //     // popImage.src = `http://localhost:3000${props.oOutput.input.input.url}`
+        //     popImage.src = props.oOutput.input.input.url
+        //     popImage.onload = () => {
+        //         popCtx.drawImage(popImage,0,0)
+        //     }
+        // }, 70);
     }
 
     const handleClose = () => {
@@ -144,7 +146,7 @@ const InputCard = props => {
                     <Grid container justify="flex-start">
                         <Grid item xs={10}>
                             <Button onClick={handlePopup} size="small" color="primary">
-                            View Input
+                            View Outputs
                             </Button>
                             <Popover 
                                 anchorEl={anchorEl}
