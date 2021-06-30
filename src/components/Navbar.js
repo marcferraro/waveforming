@@ -151,6 +151,7 @@ const Navbar = props => {
                 <Route path='/collection' component={Collection}/>
                 <Route path='/how-to' component={HowTo}/>
                 <Route path={'/oOutput/:id'} component={OOutputShow}/>
+                <Route path={'/'} component={Dashboard}/>
             </Switch>
           </Grid>
         </div>
