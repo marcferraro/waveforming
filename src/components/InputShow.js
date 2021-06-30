@@ -134,7 +134,7 @@ const InputShow = props => {
         <Grid className={classes.grid} container justify="center" alignItems="center">
             <Card className={classes.root}>
                 <CardActionArea>
-                    <canvas width="48" height="48" style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
+                    <canvas width="16" height="16" style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {input ? input.title : "Untitled"}
