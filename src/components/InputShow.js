@@ -33,12 +33,8 @@ const InputShow = props => {
     const classes = useStyles()
     const canvasRef = useRef(null)
     const popCanvasRef = useRef(null)
-    const oOutputs = useSel
-    
-    
-    
-    ector(state => state.oOutputs)
-    const [oOutput, setOOutput] = useState(null)
+    const inputs = useSelector(state => state.inputs)
+    const [input, setInput] = useState(null)
     const [starred, setStarred] = useState(false)
     const [starId, setStarId] = useState(null)
     const auth = useSelector(state => state.auth)
@@ -47,85 +43,87 @@ const InputShow = props => {
     const open = Boolean(anchorEl);
 
     useEffect(() => {
-        if (oOutputs[0]){
-            const findResult = oOutputs.find(o => o.id === parseInt(props.match.params.id, 10))
-            setOOutput(findResult)
+        if (inputs[0]){
+            const findResult = inputs.find(i => i.id === parseInt(props.match.params.id, 10))
+            console.log(findResult)
+            setInput(findResult)
             prepCanvas(findResult)
-            handleStarred(findResult)
+            // handleStarred(findResult)
         }
-    }, [oOutputs])
+    }, [inputs])
 
     const prepCanvas = (result) => {
         const ctx = canvasRef.current.getContext('2d')
         const image = document.createElement('img')
-        image.src = `http://localhost:3000${result.ooutput.url}`
+        image.src = result.input.url
         image.onload = () => {
+            console.log('draw')
             ctx.drawImage(image,0,0)
         }
     }
 
     const handleStar = () => {
         // unstar
-        if (starred){
-            setStarred(false)
-            setStarId(null)
-            fetch(`http://localhost:3000/stars/${starId}`, {method: "DELETE"})
-            .then(resp => resp.json())
-            .then(data => {
-                dispatch(updateOOutput(data))
-            })
-        // star
-        } else {
-            setStarred(true)
-            const star = {
-                user_id: auth.id,
-                ooutput_id: oOutput.id
-            }
+        // if (starred){
+        //     setStarred(false)
+        //     setStarId(null)
+        //     fetch(`http://localhost:3000/stars/${starId}`, {method: "DELETE"})
+        //     .then(resp => resp.json())
+        //     .then(data => {
+        //         dispatch(updateOOutput(data))
+        //     })
+        // // star
+        // } else {
+        //     setStarred(true)
+        //     const star = {
+        //         user_id: auth.id,
+        //         ooutput_id: oOutput.id
+        //     }
     
-            const reqObj = {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: "application/json"
-                },
-                body: JSON.stringify(star)
-            }
+        //     const reqObj = {
+        //         method: "POST",
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             Accept: "application/json"
+        //         },
+        //         body: JSON.stringify(star)
+        //     }
     
-            fetch(`http://localhost:3000/stars`, reqObj)
-            .then(resp => resp.json())
-            .then(data => {
-                setStarId(data.star.id)
-                dispatch(updateOOutput(data.oOutput))
-            })
-        }
+        //     fetch(`http://localhost:3000/stars`, reqObj)
+        //     .then(resp => resp.json())
+        //     .then(data => {
+        //         setStarId(data.star.id)
+        //         dispatch(updateOOutput(data.oOutput))
+        //     })
+        // }
     }
 
     const handleStarred = (result) => {
-        let star
+        // let star
 
-        star = result.stars.find(star => {
-            if (star.user_id === auth.id){
-                setStarred(true)
-                setStarId(star.id)
-                return star
-            }
-        })
+        // star = result.stars.find(star => {
+        //     if (star.user_id === auth.id){
+        //         setStarred(true)
+        //         setStarId(star.id)
+        //         return star
+        //     }
+        // })
 
-        return star
+        // return star
     }
 
     const handlePopup = event => {
-        setAnchorEl(event.currentTarget)
+        // setAnchorEl(event.currentTarget)
 
-        setTimeout(() => {
-            const popCtx = popCanvasRef.current.getContext('2d')
-            const popImage = document.createElement('img')
+        // setTimeout(() => {
+        //     const popCtx = popCanvasRef.current.getContext('2d')
+        //     const popImage = document.createElement('img')
     
-            popImage.src = `http://localhost:3000${oOutput.input.input.url}`
-            popImage.onload = () => {
-                popCtx.drawImage(popImage,0,0)
-            }
-        }, 100);
+        //     popImage.src = `http://localhost:3000${oOutput.input.input.url}`
+        //     popImage.onload = () => {
+        //         popCtx.drawImage(popImage,0,0)
+        //     }
+        // }, 100);
     }
 
     const handleClose = () => {
@@ -139,12 +137,12 @@ const InputShow = props => {
                     <canvas width="48" height="48" style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        {oOutput ? oOutput.title : "Untitled"}
+                        {input ? input.title : "Untitled"}
                     </Typography>
                     <Typography variant="body1" color="textPrimary" component="p">
-                        Artist: {oOutput ? oOutput.user.username : "unknown"}
+                        Artist: {input ? input.user.username : "unknown"}
                     </Typography>
-                    <Grid container direction="row" justify="space-between">
+                    {/* <Grid container direction="row" justify="space-between">
                         <Typography variant="body1" color="textPrimary" component="p">
                             N: {oOutput ? oOutput.n : "unknown"}
                         </Typography>
@@ -160,7 +158,7 @@ const InputShow = props => {
                         <Typography variant="body1" color="textPrimary" component="p">
                             Periodic output: {oOutput ? `${oOutput.periodic_output}` : "unknown"}
                         </Typography>
-                    </Grid>
+                    </Grid> */}
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
@@ -183,16 +181,16 @@ const InputShow = props => {
                                 }}
                                 >
                                 <Grid container style={{padding: 20}} spacing={2} direction="column" justify="flex-start">
-                                    <Typography>{oOutput ? oOutput.input.title : null}</Typography>
-                                    <Typography>by {oOutput ? oOutput.input_username : null}</Typography>
+                                    {/* <Typography>{input ? input.oOutput.title : null}</Typography>
+                                    <Typography>by {oOutput ? oOutput.input_username : null}</Typography> */}
                                     <canvas width="16" height="16" style={{width:"180px", height:"180px", border: '0px none black'}} ref={popCanvasRef}/>
                                 </Grid>
                             </Popover>
                         </Grid>
                         <Grid item >
-                            <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
+                            {/* <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
                                 {oOutput ? oOutput.stars.length : null}<StarsIcon />
-                            </IconButton>
+                            </IconButton> */}
                         </Grid>
                     </Grid>
                 </CardActions>
