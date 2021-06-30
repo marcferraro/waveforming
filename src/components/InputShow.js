@@ -112,14 +112,16 @@ const InputShow = props => {
         // return star
     }
 
+
+    // This needs to be rewritten to pull a list of outputs //
+
     const handlePopup = event => {
         // setAnchorEl(event.currentTarget)
 
         // setTimeout(() => {
         //     const popCtx = popCanvasRef.current.getContext('2d')
         //     const popImage = document.createElement('img')
-    
-        //     popImage.src = `http://localhost:3000${oOutput.input.input.url}`
+        //     popImage.src = input.oOutput.url
         //     popImage.onload = () => {
         //         popCtx.drawImage(popImage,0,0)
         //     }
@@ -136,36 +138,19 @@ const InputShow = props => {
                 <CardActionArea>
                     <canvas width="16" height="16" style={{width:"500px", height:"500px", border: '0px none black'}} ref={canvasRef}/>
                     <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {input ? input.title : "Untitled"}
-                    </Typography>
-                    <Typography variant="body1" color="textPrimary" component="p">
-                        Artist: {input ? input.user.username : "unknown"}
-                    </Typography>
-                    {/* <Grid container direction="row" justify="space-between">
-                        <Typography variant="body1" color="textPrimary" component="p">
-                            N: {oOutput ? oOutput.n : "unknown"}
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {input ? input.title : "Untitled"}
                         </Typography>
                         <Typography variant="body1" color="textPrimary" component="p">
-                            Symmetry: {oOutput ? oOutput.symmetry : "unknown"}
+                            Artist: {input ? input.user.username : "unknown"}
                         </Typography>
-                        <Typography variant="body1" color="textPrimary" component="p">
-                            Ground: {oOutput ? oOutput.ground : "unknown"}
-                        </Typography>
-                        <Typography variant="body1" color="textPrimary" component="p">
-                            Periodic Input: {oOutput ? `${oOutput.periodic_input}` : "unknown"}
-                        </Typography>
-                        <Typography variant="body1" color="textPrimary" component="p">
-                            Periodic output: {oOutput ? `${oOutput.periodic_output}` : "unknown"}
-                        </Typography>
-                    </Grid> */}
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
                     <Grid container justify="flex-start">
                         <Grid item xs={10}>
                             <Button onClick={handlePopup} size="small" color="primary">
-                            View Input
+                            View Outputs
                             </Button>
                             <Popover 
                                 anchorEl={anchorEl}
@@ -187,11 +172,11 @@ const InputShow = props => {
                                 </Grid>
                             </Popover>
                         </Grid>
-                        <Grid item >
-                            {/* <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
+                        {/* <Grid item >
+                            <IconButton onClick={handleStar} size="small" color={starred ? "secondary" : "primary"}>
                                 {oOutput ? oOutput.stars.length : null}<StarsIcon />
-                            </IconButton> */}
-                        </Grid>
+                            </IconButton>
+                        </Grid> */}
                     </Grid>
                 </CardActions>
             </Card>
