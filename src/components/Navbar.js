@@ -21,6 +21,7 @@ import Gallery from './Gallery';
 import Collection from './Collection';
 import HowTo from './HowTo';
 import OOutputShow from './OOutputShow';
+import InputShow from './InputShow';
 
 const drawerWidth = 150;
 
@@ -151,6 +152,7 @@ const Navbar = props => {
                 <Route path='/collection' component={Collection}/>
                 <Route path='/how-to' component={HowTo}/>
                 <Route path={'/oOutput/:id'} component={OOutputShow}/>
+                <Route path={'/input/:id'} component={InputShow}/>
                 <Route path={'/'} component={Dashboard}/>
             </Switch>
           </Grid>
