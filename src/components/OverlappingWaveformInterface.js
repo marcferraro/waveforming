@@ -456,7 +456,11 @@ const OverlappingWaveformInterface = props => {
     }
 
     const handleInputSize = e => {
-        console.log(e.target)
+        if(e.target.id === 'inputX'){
+            console.log('inputX')
+        } else if (e.target.id === 'inputY'){
+            console.log('inputY')
+        }
     }
 
     const handleOutputSize = (e, value) => {
