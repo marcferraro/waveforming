@@ -108,7 +108,8 @@ const OverlappingWaveformInterface = props => {
     const [periodicInput, setPeriodicInput] = useState(true)
     const [periodicOutput, setPeriodicOutput] = useState(false)
     const [inputTitle, setInputTitle] = useState("")
-    // const [inputSize, setInputSize] = useState(16)
+    const [inputSizeX, setInputSizeX] = useState(16)
+    const [inputSizeY, setInputSizeY] = useState(16)
     const [outputTitle, setOutputTitle] = useState("")
     const [outputSize, setOutputSize] = useState(48)
     const [outputSizeY, setOutputSizeY] = useState(48)
@@ -457,7 +458,9 @@ const OverlappingWaveformInterface = props => {
 
     const handleInputSize = e => {
         if(e.target.id === 'inputX'){
-            console.log('inputX')
+            const image = document.createElement("img")
+            const canvas = inputCanvasRef.current
+            image.src = canvas.toDataURL('image/png')
         } else if (e.target.id === 'inputY'){
             console.log('inputY')
         }
@@ -494,11 +497,11 @@ const OverlappingWaveformInterface = props => {
                             <Grid item>
                                 <Grid container direction='row'>
                                     <Grid item>
-                                        <Slider defaultValue={16} step={null} classes={{markLabel: classes.markLabel}} marks={marks} orientation='vertical' style={{minHeight: 240, height: 240}} onChange={handleInputSize} aria-labelledby="continuous-slider" />
+                                        <Slider defaultValue={16} step={null} id='inputY' classes={{markLabel: classes.markLabel}} marks={marks} orientation='vertical' style={{minHeight: 240, height: 240}} onChange={handleInputSize} aria-labelledby="continuous-slider" />
                                     </Grid>
                                     <Grid item>
                                         <canvas id="input" width="16" height="16" style={{width:"240px", height:"240px", marginBottom: 3}} ref={inputCanvasRef}/>
-                                        <Slider defaultValue={16} step={null} marks={marks} onChange={handleInputSize} aria-labelledby="continuous-slider" />
+                                        <Slider defaultValue={16} step={null} id='inputX' marks={marks} onChange={handleInputSize} aria-labelledby="continuous-slider" />
                                     </Grid>
                                 </Grid>
                                     <Grid container direction='row' justify='flex-end' >
