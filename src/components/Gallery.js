@@ -92,7 +92,7 @@ const Gallery = props => {
                         } else if (type === 'inputs'){
                             return <InputCard key={creation.id} input={creation}/>
                         }
-                    
+                        return null
                     })}
                 </Grid>
             </Grid>
