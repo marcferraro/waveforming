@@ -6,10 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import { Button, Grid, Popover } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useRef, useState } from 'react';
-import IconButton from '@material-ui/core/IconButton';
-import StarsIcon from '@material-ui/icons/Stars';
-import { useSelector, useDispatch } from 'react-redux'
-import { updateOOutput } from '../actions'
+// import IconButton from '@material-ui/core/IconButton';
+// import StarsIcon from '@material-ui/icons/Stars';
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles({
     root: {
@@ -29,15 +28,15 @@ const useStyles = makeStyles({
 });
 
 const InputShow = props => {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const classes = useStyles()
     const canvasRef = useRef(null)
     const popCanvasRef = useRef(null)
     const inputs = useSelector(state => state.inputs)
     const [input, setInput] = useState(null)
-    const [starred, setStarred] = useState(false)
-    const [starId, setStarId] = useState(null)
-    const auth = useSelector(state => state.auth)
+    // const [starred, setStarred] = useState(false)
+    // const [starId, setStarId] = useState(null)
+    // const auth = useSelector(state => state.auth)
     const [anchorEl, setAnchorEl] = useState(null);
     
     const open = Boolean(anchorEl);
@@ -45,24 +44,22 @@ const InputShow = props => {
     useEffect(() => {
         if (inputs[0]){
             const findResult = inputs.find(i => i.id === parseInt(props.match.params.id, 10))
-            console.log(findResult)
             setInput(findResult)
             prepCanvas(findResult)
             // handleStarred(findResult)
         }
-    }, [inputs])
+    }, [inputs, props.match.params.id])
 
     const prepCanvas = (result) => {
         const ctx = canvasRef.current.getContext('2d')
         const image = document.createElement('img')
         image.src = result.input.url
         image.onload = () => {
-            console.log('draw')
             ctx.drawImage(image,0,0)
         }
     }
 
-    const handleStar = () => {
+    // const handleStar = () => {
         // unstar
         // if (starred){
         //     setStarred(false)
@@ -96,9 +93,9 @@ const InputShow = props => {
         //         dispatch(updateOOutput(data.oOutput))
         //     })
         // }
-    }
+    // }
 
-    const handleStarred = (result) => {
+    // const handleStarred = (result) => {
         // let star
 
         // star = result.stars.find(star => {
@@ -110,7 +107,7 @@ const InputShow = props => {
         // })
 
         // return star
-    }
+    // }
 
 
     // This needs to be rewritten to pull a list of outputs //
