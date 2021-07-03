@@ -27,13 +27,14 @@ const Collection = props => {
         })
 
         if(query){
-
-            filteredOOutputs = filteredOOutputs.filter(o => {
-                if(o.title.toLowerCase().includes(query.toLowerCase())){
-                    return o
-                }
-                return null
-            })
+            if(filterCategory === 'title'){
+                filteredOOutputs = filteredOOutputs.filter(o => {
+                    if(o.title.toLowerCase().includes(query.toLowerCase())){
+                        return o
+                    }
+                    return null
+                })
+            }
         }
 
         return filteredOOutputs.slice(0).reverse()
