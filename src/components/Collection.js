@@ -1,5 +1,5 @@
 import Typography from '@material-ui/core/Typography';
-import { Grid, TextField } from '@material-ui/core'
+import { Grid, TextField, Select, MenuItem } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import OOutputCard from './OOutputCard'
 import {useState} from 'react'
@@ -51,6 +51,10 @@ const Collection = props => {
         setQuery(event.target.value)
     }
 
+    const handleFilterCategory = event => {
+        setFilterCategory(event.target.value)
+    }
+
     return(
         <Grid style={{padding: 20}} container spacing={2} direction="column">
             <Grid item>
@@ -58,6 +62,14 @@ const Collection = props => {
                     Collection
                 </Typography>
                 <TextField label="Search" onChange={handleSearch} value={query}/>
+                <Select
+                        value={filterCategory}
+                        onChange={handleFilterCategory}
+                        style={{marginLeft: 10}}
+                    >
+                        <MenuItem value={"title"}>Title</MenuItem>
+                        <MenuItem value={"artist"}>Artist</MenuItem>
+                </Select>
             </Grid>
             <Grid item>
                 <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
