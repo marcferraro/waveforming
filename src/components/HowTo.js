@@ -70,7 +70,7 @@ const HowTo = props => {
                     </Grid>
                 </Grid>
                 
-                <Grid item className={classes.column} style={{border: '1px solid black', padding: '10px'}}>
+                {/* <Grid item className={classes.column} style={{border: '1px solid black', padding: '10px'}}>
                     <Grid container >
                         <Grid item>
                             <Typography paragraph>
@@ -83,7 +83,7 @@ const HowTo = props => {
                             </Typography>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Grid> */}
             </Grid>
     )
 }
