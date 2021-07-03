@@ -9,6 +9,7 @@ const Collection = props => {
     const oOutputs = useSelector(state => state.oOutputs)
     const auth = useSelector(state => state.auth)
     const [query, setQuery] = useState('')
+    const [filterCategory, setFilterCategory] = useState('title')
 
     const filteredOOutputs = () => {
         let filteredOOutputs = oOutputs
@@ -26,6 +27,7 @@ const Collection = props => {
         })
 
         if(query){
+
             filteredOOutputs = filteredOOutputs.filter(o => {
                 if(o.title.toLowerCase().includes(query.toLowerCase())){
                     return o
