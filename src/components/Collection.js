@@ -61,15 +61,17 @@ const Collection = props => {
                 <Typography variant="h2" >
                     Collection
                 </Typography>
-                <TextField label="Search" onChange={handleSearch} value={query}/>
-                <Select
-                        value={filterCategory}
-                        onChange={handleFilterCategory}
-                        style={{marginLeft: 10}}
-                    >
-                        <MenuItem value={"title"}>Title</MenuItem>
-                        <MenuItem value={"artist"}>Artist</MenuItem>
-                </Select>
+                <Grid container direction="row" justify="flex-start" >
+                    <TextField label="Search" onChange={handleSearch} value={query}/>
+                    <Select
+                            value={filterCategory}
+                            onChange={handleFilterCategory}
+                            style={{marginLeft: 10}}
+                        >
+                            <MenuItem value={"title"}>Title</MenuItem>
+                            <MenuItem value={"artist"}>Artist</MenuItem>
+                    </Select>
+                </Grid>
             </Grid>
             <Grid item>
                 <Grid container spacing={3} direction="row" justification="center" alignItems="flex-start">
