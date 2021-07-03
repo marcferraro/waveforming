@@ -34,6 +34,13 @@ const Collection = props => {
                     }
                     return null
                 })
+            } else if (filterCategory === 'artist'){
+                filteredOOutputs = filteredOOutputs.filter(o => {
+                    if(o.user.username.toLowerCase().includes(query.toLowerCase())){
+                        return o
+                    }
+                    return null
+                })
             }
         }
 
